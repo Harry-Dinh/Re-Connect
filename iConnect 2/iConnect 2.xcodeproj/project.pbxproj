@@ -11,6 +11,12 @@
 		21A66DC925F17CA300A61699 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DC825F17CA300A61699 /* ContentView.swift */; };
 		21A66DCB25F17CA500A61699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A66DCA25F17CA500A61699 /* Assets.xcassets */; };
 		21A66DCE25F17CA500A61699 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A66DCD25F17CA500A61699 /* Preview Assets.xcassets */; };
+		21A66DD825F17CF200A61699 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DD725F17CF200A61699 /* LoginScreen.swift */; };
+		21A66DDB25F180CF00A61699 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DDA25F180CF00A61699 /* CustomView.swift */; };
+		21A66DDE25F1834400A61699 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DDD25F1834400A61699 /* RegisterScreen.swift */; };
+		21A66DE225F189D500A61699 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DE125F189D500A61699 /* LoginVM.swift */; };
+		21A66DE525F18A9D00A61699 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DE425F18A9D00A61699 /* RegisterVM.swift */; };
+		21A66DE825F1918B00A61699 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DE725F1918B00A61699 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +27,12 @@
 		21A66DCD25F17CA500A61699 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		21A66DCF25F17CA500A61699 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A66DD025F17CA500A61699 /* iConnect_2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iConnect_2.entitlements; sourceTree = "<group>"; };
+		21A66DD725F17CF200A61699 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		21A66DDA25F180CF00A61699 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		21A66DDD25F1834400A61699 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		21A66DE125F189D500A61699 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		21A66DE425F18A9D00A61699 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		21A66DE725F1918B00A61699 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +65,12 @@
 		21A66DC525F17CA300A61699 /* iConnect 2 */ = {
 			isa = PBXGroup;
 			children = (
-				21A66DC625F17CA300A61699 /* iConnect_2App.swift */,
+				21A66DEE25F1ADA800A61699 /* Resources */,
+				21A66DE025F189C700A61699 /* ViewModel */,
 				21A66DC825F17CA300A61699 /* ContentView.swift */,
+				21A66DE725F1918B00A61699 /* Home.swift */,
+				21A66DEB25F1AC0300A61699 /* Authentication */,
+				21A66DDA25F180CF00A61699 /* CustomView.swift */,
 				21A66DCA25F17CA500A61699 /* Assets.xcassets */,
 				21A66DCF25F17CA500A61699 /* Info.plist */,
 				21A66DD025F17CA500A61699 /* iConnect_2.entitlements */,
@@ -69,6 +85,32 @@
 				21A66DCD25F17CA500A61699 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		21A66DE025F189C700A61699 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				21A66DE125F189D500A61699 /* LoginVM.swift */,
+				21A66DE425F18A9D00A61699 /* RegisterVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		21A66DEB25F1AC0300A61699 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				21A66DD725F17CF200A61699 /* LoginScreen.swift */,
+				21A66DDD25F1834400A61699 /* RegisterScreen.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		21A66DEE25F1ADA800A61699 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21A66DC625F17CA300A61699 /* iConnect_2App.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +182,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A66DE525F18A9D00A61699 /* RegisterVM.swift in Sources */,
+				21A66DDE25F1834400A61699 /* RegisterScreen.swift in Sources */,
 				21A66DC925F17CA300A61699 /* ContentView.swift in Sources */,
+				21A66DE225F189D500A61699 /* LoginVM.swift in Sources */,
+				21A66DDB25F180CF00A61699 /* CustomView.swift in Sources */,
 				21A66DC725F17CA300A61699 /* iConnect_2App.swift in Sources */,
+				21A66DE825F1918B00A61699 /* Home.swift in Sources */,
+				21A66DD825F17CF200A61699 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

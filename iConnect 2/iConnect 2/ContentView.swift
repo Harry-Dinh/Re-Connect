@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var loginVM = LoginVM()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if !loginVM.isSignIn {
+            LoginScreen()
+        }
+        else if loginVM.isSignIn {
+            Home()
+        }
     }
 }
 
