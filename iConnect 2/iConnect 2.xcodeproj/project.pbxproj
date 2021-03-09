@@ -16,7 +16,16 @@
 		21A66DDE25F1834400A61699 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DDD25F1834400A61699 /* RegisterScreen.swift */; };
 		21A66DE225F189D500A61699 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DE125F189D500A61699 /* LoginVM.swift */; };
 		21A66DE525F18A9D00A61699 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DE425F18A9D00A61699 /* RegisterVM.swift */; };
-		21A66DE825F1918B00A61699 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DE725F1918B00A61699 /* Home.swift */; };
+		21A66DE825F1918B00A61699 /* NavigationFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A66DE725F1918B00A61699 /* NavigationFrame.swift */; };
+		21FD883325F81F91006F11CE /* NavigationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD883225F81F91006F11CE /* NavigationList.swift */; };
+		21FD883825F8266E006F11CE /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD883725F8266D006F11CE /* WelcomeScreen.swift */; };
+		21FD883C25F829A4006F11CE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD883B25F829A4006F11CE /* Home.swift */; };
+		21FD883F25F830D5006F11CE /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD883E25F830D5006F11CE /* SettingsWindow.swift */; };
+		21FD884525F833FC006F11CE /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD884425F833FC006F11CE /* General.swift */; };
+		21FD884825F83D31006F11CE /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD884725F83D31006F11CE /* Accounts.swift */; };
+		21FD884B25F83DC1006F11CE /* Privacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD884A25F83DC1006F11CE /* Privacy.swift */; };
+		21FD884E25F83DC6006F11CE /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD884D25F83DC6006F11CE /* Security.swift */; };
+		21FD885125F83DCC006F11CE /* Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD885025F83DCC006F11CE /* Advanced.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +41,16 @@
 		21A66DDD25F1834400A61699 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		21A66DE125F189D500A61699 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		21A66DE425F18A9D00A61699 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
-		21A66DE725F1918B00A61699 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		21A66DE725F1918B00A61699 /* NavigationFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFrame.swift; sourceTree = "<group>"; };
+		21FD883225F81F91006F11CE /* NavigationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationList.swift; sourceTree = "<group>"; };
+		21FD883725F8266D006F11CE /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		21FD883B25F829A4006F11CE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		21FD883E25F830D5006F11CE /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
+		21FD884425F833FC006F11CE /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		21FD884725F83D31006F11CE /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		21FD884A25F83DC1006F11CE /* Privacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy.swift; sourceTree = "<group>"; };
+		21FD884D25F83DC6006F11CE /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
+		21FD885025F83DCC006F11CE /* Advanced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advanced.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +86,11 @@
 				21A66DEE25F1ADA800A61699 /* Resources */,
 				21A66DE025F189C700A61699 /* ViewModel */,
 				21A66DC825F17CA300A61699 /* ContentView.swift */,
-				21A66DE725F1918B00A61699 /* Home.swift */,
+				21A66DE725F1918B00A61699 /* NavigationFrame.swift */,
+				21FD883725F8266D006F11CE /* WelcomeScreen.swift */,
+				21FD883B25F829A4006F11CE /* Home.swift */,
+				21FD883225F81F91006F11CE /* NavigationList.swift */,
+				21FD884225F83375006F11CE /* Settings */,
 				21A66DEB25F1AC0300A61699 /* Authentication */,
 				21A66DDA25F180CF00A61699 /* CustomView.swift */,
 				21A66DCA25F17CA500A61699 /* Assets.xcassets */,
@@ -111,6 +133,19 @@
 				21A66DC625F17CA300A61699 /* iConnect_2App.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		21FD884225F83375006F11CE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				21FD883E25F830D5006F11CE /* SettingsWindow.swift */,
+				21FD884425F833FC006F11CE /* General.swift */,
+				21FD884725F83D31006F11CE /* Accounts.swift */,
+				21FD884A25F83DC1006F11CE /* Privacy.swift */,
+				21FD884D25F83DC6006F11CE /* Security.swift */,
+				21FD885025F83DCC006F11CE /* Advanced.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,12 +218,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				21A66DE525F18A9D00A61699 /* RegisterVM.swift in Sources */,
+				21FD884E25F83DC6006F11CE /* Security.swift in Sources */,
 				21A66DDE25F1834400A61699 /* RegisterScreen.swift in Sources */,
+				21FD883825F8266E006F11CE /* WelcomeScreen.swift in Sources */,
+				21FD883C25F829A4006F11CE /* Home.swift in Sources */,
+				21FD885125F83DCC006F11CE /* Advanced.swift in Sources */,
+				21FD883325F81F91006F11CE /* NavigationList.swift in Sources */,
 				21A66DC925F17CA300A61699 /* ContentView.swift in Sources */,
+				21FD883F25F830D5006F11CE /* SettingsWindow.swift in Sources */,
+				21FD884825F83D31006F11CE /* Accounts.swift in Sources */,
 				21A66DE225F189D500A61699 /* LoginVM.swift in Sources */,
+				21FD884525F833FC006F11CE /* General.swift in Sources */,
 				21A66DDB25F180CF00A61699 /* CustomView.swift in Sources */,
+				21FD884B25F83DC1006F11CE /* Privacy.swift in Sources */,
 				21A66DC725F17CA300A61699 /* iConnect_2App.swift in Sources */,
-				21A66DE825F1918B00A61699 /* Home.swift in Sources */,
+				21A66DE825F1918B00A61699 /* NavigationFrame.swift in Sources */,
 				21A66DD825F17CF200A61699 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,8 +10,14 @@ import SwiftUI
 @main
 struct iConnect_2App: App {
     var body: some Scene {
-        WindowGroup {
+        WindowGroup("") {
             ContentView()
+        }
+        .windowToolbarStyle(UnifiedCompactWindowToolbarStyle())
+//        .windowStyle(HiddenTitleBarWindowStyle())
+        
+        Settings {
+            SettingsWindow()
         }
     }
 }

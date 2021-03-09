@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct LoginScreen: View {
     
@@ -42,9 +43,12 @@ struct LoginScreen: View {
                 }
                 else {
                     print("error occurred")
-                    // Show alert
+                    loginVM.showLoginErrorAlert = true
                 }
             }
+            .alert(isPresented: $loginVM.showLoginErrorAlert, content: {
+                Alert(title: Text(loginVM.alertTitle), message: Text(loginVM.alertMessage), dismissButton: .cancel(Text("Dismiss")))
+            })
             .padding()
             .foregroundColor(.white)
             .background(
@@ -52,6 +56,7 @@ struct LoginScreen: View {
                     .foregroundColor(.blue)
                     .frame(height: 45)
             )
+            .disabled(loginVM.emailField == "" || loginVM.passwordField == "" ? true : false)
             
             
             Button("Don't have an account? Create one here") {

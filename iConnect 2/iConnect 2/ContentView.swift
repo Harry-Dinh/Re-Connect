@@ -9,14 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var loginVM = LoginVM()
+    @AppStorage("is_signed_in") var isSignedIn = false
     
     var body: some View {
-        if !loginVM.isSignIn {
-            LoginScreen()
-        }
-        else if loginVM.isSignIn {
-            Home()
+        VStack {
+            if isSignedIn {
+                NavigationFrame()
+            }
+            else {
+                LoginScreen()
+                    .presentedWindowStyle(HiddenTitleBarWindowStyle())
+            }
         }
     }
 }

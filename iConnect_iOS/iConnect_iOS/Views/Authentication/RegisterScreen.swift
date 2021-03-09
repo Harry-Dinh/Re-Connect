@@ -60,6 +60,7 @@ struct RegisterScreen: View {
                         .foregroundColor(.green)
                         .frame(height: 45)
                 )
+                .disabled(registerVM.firstNameField == "" || registerVM.lastNameField == "" || registerVM.emailField == "" || registerVM.passwordField == "" ? true : false)
             
             Button("Cancel") {
                 dismissView.wrappedValue.dismiss()

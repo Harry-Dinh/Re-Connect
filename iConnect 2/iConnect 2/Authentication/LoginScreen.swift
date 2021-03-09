@@ -20,7 +20,7 @@ struct LoginScreen: View {
                 .foregroundColor(.secondary)
                 .font(.title2)
             
-            CustomEmptyView(width: nil, height: 25)
+            CustomEmptyView(width: nil, height: 25, color: .clear)
             
             VStack(alignment: .center, spacing: 5) {
                 
@@ -32,22 +32,11 @@ struct LoginScreen: View {
                     .frame(width: 250)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-                CustomEmptyView(width: nil, height: 5)
+                CustomEmptyView(width: nil, height: 5, color: .clear)
                 
                 VStack {
                     Button("Sign In") {
-                        if !loginVM.emailField.isEmpty,
-                           loginVM.emailField.count >= 6,
-                           loginVM.emailField.contains("@"),
-                           !loginVM.passwordField.isEmpty {
-                            loginVM.isSignIn = true
-                            print("Verified")
-                        }
-                        else {
-                            loginVM.showAlert = true
-                            loginVM.isSignIn = false
-                            print("An error occurred")
-                        }
+                        loginVM.signInWithCurrentUser()
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding()
@@ -57,7 +46,7 @@ struct LoginScreen: View {
                         Alert(title: Text("Oops!"), message: Text(loginVM.errorAlertMessage), dismissButton: .cancel(Text("Dismiss")))
                     })
                     
-                    CustomEmptyView(width: nil, height: 5)
+                    CustomEmptyView(width: nil, height: 5, color: .clear)
                     
                     Button(action: {self.loginVM.showRegisterScreen.toggle()}, label: {
                         Text("No account yet? Create one here")
@@ -78,6 +67,5 @@ struct LoginScreen: View {
 struct LoginPreview: PreviewProvider {
     static var previews: some View {
         LoginScreen()
-            
     }
 }

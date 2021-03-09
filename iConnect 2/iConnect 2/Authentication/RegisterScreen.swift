@@ -18,13 +18,13 @@ struct RegisterScreen: View {
             Text("Create iConnect Account")
                 .font(.largeTitle)
             
-            CustomEmptyView(width: nil, height: 5)
+            CustomEmptyView(width: nil, height: 5, color: .clear)
             
             Text("One account. All services. All secured. All yours")
                 .font(.system(size: 16))
                 .foregroundColor(.secondary)
             
-            CustomEmptyView(width: nil, height: 40)
+            CustomEmptyView(width: nil, height: 20, color: .clear)
             
             VStack {
                 TextField("First name", text: $registerVM.firstNameField)
@@ -44,7 +44,7 @@ struct RegisterScreen: View {
                     .frame(width: 350)
             }
             
-            CustomEmptyView(width: nil, height: 15)
+            CustomEmptyView(width: nil, height: 15, color: .clear)
             
             Button("Create Account") {}
                 .buttonStyle(PlainButtonStyle())
@@ -52,17 +52,15 @@ struct RegisterScreen: View {
                 .background(RoundedRectangle(cornerRadius: 15).frame(height: 30).foregroundColor(.blue))
                 .foregroundColor(.white)
             
-            CustomEmptyView(width: nil, height: 55)
+            CustomEmptyView(width: nil, height: 45, color: .clear)
             
             HStack {
                 Spacer()
                 Button("Cancel") {
-                    dismissView.animation(.interactiveSpring()).wrappedValue.dismiss()
+                    withAnimation {
+                        dismissView.wrappedValue.dismiss()
+                    }
                 }
-                .buttonStyle(PlainButtonStyle())
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 15).frame(height: 30).foregroundColor(Color("customGray")))
-                .foregroundColor(.white)
             }
         }
         .padding()

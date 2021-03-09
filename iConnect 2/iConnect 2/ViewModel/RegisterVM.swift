@@ -5,11 +5,14 @@
 //  Created by Harry Dinh on 2021-03-04.
 //
 
-import Foundation
+import Cocoa
+import SwiftUI
 
 class RegisterVM: ObservableObject {
     
     static let main = RegisterVM()
+    
+    @AppStorage("is_signed_in") var isSignedIn = false
     
     @Published var firstNameField = ""
     @Published var lastNameField = ""
