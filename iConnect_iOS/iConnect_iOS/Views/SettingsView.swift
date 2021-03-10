@@ -12,7 +12,9 @@ struct SettingsView: View {
     @AppStorage("is_signed_in") var isSignedIn = false
     
     var body: some View {
-        Button("Sign Out") { withAnimation { isSignedIn = false } }
+        VStack {
+            Button("Sign Out") { withAnimation { isSignedIn = false } }
+        }
     }
 }
 

@@ -11,7 +11,8 @@ struct Home: View {
     var body: some View {
         NavigationView {
             VStack {
-                
+                PostView()
+                    .padding()
             }
             .navigationBarTitle("Home")
         }
