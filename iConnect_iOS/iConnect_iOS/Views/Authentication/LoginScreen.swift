@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-import AuthenticationServices
 
 struct LoginScreen: View {
     
     @StateObject var loginVM = LoginVM()
-    @State var showLoginScreen = false
+    @State var showRegisterScreen = false
     
     var body: some View {
         VStack {
@@ -26,6 +25,7 @@ struct LoginScreen: View {
             
             TextField("Email address", text: $loginVM.emailField)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
                 .keyboardType(.emailAddress)
             
             SecureField("Password", text: $loginVM.passwordField)
@@ -33,36 +33,28 @@ struct LoginScreen: View {
             
             ICCVEmptyView(width: nil, height: 15, color: .clear)
             
-            Button("Sign In") {
-                if !loginVM.emailField.isEmpty,
-                   !loginVM.passwordField.isEmpty,
-                   loginVM.passwordField.count >= 6,
-                   loginVM.emailField.contains("@") {
-                    loginVM.isSignedIn = true
-                    print("Verified and logged in")
+            Button(action: {
+                withAnimation {
+                    loginVM.signInWithCurrentUser()
                 }
-                else {
-                    print("error occurred")
-                    loginVM.showLoginErrorAlert = true
+            }, label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width: 100, height: 40)
+                    
+                    Text("Sign In")
+                        .foregroundColor(.white)
                 }
-            }
+            })
             .alert(isPresented: $loginVM.showLoginErrorAlert, content: {
                 Alert(title: Text(loginVM.alertTitle), message: Text(loginVM.alertMessage), dismissButton: .cancel(Text("Dismiss")))
             })
-            .padding()
-            .foregroundColor(.white)
-            .background(
-                Capsule()
-                    .foregroundColor(.blue)
-                    .frame(height: 45)
-            )
-            .disabled(loginVM.emailField == "" || loginVM.passwordField == "" ? true : false)
             
             
             Button("Don't have an account? Create one here") {
-                showLoginScreen.toggle()
+                showRegisterScreen.toggle()
             }
-            .sheet(isPresented: $showLoginScreen, content: {
+            .sheet(isPresented: $showRegisterScreen, content: {
                 RegisterScreen()
             })
         }

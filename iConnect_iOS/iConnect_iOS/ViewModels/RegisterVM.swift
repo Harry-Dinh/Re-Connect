@@ -10,10 +10,12 @@ import SwiftUI
 
 class RegisterVM: ObservableObject {
     
+    static let shared = RegisterVM()
+    
     @AppStorage("is_signed_in") var isSignedIn = false
     
-    @State var firstNameField = ""
-    @State var lastNameField = ""
-    @State var emailField = ""
-    @State var passwordField = ""
+    @Published var firstNameField = ""
+    @Published var lastNameField = ""
+    @Published var emailField = ""
+    @Published var passwordField = ""
 }

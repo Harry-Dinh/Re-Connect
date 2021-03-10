@@ -14,6 +14,24 @@ struct RegisterScreen: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Button(action: {
+                    dismissView.wrappedValue.dismiss()
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: 100, height: 40)
+                            .foregroundColor(.gray)
+                        
+                        Text("Cancel")
+                            .foregroundColor(.white)
+                    }
+                })
+            }
+            
+            ICCVEmptyView(width: nil, height: 100, color: .clear)
+            
             Text("Create iConnect Account")
                 .font(.system(size: 30))
             Text("One account. All services. All secured. All yours.")
@@ -28,50 +46,44 @@ struct RegisterScreen: View {
                 Spacer()
             }
             
-            TextField("First name", text: $registerVM.firstNameField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.default)
-                .autocapitalization(.words)
-                .disableAutocorrection(true)
-            
-            TextField("Last name", text: $registerVM.lastNameField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.default)
-                .autocapitalization(.words)
-                .disableAutocorrection(true)
-            
-            TextField("Email address", text: $registerVM.emailField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.emailAddress)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-            
-            SecureField("Password", text: $registerVM.passwordField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.default)
-                .autocapitalization(.none)
-                .disableAutocorrection(true)
-            
-            Button("Continue") {}
-                .padding()
-                .foregroundColor(.white)
-                .background(
-                    Capsule()
-                        .foregroundColor(.green)
-                        .frame(height: 45)
-                )
-                .disabled(registerVM.firstNameField == "" || registerVM.lastNameField == "" || registerVM.emailField == "" || registerVM.passwordField == "" ? true : false)
-            
-            Button("Cancel") {
-                dismissView.wrappedValue.dismiss()
+            VStack {
+                TextField("First name", text: $registerVM.firstNameField)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.default)
+                    .autocapitalization(.words)
+                    .disableAutocorrection(true)
+                
+                TextField("Last name", text: $registerVM.lastNameField)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.default)
+                    .autocapitalization(.words)
+                    .disableAutocorrection(true)
+                
+                TextField("Email address", text: $registerVM.emailField)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
+                
+                SecureField("Password", text: $registerVM.passwordField)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.default)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
             }
-            .padding()
-            .foregroundColor(.white)
-            .background(
-                Capsule()
-                    .foregroundColor(Color.gray)
-                    .frame(height: 40)
-            )
+            
+            Button(action: {}, label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width: 100,height: 40)
+                    
+                    Text("Continue")
+                        .foregroundColor(.white)
+                }
+            })
+            .disabled(registerVM.firstNameField == "" || registerVM.lastNameField == "" || registerVM.emailField == "" || registerVM.passwordField == "" ? true : false)
+            
+            Spacer()
         }
         .padding()
     }
