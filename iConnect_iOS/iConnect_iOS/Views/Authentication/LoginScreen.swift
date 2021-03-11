@@ -35,7 +35,9 @@ struct LoginScreen: View {
             
             Button(action: {
                 withAnimation {
-                    loginVM.signInWithCurrentUser()
+                    loginVM.signInWithCurrentUser {
+                        loginVM.isSignedIn = true
+                    }
                 }
             }, label: {
                 ZStack {

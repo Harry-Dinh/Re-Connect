@@ -5,7 +5,7 @@
 //  Created by Harry Dinh on 2021-03-04.
 //
 
-import Foundation
+import Firebase
 import SwiftUI
 
 class LoginVM: ObservableObject {
@@ -27,18 +27,17 @@ class LoginVM: ObservableObject {
     
     // MARK: - Methods
     
-    public func signInWithCurrentUser() {
-        guard !emailField.isEmpty,
-              !passwordField.isEmpty,
-              emailField.count >= 6,
-              emailField.contains("@"),
-              passwordField.count >= 6 else {
-            print("An error occurred, cannot sign in")
-            showLoginErrorAlert = true
-            return
-        }
+    public func signInWithCurrentUser(completion: @escaping () -> Void) {
+        let email = emailField
+        let password = passwordField
         
-        isSignedIn = true
-        print("Successfully signed in")
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            guard error == nil else {
+                print("Failed to sign in with email: \(email)")
+                return
+            }
+            
+            completion()
+        }
     }
 }

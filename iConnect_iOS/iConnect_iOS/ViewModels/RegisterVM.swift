@@ -5,7 +5,7 @@
 //  Created by Harry Dinh on 2021-03-04.
 //
 
-import Foundation
+import Firebase
 import SwiftUI
 
 class RegisterVM: ObservableObject {
@@ -18,4 +18,18 @@ class RegisterVM: ObservableObject {
     @Published var lastNameField = ""
     @Published var emailField = ""
     @Published var passwordField = ""
+    
+    public func registerUserAccount(completion: @escaping () -> Void) {
+        let email = emailField
+        let password = passwordField
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            guard error == nil else {
+                print("Failed to create user with email: \(email)")
+                return
+            }
+            
+            completion()
+        }
+    }
 }

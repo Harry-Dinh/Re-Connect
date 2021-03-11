@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SettingsView: View {
     
@@ -13,7 +14,22 @@ struct SettingsView: View {
     
     var body: some View {
         VStack {
-            Button("Sign Out") { withAnimation { isSignedIn = false } }
+            Button("Sign Out") {
+                withAnimation {
+                    do {
+                        try Auth.auth().signOut()
+                        isSignedIn = false
+                        print("Successfully signed out")
+                    }
+                    catch {
+                        print("Failed to sign out: \(error.localizedDescription)")
+                    }
+                }
+            }
+            
+            Button("Write to Database") {
+                DatabaseManager.shared.test()
+            }
         }
     }
 }

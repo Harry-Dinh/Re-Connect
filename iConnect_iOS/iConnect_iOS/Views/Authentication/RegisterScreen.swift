@@ -72,7 +72,12 @@ struct RegisterScreen: View {
                     .disableAutocorrection(true)
             }
             
-            Button(action: {}, label: {
+            Button(action: {
+                registerVM.registerUserAccount {
+                    print("Successfully created user")
+                    // dismissing things here later...
+                }
+            }, label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 15)
                         .frame(width: 100,height: 40)
