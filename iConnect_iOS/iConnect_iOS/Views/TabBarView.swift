@@ -13,13 +13,14 @@ struct TabBarView: View {
     
     var body: some View {
         HStack(spacing: 40) {
-            TabButton(selectedTab: $selectedTab, title: "Home", icon: "house")
-//            TabButton(selectedTab: $selectedTab, title: "Explore", icon: "safari")
-            TabButton(selectedTab: $selectedTab, title: "Settings", icon: "gearshape")
+            TabButton(selectedTab: $selectedTab, icon: "house")
+            TabButton(selectedTab: $selectedTab, icon: "safari")
+            TabButton(selectedTab: $selectedTab, icon: "calendar")
+            TabButton(selectedTab: $selectedTab, icon: "gearshape")
         }
         .padding()
         .background(
-            Color.gray.blur(radius: 3.0).opacity(0.6).cornerRadius(25)
+            Rectangle().foregroundColor(Color.primary.opacity(0.1)).blur(radius: 40, opaque: true).cornerRadius(23)
         )
     }
 }
@@ -28,7 +29,6 @@ struct TabButton: View {
     
     @Binding var selectedTab: String
     
-    var title: String
     var icon: String
     
     var body: some View {
@@ -38,12 +38,8 @@ struct TabButton: View {
             VStack(spacing: 2) {
                 Image(systemName: icon)
                     .font(.title2)
-                
-                Text(title)
-                    .font(.caption)
-                    .fontWeight(.semibold)
             }
-            .foregroundColor(selectedTab == icon ? .blue : .white)
+            .foregroundColor(selectedTab == icon ? .blue : .gray)
         }
     }
 }

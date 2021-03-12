@@ -12,9 +12,15 @@ final class DatabaseManager {
     
     static let shared = DatabaseManager()
     
-    private let database = Database.database().reference()
+    private var database = Database.database().reference()
     
     public func test() {
-        database.child("foo").setValue(true)
+        let object: [String: Any] = [
+            "keyword": true,
+            "dream": 1000,
+            "name": "Harry Dinh"
+        ]
+        
+        database.child("foo").setValue(object)
     }
 }

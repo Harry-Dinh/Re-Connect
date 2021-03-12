@@ -19,6 +19,12 @@ struct CoreView: View {
                 Home()
                     .opacity(selectedTab == "house" ? 1 : 0)
                 
+                EmptyView()
+                    .opacity(selectedTab == "safari" ? 1 : 0)
+                
+                EmptyView()
+                    .opacity(selectedTab == "calendar" ? 1 : 0)
+                
                 SettingsView()
                     .opacity(selectedTab == "gearshape" ? 1 : 0)
             }

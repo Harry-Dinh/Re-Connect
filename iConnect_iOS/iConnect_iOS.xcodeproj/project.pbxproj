@@ -24,6 +24,7 @@
 		21A66E3925F1CF4200A61699 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A66E3825F1CF4200A61699 /* LaunchScreen.storyboard */; };
 		21F77E9425FAB82C00583778 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21F77E9325FAB82C00583778 /* GoogleService-Info.plist */; };
 		21F77E9C25FAC56600583778 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77E9B25FAC56600583778 /* DatabaseManager.swift */; };
+		21F77EC525FAE79300583778 /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F77EC425FAE79300583778 /* SettingsVM.swift */; };
 		21FD885F25F84F31006F11CE /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD885E25F84F31006F11CE /* TabBarView.swift */; };
 		21FD886325F8524A006F11CE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD886225F8524A006F11CE /* Home.swift */; };
 		21FD886625F852A2006F11CE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD886525F852A2006F11CE /* SettingsView.swift */; };
@@ -51,6 +52,7 @@
 		21A66E3825F1CF4200A61699 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21F77E9325FAB82C00583778 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21F77E9B25FAC56600583778 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		21F77EC425FAE79300583778 /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		21FD885E25F84F31006F11CE /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		21FD886225F8524A006F11CE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		21FD886525F852A2006F11CE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				21A66E2825F1B55300A61699 /* LoginVM.swift */,
 				21A66E2B25F1BA0A00A61699 /* RegisterVM.swift */,
+				21F77EC425FAE79300583778 /* SettingsVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				21A66E0225F1B17100A61699 /* ContentView.swift in Sources */,
 				21FD886625F852A2006F11CE /* SettingsView.swift in Sources */,
 				21A66E0025F1B17100A61699 /* iConnect_iOSApp.swift in Sources */,
+				21F77EC525FAE79300583778 /* SettingsVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
