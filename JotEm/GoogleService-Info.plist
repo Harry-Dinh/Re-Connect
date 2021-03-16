@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>912959258207-qtq54n9g86g1r9c7ucc8j3uhqqqikvmp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.912959258207-qtq54n9g86g1r9c7ucc8j3uhqqqikvmp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCd3hxWgQtp5D8Wmx4iCEMBYKK0hzES7c8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>912959258207</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.iConnect.JotEm</string>
+	<key>PROJECT_ID</key>
+	<string>jotem-b7a93</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jotem-b7a93.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:912959258207:ios:782ed9cd6de43c2cff65ea</string>
+	<key>DATABASE_URL</key>
+	<string>https://jotem-b7a93-default-rtdb.firebaseio.com/</string>
+</dict>
+</plist>
