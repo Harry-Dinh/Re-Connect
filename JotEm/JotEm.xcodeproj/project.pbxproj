@@ -10,7 +10,10 @@
 		211BD4932601712F008FF61C /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4922601712F008FF61C /* CoreView.swift */; };
 		211BD4972601719C008FF61C /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4962601719C008FF61C /* NoteModel.swift */; };
 		211BD49A26017330008FF61C /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD49926017330008FF61C /* EditorView.swift */; };
-		211BD4AF260177A3008FF61C /* TextFieldAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4AE260177A3008FF61C /* TextFieldAlert.swift */; };
+		216CBB7526019A850051B3D8 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216CBB7426019A850051B3D8 /* CustomAlertView.swift */; };
+		216CBB7826019E7C0051B3D8 /* RenameUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216CBB7726019E7C0051B3D8 /* RenameUI.swift */; };
+		216CBB7B26019F530051B3D8 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216CBB7A26019F530051B3D8 /* CustomViews.swift */; };
+		2195E82D260252BE00F246AD /* CustomRenameAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195E82C260252BE00F246AD /* CustomRenameAlert.swift */; };
 		21CBBEB52601240C00A995E2 /* JotEmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBEB42601240C00A995E2 /* JotEmApp.swift */; };
 		21CBBEB72601240C00A995E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CBBEB62601240C00A995E2 /* ContentView.swift */; };
 		21CBBEB92601240E00A995E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21CBBEB82601240E00A995E2 /* Assets.xcassets */; };
@@ -24,7 +27,10 @@
 		211BD4922601712F008FF61C /* CoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreView.swift; sourceTree = "<group>"; };
 		211BD4962601719C008FF61C /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		211BD49926017330008FF61C /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
-		211BD4AE260177A3008FF61C /* TextFieldAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldAlert.swift; sourceTree = "<group>"; };
+		216CBB7426019A850051B3D8 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		216CBB7726019E7C0051B3D8 /* RenameUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameUI.swift; sourceTree = "<group>"; };
+		216CBB7A26019F530051B3D8 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
+		2195E82C260252BE00F246AD /* CustomRenameAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRenameAlert.swift; sourceTree = "<group>"; };
 		21CBBEB12601240C00A995E2 /* JotEm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JotEm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21CBBEB42601240C00A995E2 /* JotEmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotEmApp.swift; sourceTree = "<group>"; };
 		21CBBEB62601240C00A995E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,12 +64,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		211BD4AD26017795008FF61C /* CustomViews */ = {
+		2195E81E2602468D00F246AD /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				211BD4AE260177A3008FF61C /* TextFieldAlert.swift */,
+				216CBB7426019A850051B3D8 /* CustomAlertView.swift */,
+				216CBB7A26019F530051B3D8 /* CustomViews.swift */,
+				2195E82C260252BE00F246AD /* CustomRenameAlert.swift */,
 			);
-			path = CustomViews;
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		2195E8202602469A00F246AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21CBBEB62601240C00A995E2 /* ContentView.swift */,
+				211BD49926017330008FF61C /* EditorView.swift */,
+				216CBB7726019E7C0051B3D8 /* RenameUI.swift */,
+				211BD4922601712F008FF61C /* CoreView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2195E822260246A200F246AD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21CBBEB42601240C00A995E2 /* JotEmApp.swift */,
+				21CBBEDA260125E800A995E2 /* DatabaseManager.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		21CBBEA82601240C00A995E2 = {
@@ -87,14 +115,11 @@
 		21CBBEB32601240C00A995E2 /* JotEm */ = {
 			isa = PBXGroup;
 			children = (
-				211BD4AD26017795008FF61C /* CustomViews */,
 				211BD49526017191008FF61C /* Model */,
 				21CBBED72601259000A995E2 /* GoogleService-Info.plist */,
-				21CBBEB42601240C00A995E2 /* JotEmApp.swift */,
-				21CBBEDA260125E800A995E2 /* DatabaseManager.swift */,
-				21CBBEB62601240C00A995E2 /* ContentView.swift */,
-				211BD49926017330008FF61C /* EditorView.swift */,
-				211BD4922601712F008FF61C /* CoreView.swift */,
+				2195E822260246A200F246AD /* Resources */,
+				2195E8202602469A00F246AD /* View */,
+				2195E81E2602468D00F246AD /* CustomView */,
 				21CBBEB82601240E00A995E2 /* Assets.xcassets */,
 				21CBBEBD2601240E00A995E2 /* Info.plist */,
 				21CBBEBA2601240E00A995E2 /* Preview Content */,
@@ -241,13 +266,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				216CBB7B26019F530051B3D8 /* CustomViews.swift in Sources */,
 				211BD4972601719C008FF61C /* NoteModel.swift in Sources */,
-				211BD4AF260177A3008FF61C /* TextFieldAlert.swift in Sources */,
+				216CBB7526019A850051B3D8 /* CustomAlertView.swift in Sources */,
 				21CBBEB72601240C00A995E2 /* ContentView.swift in Sources */,
 				211BD4932601712F008FF61C /* CoreView.swift in Sources */,
 				211BD49A26017330008FF61C /* EditorView.swift in Sources */,
 				21CBBEB52601240C00A995E2 /* JotEmApp.swift in Sources */,
+				2195E82D260252BE00F246AD /* CustomRenameAlert.swift in Sources */,
 				21CBBEDB260125E800A995E2 /* DatabaseManager.swift in Sources */,
+				216CBB7826019E7C0051B3D8 /* RenameUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
