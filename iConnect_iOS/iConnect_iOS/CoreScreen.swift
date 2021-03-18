@@ -8,8 +8,23 @@
 import SwiftUI
 
 struct CoreScreen: View {
+    
+    @State private var selectedTab = "house"
+    
     var body: some View {
-        Text("Core Screen")
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
+            ZStack {
+                Home()
+                    .opacity(selectedTab == "house" ? 1 : 0)
+                
+                SettingsScreen()
+                    .opacity(selectedTab == "gearshape" ? 1 : 0)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            TabBar(selectedTab: $selectedTab)
+                .padding()
+        }
     }
 }
 

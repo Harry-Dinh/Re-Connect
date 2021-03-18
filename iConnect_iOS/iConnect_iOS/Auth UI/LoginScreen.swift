@@ -9,26 +9,15 @@ import SwiftUI
 
 struct LoginScreen: View {
     
-    @ObservedObject var authManager = AuthManager.shared
+    @State private var showRegisterScreen = false
     
     var body: some View {
         VStack {
-            TextField("Email address", text: $authManager.loginEmailField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            SecureField("Password", text: $authManager.loginPasswordField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button("Sign In") {
-                authManager.signInWithCurrentUser()
+            Button("Register") {
+                showRegisterScreen.toggle()
             }
-            
-            Button("Create Account") {
-                authManager.showRegisterScreen.toggle()
-            }
-            .sheet(isPresented: $authManager.showRegisterScreen, content: {
+            .sheet(isPresented: $showRegisterScreen, content: {
                 RegisterScreen()
-                    .padding()
             })
         }
     }

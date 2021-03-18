@@ -14,9 +14,13 @@
 		21236D3025FFF554000524D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21236D2F25FFF554000524D8 /* GoogleService-Info.plist */; };
 		21236D4725FFF5D7000524D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D4625FFF5D7000524D8 /* AppDelegate.swift */; };
 		21236D5E25FFF6FE000524D8 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D5D25FFF6FE000524D8 /* LoginScreen.swift */; };
-		21236D6325FFF71A000524D8 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D6225FFF71A000524D8 /* AuthManager.swift */; };
 		21236D6625FFFB3F000524D8 /* CoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D6525FFFB3F000524D8 /* CoreScreen.swift */; };
 		21236D6925FFFBAC000524D8 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D6825FFFBAC000524D8 /* RegisterScreen.swift */; };
+		2164F19226039E84007D6AEC /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164F19126039E84007D6AEC /* RegisterVM.swift */; };
+		2164F1952603A2BB007D6AEC /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164F1942603A2BB007D6AEC /* LoginVM.swift */; };
+		2164F1982603A363007D6AEC /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164F1972603A363007D6AEC /* SettingsScreen.swift */; };
+		2164F19B2603A3B5007D6AEC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164F19A2603A3B5007D6AEC /* TabBar.swift */; };
+		2164F19E2603A573007D6AEC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164F19D2603A573007D6AEC /* Home.swift */; };
 		60B1EC442099B01ADB9309BA /* Pods_iConnect_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B733F5FDB971F9978F27F8B7 /* Pods_iConnect_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,9 +34,13 @@
 		21236D2F25FFF554000524D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		21236D4625FFF5D7000524D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21236D5D25FFF6FE000524D8 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
-		21236D6225FFF71A000524D8 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		21236D6525FFFB3F000524D8 /* CoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreScreen.swift; sourceTree = "<group>"; };
 		21236D6825FFFBAC000524D8 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		2164F19126039E84007D6AEC /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		2164F1942603A2BB007D6AEC /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		2164F1972603A363007D6AEC /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		2164F19A2603A3B5007D6AEC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		2164F19D2603A573007D6AEC /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		38E57BD344A34F052CC7EF21 /* Pods-iConnect_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS.release.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS/Pods-iConnect_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A886480DDF5E46D49C172A7E /* Pods-iConnect_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS.debug.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS/Pods-iConnect_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B733F5FDB971F9978F27F8B7 /* Pods_iConnect_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iConnect_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +84,9 @@
 				21236D1F25FFF4E9000524D8 /* iConnect_iOSApp.swift */,
 				21236D2125FFF4E9000524D8 /* ContentView.swift */,
 				21236D6525FFFB3F000524D8 /* CoreScreen.swift */,
+				2164F19D2603A573007D6AEC /* Home.swift */,
+				2164F1972603A363007D6AEC /* SettingsScreen.swift */,
+				2164F19A2603A3B5007D6AEC /* TabBar.swift */,
 				21236D6025FFF704000524D8 /* Auth UI */,
 				21236D2325FFF4EA000524D8 /* Assets.xcassets */,
 				21236D2825FFF4EA000524D8 /* Info.plist */,
@@ -96,8 +107,9 @@
 			isa = PBXGroup;
 			children = (
 				21236D5D25FFF6FE000524D8 /* LoginScreen.swift */,
-				21236D6225FFF71A000524D8 /* AuthManager.swift */,
 				21236D6825FFFBAC000524D8 /* RegisterScreen.swift */,
+				2164F19126039E84007D6AEC /* RegisterVM.swift */,
+				2164F1942603A2BB007D6AEC /* LoginVM.swift */,
 			);
 			path = "Auth UI";
 			sourceTree = "<group>";
@@ -233,13 +245,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2164F19226039E84007D6AEC /* RegisterVM.swift in Sources */,
+				2164F1982603A363007D6AEC /* SettingsScreen.swift in Sources */,
 				21236D4725FFF5D7000524D8 /* AppDelegate.swift in Sources */,
+				2164F19E2603A573007D6AEC /* Home.swift in Sources */,
 				21236D5E25FFF6FE000524D8 /* LoginScreen.swift in Sources */,
 				21236D6625FFFB3F000524D8 /* CoreScreen.swift in Sources */,
+				2164F1952603A2BB007D6AEC /* LoginVM.swift in Sources */,
 				21236D6925FFFBAC000524D8 /* RegisterScreen.swift in Sources */,
 				21236D2225FFF4E9000524D8 /* ContentView.swift in Sources */,
 				21236D2025FFF4E9000524D8 /* iConnect_iOSApp.swift in Sources */,
-				21236D6325FFF71A000524D8 /* AuthManager.swift in Sources */,
+				2164F19B2603A3B5007D6AEC /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

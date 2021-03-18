@@ -19,16 +19,18 @@
 	<key>STORAGE_BUCKET</key>
 	<string>iconnect-project-58907.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:798412212643:ios:1f705deb34e52412103216</string>
+	<key>DATABASE_URL</key>
+	<string>https://iconnect-project-58907-default-rtdb.firebaseio.com/</string>
 </dict>
 </plist>

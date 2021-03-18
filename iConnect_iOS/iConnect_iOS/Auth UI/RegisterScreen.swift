@@ -9,28 +9,57 @@ import SwiftUI
 
 struct RegisterScreen: View {
     
-    @ObservedObject var authManager = AuthManager.shared
+    @ObservedObject var model = RegisterVM.shared
     
     var body: some View {
         VStack {
-            TextField("First name", text: $authManager.firstNameField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("Last name", text: $authManager.lastNameField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            TextField("Email address", text: $authManager.registerEmailField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            SecureField("Password", text: $authManager.registerPasswordField)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button("Create Account") {
-                authManager.registerUser()
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(Color.gray.opacity(0.2))
+                
+                TextField("First name", text: $model.firstName)
+                    .padding()
             }
-            .alert(isPresented: $authManager.showRegisterAlertError, content: {
-                Alert(title: Text("Failed to sign in"), dismissButton: .cancel(Text("OK")))
+            .frame(width: 350, height: 52)
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(Color.gray.opacity(0.2))
+                
+                TextField("Last name", text: $model.lastName)
+                    .padding()
+            }
+            .frame(width: 350, height: 52)
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(Color.gray.opacity(0.2))
+                
+                TextField("Email address", text: $model.emailField)
+                    .padding()
+            }
+            .frame(width: 350, height: 52)
+            
+            ZStack {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(Color.gray.opacity(0.2))
+                
+                SecureField("Password", text: $model.passwordField)
+                    .padding()
+            }
+            .frame(width: 350, height: 52)
+            
+            Button(action: {
+                model.registerUser()
+            }, label: {
+                Text("Create Account")
+                    .foregroundColor(.white)
             })
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(.blue)
+            )
         }
     }
 }

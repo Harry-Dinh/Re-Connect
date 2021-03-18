@@ -12,7 +12,7 @@ struct ContentView: View {
     @AppStorage("is_signed_in") var isSignedIn = false
     
     var body: some View {
-        if isSignedIn {
+        if !isSignedIn {
             LoginScreen()
                 .padding()
         }
