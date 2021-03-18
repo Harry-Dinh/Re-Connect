@@ -11,6 +11,8 @@ struct TabBar: View {
     
     @Binding var selectedTab: String
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var body: some View {
         HStack(spacing: 40) {
             TabButton(selectedTab: $selectedTab, icon: "house")
@@ -18,8 +20,10 @@ struct TabBar: View {
         }
         .padding()
         .background(
-            RoundedRectangle(cornerRadius: 15)
-                .foregroundColor(Color.primary.opacity(0.1))
+            BlurView()
+                .cornerRadius(25)
+                .shadow(color: .gray, radius: 5)
+                .frame(height: 65)
         )
     }
 }
@@ -36,12 +40,13 @@ struct TabButton: View {
             Image(systemName: icon)
                 .font(.title2)
         })
-        .foregroundColor(selectedTab == icon ? .green : .gray)
+        .foregroundColor(selectedTab == icon ? .blue : .gray)
     }
 }
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
         CoreScreen()
+            .preferredColorScheme(.light)
     }
 }

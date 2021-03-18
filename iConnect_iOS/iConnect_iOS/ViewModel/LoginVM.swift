@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 import FirebaseAuth
 
 class LoginVM: ObservableObject {
@@ -18,6 +19,7 @@ class LoginVM: ObservableObject {
     
     @Published var emailField: String = ""
     @Published var passwordField: String = ""
+    @Published var showRegisterScreen: Bool = false
     
     public func signInWithCurrentUser() {
         let email = emailField
@@ -26,6 +28,11 @@ class LoginVM: ObservableObject {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
             guard error == nil else {
                 print("Cannot sign user in")
+                
+                let alert = UIAlertController(title: "Error Title", message: "Error Message", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                
+                UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                 return
             }
             
