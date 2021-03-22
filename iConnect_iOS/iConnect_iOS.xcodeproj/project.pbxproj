@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211CDD532607E466007DF617 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CDD522607E466007DF617 /* DatabaseManager.swift */; };
 		21236D2025FFF4E9000524D8 /* iConnect_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D1F25FFF4E9000524D8 /* iConnect_iOSApp.swift */; };
 		21236D2225FFF4E9000524D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D2125FFF4E9000524D8 /* ContentView.swift */; };
 		21236D2425FFF4EA000524D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21236D2325FFF4EA000524D8 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		211CDD522607E466007DF617 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		21236D1C25FFF4E9000524D8 /* iConnect_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iConnect_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21236D1F25FFF4E9000524D8 /* iConnect_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iConnect_iOSApp.swift; sourceTree = "<group>"; };
 		21236D2125FFF4E9000524D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				21236D4625FFF5D7000524D8 /* AppDelegate.swift */,
 				21236D1F25FFF4E9000524D8 /* iConnect_iOSApp.swift */,
+				211CDD522607E466007DF617 /* DatabaseManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			files = (
 				2164F19226039E84007D6AEC /* RegisterVM.swift in Sources */,
 				214E3C1B2603E64000DA416B /* BlurView.swift in Sources */,
+				211CDD532607E466007DF617 /* DatabaseManager.swift in Sources */,
 				214E3C172603E2C100DA416B /* CustomEmptyView.swift in Sources */,
 				2164F1982603A363007D6AEC /* SettingsScreen.swift in Sources */,
 				21236D4725FFF5D7000524D8 /* AppDelegate.swift in Sources */,

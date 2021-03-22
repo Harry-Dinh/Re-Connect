@@ -14,9 +14,9 @@ struct SettingsScreen: View {
     var body: some View {
         NavigationView {
             List {
-                
-                Section(header: Text("Developer")) {
+                Section(header: SettingsHeader()) {
                     Button("Sign Out") {
+                        LoginVM.shared.signOutUser()
                         isSignedIn = false
                     }
                     
@@ -24,10 +24,33 @@ struct SettingsScreen: View {
                         print(UIDevice.current.machineName())
                     }
                 }
+                
+                Section {
+                    
+                }
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
+        }
+    }
+}
+
+struct SettingsHeader: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Image(systemName: "person.crop.circle")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                
+                Text("Harry Dinh")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .padding()
+                
+                Spacer()
+            }
         }
     }
 }

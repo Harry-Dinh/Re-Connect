@@ -59,6 +59,9 @@ struct RegisterScreen: View {
                 
                 Button(action: {
                     model.registerUser()
+                    DatabaseManager.shared.createUserObject(firstName: model.firstName,
+                                                            lastName: model.lastName,
+                                                            email: model.emailField)
                 }, label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 15)

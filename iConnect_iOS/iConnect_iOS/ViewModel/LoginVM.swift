@@ -21,6 +21,7 @@ class LoginVM: ObservableObject {
     @Published var passwordField: String = ""
     @Published var showRegisterScreen: Bool = false
     
+    /// Sign in with the current email and password.
     public func signInWithCurrentUser() {
         let email = emailField
         let password = passwordField
@@ -38,6 +39,17 @@ class LoginVM: ObservableObject {
             
             self?.isSignedIn = true
             print("Successfully signed user in")
+        }
+    }
+    
+    /// Sign out with the current user.
+    public func signOutUser() {
+        do {
+            try Auth.auth().signOut()
+            print("Successfully signed out")
+        }
+        catch {
+            print("Something went wrong, cannot sign user out. Error: \(error.localizedDescription)")
         }
     }
 }
