@@ -16,6 +16,7 @@ struct RegisterScreen: View {
     var body: some View {
         NavigationView {
             VStack {
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundColor(Color.gray.opacity(0.2))
@@ -59,9 +60,8 @@ struct RegisterScreen: View {
                 
                 Button(action: {
                     model.registerUser()
-                    DatabaseManager.shared.createUserObject(firstName: model.firstName,
-                                                            lastName: model.lastName,
-                                                            email: model.emailField)
+                    
+                    DatabaseManager.shared.cacheUserDataToUserDefaults(firstName: model.firstName, lastName: model.lastName, email: model.emailField)
                 }, label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 15)
@@ -73,7 +73,9 @@ struct RegisterScreen: View {
                     .frame(width: 160, height: 50)
                 })
             }
-            .navigationBarItems(trailing: Button("Cancel") { presentationMode.wrappedValue.dismiss() })
+            .navigationBarItems(trailing: Button("Cancel") {
+                presentationMode.wrappedValue.dismiss()
+            })
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("New iConnect Account")
         }

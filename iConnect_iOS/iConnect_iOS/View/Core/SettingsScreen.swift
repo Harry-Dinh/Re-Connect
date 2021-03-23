@@ -14,43 +14,27 @@ struct SettingsScreen: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: SettingsHeader()) {
+                Section(header: Text("Developer")) {
                     Button("Sign Out") {
                         LoginVM.shared.signOutUser()
+                        UserDefaults.standard.set("", forKey: "user_profile_email")
+                        UserDefaults.standard.set("", forKey: "user_first_name")
+                        UserDefaults.standard.set("", forKey: "user_last_name")
                         isSignedIn = false
                     }
                     
-                    Button("Print device name") {
-                        print(UIDevice.current.machineName())
+                    Button("Print the cached data") {
+                        print("\(UserDefaults.standard.string(forKey: "user_first_name")!) \(UserDefaults.standard.string(forKey: "user_last_name")!)")
                     }
-                }
-                
-                Section {
                     
+                    Button("Print the UID") {
+                        print("\(RegisterVM.shared.getUserUID())")
+                    }
                 }
             }
             .listStyle(GroupedListStyle())
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-}
-
-struct SettingsHeader: View {
-    var body: some View {
-        VStack {
-            HStack {
-                Image(systemName: "person.crop.circle")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                
-                Text("Harry Dinh")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .padding()
-                
-                Spacer()
-            }
         }
     }
 }

@@ -25,6 +25,9 @@
 		2164F1982603A363007D6AEC /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164F1972603A363007D6AEC /* SettingsScreen.swift */; };
 		2164F19B2603A3B5007D6AEC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164F19A2603A3B5007D6AEC /* TabBar.swift */; };
 		2164F19E2603A573007D6AEC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164F19D2603A573007D6AEC /* Home.swift */; };
+		216B74972608F6AA00BDDBD7 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216B74962608F6AA00BDDBD7 /* ProfileScreen.swift */; };
+		216B749A2608F92900BDDBD7 /* SystemUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216B74992608F92900BDDBD7 /* SystemUtility.swift */; };
+		216B74A726093FC500BDDBD7 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216B74A626093FC500BDDBD7 /* ProfileVM.swift */; };
 		60B1EC442099B01ADB9309BA /* Pods_iConnect_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B733F5FDB971F9978F27F8B7 /* Pods_iConnect_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		2164F1972603A363007D6AEC /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		2164F19A2603A3B5007D6AEC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2164F19D2603A573007D6AEC /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		216B74962608F6AA00BDDBD7 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		216B74992608F92900BDDBD7 /* SystemUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemUtility.swift; sourceTree = "<group>"; };
+		216B74A626093FC500BDDBD7 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		38E57BD344A34F052CC7EF21 /* Pods-iConnect_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS.release.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS/Pods-iConnect_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A886480DDF5E46D49C172A7E /* Pods-iConnect_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS.debug.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS/Pods-iConnect_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B733F5FDB971F9978F27F8B7 /* Pods_iConnect_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iConnect_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +93,7 @@
 		21236D1E25FFF4E9000524D8 /* iConnect_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				216B749C26090DD500BDDBD7 /* Model */,
 				21236D2F25FFF554000524D8 /* GoogleService-Info.plist */,
 				214E3C132603E15900DA416B /* ViewModel */,
 				214E3C082603DF5D00DA416B /* Extensions */,
@@ -130,6 +137,7 @@
 				21236D4625FFF5D7000524D8 /* AppDelegate.swift */,
 				21236D1F25FFF4E9000524D8 /* iConnect_iOSApp.swift */,
 				211CDD522607E466007DF617 /* DatabaseManager.swift */,
+				216B74992608F92900BDDBD7 /* SystemUtility.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 		214E3C102603E13300DA416B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				216B74962608F6AA00BDDBD7 /* ProfileScreen.swift */,
 				21236D2125FFF4E9000524D8 /* ContentView.swift */,
 				21236D6525FFFB3F000524D8 /* CoreScreen.swift */,
 				2164F19D2603A573007D6AEC /* Home.swift */,
@@ -169,6 +178,7 @@
 			children = (
 				2164F19126039E84007D6AEC /* RegisterVM.swift */,
 				2164F1942603A2BB007D6AEC /* LoginVM.swift */,
+				216B74A626093FC500BDDBD7 /* ProfileVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -180,6 +190,13 @@
 				214E3C1A2603E64000DA416B /* BlurView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		216B749C26090DD500BDDBD7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		464227ECA11CAD9367D3DFE1 /* Pods */ = {
@@ -317,6 +334,7 @@
 				214E3C1B2603E64000DA416B /* BlurView.swift in Sources */,
 				211CDD532607E466007DF617 /* DatabaseManager.swift in Sources */,
 				214E3C172603E2C100DA416B /* CustomEmptyView.swift in Sources */,
+				216B74A726093FC500BDDBD7 /* ProfileVM.swift in Sources */,
 				2164F1982603A363007D6AEC /* SettingsScreen.swift in Sources */,
 				21236D4725FFF5D7000524D8 /* AppDelegate.swift in Sources */,
 				2164F19E2603A573007D6AEC /* Home.swift in Sources */,
@@ -324,10 +342,12 @@
 				21236D6625FFFB3F000524D8 /* CoreScreen.swift in Sources */,
 				2164F1952603A2BB007D6AEC /* LoginVM.swift in Sources */,
 				214E3C0A2603DF6900DA416B /* Extensions.swift in Sources */,
+				216B749A2608F92900BDDBD7 /* SystemUtility.swift in Sources */,
 				21236D6925FFFBAC000524D8 /* RegisterScreen.swift in Sources */,
 				21236D2225FFF4E9000524D8 /* ContentView.swift in Sources */,
 				21236D2025FFF4E9000524D8 /* iConnect_iOSApp.swift in Sources */,
 				2164F19B2603A3B5007D6AEC /* TabBar.swift in Sources */,
+				216B74972608F6AA00BDDBD7 /* ProfileScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

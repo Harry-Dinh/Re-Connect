@@ -23,13 +23,23 @@ class RegisterVM: ObservableObject {
         let password = passwordField
         
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, error) in
-            guard error == nil else {
+            guard let result = result, error == nil else {
                 print("Cannot create user with email: \(email)")
                 return
             }
             
+            let user = result.user
+            
             self?.isSignedIn = true
             print("Successfully created user")
+            print("User ID: \(user.uid)")
         }
+    }
+    
+    /// Get the current user's FirebaseAuth unique identifier
+    public func getUserUID() -> String {
+        let uid = Auth.auth().currentUser?.uid
+        
+        return uid!
     }
 }

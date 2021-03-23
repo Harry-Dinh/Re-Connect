@@ -15,6 +15,15 @@ struct LoginScreen: View {
     var body: some View {
         VStack {
             VStack {
+                // Image("logo")
+                
+                Text("Welcome to iConnect")
+                    .font(.title)
+            }
+            
+            CustomEmptyView(width: nil, height: 5, color: .clear)
+            
+            VStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundColor(Color.gray.opacity(0.2))

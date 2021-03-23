@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct CoreScreen: View {
+    
+    @ObservedObject var userModel = RegisterVM.shared
     
     @State private var selectedTab = "house"
     
@@ -16,6 +19,9 @@ struct CoreScreen: View {
             ZStack {
                 Home()
                     .opacity(selectedTab == "house" ? 1 : 0)
+                
+                ProfileScreen()
+                    .opacity(selectedTab == "person.crop.circle" ? 1 : 0)
                 
                 SettingsScreen()
                     .opacity(selectedTab == "gearshape" ? 1 : 0)
