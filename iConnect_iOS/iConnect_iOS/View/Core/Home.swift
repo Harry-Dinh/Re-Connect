@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Home: View {
+    
+    @ObservedObject var model = HomeVM.shared
+    
     var body: some View {
         VStack {
             HStack {
@@ -16,6 +19,35 @@ struct Home: View {
                     .foregroundColor(.green)
                 
                 Spacer()
+                
+                Button(action: {
+                    model.showNewPostScreen.toggle()
+                }, label: {
+                    ZStack {
+                        Circle()
+                            .frame(width: 35, height: 35)
+                            .foregroundColor(Color.black.opacity(0.15))
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                            .foregroundColor(.green)
+                    }
+                })
+                .sheet(isPresented: $model.showNewPostScreen, content: {
+                    NavigationView {
+                        NewPostScreen()
+                    }
+                })
+                
+                Button(action: {}, label: {
+                    ZStack {
+                        Circle()
+                            .frame(width: 35, height: 35)
+                            .foregroundColor(Color.black.opacity(0.15))
+                        Image(systemName: "magnifyingglass")
+                            .imageScale(.large)
+                            .foregroundColor(.green)
+                    }
+                })
             }
             .padding(.horizontal)
             

@@ -20,8 +20,8 @@ struct CoreScreen: View {
                 Home()
                     .opacity(selectedTab == "house" ? 1 : 0)
                 
-                ProfileScreen()
-                    .opacity(selectedTab == "person.crop.circle" ? 1 : 0)
+//                ProfileScreen()
+//                    .opacity(selectedTab == "person.crop.circle" ? 1 : 0)
                 
                 SettingsScreen()
                     .opacity(selectedTab == "gearshape" ? 1 : 0)

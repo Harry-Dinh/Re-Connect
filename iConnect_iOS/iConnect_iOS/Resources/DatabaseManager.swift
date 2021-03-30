@@ -5,8 +5,8 @@
 //  Created by Harry Dinh on 2021-03-21.
 //
 
-import FirebaseDatabase
-import FirebaseAuth
+import SwiftUI
+import Firebase
 
 class DatabaseManager {
     static let shared = DatabaseManager()
@@ -67,5 +67,67 @@ class DatabaseManager {
         defaults.set("", forKey: "user_profile_email")
         
         print("Successfully cleared all cached data")
+    }
+    
+    // MARK: - Post
+    
+    /// This method write a post (without an image URL) JSON model to the database.
+    public func writeTextPostToDatabase(with title: String?, and body: String, date: Date) {
+        guard let userEmail = Auth.auth().currentUser?.email,
+              let currentUserID = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let safeEmail = convertToSafeEmail(with: userEmail)
+        
+        let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .long
+            return formatter
+        }()
+        
+        let stringDate = dateFormatter.string(from: date)
+        var safeStringDate = ""
+        
+        if stringDate.contains(",") && stringDate.contains(":") {
+            safeStringDate = stringDate.replacingOccurrences(of: ":", with: "-")
+        }
+        
+        let identifier = UUID()
+        
+        let userPosts: [String: Any] = [
+            "title": title! as NSObject,
+            "body": body as NSObject,
+            "uuid": identifier.uuidString as NSObject,
+            "date": safeStringDate as NSObject
+        ]
+        
+        database.child("Users").child("user \(safeEmail)_with_id_\(currentUserID)").child("posts").setValue(userPosts)
+        print("Successfully write post data to Database")
+    }
+    
+    public func downloadUserPostData() {
+        guard let email = Auth.auth().currentUser?.email,
+              let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        var postModel = [PostModel]()
+        
+        let safeEmail = convertToSafeEmail(with: email)
+        
+        database.child("Users").child("user \(safeEmail)_with_id_\(uid)").child("posts").observeSingleEvent(of: .value) { (snapshot) in
+            guard let value = snapshot.value as? [String: Any] else {
+                return
+            }
+            
+            postModel.append(
+                PostModel(body: value["body"] as! String,
+                          date: value["date"] as! String,
+                          title: value["title"] as? String,
+                          uuid: value["uuid"] as! String)
+            )
+        }
     }
 }
