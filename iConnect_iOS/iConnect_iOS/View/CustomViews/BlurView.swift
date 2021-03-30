@@ -13,7 +13,7 @@ struct BlurView: UIViewRepresentable {
     @Environment(\.colorScheme) var colorScheme
     
     func makeUIView(context: Context) -> UIView {
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: colorScheme == .dark ? .dark : .systemMaterialLight))
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: colorScheme == .light ? .light : .dark))
         return blurView
     }
     

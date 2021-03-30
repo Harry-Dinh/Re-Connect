@@ -13,8 +13,6 @@ class DatabaseManager {
     
     private var database = Database.database().reference()
     
-    private var databaseHandle: DatabaseHandle?
-    
     private init() {}
     
     // MARK: - User
@@ -22,11 +20,8 @@ class DatabaseManager {
     /// Create a user object with a `firstName`, `lastName`, `email` and `password` on Firebase Realtime Database.
     public func createUserObject(firstName: String, lastName: String, email: String) {
         
-        guard email.contains(".") else {
-            return
-        }
+        let safeEmail = convertToSafeEmail(with: email)
         
-        let safeEmail = email.replacingOccurrences(of: ".", with: "-")
         guard let currentUserID = Auth.auth().currentUser?.uid else {
             return
         }
@@ -40,7 +35,17 @@ class DatabaseManager {
         
         database.child("Users").child("user \(safeEmail)_with_id_\(currentUserID)").setValue(userObject)
         
-        print("Successfully created user object with email: \(safeEmail)")
+        print("Successfully created user object and cached to UserDefaults with email: \(email)")
+    }
+    
+    /// Check an email address to see whether a period `.` exist. If it exists, the method will replace it with a dash to prevent crashing when writing to database.
+    public func convertToSafeEmail(with email: String) -> String {
+        var safeEmail: String = ""
+        if email.contains(".") {
+            safeEmail = email.replacingOccurrences(of: ".", with: "-")
+        }
+        
+        return safeEmail
     }
     
     /// Cache the registered user data to `UserDefaults` and save them locally on device.
@@ -52,5 +57,15 @@ class DatabaseManager {
         defaults.set(email, forKey: "user_profile_email")
         
         print("Successfully cached to UserDefaults")
+    }
+    
+    public func clearCachedDataFromUserDefaults() {
+        let defaults = UserDefaults.standard
+        
+        defaults.set("", forKey: "user_first_name")
+        defaults.set("", forKey: "user_last_name")
+        defaults.set("", forKey: "user_profile_email")
+        
+        print("Successfully cleared all cached data")
     }
 }

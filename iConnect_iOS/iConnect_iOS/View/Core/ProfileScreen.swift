@@ -17,20 +17,14 @@ struct ProfileScreen: View {
                 .resizable()
                 .frame(width: 70, height: 70)
             
-            Text("\(unwrappedCachedName())")
+            Text("\(userProfile.unwrappedCachedName())")
                 .font(.title)
                 .fontWeight(.heavy)
+            
+            Text("\(userProfile.unwrapCachedEmail())")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
         }
-    }
-    
-    func unwrappedCachedName() -> String {
-        guard let firstName = UserDefaults.standard.string(forKey: "user_first_name"),
-              let lastName = UserDefaults.standard.string(forKey: "user_last_name") else {
-            print("Cannot unwrap cached names")
-            return "Unnamed User"
-        }
-        
-        return "\(firstName) \(lastName)"
     }
 }
 

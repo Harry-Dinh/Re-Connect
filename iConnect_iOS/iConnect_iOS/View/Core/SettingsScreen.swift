@@ -14,15 +14,15 @@ struct SettingsScreen: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Developer")) {
+                Section {
                     Button("Sign Out") {
                         LoginVM.shared.signOutUser()
-                        UserDefaults.standard.set("", forKey: "user_profile_email")
-                        UserDefaults.standard.set("", forKey: "user_first_name")
-                        UserDefaults.standard.set("", forKey: "user_last_name")
+                        DatabaseManager.shared.clearCachedDataFromUserDefaults()
                         isSignedIn = false
                     }
-                    
+                }
+                
+                Section(header: Text("Developer")) {
                     Button("Print the cached data") {
                         print("\(UserDefaults.standard.string(forKey: "user_first_name")!) \(UserDefaults.standard.string(forKey: "user_last_name")!)")
                     }

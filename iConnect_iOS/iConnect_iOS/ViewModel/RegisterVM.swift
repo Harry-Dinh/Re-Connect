@@ -23,16 +23,21 @@ class RegisterVM: ObservableObject {
         let password = passwordField
         
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, error) in
-            guard let result = result, error == nil else {
+            guard error == nil else {
                 print("Cannot create user with email: \(email)")
                 return
             }
             
-            let user = result.user
-            
             self?.isSignedIn = true
+            
+            guard let firstName = self?.firstName,
+                  let lastName = self?.lastName,
+                  let email = self?.emailField else {
+                return
+            }
+            
+            DatabaseManager.shared.createUserObject(firstName: firstName, lastName: lastName, email: email)
             print("Successfully created user")
-            print("User ID: \(user.uid)")
         }
     }
     

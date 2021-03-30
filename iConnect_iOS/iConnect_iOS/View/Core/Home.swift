@@ -9,11 +9,22 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        NavigationView {
-            ScrollView {
-                // PostView()
+        VStack {
+            HStack {
+                Text("iconnect")
+                    .font(.system(size: 36, weight: .heavy, design: .rounded))
+                    .foregroundColor(.green)
+                
+                Spacer()
             }
-            .navigationTitle("Home")
+            .padding(.horizontal)
+            
+            ScrollView {
+                ForEach(0..<30, id: \.self) { _ in
+                    PostView()
+                        .padding()
+                }
+            }
         }
     }
 }
