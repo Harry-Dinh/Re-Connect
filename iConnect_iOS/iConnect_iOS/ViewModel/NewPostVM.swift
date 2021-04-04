@@ -14,6 +14,8 @@ class NewPostVM: ObservableObject {
     
     @Published var storyOrPost: Bool = false
     
+    @Published var selectedPrivacy: Int = 0
+    
     // Post
     @Published var postTitle: String = ""
     @Published var postBody: String = ""

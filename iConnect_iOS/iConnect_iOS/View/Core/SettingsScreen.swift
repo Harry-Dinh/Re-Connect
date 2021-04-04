@@ -15,21 +15,30 @@ struct SettingsScreen: View {
         NavigationView {
             List {
                 Section {
-                    Button("Sign Out") {
-                        LoginVM.shared.signOutUser()
-                        DatabaseManager.shared.clearCachedDataFromUserDefaults()
-                        isSignedIn = false
-                    }
+                    NavigationLink(
+                        destination:
+                            Button("Sign Out") {
+                                LoginVM.shared.signOutUser()
+                                DatabaseManager.shared.clearCachedDataFromUserDefaults()
+                                isSignedIn = false
+                            },
+                        label: {
+                            HStack {
+                                CustomTableIcon(backgroundColor: .gray, icon: "person.crop.square.fill.and.at.rectangle")
+                                Text("My Account")
+                            }
+                        })
                 }
                 
                 Section(header: Text("Developer")) {
-                    Button("Print the cached data") {
-                        print("\(UserDefaults.standard.string(forKey: "user_first_name")!) \(UserDefaults.standard.string(forKey: "user_last_name")!)")
-                    }
-                    
-                    Button("Print the UID") {
-                        print("\(RegisterVM.shared.getUserUID())")
-                    }
+                    Button(action: {
+                        // Test action here...
+                    }, label: {
+                        HStack {
+                            CustomTableIcon(backgroundColor: .blue, icon: "hammer")
+                            Text("Test Action")
+                        }
+                    })
                 }
             }
             .listStyle(GroupedListStyle())

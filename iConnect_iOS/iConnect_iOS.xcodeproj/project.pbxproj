@@ -34,6 +34,7 @@
 		21818724260FECE7006DD3C4 /* DetailPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21818723260FECE7006DD3C4 /* DetailPostView.swift */; };
 		2198BEF2260E744A0061C49F /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198BEF1260E744A0061C49F /* PostView.swift */; };
 		2198BEF5260E7B940061C49F /* PostBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198BEF4260E7B940061C49F /* PostBackground.swift */; };
+		21C97B082619314400C0EDBE /* CustomTableIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C97B072619314400C0EDBE /* CustomTableIconView.swift */; };
 		21DF37FF2613BA5300D2D072 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF37FE2613BA5300D2D072 /* PostModel.swift */; };
 		60B1EC442099B01ADB9309BA /* Pods_iConnect_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B733F5FDB971F9978F27F8B7 /* Pods_iConnect_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		21818723260FECE7006DD3C4 /* DetailPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostView.swift; sourceTree = "<group>"; };
 		2198BEF1260E744A0061C49F /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		2198BEF4260E7B940061C49F /* PostBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBackground.swift; sourceTree = "<group>"; };
+		21C97B072619314400C0EDBE /* CustomTableIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableIconView.swift; sourceTree = "<group>"; };
 		21DF37FE2613BA5300D2D072 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		38E57BD344A34F052CC7EF21 /* Pods-iConnect_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS.release.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS/Pods-iConnect_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A886480DDF5E46D49C172A7E /* Pods-iConnect_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS.debug.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS/Pods-iConnect_iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				214E3C162603E2C100DA416B /* CustomEmptyView.swift */,
 				214E3C1A2603E64000DA416B /* BlurView.swift */,
 				2198BEF4260E7B940061C49F /* PostBackground.swift */,
+				21C97B072619314400C0EDBE /* CustomTableIconView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				216B749A2608F92900BDDBD7 /* SystemUtility.swift in Sources */,
 				21236D6925FFFBAC000524D8 /* RegisterScreen.swift in Sources */,
 				21236D2225FFF4E9000524D8 /* ContentView.swift in Sources */,
+				21C97B082619314400C0EDBE /* CustomTableIconView.swift in Sources */,
 				21DF37FF2613BA5300D2D072 /* PostModel.swift in Sources */,
 				21236D2025FFF4E9000524D8 /* iConnect_iOSApp.swift in Sources */,
 				2164F19B2603A3B5007D6AEC /* TabBar.swift in Sources */,

@@ -42,13 +42,17 @@ struct PostView: View {
             }
             Divider()
             
-            NavigationLink(
-                destination: DetailPostView(),
-                label: {
-                    Text("\(postModel.body)")
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(postModel.title!)
+                        .font(.system(size: 20, weight: .heavy))
+                    
+                    Text(postModel.body)
                         .lineLimit(5)
-                        .foregroundColor(.primary)
-                })
+                }
+                
+                Spacer()
+            }
             
             Divider()
             
@@ -84,5 +88,11 @@ struct PostView: View {
                 .stroke(Color.primary)
                 .shadow(color: .gray, radius: 5)
         )
+    }
+}
+
+struct PostPreview: PreviewProvider {
+    static var previews: some View {
+        PostView(viewModel: PostVM.shared, postModel: PostModel(body: "This is a long long body", date: "Apr 3, 2021 at 21:00", title: "A trip to Toyko", uuid: "sdasdsadfnasjdfasdf"))
     }
 }

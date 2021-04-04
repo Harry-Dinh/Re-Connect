@@ -58,6 +58,9 @@ struct Home: View {
                 }
             }
         }
+        .onAppear {
+            DatabaseManager.shared.downloadUserPostData()
+        }
     }
 }
 

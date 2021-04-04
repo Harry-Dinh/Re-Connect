@@ -109,25 +109,25 @@ class DatabaseManager {
     
     public func downloadUserPostData() {
         guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
+              let userUID = Auth.auth().currentUser?.uid else {
             return
         }
         
-        var postModel = [PostModel]()
-        
         let safeEmail = convertToSafeEmail(with: email)
         
-        database.child("Users").child("user \(safeEmail)_with_id_\(uid)").child("posts").observeSingleEvent(of: .value) { (snapshot) in
-            guard let value = snapshot.value as? [String: Any] else {
+        database.child("Users").child("user \(safeEmail)_with_id_\(userUID)").child("posts").observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            
+            guard let title = value!["title"] as? String,
+                  let body = value!["body"] as? String,
+                  let uuid = value!["uuid"] as? String,
+                  let date = value!["date"] as? String else {
                 return
             }
             
-            postModel.append(
-                PostModel(body: value["body"] as! String,
-                          date: value["date"] as! String,
-                          title: value["title"] as? String,
-                          uuid: value["uuid"] as! String)
-            )
+            var model = [PostModel]()
+            
+            model.append(PostModel(body: body, date: date, title: title, uuid: uuid))
         }
     }
 }

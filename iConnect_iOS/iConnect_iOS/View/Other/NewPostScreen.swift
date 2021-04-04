@@ -10,10 +10,11 @@ import SwiftUI
 struct NewPostScreen: View {
     
     @ObservedObject var model = NewPostVM.shared
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
-            List {
+            Form {
                 Section {
                     Picker(selection: $model.storyOrPost, label: Text(""), content: {
                         Image(systemName: "doc.richtext").tag(false)
@@ -25,7 +26,7 @@ struct NewPostScreen: View {
                 }
                 
                 if !model.storyOrPost {
-                    Section {
+                    Section(header: Text("Title")) {
                         TextField("Title", text: $model.postTitle)
                     }
                     
@@ -57,7 +58,7 @@ struct NewPostScreen: View {
                         Toggle(isOn: $model.addMedia, label: {
                             HStack {
                                 Image(systemName: "photo")
-                                    .foregroundColor(.green)
+                                    .foregroundColor(.blue)
                                 Text("Add Photos or Videos")
                             }
                         })
@@ -68,32 +69,57 @@ struct NewPostScreen: View {
                     }
                 }
             }
-            .listStyle(GroupedListStyle())
-            .navigationTitle(model.storyOrPost ? "New Story" : "New Post")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(trailing: Button(action: {
-                HomeVM.shared.showNewPostScreen = false
-            }, label: {
-                Text("Cancel")
-            }))
-            
-            Button(action: {
-                let date = Date()
-                
-                DatabaseManager.shared.writeTextPostToDatabase(with: model.postTitle, and: model.postBody, date: date)
-            }, label: {
-                ZStack {
-                    Capsule()
-                        .frame(width: 200, height: 52)
-                        .foregroundColor(model.storyOrPost ? .green : .blue)
-                    Text(model.storyOrPost ? "Share to Story" : "Post")
-                        .font(.system(size: 20))
-                        .fontWeight(.heavy)
-                        .foregroundColor(.white)
-                }
-                .padding()
-            })
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button(action: {}, label: {
+                    Image(systemName: "eye")
+                })
+                
+                Spacer()
+                
+                Menu(content: {
+                    Picker(selection: $model.selectedPrivacy, label: Text("Visibility"), content: {
+                        Label("Visible to Public", systemImage: "globe").tag(1)
+                        Label("Visible to Followers", systemImage: "person.fill.checkmark").tag(0)
+                        Label("Visible to No One", systemImage: "eye.slash").tag(2)
+                    })
+                    
+                    Section {
+                        Button(action: {}, label: {
+                            Label("Select People to See Post", systemImage: "person.crop.circle.badge.checkmark")
+                        })
+                    }
+                }, label: {
+                    Image(systemName: "person.2")
+                        .imageScale(.large)
+                })
+                
+                Spacer()
+                
+                Button(action: {
+                    let datePosted = Date()
+                    DatabaseManager.shared.writeTextPostToDatabase(with: model.postTitle, and: model.postBody, date: datePosted)
+                    
+                    model.postTitle = ""
+                    model.postBody = ""
+                    
+                    HomeVM.shared.showNewPostScreen = false
+                }, label: {
+                    Image(systemName: model.storyOrPost ? "plus.rectangle.portrait" : "plus.circle")
+                })
+            }
+        }
+        .navigationTitle(model.storyOrPost ? "Create New Story" : "Create New Post")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(trailing: Button(action: {
+            model.postTitle = ""
+            model.postBody = ""
+            
+            HomeVM.shared.showNewPostScreen = false
+        }, label: {
+            Text("Cancel")
+        }))
     }
 }
 

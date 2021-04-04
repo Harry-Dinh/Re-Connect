@@ -41,7 +41,7 @@ struct TabButton: View {
             Image(systemName: icon)
                 .font(.title2)
         })
-        .foregroundColor(selectedTab == icon ? .blue : .gray)
+        .foregroundColor(selectedTab == icon ? .green : .gray)
     }
 }
 
