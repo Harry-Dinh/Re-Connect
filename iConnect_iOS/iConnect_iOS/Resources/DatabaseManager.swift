@@ -12,6 +12,7 @@ class DatabaseManager {
     static let shared = DatabaseManager()
     
     private var database = Database.database().reference()
+    private var firestore = Firestore.firestore()
     
     private init() {}
     
@@ -33,9 +34,14 @@ class DatabaseManager {
             "last_name": lastName as NSObject
         ]
         
-        database.child("Users").child("user \(safeEmail)_with_id_\(currentUserID)").setValue(userObject)
-        
-        print("Successfully created user object and cached to UserDefaults with email: \(email)")
+        firestore.collection("User \(safeEmail)_\(currentUserID)").document("profile_data").setData(userObject) { (error) in
+            guard error == nil else {
+                print("Cannot create user object on Firestore")
+                return
+            }
+            
+            print("Successfully create user object on Firestore")
+        }
     }
     
     /// Check an email address to see whether a period `.` exist. If it exists, the method will replace it with a dash to prevent crashing when writing to database.
@@ -71,63 +77,29 @@ class DatabaseManager {
     
     // MARK: - Post
     
-    /// This method write a post (without an image URL) JSON model to the database.
-    public func writeTextPostToDatabase(with title: String?, and body: String, date: Date) {
-        guard let userEmail = Auth.auth().currentUser?.email,
-              let currentUserID = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
-        let safeEmail = convertToSafeEmail(with: userEmail)
-        
-        let dateFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .long
-            return formatter
-        }()
-        
-        let stringDate = dateFormatter.string(from: date)
-        var safeStringDate = ""
-        
-        if stringDate.contains(",") && stringDate.contains(":") {
-            safeStringDate = stringDate.replacingOccurrences(of: ":", with: "-")
-        }
-        
-        let identifier = UUID()
-        
-        let userPosts: [String: Any] = [
-            "title": title! as NSObject,
-            "body": body as NSObject,
-            "uuid": identifier.uuidString as NSObject,
-            "date": safeStringDate as NSObject
-        ]
-        
-        database.child("Users").child("user \(safeEmail)_with_id_\(currentUserID)").child("posts").setValue(userPosts)
-        print("Successfully write post data to Database")
-    }
-    
-    public func downloadUserPostData() {
+    /// Write a text post to Firestore.
+    public func writeTextPostToFirestore(body: String, title: String, date: String, uuid: String) {
         guard let email = Auth.auth().currentUser?.email,
-              let userUID = Auth.auth().currentUser?.uid else {
+              let currentUserID = Auth.auth().currentUser?.uid else {
             return
         }
         
         let safeEmail = convertToSafeEmail(with: email)
         
-        database.child("Users").child("user \(safeEmail)_with_id_\(userUID)").child("posts").observeSingleEvent(of: .value) { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            
-            guard let title = value!["title"] as? String,
-                  let body = value!["body"] as? String,
-                  let uuid = value!["uuid"] as? String,
-                  let date = value!["date"] as? String else {
+        let postObject: [String: Any] = [
+            "body": body as NSObject,
+            "title": title as NSObject,
+            "date": date as NSObject,
+            "uuid": uuid as NSObject
+        ]
+        
+        firestore.collection("User \(safeEmail)_\(currentUserID)").document("latest_text_post").setData(postObject) { (error) in
+            guard error == nil else {
+                print("Cannot write post data to Firestore, error: \(error!.localizedDescription)")
                 return
             }
             
-            var model = [PostModel]()
-            
-            model.append(PostModel(body: body, date: date, title: title, uuid: uuid))
+            print("Successfully write post data to Firestore")
         }
     }
 }

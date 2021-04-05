@@ -34,6 +34,8 @@
 		21818724260FECE7006DD3C4 /* DetailPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21818723260FECE7006DD3C4 /* DetailPostView.swift */; };
 		2198BEF2260E744A0061C49F /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198BEF1260E744A0061C49F /* PostView.swift */; };
 		2198BEF5260E7B940061C49F /* PostBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198BEF4260E7B940061C49F /* PostBackground.swift */; };
+		21AC235A261B6CB600161E6B /* EventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC2359261B6CB600161E6B /* EventScreen.swift */; };
+		21AC2392261B7D2C00161E6B /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC2391261B7D2C00161E6B /* AccountView.swift */; };
 		21C97B082619314400C0EDBE /* CustomTableIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C97B072619314400C0EDBE /* CustomTableIconView.swift */; };
 		21DF37FF2613BA5300D2D072 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF37FE2613BA5300D2D072 /* PostModel.swift */; };
 		60B1EC442099B01ADB9309BA /* Pods_iConnect_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B733F5FDB971F9978F27F8B7 /* Pods_iConnect_iOS.framework */; };
@@ -69,6 +71,8 @@
 		21818723260FECE7006DD3C4 /* DetailPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPostView.swift; sourceTree = "<group>"; };
 		2198BEF1260E744A0061C49F /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		2198BEF4260E7B940061C49F /* PostBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBackground.swift; sourceTree = "<group>"; };
+		21AC2359261B6CB600161E6B /* EventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScreen.swift; sourceTree = "<group>"; };
+		21AC2391261B7D2C00161E6B /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		21C97B072619314400C0EDBE /* CustomTableIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableIconView.swift; sourceTree = "<group>"; };
 		21DF37FE2613BA5300D2D072 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		38E57BD344A34F052CC7EF21 /* Pods-iConnect_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS.release.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS/Pods-iConnect_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				2164F19D2603A573007D6AEC /* Home.swift */,
 				2164F1972603A363007D6AEC /* SettingsScreen.swift */,
 				2164F19A2603A3B5007D6AEC /* TabBar.swift */,
+				21AC2359261B6CB600161E6B /* EventScreen.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				2198BEF1260E744A0061C49F /* PostView.swift */,
 				21818723260FECE7006DD3C4 /* DetailPostView.swift */,
 				214CF7D62613936B00D30A40 /* NewPostScreen.swift */,
+				21AC2391261B7D2C00161E6B /* AccountView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 				214CF7D42613932E00D30A40 /* HomeVM.swift in Sources */,
 				214E3C1B2603E64000DA416B /* BlurView.swift in Sources */,
 				211CDD532607E466007DF617 /* DatabaseManager.swift in Sources */,
+				21AC2392261B7D2C00161E6B /* AccountView.swift in Sources */,
 				214E3C172603E2C100DA416B /* CustomEmptyView.swift in Sources */,
 				214CF7DA261393DF00D30A40 /* NewPostVM.swift in Sources */,
 				216B74A726093FC500BDDBD7 /* ProfileVM.swift in Sources */,
@@ -368,6 +375,7 @@
 				21236D6925FFFBAC000524D8 /* RegisterScreen.swift in Sources */,
 				21236D2225FFF4E9000524D8 /* ContentView.swift in Sources */,
 				21C97B082619314400C0EDBE /* CustomTableIconView.swift in Sources */,
+				21AC235A261B6CB600161E6B /* EventScreen.swift in Sources */,
 				21DF37FF2613BA5300D2D072 /* PostModel.swift in Sources */,
 				21236D2025FFF4E9000524D8 /* iConnect_iOSApp.swift in Sources */,
 				2164F19B2603A3B5007D6AEC /* TabBar.swift in Sources */,

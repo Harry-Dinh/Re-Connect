@@ -16,14 +16,6 @@ struct ProfileScreen: View {
             Image(systemName: "person.crop.circle")
                 .resizable()
                 .frame(width: 70, height: 70)
-            
-            Text("\(userProfile.unwrappedCachedName())")
-                .font(.title)
-                .fontWeight(.heavy)
-            
-            Text("\(userProfile.unwrapCachedEmail())")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
         }
     }
 }

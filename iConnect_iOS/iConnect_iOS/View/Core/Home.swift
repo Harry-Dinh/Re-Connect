@@ -26,13 +26,13 @@ struct Home: View {
                     ZStack {
                         Circle()
                             .frame(width: 35, height: 35)
-                            .foregroundColor(Color.black.opacity(0.15))
-                        Image(systemName: "plus")
+                            .foregroundColor(Color.green)
+                        Image(systemName: "square.and.pencil")
                             .imageScale(.large)
-                            .foregroundColor(.green)
+                            .foregroundColor(.white)
                     }
                 })
-                .sheet(isPresented: $model.showNewPostScreen, content: {
+                .fullScreenCover(isPresented: $model.showNewPostScreen, content: {
                     NavigationView {
                         NewPostScreen()
                     }
@@ -42,24 +42,21 @@ struct Home: View {
                     ZStack {
                         Circle()
                             .frame(width: 35, height: 35)
-                            .foregroundColor(Color.black.opacity(0.15))
+                            .foregroundColor(Color.green)
                         Image(systemName: "magnifyingglass")
                             .imageScale(.large)
-                            .foregroundColor(.green)
+                            .foregroundColor(.white)
                     }
                 })
             }
             .padding(.horizontal)
             
             ScrollView {
-                ForEach(0..<30, id: \.self) { _ in
+                ForEach(0..<10, id: \.self) { _ in
                     PostView()
                         .padding()
                 }
             }
-        }
-        .onAppear {
-            DatabaseManager.shared.downloadUserPostData()
         }
     }
 }

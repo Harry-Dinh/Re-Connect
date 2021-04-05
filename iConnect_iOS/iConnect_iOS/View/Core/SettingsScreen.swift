@@ -9,19 +9,13 @@ import SwiftUI
 
 struct SettingsScreen: View {
     
-    @AppStorage("is_signed_in") var isSignedIn = false
-    
     var body: some View {
         NavigationView {
             List {
                 Section {
                     NavigationLink(
                         destination:
-                            Button("Sign Out") {
-                                LoginVM.shared.signOutUser()
-                                DatabaseManager.shared.clearCachedDataFromUserDefaults()
-                                isSignedIn = false
-                            },
+                            AccountView(),
                         label: {
                             HStack {
                                 CustomTableIcon(backgroundColor: .gray, icon: "person.crop.square.fill.and.at.rectangle")

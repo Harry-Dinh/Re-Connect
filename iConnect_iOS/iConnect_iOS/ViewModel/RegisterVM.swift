@@ -40,11 +40,4 @@ class RegisterVM: ObservableObject {
             print("Successfully created user")
         }
     }
-    
-    /// Get the current user's FirebaseAuth unique identifier
-    public func getUserUID() -> String {
-        let uid = Auth.auth().currentUser?.uid
-        
-        return uid!
-    }
 }

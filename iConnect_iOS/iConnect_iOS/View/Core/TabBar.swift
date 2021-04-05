@@ -15,8 +15,9 @@ struct TabBar: View {
     
     var body: some View {
         HStack(spacing: 40) {
-            TabButton(selectedTab: $selectedTab, icon: "house")
-//            TabButton(selectedTab: $selectedTab, icon: "person.crop.circle")
+            TabButton(selectedTab: $selectedTab, icon: "checkmark.circle")
+            TabButton(selectedTab: $selectedTab, icon: "person.crop.circle")
+            TabButton(selectedTab: $selectedTab, icon: "calendar")
             TabButton(selectedTab: $selectedTab, icon: "gearshape")
         }
         .padding()

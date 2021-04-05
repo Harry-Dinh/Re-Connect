@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UIKit
-import FirebaseAuth
+import Firebase
 
 class LoginVM: ObservableObject {
     
@@ -21,6 +21,9 @@ class LoginVM: ObservableObject {
     @Published var passwordField: String = ""
     @Published var showRegisterScreen: Bool = false
     
+    let alertTitle = "Login Error"
+    let alertMessage = "The email or password you entered is not correct. Please check them and try again."
+    
     /// Sign in with the current email and password.
     public func signInWithCurrentUser() {
         let email = emailField
@@ -30,13 +33,15 @@ class LoginVM: ObservableObject {
             guard error == nil else {
                 print("Cannot sign user in")
                 
-                let alert = UIAlertController(title: "Error Title", message: "Error Message", preferredStyle: .alert)
+                let alert = UIAlertController(title: self?.alertTitle, message: self?.alertMessage, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
                 
                 UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true)
                 return
             }
             
+            self?.emailField = ""
+            self?.passwordField = ""
             self?.isSignedIn = true
             print("Successfully signed user in")
         }
@@ -51,5 +56,36 @@ class LoginVM: ObservableObject {
         catch {
             print("Something went wrong, cannot sign user out. Error: \(error.localizedDescription)")
         }
+    }
+    
+    public func deleteUser() {
+        
+        guard let email = Auth.auth().currentUser?.email,
+              let currentUserID = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let safeEmail = DatabaseManager.shared.convertToSafeEmail(with: email)
+        
+        Firestore.firestore().document("Users/\(safeEmail)_\(currentUserID)").delete { (error) in
+            guard error == nil else {
+                print("Cannot delete user (\(safeEmail))'s data from Firestore, error: \(error!.localizedDescription)")
+                return
+            }
+            
+            print("Successfully delete user data")
+        }
+        
+        Database.database().reference().child("Posts").child("\(safeEmail)_\(currentUserID)").removeValue()
+        
+        Auth.auth().currentUser?.delete(completion: { [weak self] (error) in
+            guard error == nil else {
+                print("Cannot delete user, error: \(error!.localizedDescription)")
+                return
+            }
+            
+            print("Successfully delete user")
+            self?.isSignedIn = false
+        })
     }
 }

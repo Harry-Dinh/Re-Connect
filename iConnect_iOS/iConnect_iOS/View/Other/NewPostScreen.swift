@@ -72,34 +72,36 @@ struct NewPostScreen: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
-                Button(action: {}, label: {
-                    Image(systemName: "eye")
-                })
-                
-                Spacer()
+                if !model.storyOrPost {
+                    Button(action: {
+                        
+                    }, label: {
+                        Text("Preview")
+                    })
+                    
+                    Spacer()
+                }
                 
                 Menu(content: {
                     Picker(selection: $model.selectedPrivacy, label: Text("Visibility"), content: {
-                        Label("Visible to Public", systemImage: "globe").tag(1)
-                        Label("Visible to Followers", systemImage: "person.fill.checkmark").tag(0)
-                        Label("Visible to No One", systemImage: "eye.slash").tag(2)
+                        Label("Visible to Public", systemImage: "globe")
+                            .tag(SelectedPostAudience.visibleToPublic)
+                        Label("Visible to Followers", systemImage: "person.2")
+                            .tag(SelectedPostAudience.visibleToFollowers)
+                        Label("Visible to No One", systemImage: "eye.slash")
+                            .tag(SelectedPostAudience.visibleToNoOne)
                     })
-                    
-                    Section {
-                        Button(action: {}, label: {
-                            Label("Select People to See Post", systemImage: "person.crop.circle.badge.checkmark")
-                        })
-                    }
                 }, label: {
-                    Image(systemName: "person.2")
+                    Image(systemName: "person.3")
                         .imageScale(.large)
                 })
                 
                 Spacer()
                 
                 Button(action: {
-                    let datePosted = Date()
-                    DatabaseManager.shared.writeTextPostToDatabase(with: model.postTitle, and: model.postBody, date: datePosted)
+                    let date = Date()
+                    let dateString = model.dateFormatter.string(from: date)
+                    DatabaseManager.shared.writeTextPostToFirestore(body: model.postBody, title: model.postTitle, date: dateString, uuid: UUID().uuidString)
                     
                     model.postTitle = ""
                     model.postBody = ""
