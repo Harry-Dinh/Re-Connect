@@ -7,12 +7,10 @@
 
 import Foundation
 
-struct PostModel {
-    
-    static let shared = PostModel()
-    
-    var body: String = ""
-    var date: String = ""
-    var title: String? = ""
-    var uuid: String = ""
+struct PostModel: Identifiable, Hashable, Codable {
+    var id: String = UUID().uuidString
+    var title: String
+    var body: String
+    var date: String
+    var liked: Bool
 }

@@ -1,16 +1,13 @@
 //
-//  PostView.swift
+//  RedactedHomeView.swift
 //  iConnect_iOS
 //
-//  Created by Harry Dinh on 2021-03-26.
+//  Created by Harry Dinh on 2021-04-09.
 //
 
 import SwiftUI
 
-struct PostView: View {
-    
-    @ObservedObject var viewModel = PostVM.shared
-    
+struct RedactedHomeView: View {
     var body: some View {
         VStack {
             VStack {
@@ -19,9 +16,9 @@ struct PostView: View {
                         .resizable()
                         .frame(width: 35, height: 35)
                     VStack(alignment: .leading) {
-                        Text("\(viewModel.username)")
+                        Text("Rick Astley")
                             .font(.headline)
-                        Text("Posted on \(viewModel.datePosted)")
+                        Text("Posted on Apr 9, 2021 at 13:41")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -43,12 +40,10 @@ struct PostView: View {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                        if !viewModel.postTitle.isEmpty {
-                            Text("\(viewModel.postTitle)")
+                            Text("You've been Rickrolled")
                                 .font(.system(size: 20, weight: .heavy))
-                        }
                         
-                        Text("\(viewModel.postBody)")
+                        Text("Never gonna give you up, never gonna let you down. never gonna run around and dessert you.")
                             .lineLimit(5)
                     }
                     
@@ -90,11 +85,12 @@ struct PostView: View {
                     .shadow(color: .gray, radius: 5)
             )
         }
+        .redacted(reason: .placeholder)
     }
 }
 
-struct PostPreview: PreviewProvider {
+struct RedactedHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView()
+        RedactedHomeView()
     }
 }

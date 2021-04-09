@@ -34,14 +34,8 @@ class DatabaseManager {
             "last_name": lastName as NSObject
         ]
         
-        firestore.collection("User \(safeEmail)_\(currentUserID)").document("profile_data").setData(userObject) { (error) in
-            guard error == nil else {
-                print("Cannot create user object on Firestore")
-                return
-            }
-            
-            print("Successfully create user object on Firestore")
-        }
+        database.child("Users").child("user \(safeEmail)_\(currentUserID)").setValue(userObject)
+        cacheUserDataToUserDefaults(firstName: firstName, lastName: lastName, email: email)
     }
     
     /// Check an email address to see whether a period `.` exist. If it exists, the method will replace it with a dash to prevent crashing when writing to database.
@@ -58,9 +52,9 @@ class DatabaseManager {
     public func cacheUserDataToUserDefaults(firstName: String, lastName: String, email: String) {
         let defaults = UserDefaults.standard
         
-        defaults.set(firstName, forKey: "user_first_name")
-        defaults.set(lastName, forKey: "user_last_name")
-        defaults.set(email, forKey: "user_profile_email")
+        defaults.set(firstName, forKey: "first_name")
+        defaults.set(lastName, forKey: "last_name")
+        defaults.set(email, forKey: "profile_email")
         
         print("Successfully cached to UserDefaults")
     }
@@ -68,9 +62,9 @@ class DatabaseManager {
     public func clearCachedDataFromUserDefaults() {
         let defaults = UserDefaults.standard
         
-        defaults.set("", forKey: "user_first_name")
-        defaults.set("", forKey: "user_last_name")
-        defaults.set("", forKey: "user_profile_email")
+        defaults.set("", forKey: "first_name")
+        defaults.set("", forKey: "last_name")
+        defaults.set("", forKey: "profile_email")
         
         print("Successfully cleared all cached data")
     }
@@ -78,7 +72,7 @@ class DatabaseManager {
     // MARK: - Post
     
     /// Write a text post to Firestore.
-    public func writeTextPostToFirestore(body: String, title: String, date: String, uuid: String) {
+    public func writeTextPostToFirestore(body: String, title: String, date: String, uuid: String, liked: Bool) {
         guard let email = Auth.auth().currentUser?.email,
               let currentUserID = Auth.auth().currentUser?.uid else {
             return
@@ -90,10 +84,11 @@ class DatabaseManager {
             "body": body as NSObject,
             "title": title as NSObject,
             "date": date as NSObject,
-            "uuid": uuid as NSObject
+            "uuid": uuid as NSObject,
+            "liked": liked as NSObject
         ]
         
-        firestore.collection("User \(safeEmail)_\(currentUserID)").document("latest_text_post").setData(postObject) { (error) in
+        firestore.collection("User \(safeEmail)_\(currentUserID)").document(uuid).setData(postObject) { (error) in
             guard error == nil else {
                 print("Cannot write post data to Firestore, error: \(error!.localizedDescription)")
                 return

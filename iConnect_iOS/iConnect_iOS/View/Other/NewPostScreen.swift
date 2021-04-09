@@ -93,7 +93,7 @@ struct NewPostScreen: View {
                 Button(action: {
                     let date = Date()
                     let dateString = model.dateFormatter.string(from: date)
-                    DatabaseManager.shared.writeTextPostToFirestore(body: model.postBody, title: model.postTitle, date: dateString, uuid: UUID().uuidString)
+                    DatabaseManager.shared.writeTextPostToFirestore(body: model.postBody, title: model.postTitle, date: dateString, uuid: UUID().uuidString, liked: false)
                     
                     model.postTitle = ""
                     model.postBody = ""

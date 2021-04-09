@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     
     @ObservedObject var model = HomeVM.shared
+    var postVM = PostVM.shared
     
     var body: some View {
         VStack {
@@ -51,12 +52,26 @@ struct Home: View {
             }
             .padding(.horizontal)
             
-            ScrollView {
-                ForEach(0..<10, id: \.self) { _ in
+            if postVM.postTitle.isEmpty && postVM.postBody.isEmpty {
+                Spacer()
+                RedactedHomeView()
+                    .frame(width: 270, height: 200)
+                Text("No Posts Yet")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            else {
+                ScrollView {
                     PostView()
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
                 }
             }
+        }
+        .onAppear() {
+            PostVM.shared.fetchPostDataFromFirestore()
         }
     }
 }

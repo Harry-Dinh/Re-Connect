@@ -67,7 +67,7 @@ class LoginVM: ObservableObject {
         
         let safeEmail = DatabaseManager.shared.convertToSafeEmail(with: email)
         
-        Firestore.firestore().document("Users/\(safeEmail)_\(currentUserID)").delete { (error) in
+        Firestore.firestore().collection("User \(safeEmail)_\(currentUserID)").document("profile_data").delete { (error) in
             guard error == nil else {
                 print("Cannot delete user (\(safeEmail))'s data from Firestore, error: \(error!.localizedDescription)")
                 return
@@ -76,16 +76,24 @@ class LoginVM: ObservableObject {
             print("Successfully delete user data")
         }
         
-        Database.database().reference().child("Posts").child("\(safeEmail)_\(currentUserID)").removeValue()
-        
-        Auth.auth().currentUser?.delete(completion: { [weak self] (error) in
+        Firestore.firestore().collection("User \(safeEmail)_\(currentUserID)").document("latest_text_post").delete { (error) in
             guard error == nil else {
-                print("Cannot delete user, error: \(error!.localizedDescription)")
+                print("Cannot delete user (\(safeEmail))'s latest post data from Firestore, error: \(error!.localizedDescription)")
                 return
             }
             
-            print("Successfully delete user")
-            self?.isSignedIn = false
+            print("Successfully delete latest post data")
+        }
+        
+        Database.database().reference().child("Posts").child("\(safeEmail)_\(currentUserID)").removeValue()
+        
+        Auth.auth().currentUser?.delete(completion: { (error) in
+            guard error == nil else {
+                print("Cannot delete user")
+                return
+            }
+            
+            DatabaseManager.shared.clearCachedDataFromUserDefaults()
         })
     }
 }
