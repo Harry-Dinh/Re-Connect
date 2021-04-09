@@ -28,7 +28,12 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>
-	<dict/>
+	<dict>
+		<key>UIColorName</key>
+		<string>systemBackground</string>
+		<key>UIImageName</key>
+		<string>logo</string>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -48,5 +53,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Allowing camera access to iConnect will let you take photos and videos and share them with your followers. iConnect will never use these media for advertising or selling for other companies.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow iConnect to access your photo library to share photos and videos with your followers. iConnect will never use these media for advertising or selling to other companies.</string>
 </dict>
 </plist>

@@ -36,17 +36,19 @@ struct NewPostScreen: View {
                     }
                     
                     Section(header: Text("Media")) {
-                        Toggle(isOn: $model.addMedia, label: {
-                            HStack {
-                                Image(systemName: "photo")
-                                    .foregroundColor(.blue)
-                                Text("Add Photos or Videos")
-                            }
+                        Button(action: {
+                            model.presentPhotoActionSheet.toggle()
+                        }, label: {
+                            Label("Add Photos", systemImage: "photo")
+                        })
+                        .actionSheet(isPresented: $model.presentPhotoActionSheet, content: {
+                            ActionSheet(title: Text("Insert Media From..."), message: nil, buttons: [
+                                .default(Text("Camera"), action: { model.presentCamera.toggle() }),
+                                .default(Text("Library"), action: { model.presentPhotoPicker.toggle() }),
+                                .cancel()
+                            ])
                         })
                         
-                        if model.addMedia {
-                            Button("Choose from Photo Library") {}
-                        }
                     }
                 }
                 else {
@@ -55,17 +57,7 @@ struct NewPostScreen: View {
                     }
                     
                     Section {
-                        Toggle(isOn: $model.addMedia, label: {
-                            HStack {
-                                Image(systemName: "photo")
-                                    .foregroundColor(.blue)
-                                Text("Add Photos or Videos")
-                            }
-                        })
                         
-                        if model.addMedia {
-                            Button("Choose from Photo Library") {}
-                        }
                     }
                 }
             }
@@ -92,7 +84,7 @@ struct NewPostScreen: View {
                             .tag(SelectedPostAudience.visibleToNoOne)
                     })
                 }, label: {
-                    Image(systemName: "person.3")
+                    Image(systemName: "eye")
                         .imageScale(.large)
                 })
                 
@@ -108,7 +100,7 @@ struct NewPostScreen: View {
                     
                     HomeVM.shared.showNewPostScreen = false
                 }, label: {
-                    Image(systemName: model.storyOrPost ? "plus.rectangle.portrait" : "plus.circle")
+                    Image(systemName: model.storyOrPost ? "plus.rectangle.portrait" : "arrow.up.circle")
                 })
             }
         }

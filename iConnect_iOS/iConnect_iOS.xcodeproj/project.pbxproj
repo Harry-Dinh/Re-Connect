@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211C01B5261D203E00A992F9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C01B4261D203E00A992F9 /* ImagePicker.swift */; };
+		211C01B8261D23DF00A992F9 /* CameraViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211C01B7261D23DF00A992F9 /* CameraViewer.swift */; };
 		211CDD532607E466007DF617 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CDD522607E466007DF617 /* DatabaseManager.swift */; };
 		21236D2025FFF4E9000524D8 /* iConnect_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D1F25FFF4E9000524D8 /* iConnect_iOSApp.swift */; };
 		21236D2225FFF4E9000524D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21236D2125FFF4E9000524D8 /* ContentView.swift */; };
@@ -36,12 +38,15 @@
 		2198BEF5260E7B940061C49F /* PostBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198BEF4260E7B940061C49F /* PostBackground.swift */; };
 		21AC235A261B6CB600161E6B /* EventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC2359261B6CB600161E6B /* EventScreen.swift */; };
 		21AC2392261B7D2C00161E6B /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC2391261B7D2C00161E6B /* AccountView.swift */; };
+		21B8489A261F82D1002F374D /* VideoCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B84899261F82D1002F374D /* VideoCamera.swift */; };
 		21C97B082619314400C0EDBE /* CustomTableIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C97B072619314400C0EDBE /* CustomTableIconView.swift */; };
 		21DF37FF2613BA5300D2D072 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF37FE2613BA5300D2D072 /* PostModel.swift */; };
 		60B1EC442099B01ADB9309BA /* Pods_iConnect_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B733F5FDB971F9978F27F8B7 /* Pods_iConnect_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		211C01B4261D203E00A992F9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		211C01B7261D23DF00A992F9 /* CameraViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewer.swift; sourceTree = "<group>"; };
 		211CDD522607E466007DF617 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		21236D1C25FFF4E9000524D8 /* iConnect_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iConnect_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21236D1F25FFF4E9000524D8 /* iConnect_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iConnect_iOSApp.swift; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 		2198BEF4260E7B940061C49F /* PostBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBackground.swift; sourceTree = "<group>"; };
 		21AC2359261B6CB600161E6B /* EventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScreen.swift; sourceTree = "<group>"; };
 		21AC2391261B7D2C00161E6B /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		21B84899261F82D1002F374D /* VideoCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCamera.swift; sourceTree = "<group>"; };
 		21C97B072619314400C0EDBE /* CustomTableIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableIconView.swift; sourceTree = "<group>"; };
 		21DF37FE2613BA5300D2D072 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		38E57BD344A34F052CC7EF21 /* Pods-iConnect_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS.release.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS/Pods-iConnect_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				21236D1E25FFF4E9000524D8 /* iConnect_iOS */,
-				21236D1D25FFF4E9000524D8 /* Products */,
 				464227ECA11CAD9367D3DFE1 /* Pods */,
 				C27D0475ED10F5FC57C7A15F /* Frameworks */,
 			);
@@ -108,6 +113,7 @@
 				21236D1C25FFF4E9000524D8 /* iConnect_iOS.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		21236D1E25FFF4E9000524D8 /* iConnect_iOS */ = {
@@ -120,6 +126,7 @@
 				214E3C0E2603E12600DA416B /* View */,
 				21236D2325FFF4EA000524D8 /* Assets.xcassets */,
 				21236D2825FFF4EA000524D8 /* Info.plist */,
+				21236D1D25FFF4E9000524D8 /* Products */,
 				21236D2525FFF4EA000524D8 /* Preview Content */,
 			);
 			path = iConnect_iOS;
@@ -185,6 +192,9 @@
 				21818723260FECE7006DD3C4 /* DetailPostView.swift */,
 				214CF7D62613936B00D30A40 /* NewPostScreen.swift */,
 				21AC2391261B7D2C00161E6B /* AccountView.swift */,
+				211C01B4261D203E00A992F9 /* ImagePicker.swift */,
+				211C01B7261D23DF00A992F9 /* CameraViewer.swift */,
+				21B84899261F82D1002F374D /* VideoCamera.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -354,6 +364,7 @@
 			files = (
 				2164F19226039E84007D6AEC /* RegisterVM.swift in Sources */,
 				214CF7D42613932E00D30A40 /* HomeVM.swift in Sources */,
+				211C01B8261D23DF00A992F9 /* CameraViewer.swift in Sources */,
 				214E3C1B2603E64000DA416B /* BlurView.swift in Sources */,
 				211CDD532607E466007DF617 /* DatabaseManager.swift in Sources */,
 				21AC2392261B7D2C00161E6B /* AccountView.swift in Sources */,
@@ -369,6 +380,7 @@
 				21236D6625FFFB3F000524D8 /* CoreScreen.swift in Sources */,
 				217DF0E92612A3C30078572D /* PostVM.swift in Sources */,
 				2164F1952603A2BB007D6AEC /* LoginVM.swift in Sources */,
+				211C01B5261D203E00A992F9 /* ImagePicker.swift in Sources */,
 				2198BEF5260E7B940061C49F /* PostBackground.swift in Sources */,
 				214CF7D72613936B00D30A40 /* NewPostScreen.swift in Sources */,
 				216B749A2608F92900BDDBD7 /* SystemUtility.swift in Sources */,
@@ -379,6 +391,7 @@
 				21DF37FF2613BA5300D2D072 /* PostModel.swift in Sources */,
 				21236D2025FFF4E9000524D8 /* iConnect_iOSApp.swift in Sources */,
 				2164F19B2603A3B5007D6AEC /* TabBar.swift in Sources */,
+				21B8489A261F82D1002F374D /* VideoCamera.swift in Sources */,
 				216B74972608F6AA00BDDBD7 /* ProfileScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

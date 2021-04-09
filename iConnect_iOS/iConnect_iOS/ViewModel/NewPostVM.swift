@@ -27,7 +27,11 @@ class NewPostVM: ObservableObject {
     @Published var postTitle: String = ""
     @Published var postBody: String = ""
     @Published var postPhoto: Image?
-    @Published var addMedia: Bool = false
+    @Published var presentPhotoActionSheet: Bool = false
+    @Published var presentPhotoPicker: Bool = false
+    @Published var presentCamera: Bool = false
+    @Published var presentVideoCamera: Bool = false
+    @Published var presentVideoActionSheet: Bool = false
     
     // Story
     @Published var storyTitle: String = ""
