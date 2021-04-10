@@ -27,10 +27,10 @@ struct Home: View {
                     ZStack {
                         Circle()
                             .frame(width: 35, height: 35)
-                            .foregroundColor(Color.green)
+                            .foregroundColor(Color(.systemGray5))
                         Image(systemName: "square.and.pencil")
                             .imageScale(.large)
-                            .foregroundColor(.white)
+                            .foregroundColor(.green)
                     }
                 })
                 .fullScreenCover(isPresented: $model.showNewPostScreen, content: {
@@ -38,21 +38,10 @@ struct Home: View {
                         NewPostScreen()
                     }
                 })
-                
-                Button(action: {}, label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 35, height: 35)
-                            .foregroundColor(Color.green)
-                        Image(systemName: "magnifyingglass")
-                            .imageScale(.large)
-                            .foregroundColor(.white)
-                    }
-                })
             }
             .padding(.horizontal)
             
-            if postVM.postTitle.isEmpty && postVM.postBody.isEmpty {
+            if postVM.postModel.count == 0 {
                 Spacer()
                 RedactedHomeView()
                     .frame(width: 270, height: 200)
@@ -62,16 +51,15 @@ struct Home: View {
                     .foregroundColor(.secondary)
                 Spacer()
             }
-            else {
+            else if postVM.postModel.count > 0 {
                 ScrollView {
-                    PostView()
-                        .padding(.horizontal)
-                        .padding(.vertical, 10)
+                    ForEach(postVM.postModel, id: \.id) { post in
+                        PostView(postModel: PostModel(title: post.title, body: post.body, date: post.date, liked: post.liked))
+                            .padding(.horizontal)
+                            .padding(.vertical, 10)
+                    }
                 }
             }
-        }
-        .onAppear() {
-            PostVM.shared.fetchPostDataFromFirestore()
         }
     }
 }

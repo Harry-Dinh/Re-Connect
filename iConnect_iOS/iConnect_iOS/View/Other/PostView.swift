@@ -10,6 +10,7 @@ import SwiftUI
 struct PostView: View {
     
     @ObservedObject var viewModel = PostVM.shared
+    @State var postModel: PostModel
     
     var body: some View {
         VStack {
@@ -21,7 +22,7 @@ struct PostView: View {
                     VStack(alignment: .leading) {
                         Text("\(viewModel.username)")
                             .font(.headline)
-                        Text("Posted on \(viewModel.datePosted)")
+                        Text("Posted on \(postModel.date)")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
@@ -29,6 +30,13 @@ struct PostView: View {
                     Spacer()
                     
                     Menu {
+                        Button(action: {
+                            
+                        }, label: {
+                            Label("Delete Post", systemImage: "trash")
+                                .border(Color.red)
+                        })
+                        
                         Button(action: {}, label: {
                             Label("Report", systemImage: "exclamationmark.triangle")
                         })
@@ -42,14 +50,15 @@ struct PostView: View {
                 Divider()
                 
                 HStack {
-                    VStack(alignment: .leading) {
-                        if !viewModel.postTitle.isEmpty {
-                            Text("\(viewModel.postTitle)")
+                    VStack(alignment: .leading, spacing: 5) {
+                        if !postModel.title.isEmpty {
+                            Text("\(postModel.title)")
                                 .font(.system(size: 20, weight: .heavy))
                         }
                         
-                        Text("\(viewModel.postBody)")
+                        Text("\(postModel.body)")
                             .lineLimit(5)
+                            .font(.subheadline)
                     }
                     
                     Spacer()
@@ -95,6 +104,6 @@ struct PostView: View {
 
 struct PostPreview: PreviewProvider {
     static var previews: some View {
-        PostView()
+        PostView(postModel: PostModel(title: "", body: "", date: "", liked: false))
     }
 }

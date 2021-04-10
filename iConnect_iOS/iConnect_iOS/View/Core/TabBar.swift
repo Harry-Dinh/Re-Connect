@@ -14,8 +14,9 @@ struct TabBar: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        HStack(spacing: 40) {
-            TabButton(selectedTab: $selectedTab, icon: "checkmark.circle")
+        HStack(spacing: 30) {
+            TabButton(selectedTab: $selectedTab, icon: "house")
+            TabButton(selectedTab: $selectedTab, icon: "magnifyingglass")
             TabButton(selectedTab: $selectedTab, icon: "person.crop.circle")
             TabButton(selectedTab: $selectedTab, icon: "calendar")
             TabButton(selectedTab: $selectedTab, icon: "gearshape")
@@ -40,7 +41,7 @@ struct TabButton: View {
             selectedTab = icon
         }, label: {
             Image(systemName: icon)
-                .font(.title2)
+                .font(.title)
         })
         .foregroundColor(selectedTab == icon ? .green : .gray)
     }

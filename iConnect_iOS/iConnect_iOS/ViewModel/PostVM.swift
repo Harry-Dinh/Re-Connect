@@ -25,6 +25,7 @@ class PostVM: ObservableObject {
     private init() {}
     
     public func fetchPostDataFromFirestore() {
+        
         fetchUserName()
         
         guard let email = Auth.auth().currentUser?.email,
@@ -34,32 +35,23 @@ class PostVM: ObservableObject {
         
         let safeEmail = DatabaseManager.shared.convertToSafeEmail(with: email)
         
-        firestore.collection("User \(safeEmail)_\(currentUserID)").addSnapshotListener { [weak self] (snapshot, error) in
+        firestore.collection("User \(safeEmail)_\(currentUserID)").addSnapshotListener { (snapshot, error) in
             guard let documents = snapshot?.documents else {
-                print("No documents")
+                print("Error fetching documents: \(error!)")
                 return
             }
-
-            self?.postModel = documents.compactMap({ (snapshot) -> PostModel in
-                let data = snapshot.data()
-
-                var title = ""
-                var body = ""
-                var date = ""
-                var liked = false
-
-                title = data["title"] as? String ?? ""
-                body = data["body"] as? String ?? ""
-                date = data["date"] as? String ?? ""
-                liked = data["liked"] as? Bool ?? false
-                
-                self?.postTitle = title
-                self?.postBody = body
-                self?.datePosted = date
-                self?.liked = liked
-
-                return PostModel(id: .init(), title: title, body: body, date: date, liked: liked)
-            })
+            
+            let title = documents.map { $0["title"]! }
+            let body = documents.map { $0["body"]! }
+            let date = documents.map { $0["date"]! }
+            let liked = documents.map { $0["liked"]! }
+            
+            for i in 0..<title.count {
+                self.postModel.append(PostModel(title: title[i] as? String ?? "Untitled Post",
+                                                body: body[i] as? String ?? "This post has no body text",
+                                                date: date[i] as? String ?? "Unknown date",
+                                                liked: liked[i] as? Bool ?? false))
+            }
         }
     }
     

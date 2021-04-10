@@ -39,6 +39,9 @@
 		2198BEF5260E7B940061C49F /* PostBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198BEF4260E7B940061C49F /* PostBackground.swift */; };
 		21AC235A261B6CB600161E6B /* EventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC2359261B6CB600161E6B /* EventScreen.swift */; };
 		21AC2392261B7D2C00161E6B /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AC2391261B7D2C00161E6B /* AccountView.swift */; };
+		21B1949B262204D10033167E /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1949A262204D10033167E /* SearchScreen.swift */; };
+		21B1949E262206060033167E /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B1949D262206060033167E /* SearchVM.swift */; };
+		21B194A1262211920033167E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B194A0262211920033167E /* LaunchScreen.storyboard */; };
 		21B8489A261F82D1002F374D /* VideoCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B84899261F82D1002F374D /* VideoCamera.swift */; };
 		21C97B082619314400C0EDBE /* CustomTableIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C97B072619314400C0EDBE /* CustomTableIconView.swift */; };
 		21DF37FF2613BA5300D2D072 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DF37FE2613BA5300D2D072 /* PostModel.swift */; };
@@ -80,6 +83,9 @@
 		2198BEF4260E7B940061C49F /* PostBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBackground.swift; sourceTree = "<group>"; };
 		21AC2359261B6CB600161E6B /* EventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScreen.swift; sourceTree = "<group>"; };
 		21AC2391261B7D2C00161E6B /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		21B1949A262204D10033167E /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		21B1949D262206060033167E /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
+		21B194A0262211920033167E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21B84899261F82D1002F374D /* VideoCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCamera.swift; sourceTree = "<group>"; };
 		21C97B072619314400C0EDBE /* CustomTableIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableIconView.swift; sourceTree = "<group>"; };
 		21DF37FE2613BA5300D2D072 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 				214E3C0C2603E11800DA416B /* Resources */,
 				214E3C0E2603E12600DA416B /* View */,
 				21236D2325FFF4EA000524D8 /* Assets.xcassets */,
+				21B194A0262211920033167E /* LaunchScreen.storyboard */,
 				21236D2825FFF4EA000524D8 /* Info.plist */,
 				21236D1D25FFF4E9000524D8 /* Products */,
 				21236D2525FFF4EA000524D8 /* Preview Content */,
@@ -197,6 +204,7 @@
 				211C01B4261D203E00A992F9 /* ImagePicker.swift */,
 				211C01B7261D23DF00A992F9 /* CameraViewer.swift */,
 				21B84899261F82D1002F374D /* VideoCamera.swift */,
+				21B1949A262204D10033167E /* SearchScreen.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 				217DF0E82612A3C30078572D /* PostVM.swift */,
 				214CF7D32613932E00D30A40 /* HomeVM.swift */,
 				214CF7D9261393DF00D30A40 /* NewPostVM.swift */,
+				21B1949D262206060033167E /* SearchVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -311,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21236D2725FFF4EA000524D8 /* Preview Assets.xcassets in Resources */,
+				21B194A1262211920033167E /* LaunchScreen.storyboard in Resources */,
 				21236D2425FFF4EA000524D8 /* Assets.xcassets in Resources */,
 				21236D3025FFF554000524D8 /* GoogleService-Info.plist in Resources */,
 			);
@@ -365,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B1949E262206060033167E /* SearchVM.swift in Sources */,
 				2164F19226039E84007D6AEC /* RegisterVM.swift in Sources */,
 				214CF7D42613932E00D30A40 /* HomeVM.swift in Sources */,
 				211C01B8261D23DF00A992F9 /* CameraViewer.swift in Sources */,
@@ -397,6 +408,7 @@
 				2164F19B2603A3B5007D6AEC /* TabBar.swift in Sources */,
 				21B8489A261F82D1002F374D /* VideoCamera.swift in Sources */,
 				216B74972608F6AA00BDDBD7 /* ProfileScreen.swift in Sources */,
+				21B1949B262204D10033167E /* SearchScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -97,4 +97,22 @@ class DatabaseManager {
             print("Successfully write post data to Firestore")
         }
     }
+    
+    public func numberOfPostOnFirestore() {
+        let email = Auth.auth().currentUser?.email
+        let currentUserID = Auth.auth().currentUser?.uid
+        
+        let safeEmail = DatabaseManager.shared.convertToSafeEmail(with: email!)
+        
+        firestore.collection("User \(safeEmail)_\(currentUserID!)").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            }
+            else {
+                for document in snapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    }
 }

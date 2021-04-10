@@ -26,11 +26,11 @@ struct SettingsScreen: View {
                 
                 Section(header: Text("Developer")) {
                     Button(action: {
-                        // Test action here...
+                        DatabaseManager.shared.numberOfPostOnFirestore()
                     }, label: {
                         HStack {
                             CustomTableIcon(backgroundColor: .blue, icon: "hammer")
-                            Text("Test Action")
+                            Text("Print Number of Posts")
                         }
                     })
                 }
