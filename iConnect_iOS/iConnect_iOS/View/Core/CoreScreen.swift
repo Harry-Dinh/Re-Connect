@@ -20,8 +20,8 @@ struct CoreScreen: View {
                 Home()
                     .opacity(selectedTab == "house" ? 1 : 0)
                 
-                SearchScreen()
-                    .opacity(selectedTab == "magnifyingglass" ? 1 : 0)
+                ExploreScreen()
+                    .opacity(selectedTab == "safari" ? 1 : 0)
                 
                 ProfileScreen()
                     .opacity(selectedTab == "person.crop.circle" ? 1 : 0)

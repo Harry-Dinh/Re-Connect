@@ -24,6 +24,7 @@ class PostVM: ObservableObject {
     
     private init() {}
     
+    // NOTE: This method might only be useful for 0 to 25 data on Firestore. Look up for another method for managing 1000+ data.
     public func fetchPostDataFromFirestore() {
         
         fetchUserName()
@@ -35,7 +36,7 @@ class PostVM: ObservableObject {
         
         let safeEmail = DatabaseManager.shared.convertToSafeEmail(with: email)
         
-        firestore.collection("User \(safeEmail)_\(currentUserID)").addSnapshotListener { (snapshot, error) in
+        firestore.collection("User \(safeEmail)_\(currentUserID)").addSnapshotListener { [weak self] (snapshot, error) in
             guard let documents = snapshot?.documents else {
                 print("Error fetching documents: \(error!)")
                 return
@@ -47,7 +48,7 @@ class PostVM: ObservableObject {
             let liked = documents.map { $0["liked"]! }
             
             for i in 0..<title.count {
-                self.postModel.append(PostModel(title: title[i] as? String ?? "Untitled Post",
+                self?.postModel.append(PostModel(title: title[i] as? String ?? "Untitled Post",
                                                 body: body[i] as? String ?? "This post has no body text",
                                                 date: date[i] as? String ?? "Unknown date",
                                                 liked: liked[i] as? Bool ?? false))

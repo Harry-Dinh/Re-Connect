@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct SearchScreen: View {
+struct ExploreScreen: View {
     
     @ObservedObject var viewModel = SearchVM.shared
     
     var body: some View {
         VStack {
             HStack {
-                Text("search")
+                Text("explore")
                     .font(.system(size: 36, weight: .heavy, design: .rounded))
                     .foregroundColor(.green)
                 
@@ -72,6 +72,6 @@ struct SearchScreen: View {
 
 struct SearchScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SearchScreen()
+        ExploreScreen()
     }
 }

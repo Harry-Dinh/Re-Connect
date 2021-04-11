@@ -15,6 +15,7 @@ class NewPostVM: ObservableObject {
     @Published var storyOrPost: Bool = false
     
     @Published var selectedPrivacy: SelectedPostAudience = .visibleToFollowers
+    @Published var showDiscardNewPostAlert = false
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
