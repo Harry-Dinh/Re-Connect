@@ -51,7 +51,7 @@ struct Home: View {
                     .foregroundColor(.secondary)
                 Spacer()
             }
-            else if postVM.postModel.count > 0 {
+            else {
                 ScrollView {
                     ForEach(postVM.postModel, id: \.id) { post in
                         PostView(postModel: PostModel(title: post.title, body: post.body, date: post.date, liked: post.liked))

@@ -25,6 +25,37 @@ class PostVM: ObservableObject {
     private init() {}
     
     // NOTE: This method might only be useful for 0 to 25 data on Firestore. Look up for another method for managing 1000+ data.
+//    public func fetchPostDataFromFirestore() {
+//
+//        fetchUserName()
+//
+//        guard let email = Auth.auth().currentUser?.email,
+//              let currentUserID = Auth.auth().currentUser?.uid else {
+//            return
+//        }
+//
+//        let safeEmail = DatabaseManager.shared.convertToSafeEmail(with: email)
+//
+//        firestore.collection("User \(safeEmail)_\(currentUserID)").addSnapshotListener { [weak self] (snapshot, error) in
+//            guard let documents = snapshot?.documents else {
+//                print("Error fetching documents: \(error!)")
+//                return
+//            }
+//
+//            let title = documents.map { $0["title"]! }
+//            let body = documents.map { $0["body"]! }
+//            let date = documents.map { $0["date"]! }
+//            let liked = documents.map { $0["liked"]! }
+//
+//            for i in 0..<title.count {
+//                self?.postModel.append(PostModel(title: title[i] as? String ?? "Untitled Post",
+//                                                body: body[i] as? String ?? "This post has no body text",
+//                                                date: date[i] as? String ?? "Unknown date",
+//                                                liked: liked[i] as? Bool ?? false))
+//            }
+//        }
+//    }
+    
     public func fetchPostDataFromFirestore() {
         
         fetchUserName()
@@ -36,22 +67,26 @@ class PostVM: ObservableObject {
         
         let safeEmail = DatabaseManager.shared.convertToSafeEmail(with: email)
         
-        firestore.collection("User \(safeEmail)_\(currentUserID)").addSnapshotListener { [weak self] (snapshot, error) in
-            guard let documents = snapshot?.documents else {
-                print("Error fetching documents: \(error!)")
-                return
+        var userCollectionRef: CollectionReference!
+        userCollectionRef = firestore.collection("User \(safeEmail)_\(currentUserID)")
+        
+        userCollectionRef.getDocuments { [weak self] (snapshot, error) in
+            if let error = error {
+                debugPrint("Error fetching docs: \(error)")
             }
-            
-            let title = documents.map { $0["title"]! }
-            let body = documents.map { $0["body"]! }
-            let date = documents.map { $0["date"]! }
-            let liked = documents.map { $0["liked"]! }
-            
-            for i in 0..<title.count {
-                self?.postModel.append(PostModel(title: title[i] as? String ?? "Untitled Post",
-                                                body: body[i] as? String ?? "This post has no body text",
-                                                date: date[i] as? String ?? "Unknown date",
-                                                liked: liked[i] as? Bool ?? false))
+            else {
+                guard let snapshot = snapshot else { return }
+                for document in snapshot.documents {
+                    let data = document.data()
+                    let body = data["body"] as? String ?? ""
+                    let date = data["date"] as? String ?? ""
+                    let liked = data["liked"] as? Bool ?? false
+                    let title = data["title"] as? String ?? ""
+                    let uuid = data["uuid"] as? String ?? UUID().uuidString
+                    
+                    let firestoreData = PostModel(id: uuid, title: title, body: body, date: date, liked: liked)
+                    self?.postModel.append(firestoreData)
+                }
             }
         }
     }
@@ -73,4 +108,22 @@ class PostVM: ObservableObject {
             }
         }
     }
+    
+//    public func likePost(liked: Bool) {
+//        guard let email = Auth.auth().currentUser?.email,
+//              let currentUserID = Auth.auth().currentUser?.uid else {
+//            return
+//        }
+//
+//        let safeEmail = DatabaseManager.shared.convertToSafeEmail(with: email)
+//
+//        firestore.collection("User \(safeEmail)_\(currentUserID)").getDocuments { (snapshot, error) in
+//            guard let documents = snapshot?.documents, error == nil else {
+//                print("Failed to get documents")
+//                return
+//            }
+//
+//            print("")
+//        }
+//    }
 }

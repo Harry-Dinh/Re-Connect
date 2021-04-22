@@ -33,6 +33,16 @@ struct SettingsScreen: View {
                             Text("Print Number of Posts")
                         }
                     })
+                    
+                    Button {
+                        
+                    } label: {
+                        HStack {
+                            CustomTableIcon(backgroundColor: .blue, icon: "doc.richtext")
+                            Text("Return Number of Documents Data on Firestore")
+                        }
+                    }
+
                 }
             }
             .listStyle(GroupedListStyle())

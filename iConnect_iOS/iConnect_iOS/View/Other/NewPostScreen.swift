@@ -108,6 +108,7 @@ struct NewPostScreen: View {
                         model.postTitle = ""
                         model.postBody = ""
                         
+                        PostVM.shared.fetchPostDataFromFirestore()
                         HomeVM.shared.showNewPostScreen = false
                     }, label: {
                         Image(systemName: model.storyOrPost ? "plus.rectangle.portrait" : "arrow.up.circle")

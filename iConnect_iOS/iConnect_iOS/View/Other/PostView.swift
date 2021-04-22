@@ -68,11 +68,11 @@ struct PostView: View {
                 
                 HStack(alignment: .firstTextBaseline,spacing: 25) {
                     Button(action: {
-                        
+                        postModel.liked = true
                     }, label: {
-                        Image(systemName: "heart")
+                        Image(systemName: postModel.liked ? "heart.fill" : "heart")
                             .imageScale(.large)
-                            .foregroundColor(.primary)
+                            .foregroundColor(postModel.liked ? .pink : .primary)
                     })
                     
                     Button(action: {}, label: {

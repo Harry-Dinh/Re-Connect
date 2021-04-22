@@ -20,9 +20,6 @@ struct ContentView: View {
         }
         else {
             CoreScreen()
-                .onAppear() {
-                    PostVM.shared.fetchPostDataFromFirestore()
-                }
         }
     }
 }
