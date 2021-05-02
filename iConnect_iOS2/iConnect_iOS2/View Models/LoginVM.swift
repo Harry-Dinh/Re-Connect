@@ -28,4 +28,14 @@ class LoginVM: ObservableObject {
             self?.isSignedIn = true
         }
     }
+    
+    public func signOutUser() {
+        do {
+            try Auth.auth().signOut()
+            self.isSignedIn = false
+        }
+        catch {
+            print("Cannot sign out")
+        }
+    }
 }

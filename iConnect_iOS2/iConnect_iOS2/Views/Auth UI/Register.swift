@@ -31,6 +31,7 @@ struct Register: View {
                         Image(systemName: "person")
                             .frame(width: 30)
                     }
+                    .autocapitalization(.words)
                     .padding()
                     .padding(.horizontal)
                     .background(
@@ -46,6 +47,7 @@ struct Register: View {
                         Image(systemName: "person")
                             .frame(width: 30)
                     }
+                    .autocapitalization(.words)
                     .padding()
                     .padding(.horizontal)
                     .background(
@@ -61,6 +63,8 @@ struct Register: View {
                         Image(systemName: "envelope")
                             .frame(width: 30)
                     }
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
                     .padding()
                     .padding(.horizontal)
                     .background(
@@ -76,6 +80,7 @@ struct Register: View {
                         Image(systemName: "lock")
                             .frame(width: 30)
                     }
+                    .autocapitalization(.none)
                     .padding()
                     .padding(.horizontal)
                     .background(

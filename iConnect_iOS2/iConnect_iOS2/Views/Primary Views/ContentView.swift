@@ -16,7 +16,7 @@ struct ContentView: View {
             Login()
         }
         else {
-            Text("You're in")
+            CoreScreen()
         }
     }
 }
