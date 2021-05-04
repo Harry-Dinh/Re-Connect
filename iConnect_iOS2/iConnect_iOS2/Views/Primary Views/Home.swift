@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Home: View {
+    
+    @ObservedObject var newPostVM = NewPostVM.shared
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -18,19 +21,25 @@ struct Home: View {
                 
                 Spacer()
                 
-                Button(action: {}, label: {
+                Button(action: {
+                    newPostVM.showNewPost.toggle()
+                }, label: {
                     ZStack {
-                        Circle()
+                        Capsule()
                             .foregroundColor(Color(.systemGray5))
                         
                         Image(systemName: "plus")
+                            .font(.system(size: 20))
                     }
                     .frame(width: 30, height: 30)
+                })
+                .fullScreenCover(isPresented: $newPostVM.showNewPost, content: {
+                    NewPostScreen()
                 })
             }
             .padding()
             
-            CustomEmptyView(width: nil, height: 1, foregroundColor: Color(.systemGray4))
+            Divider()
             
             Spacer()
         }

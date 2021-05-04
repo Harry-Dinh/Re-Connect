@@ -17,10 +17,21 @@ struct Settings: View {
                     .fontWeight(.heavy)
                 
                 Spacer()
+                
+                Button(action: {}, label: {
+                    ZStack {
+                        Capsule()
+                            .foregroundColor(Color(.systemGray5))
+                        
+                        Image(systemName: "info")
+                            .font(.system(size: 20))
+                    }
+                })
+                .frame(width: 30, height: 30)
             }
             .padding()
             
-            CustomEmptyView(width: nil, height: 1, foregroundColor: Color(.systemGray4))
+            Divider()
             
             List {
                 Button(action: {

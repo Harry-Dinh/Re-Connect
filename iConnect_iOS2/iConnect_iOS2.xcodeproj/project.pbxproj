@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210855BD2640C07100382446 /* NewPostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210855BC2640C07100382446 /* NewPostScreen.swift */; };
+		210855BF2640C09100382446 /* NewPostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210855BE2640C09100382446 /* NewPostVM.swift */; };
 		2191D60D263E101B002EC24F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2191D60C263E101B002EC24F /* GoogleService-Info.plist */; };
 		2191D60F263E102A002EC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191D60E263E102A002EC24F /* AppDelegate.swift */; };
 		2191D614263E12F3002EC24F /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191D613263E12F3002EC24F /* LoginVM.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210855BC2640C07100382446 /* NewPostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostScreen.swift; sourceTree = "<group>"; };
+		210855BE2640C09100382446 /* NewPostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVM.swift; sourceTree = "<group>"; };
 		2191D60C263E101B002EC24F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2191D60E263E102A002EC24F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2191D613263E12F3002EC24F /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			children = (
 				2191D613263E12F3002EC24F /* LoginVM.swift */,
 				2191D615263E1303002EC24F /* RegisterVM.swift */,
+				210855BE2640C09100382446 /* NewPostVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 		2191D621263E18AC002EC24F /* Secondary Views */ = {
 			isa = PBXGroup;
 			children = (
+				210855BC2640C07100382446 /* NewPostScreen.swift */,
 			);
 			path = "Secondary Views";
 			sourceTree = "<group>";
@@ -323,9 +329,11 @@
 				2191D61F263E187F002EC24F /* ContentView.swift in Sources */,
 				2197227B263F3D5B000C06FE /* Home.swift in Sources */,
 				2191D616263E1303002EC24F /* RegisterVM.swift in Sources */,
+				210855BD2640C07100382446 /* NewPostScreen.swift in Sources */,
 				21972275263F3B0C000C06FE /* CustomTabBar.swift in Sources */,
 				21972279263F3D19000C06FE /* CoreScreen.swift in Sources */,
 				2191D627263E2088002EC24F /* CustomEmptyView.swift in Sources */,
+				210855BF2640C09100382446 /* NewPostVM.swift in Sources */,
 				2191D618263E144F002EC24F /* Methods.swift in Sources */,
 				21BB7915263DD1DD00A95138 /* iConnect_iOS2App.swift in Sources */,
 			);
