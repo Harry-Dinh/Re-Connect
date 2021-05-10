@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		210855BD2640C07100382446 /* NewPostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210855BC2640C07100382446 /* NewPostScreen.swift */; };
 		210855BF2640C09100382446 /* NewPostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210855BE2640C09100382446 /* NewPostVM.swift */; };
+		212E3F16264989E40012D92B /* CustomTFAccessoryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E3F15264989E40012D92B /* CustomTFAccessoryInputView.swift */; };
+		218E1B622649F29A00B2631E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E1B612649F29A00B2631E /* PostView.swift */; };
 		2191D60D263E101B002EC24F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2191D60C263E101B002EC24F /* GoogleService-Info.plist */; };
 		2191D60F263E102A002EC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191D60E263E102A002EC24F /* AppDelegate.swift */; };
 		2191D614263E12F3002EC24F /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191D613263E12F3002EC24F /* LoginVM.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		210855BC2640C07100382446 /* NewPostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostScreen.swift; sourceTree = "<group>"; };
 		210855BE2640C09100382446 /* NewPostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVM.swift; sourceTree = "<group>"; };
+		212E3F15264989E40012D92B /* CustomTFAccessoryInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTFAccessoryInputView.swift; sourceTree = "<group>"; };
+		218E1B612649F29A00B2631E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		2191D60C263E101B002EC24F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2191D60E263E102A002EC24F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2191D613263E12F3002EC24F /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				210855BC2640C07100382446 /* NewPostScreen.swift */,
+				218E1B612649F29A00B2631E /* PostView.swift */,
 			);
 			path = "Secondary Views";
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			children = (
 				2191D626263E2088002EC24F /* CustomEmptyView.swift */,
 				21972276263F3C13000C06FE /* BlurView.swift */,
+				212E3F15264989E40012D92B /* CustomTFAccessoryInputView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -333,8 +339,10 @@
 				21972275263F3B0C000C06FE /* CustomTabBar.swift in Sources */,
 				21972279263F3D19000C06FE /* CoreScreen.swift in Sources */,
 				2191D627263E2088002EC24F /* CustomEmptyView.swift in Sources */,
+				212E3F16264989E40012D92B /* CustomTFAccessoryInputView.swift in Sources */,
 				210855BF2640C09100382446 /* NewPostVM.swift in Sources */,
 				2191D618263E144F002EC24F /* Methods.swift in Sources */,
+				218E1B622649F29A00B2631E /* PostView.swift in Sources */,
 				21BB7915263DD1DD00A95138 /* iConnect_iOS2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
