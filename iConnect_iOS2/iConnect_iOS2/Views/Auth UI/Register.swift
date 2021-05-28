@@ -13,9 +13,9 @@ struct Register: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 Image(systemName: "person.crop.square.fill.and.at.rectangle")
-                    .font(.system(size: 170))
+                    .font(.system(size: 150))
                     .foregroundColor(Color("iconnectBlue"))
                 
                 Text("New iConnect Account")
@@ -24,7 +24,7 @@ struct Register: View {
                 
                 CustomEmptyView(width: nil, height: 0.5, foregroundColor: .clear)
                 
-                VStack(spacing: 15) {
+                VStack(spacing: 10) {
                     Label {
                         TextField("First name", text: $viewModel.firstNameField)
                     } icon: {
@@ -89,21 +89,39 @@ struct Register: View {
                             .foregroundColor(Color(.systemGray6))
                             .cornerRadius(15)
                     )
-                    
-                    Button(action: {
-                        viewModel.createUserAccount(firstName: viewModel.firstNameField, lastName: viewModel.lastNameField, email: viewModel.emailField, password: viewModel.passwordField)
-                    }, label: {
-                        ZStack {
-                            LinearGradient(gradient: Gradient(colors: [Color("iconnectGreen"), Color("iconnectBlue")]), startPoint: .trailing, endPoint: .leading)
-                            
-                            Text("Create Account")
-                                .font(.system(size: 20, weight: .semibold, design: .default))
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: 200, height: 52)
-                        .cornerRadius(15)
-                    })
                 }
+                
+                CustomEmptyView(width: nil, height: 10, foregroundColor: .clear)
+                
+                GroupBox(label: Text("Secondary Info"), content: {
+                    VStack(alignment: .leading, spacing: 13) {
+                        Label(
+                            title: { DatePicker("Date of Birth", selection: $viewModel.dateOfBirth, displayedComponents: .date) },
+                            icon: { Image(systemName: "calendar").foregroundColor(.red) })
+                        
+                        Label(
+                            title: { TextField("Username (e.g: @YourName)", text: $viewModel.username) },
+                            icon: { Image(systemName: "at").foregroundColor(.accentColor) })
+                    }
+                })
+                .cornerRadius(15.0)
+                .frame(width: UIScreen.main.bounds.width - 40)
+                .padding(.horizontal)
+                
+                // Sign In Button
+                Button(action: {
+                    viewModel.createUserAccount(firstName: viewModel.firstNameField, lastName: viewModel.lastNameField, email: viewModel.emailField, password: viewModel.passwordField)
+                }, label: {
+                    ZStack {
+                        LinearGradient(gradient: Gradient(colors: [Color("iconnectYellow"), Color("iconnectBlue")]), startPoint: .trailing, endPoint: .leading)
+                        
+                        Text("Create Account")
+                            .font(.system(size: 20, weight: .semibold, design: .default))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 180, height: 50)
+                    .cornerRadius(15)
+                })
                 
                 Spacer()
             }
@@ -123,6 +141,6 @@ struct Register: View {
 struct Register_Previews: PreviewProvider {
     static var previews: some View {
         Register()
-            .preferredColorScheme(.dark)
+            
     }
 }

@@ -13,7 +13,6 @@ struct CustomTFAccessoryInputView: UIViewRepresentable {
     var hint: String
     @Binding var text: String
     @Binding var containerHeight: CGFloat
-    var onEnd: () -> ()
     
     func makeCoordinator() -> Coordinator {
         return CustomTFAccessoryInputView.Coordinator(parent: self)
@@ -41,7 +40,7 @@ struct CustomTFAccessoryInputView: UIViewRepresentable {
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         DispatchQueue.main.async {
-            if containerHeight == 0 {
+            if containerHeight == 300 {
                 containerHeight = uiView.contentSize.height
             }
         }
@@ -78,7 +77,7 @@ struct CustomTFAccessoryInputView: UIViewRepresentable {
         }
         
         @objc func dismissKeyboard() {
-            parent.onEnd()
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
     }
 }

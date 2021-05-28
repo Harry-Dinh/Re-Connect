@@ -15,7 +15,7 @@ struct Home: View {
         VStack(spacing: 0) {
             HStack {
                 Text("iconnect")
-                    .font(Font.custom("Oxanium", size: 36))
+                    .font(Font.custom("Oxanium", size: 30))
                     .foregroundColor(Color("iconnectBlue"))
                     .fontWeight(.heavy)
                 
@@ -37,7 +37,8 @@ struct Home: View {
                     NewPostScreen()
                 })
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.bottom, 7)
             
             Divider()
             

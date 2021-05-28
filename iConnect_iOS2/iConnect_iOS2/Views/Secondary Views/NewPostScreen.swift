@@ -19,38 +19,38 @@ struct NewPostScreen: View {
                 Color(.systemBackground)
                     .ignoresSafeArea(.container, edges: .top)
                 
-                HStack(alignment: .center, spacing: 15) {
-                    Text("Create New Post")
-                        .font(Font.custom("Oxanium", size: 20))
-                        .bold()
-                        .foregroundColor(.accentColor)
-                    Spacer()
-                    
-                    Button(action: {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    }, label: {
-                        ZStack {
-                            Circle()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(Color(.systemGray5))
-                            
-                            Image(systemName: "keyboard.chevron.compact.down")
-                        }
-                    })
-                    
-                    Button(action: {
-                        viewModel.showNewPost = false
-                    }, label: {
-                        ZStack {
-                            Capsule()
-                                .foregroundColor(Color(.systemGray5))
-                            
-                            Text("Cancel")
-                                .fontWeight(.medium)
-                        }
-                    })
-                    .frame(width: 80, height: 30)
-                }
+            HStack(alignment: .center, spacing: 15) {
+                Text("Create New Post")
+                    .font(Font.custom("Oxanium", size: 20))
+                    .bold()
+                    .foregroundColor(.accentColor)
+                Spacer()
+                
+                Button(action: {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }, label: {
+                    ZStack {
+                        Circle()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(Color(.systemGray5))
+                        
+                        Image(systemName: "keyboard.chevron.compact.down")
+                    }
+                })
+                
+                Button(action: {
+                    viewModel.showNewPost = false
+                }, label: {
+                    ZStack {
+                        Capsule()
+                            .foregroundColor(Color(.systemGray5))
+                        
+                        Text("Cancel")
+                            .fontWeight(.medium)
+                    }
+                })
+                .frame(width: 80, height: 30)
+            }
                 .padding(.horizontal)
             }
             .frame(height: 50)
@@ -60,25 +60,34 @@ struct NewPostScreen: View {
             // MARK: - Start of editing form
             ScrollView {
                 VStack {
-                    TextField("Title (optional)", text: $viewModel.postTitleField) { (isEditing) in
-                        viewModel.isEditing = isEditing
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(Color(.systemGray6))
+                            .cornerRadius(10.0)
+                        
+                        TextField("Title (optional)", text: $viewModel.postTitleField) { (isEditing) in
+                            viewModel.isEditing = isEditing
+                        }
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 7)
                     }
                     
                     Divider()
                     
-                    CustomTFAccessoryInputView(hint: "Aa", text: $viewModel.postBodyField, containerHeight: $viewModel.containerHeight, onEnd: {
-                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                    })
-                    .frame(height: viewModel.containerHeight)
+                    CustomTFAccessoryInputView(hint: "Aa", text: $viewModel.postBodyField, containerHeight: $viewModel.containerHeight)
+                        .frame(height: viewModel.containerHeight)
+                        .padding(.leading, 3)
                 }
                 .padding(.vertical)
                 .padding(.horizontal, 7)
             }
             
             // Bottom toolbar
-            if !viewModel.isEditing {
-                Divider()
+            Divider()
+            
+            HStack(spacing: 0) {
                 
+                // Left toolbar section
                 HStack(spacing: 0) {
                     Button(action: {}, label: {
                         ZStack {
@@ -90,7 +99,20 @@ struct NewPostScreen: View {
                         .frame(width: 90,height: 30)
                     })
                     
-                    CustomEmptyView(width: 20, height: 30, foregroundColor: .clear)
+                    CustomEmptyView(width: 15, height: 30, foregroundColor: .clear)
+                    
+                    Button(action: {}, label: {
+                        ZStack {
+                            Circle()
+                                .foregroundColor(Color(.systemGray5))
+                            
+                            Image(systemName: "tag")
+                                .font(.headline)
+                        }
+                        .frame(width: 35, height: 35)
+                    })
+                    
+                    CustomEmptyView(width: 15, height: 30, foregroundColor: .clear)
                     
                     Menu {
                         Section {
@@ -122,9 +144,11 @@ struct NewPostScreen: View {
                         }
                         .frame(width: 35, height: 35)
                     }
-                    
-                    Spacer()
-                    
+                }
+                
+                Spacer()
+                
+                HStack(spacing: 0) {
                     Button(action: {}, label: {
                         ZStack {
                             Circle()
@@ -136,7 +160,20 @@ struct NewPostScreen: View {
                         .frame(width: 35, height: 35)
                     })
                     
-                    CustomEmptyView(width: 20, height: 30, foregroundColor: .clear)
+                    CustomEmptyView(width: 15, height: 30, foregroundColor: .clear)
+                    
+                    Button(action: {}, label: {
+                        ZStack {
+                            Circle()
+                                .foregroundColor(Color(.systemGray5))
+                            
+                            Image(systemName: "doc.badge.gearshape")
+                                .font(.headline)
+                        }
+                        .frame(width: 35, height: 35)
+                    })
+                    
+                    CustomEmptyView(width: 15, height: 30, foregroundColor: .clear)
                     
                     Button(action: {
                         let datePosted = Date()
@@ -159,9 +196,11 @@ struct NewPostScreen: View {
                     })
                     .disabled(viewModel.postTitleField.isEmpty && viewModel.postBodyField.isEmpty || !viewModel.postTitleField.isEmpty && viewModel.postBodyField.isEmpty ? true : false)
                 }
-                .padding(.all, 10)
-                .ignoresSafeArea(.keyboard)
             }
+            .frame(height: 30)
+            .frame(maxWidth: UIScreen.main.bounds.width)
+            .padding(.all, 10)
+            .ignoresSafeArea(.keyboard)
         }
     }
 }
@@ -169,6 +208,6 @@ struct NewPostScreen: View {
 struct NewPostScreen_Previews: PreviewProvider {
     static var previews: some View {
         NewPostScreen()
-            .previewDevice("iPhone 6s")
+            .preferredColorScheme(.light)
     }
 }

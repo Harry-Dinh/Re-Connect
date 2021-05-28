@@ -64,7 +64,7 @@ struct Login: View {
                     viewModel.signInWithCurrentUser(email: viewModel.emailField, password: viewModel.passwordField)
                 }, label: {
                     ZStack {
-                        LinearGradient(gradient: Gradient(colors: [Color("iconnectGreen"), Color("iconnectBlue")]), startPoint: .leading, endPoint: .trailing)
+                        LinearGradient(gradient: Gradient(colors: [Color("iconnectYellow"), Color("iconnectBlue")]), startPoint: .leading, endPoint: .trailing)
                         
                         Text("Login")
                             .font(.system(size: 20, weight: .semibold, design: .default))

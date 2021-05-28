@@ -19,6 +19,10 @@ class RegisterVM: ObservableObject {
     @Published var emailField: String = ""
     @Published var passwordField: String = ""
     
+    // Secondary Info
+    @Published var dateOfBirth: Date = Date()
+    @Published var username: String = ""
+    
     private var databaseRef = Database.database().reference()
     
     public func createUserAccount(firstName: String, lastName: String, email: String, password: String) {

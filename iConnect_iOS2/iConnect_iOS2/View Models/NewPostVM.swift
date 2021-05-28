@@ -28,7 +28,7 @@ class NewPostVM: ObservableObject {
     @Published var addMedia: Bool = false
     @Published var isEditing: Bool = false
     
-    @Published var containerHeight: CGFloat = 0
+    @Published var containerHeight: CGFloat = 300
     
     public func writeTextPostToDatabase(title: String, body: String, datePosted: Date) {
         guard let email = Auth.auth().currentUser?.email,

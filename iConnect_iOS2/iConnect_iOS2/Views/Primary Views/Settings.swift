@@ -12,24 +12,14 @@ struct Settings: View {
         VStack(spacing: 0) {
             HStack {
                 Text("settings")
-                    .font(Font.custom("Oxanium", size: 36))
+                    .font(Font.custom("Oxanium", size: 30))
                     .foregroundColor(Color("iconnectBlue"))
                     .fontWeight(.heavy)
                 
                 Spacer()
-                
-                Button(action: {}, label: {
-                    ZStack {
-                        Capsule()
-                            .foregroundColor(Color(.systemGray5))
-                        
-                        Image(systemName: "info")
-                            .font(.system(size: 20))
-                    }
-                })
-                .frame(width: 30, height: 30)
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.bottom, 7)
             
             Divider()
             
