@@ -14,12 +14,12 @@ struct Register: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Image(systemName: "person.crop.square.fill.and.at.rectangle")
-                    .font(.system(size: 150))
-                    .foregroundColor(Color("iconnectBlue"))
+                LogoView(imageName: "person.crop.circle.badge.plus", imageSize: 90, displayColor: Color("iconnectYellow"))
+                
+                CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
                 
                 Text("New iConnect Account")
-                    .font(Font.custom("Oxanium", size: 30))
+                    .font(.title)
                     .bold()
                 
                 CustomEmptyView(width: nil, height: 0.5, foregroundColor: .clear)
@@ -91,36 +91,19 @@ struct Register: View {
                     )
                 }
                 
-                CustomEmptyView(width: nil, height: 10, foregroundColor: .clear)
-                
-                GroupBox(label: Text("Secondary Info"), content: {
-                    VStack(alignment: .leading, spacing: 13) {
-                        Label(
-                            title: { DatePicker("Date of Birth", selection: $viewModel.dateOfBirth, displayedComponents: .date) },
-                            icon: { Image(systemName: "calendar").foregroundColor(.red) })
-                        
-                        Label(
-                            title: { TextField("Username (e.g: @YourName)", text: $viewModel.username) },
-                            icon: { Image(systemName: "at").foregroundColor(.accentColor) })
-                    }
-                })
-                .cornerRadius(15.0)
-                .frame(width: UIScreen.main.bounds.width - 40)
-                .padding(.horizontal)
+                CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
                 
                 // Sign In Button
-                Button(action: {
+                NavigationLink(destination: DetailRegistration()) {
+                    Text("Continue")
+                        .font(.system(size: 20, weight: .semibold, design: .default))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 20).frame(width: 150))
+                }
+                .disabled(viewModel.firstNameField.isEmpty && viewModel.lastNameField.isEmpty && viewModel.emailField.isEmpty && viewModel.passwordField.isEmpty)
+                .simultaneousGesture(TapGesture().onEnded {
                     viewModel.createUserAccount(firstName: viewModel.firstNameField, lastName: viewModel.lastNameField, email: viewModel.emailField, password: viewModel.passwordField)
-                }, label: {
-                    ZStack {
-                        LinearGradient(gradient: Gradient(colors: [Color("iconnectYellow"), Color("iconnectBlue")]), startPoint: .trailing, endPoint: .leading)
-                        
-                        Text("Create Account")
-                            .font(.system(size: 20, weight: .semibold, design: .default))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 180, height: 50)
-                    .cornerRadius(15)
                 })
                 
                 Spacer()
@@ -141,6 +124,5 @@ struct Register: View {
 struct Register_Previews: PreviewProvider {
     static var previews: some View {
         Register()
-            
     }
 }

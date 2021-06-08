@@ -13,6 +13,7 @@ struct Home: View {
     
     var body: some View {
         VStack(spacing: 0) {
+            // Navigation bar
             HStack {
                 Text("iconnect")
                     .font(Font.custom("Oxanium", size: 30))
@@ -37,12 +38,14 @@ struct Home: View {
                     NewPostScreen()
                 })
             }
+            .padding(.bottom, 15)
             .padding(.horizontal)
-            .padding(.bottom, 7)
             
             Divider()
             
-            Spacer()
+            ScrollView {
+                
+            }
         }
     }
 }
@@ -50,5 +53,6 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
+            .previewDevice("iPhone 6s")
     }
 }

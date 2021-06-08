@@ -32,6 +32,8 @@ class LoginVM: ObservableObject {
     public func signOutUser() {
         do {
             try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: "currentUserFirstName")
+            UserDefaults.standard.removeObject(forKey: "currentUserLastName")
             self.isSignedIn = false
         }
         catch {

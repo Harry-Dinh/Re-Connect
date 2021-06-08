@@ -18,7 +18,7 @@ struct Login: View {
             
             Image("logo")
                 .resizable()
-                .frame(width: 200, height: 200)
+                .frame(width: 170, height: 170)
             
             Text("iConnect")
                 .font(Font.custom("Oxanium", size: 40))
@@ -63,15 +63,11 @@ struct Login: View {
                 Button(action: {
                     viewModel.signInWithCurrentUser(email: viewModel.emailField, password: viewModel.passwordField)
                 }, label: {
-                    ZStack {
-                        LinearGradient(gradient: Gradient(colors: [Color("iconnectYellow"), Color("iconnectBlue")]), startPoint: .leading, endPoint: .trailing)
-                        
-                        Text("Login")
-                            .font(.system(size: 20, weight: .semibold, design: .default))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 150, height: 52)
-                    .cornerRadius(15)
+                    Text("Login")
+                        .font(.system(size: 20, weight: .semibold, design: .default))
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(RoundedRectangle(cornerRadius: 20).frame(width: 150))
                 })
             }
             
@@ -90,6 +86,7 @@ struct Login: View {
                     Register()
                 })
             }
+            .padding(.bottom)
         }
     }
 }
@@ -97,6 +94,5 @@ struct Login: View {
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
         Login()
-            .preferredColorScheme(.dark)
     }
 }

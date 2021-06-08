@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct PostView: View {
+    
+    @ObservedObject var postVM = PostVM.shared
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Image(systemName: "person.crop.circle")
+                    .resizable()
+                    .frame(width: 35, height: 35)
+            }
+        }
     }
 }
 
