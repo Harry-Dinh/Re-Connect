@@ -23,6 +23,8 @@ class HomeVM: ObservableObject {
     
     @Published var postModel: [PostModel] = []
     
+    @Published var showViewSettings: Bool = false
+    
     /// This function identify the current user's email and their ID to fetch posts and displaying them on the Home screen.
     public func getPosts() {
         guard let email = Auth.auth().currentUser?.email,

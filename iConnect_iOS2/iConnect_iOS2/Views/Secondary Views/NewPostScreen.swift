@@ -13,194 +13,96 @@ struct NewPostScreen: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        
-        VStack(spacing: 0) {
-            ZStack {
-                Color(.systemBackground)
-                    .ignoresSafeArea(.container, edges: .top)
-                
-            HStack(alignment: .center, spacing: 15) {
-                Text("Create New Post")
-                    .font(Font.custom("Oxanium", size: 20))
-                    .bold()
-                    .foregroundColor(.accentColor)
-                Spacer()
-                
-                Button(action: {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                }, label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(Color(.systemGray5))
-                        
-                        Image(systemName: "keyboard.chevron.compact.down")
-                    }
-                })
-                
-                Button(action: {
-                    viewModel.showNewPost = false
-                }, label: {
-                    ZStack {
-                        Capsule()
-                            .foregroundColor(Color(.systemGray5))
-                        
-                        Text("Cancel")
-                            .fontWeight(.medium)
-                    }
-                })
-                .frame(width: 80, height: 30)
-            }
-                .padding(.horizontal)
-            }
-            .frame(height: 50)
-            
-            Divider()
-            
-            // MARK: - Start of editing form
-            ScrollView {
-                VStack {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color(.systemGray6))
-                            .cornerRadius(10.0)
-                        
-                        TextField("Title (optional)", text: $viewModel.postTitleField) { (isEditing) in
-                            viewModel.isEditing = isEditing
-                        }
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 7)
-                    }
+        ZStack {
+            NavigationView {
+                Form {
+                    TextField("Title (optional)", text: $viewModel.postTitleField)
                     
-                    Divider()
-                    
-                    CustomTFAccessoryInputView(hint: "Aa", text: $viewModel.postBodyField, containerHeight: $viewModel.containerHeight)
-                        .frame(height: viewModel.containerHeight)
-                        .padding(.leading, 3)
+                    Section(header: Text("Post body: Describe your contents here...")) {
+                        TextEditor(text: $viewModel.postBodyField)
+                            .frame(height: 450)
+                            .font(.system(size: 18))
+                    }
                 }
-                .padding(.vertical)
-                .padding(.horizontal, 7)
-            }
-            
-            // Bottom toolbar
-            Divider()
-            
-            HStack(spacing: 0) {
-                
-                // Left toolbar section
-                HStack(spacing: 0) {
-                    Button(action: {}, label: {
-                        ZStack {
-                            Capsule()
-                                .foregroundColor(Color(.systemGray5))
-                            
-                            Text("Preview")
-                        }
-                        .frame(width: 90,height: 30)
-                    })
-                    
-                    CustomEmptyView(width: 15, height: 30, foregroundColor: .clear)
-                    
-                    Button(action: {}, label: {
-                        ZStack {
-                            Circle()
-                                .foregroundColor(Color(.systemGray5))
-                            
-                            Image(systemName: "tag")
-                                .font(.headline)
-                        }
-                        .frame(width: 35, height: 35)
-                    })
-                    
-                    CustomEmptyView(width: 15, height: 30, foregroundColor: .clear)
-                    
-                    Menu {
-                        Section {
-                            Button(action: {}, label: {
-                                Label("Photo Library", systemImage: "photo.on.rectangle.angled")
-                            })
-                            
-                            Button(action: {}, label: {
-                                Label("Take Photo", systemImage: "camera")
-                            })
-                            
-                            Button(action: {}, label: {
-                                Label("Record Video", systemImage: "video")
-                            })
-                        }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
                         
-                        Section {
-                            Button(action: {}, label: {
-                                Label("Documents", systemImage: "doc")
-                            })
+                        Menu {
+                            Section {
+                                Button(action: {}, label: {
+                                    Label("Photo Library", systemImage: "photo")
+                                })
+                            }
+                        } label: {
+                            Image(systemName: "photo.on.rectangle.angled")
+                                .imageScale(.large)
                         }
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .foregroundColor(Color(.systemGray5))
-                            
+
+                        
+                        Spacer()
+                        
+                        Button(action: {}, label: {
                             Image(systemName: "paperclip")
-                                .font(.headline)
-                        }
-                        .frame(width: 35, height: 35)
+                        })
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            viewModel.isPreviewing.toggle()
+                        }, label: {
+                            Image(systemName: "eye")
+                        })
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            viewModel.showProgressIndicator = true
+                            
+                            viewModel.writeTextPostToDatabase(title: viewModel.postTitleField, body: viewModel.postBodyField, datePosted: Date())
+                            viewModel.showNewPost = false
+                            
+                            viewModel.postTitleField = ""
+                            viewModel.postBodyField = ""
+                            viewModel.showProgressIndicator = false
+                        }, label: {
+                            if !viewModel.showProgressIndicator {
+                                Image(systemName: "arrow.up")
+                            }
+                            else {
+                                ProgressView()
+                                    .progressViewStyle(CircularProgressViewStyle())
+                            }
+                        })
+                        .disabled(viewModel.postBodyField.isEmpty)
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Text("Create New Post")
+                            .font(.title3)
+                            .bold()
+                    }
+                    
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        }, label: {
+                            Image(systemName: "keyboard.chevron.compact.down")
+                        })
+                        
+                        Button(action: {
+                            NewPostVM.shared.showNewPost = false
+                        }, label: {
+                            Text("Cancel")
+                        })
                     }
                 }
-                
-                Spacer()
-                
-                HStack(spacing: 0) {
-                    Button(action: {}, label: {
-                        ZStack {
-                            Circle()
-                                .foregroundColor(Color(.systemGray5))
-                            
-                            Image(systemName: "person.2")
-                                .font(.headline)
-                        }
-                        .frame(width: 35, height: 35)
-                    })
-                    
-                    CustomEmptyView(width: 15, height: 30, foregroundColor: .clear)
-                    
-                    Button(action: {}, label: {
-                        ZStack {
-                            Circle()
-                                .foregroundColor(Color(.systemGray5))
-                            
-                            Image(systemName: "doc.badge.gearshape")
-                                .font(.headline)
-                        }
-                        .frame(width: 35, height: 35)
-                    })
-                    
-                    CustomEmptyView(width: 15, height: 30, foregroundColor: .clear)
-                    
-                    Button(action: {
-                        let datePosted = Date()
-                        
-                        viewModel.writeTextPostToDatabase(title: viewModel.postTitleField, body: viewModel.postBodyField, datePosted: datePosted)
-                        
-                        viewModel.postTitleField = ""
-                        viewModel.postBodyField = ""
-                        
-                        viewModel.showNewPost = false
-                    }, label: {
-                        ZStack {
-                            Circle()
-                                .foregroundColor(.accentColor)
-                            Image(systemName: "arrow.up")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                        }
-                        .frame(width: 35, height: 35)
-                    })
-                    .disabled(viewModel.postTitleField.isEmpty && viewModel.postBodyField.isEmpty || !viewModel.postTitleField.isEmpty && viewModel.postBodyField.isEmpty ? true : false)
-                }
             }
-            .frame(height: 30)
-            .frame(maxWidth: UIScreen.main.bounds.width)
-            .padding(.all, 10)
-            .ignoresSafeArea(.keyboard)
+            
+            // Post Preview
+            if viewModel.isPreviewing {
+                PreviewPost()
+            }
         }
     }
 }

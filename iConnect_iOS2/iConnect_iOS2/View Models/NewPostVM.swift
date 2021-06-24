@@ -27,6 +27,8 @@ class NewPostVM: ObservableObject {
     @Published var postBodyField: String = ""
     @Published var addMedia: Bool = false
     @Published var isEditing: Bool = false
+    @Published var isPreviewing: Bool = false
+    @Published var showProgressIndicator: Bool = false
     
     @Published var containerHeight: CGFloat = 300
     

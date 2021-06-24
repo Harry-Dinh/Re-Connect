@@ -10,41 +10,47 @@ import SwiftUI
 struct Home: View {
     
     @ObservedObject var newPostVM = NewPostVM.shared
+    @ObservedObject var viewModel = HomeVM.shared
     
     var body: some View {
-        VStack(spacing: 0) {
-            // Navigation bar
-            HStack {
-                Text("iconnect")
-                    .font(Font.custom("Oxanium", size: 30))
-                    .foregroundColor(Color("iconnectBlue"))
-                    .fontWeight(.heavy)
-                
-                Spacer()
-                
-                Button(action: {
-                    newPostVM.showNewPost.toggle()
-                }, label: {
-                    ZStack {
-                        Capsule()
-                            .foregroundColor(Color(.systemGray5))
-                        
-                        Image(systemName: "plus")
-                            .font(.system(size: 20))
-                    }
-                    .frame(width: 30, height: 30)
-                })
-                .fullScreenCover(isPresented: $newPostVM.showNewPost, content: {
-                    NewPostScreen()
-                })
-            }
-            .padding(.bottom, 15)
-            .padding(.horizontal)
-            
-            Divider()
-            
+        NavigationView {
             ScrollView {
-                
+                ForEach(1..<10) { _ in
+                    PostView()
+                        .padding()
+                }
+            }
+            .navigationTitle("iConnect")
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button(action: {}, label: {
+                            Label("My Profile", systemImage: "person.crop.circle")
+                        })
+                        
+                        Button(action: {
+                            viewModel.showViewSettings.toggle()
+                        }, label: {
+                            Label("Home Settings", systemImage: "gear")
+                        })
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                            .imageScale(.large)
+                    }
+                    .sheet(isPresented: $viewModel.showViewSettings, content: {
+                        HomeViewSettings()
+                    })
+
+                    
+                    Button(action: {
+                        newPostVM.showNewPost.toggle()
+                    }, label: {
+                        Image(systemName: "plus.circle.fill")
+                    })
+                    .sheet(isPresented: $newPostVM.showNewPost, content: {
+                        NewPostScreen()
+                    })
+                }
             }
         }
     }
@@ -53,6 +59,5 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
-            .previewDevice("iPhone 6s")
     }
 }
