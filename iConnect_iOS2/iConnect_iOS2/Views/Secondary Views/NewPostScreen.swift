@@ -12,20 +12,26 @@ struct NewPostScreen: View {
     @ObservedObject var viewModel = NewPostVM.shared
     @Environment(\.colorScheme) var colorScheme
     
+    init() {
+        UITextView.appearance().backgroundColor = .clear
+    }
+    
     var body: some View {
         ZStack {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: false) {
                     GroupBox {
                         TextField("Title (optional)", text: $viewModel.postTitleField)
+                            .font(.system(size: 18))
+                            .cornerRadius(10)
                     }
                     
-                    GroupBox(label: Text("Post Body"), content: {
-                        TextEditor(text: $viewModel.postBodyField)
-                            .font(.system(size: 20))
-                            .cornerRadius(7)
-                    })
-                    .frame(height: 400)
+                    CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
+                    
+                    CustomTFAccessoryInputView(hint: "Aa", text: $viewModel.postBodyField, containerHeight: $viewModel.containerHeight)
+                        .frame(height: viewModel.containerHeight)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
                 }
                 .padding()
                 .navigationBarTitleDisplayMode(.inline)
@@ -58,12 +64,6 @@ struct NewPostScreen: View {
                             Image(systemName: "photo.on.rectangle.angled")
                                 .imageScale(.large)
                         }
-                        .sheet(isPresented: $viewModel.showCamera, content: {
-                            CameraView(switchCapturingMode: $viewModel.changeCameraCapturingMode)
-                        })
-                        .sheet(isPresented: $viewModel.showVideoCam, content: {
-                            CameraView(switchCapturingMode: $viewModel.changeCameraCapturingMode)
-                        })
 
                         
                         Spacer()

@@ -19,21 +19,13 @@ struct CustomTFAccessoryInputView: UIViewRepresentable {
     }
     
     func makeUIView(context: Context) -> UITextView {
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
-        toolbar.barStyle = .default
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(context.coordinator.dismissKeyboard))
-        let toolbarSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar.items = [toolbarSpacer, doneButton]
-        toolbar.sizeToFit()
         
         let textView = UITextView()
         textView.text = hint
         textView.textColor = UIColor(Color(.placeholderText))
         textView.backgroundColor = .clear
-        textView.font = .systemFont(ofSize: 17)
+        textView.font = .systemFont(ofSize: 20)
         textView.delegate = context.coordinator
-        textView.inputAccessoryView = toolbar
         
         return textView
     }
@@ -74,10 +66,6 @@ struct CustomTFAccessoryInputView: UIViewRepresentable {
                 textView.text = parent.hint
                 textView.textColor = UIColor(Color(.systemGray4))
             }
-        }
-        
-        @objc func dismissKeyboard() {
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
     }
 }

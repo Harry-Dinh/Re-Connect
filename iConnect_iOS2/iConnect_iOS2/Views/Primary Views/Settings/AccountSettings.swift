@@ -14,6 +14,11 @@ struct AccountSettings: View {
                 LoginVM.shared.signOutUser()
             }
             .foregroundColor(.red)
+            
+            Button("Erase All Data of Current User") {
+                LoginVM.shared.deleteCurrentUserData()
+            }
+            .foregroundColor(.red)
         }
         .navigationTitle("My Account")
         .navigationBarTitleDisplayMode(.inline)

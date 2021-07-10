@@ -30,6 +30,11 @@ struct CoreScreen: View {
             Home()
                 .tabItem { Label("iConnect", systemImage: "house") }
             
+            NavigationView {
+                ProfileView()
+            }
+            .tabItem { Label("My Profile", systemImage: "person.crop.circle") }
+            
             Settings()
                 .tabItem { Label("Settings", systemImage: "gearshape") }
         }

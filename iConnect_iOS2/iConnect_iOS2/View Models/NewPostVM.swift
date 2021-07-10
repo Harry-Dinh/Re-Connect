@@ -23,6 +23,7 @@ class NewPostVM: ObservableObject {
     
     @Published var storyOrPost: Bool = false
     @Published var showNewPost: Bool = false
+    @Published var alertDiscard: Bool = false
     @Published var postTitleField: String = ""
     @Published var postBodyField: String = ""
     @Published var addMedia: Bool = false

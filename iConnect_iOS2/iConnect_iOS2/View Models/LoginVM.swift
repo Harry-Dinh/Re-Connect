@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseAuth
+import Firebase
 
 class LoginVM: ObservableObject {
     static let shared = LoginVM()
@@ -38,6 +38,30 @@ class LoginVM: ObservableObject {
         }
         catch {
             print("Cannot sign out")
+        }
+    }
+    
+    public func deleteCurrentUserData() {
+        guard let email = Auth.auth().currentUser?.email,
+              let currentUserID = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let safeEmail = Methods.shared.convertToSafeEmail(email: email)
+        
+        Database.database().reference().child("User \(safeEmail)_\(currentUserID)").removeValue()
+        
+        Firestore.firestore().collection("User \(safeEmail)_\(currentUserID)").document().delete()
+        
+        signOutUser()
+        
+        Auth.auth().currentUser?.delete { error in
+            guard error == nil else {
+                print("(Auth) Cannot delete user account")
+                return
+            }
+            
+            print("(Auth) Successfully deleted user account")
         }
     }
 }
