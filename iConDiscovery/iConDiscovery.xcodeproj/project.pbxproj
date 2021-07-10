@@ -12,6 +12,11 @@
 		218D1F7426992CB100BF8A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218D1F7326992CB100BF8A19 /* Assets.xcassets */; };
 		218D1F7726992CB100BF8A19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218D1F7626992CB100BF8A19 /* Preview Assets.xcassets */; };
 		218D1F8026992CD300BF8A19 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218D1F7F26992CD300BF8A19 /* WebView.swift */; };
+		21E520AC2699324900A9E3C8 /* iConDiscovery_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E520AB2699324900A9E3C8 /* iConDiscovery_iOSApp.swift */; };
+		21E520AE2699324900A9E3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E520AD2699324900A9E3C8 /* ContentView.swift */; };
+		21E520B02699324A00A9E3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E520AF2699324A00A9E3C8 /* Assets.xcassets */; };
+		21E520B32699324A00A9E3C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E520B22699324A00A9E3C8 /* Preview Assets.xcassets */; };
+		21E520BB269937E700A9E3C8 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E520BA269937E700A9E3C8 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,10 +28,24 @@
 		218D1F7826992CB100BF8A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		218D1F7926992CB100BF8A19 /* iConDiscovery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iConDiscovery.entitlements; sourceTree = "<group>"; };
 		218D1F7F26992CD300BF8A19 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		21E520A92699324900A9E3C8 /* iConDiscovery_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iConDiscovery_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21E520AB2699324900A9E3C8 /* iConDiscovery_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iConDiscovery_iOSApp.swift; sourceTree = "<group>"; };
+		21E520AD2699324900A9E3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		21E520AF2699324A00A9E3C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21E520B22699324A00A9E3C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		21E520B42699324A00A9E3C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21E520BA269937E700A9E3C8 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		218D1F6926992CAF00BF8A19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21E520A62699324900A9E3C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				218D1F6E26992CAF00BF8A19 /* iConDiscovery */,
+				21E520AA2699324900A9E3C8 /* iConDiscovery_iOS */,
 				218D1F6D26992CAF00BF8A19 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				218D1F6C26992CAF00BF8A19 /* iConDiscovery.app */,
+				21E520A92699324900A9E3C8 /* iConDiscovery_iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +95,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		21E520AA2699324900A9E3C8 /* iConDiscovery_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				21E520AB2699324900A9E3C8 /* iConDiscovery_iOSApp.swift */,
+				21E520AD2699324900A9E3C8 /* ContentView.swift */,
+				21E520BA269937E700A9E3C8 /* WebView.swift */,
+				21E520AF2699324A00A9E3C8 /* Assets.xcassets */,
+				21E520B42699324A00A9E3C8 /* Info.plist */,
+				21E520B12699324A00A9E3C8 /* Preview Content */,
+			);
+			path = iConDiscovery_iOS;
+			sourceTree = "<group>";
+		};
+		21E520B12699324A00A9E3C8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				21E520B22699324A00A9E3C8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,6 +136,23 @@
 			productReference = 218D1F6C26992CAF00BF8A19 /* iConDiscovery.app */;
 			productType = "com.apple.product-type.application";
 		};
+		21E520A82699324900A9E3C8 /* iConDiscovery_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21E520B72699324A00A9E3C8 /* Build configuration list for PBXNativeTarget "iConDiscovery_iOS" */;
+			buildPhases = (
+				21E520A52699324900A9E3C8 /* Sources */,
+				21E520A62699324900A9E3C8 /* Frameworks */,
+				21E520A72699324900A9E3C8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iConDiscovery_iOS;
+			productName = iConDiscovery_iOS;
+			productReference = 21E520A92699324900A9E3C8 /* iConDiscovery_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -104,6 +163,9 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					218D1F6B26992CAF00BF8A19 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					21E520A82699324900A9E3C8 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
@@ -122,6 +184,7 @@
 			projectRoot = "";
 			targets = (
 				218D1F6B26992CAF00BF8A19 /* iConDiscovery */,
+				21E520A82699324900A9E3C8 /* iConDiscovery_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -136,6 +199,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21E520A72699324900A9E3C8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21E520B32699324A00A9E3C8 /* Preview Assets.xcassets in Resources */,
+				21E520B02699324A00A9E3C8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -146,6 +218,16 @@
 				218D1F8026992CD300BF8A19 /* WebView.swift in Sources */,
 				218D1F7226992CAF00BF8A19 /* ContentView.swift in Sources */,
 				218D1F7026992CAF00BF8A19 /* iConDiscoveryApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21E520A52699324900A9E3C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21E520BB269937E700A9E3C8 /* WebView.swift in Sources */,
+				21E520AE2699324900A9E3C8 /* ContentView.swift in Sources */,
+				21E520AC2699324900A9E3C8 /* iConDiscovery_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +397,53 @@
 			};
 			name = Release;
 		};
+		21E520B52699324A00A9E3C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iConDiscovery_iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = W29Q2GKBT5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iConDiscovery_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iConnect.iConDiscovery-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		21E520B62699324A00A9E3C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"iConDiscovery_iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = W29Q2GKBT5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iConDiscovery_iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iConnect.iConDiscovery-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -332,6 +461,15 @@
 			buildConfigurations = (
 				218D1F7D26992CB100BF8A19 /* Debug */,
 				218D1F7E26992CB100BF8A19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21E520B72699324A00A9E3C8 /* Build configuration list for PBXNativeTarget "iConDiscovery_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21E520B52699324A00A9E3C8 /* Debug */,
+				21E520B62699324A00A9E3C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
