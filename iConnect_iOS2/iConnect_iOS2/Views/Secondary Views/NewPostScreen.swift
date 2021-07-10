@@ -15,15 +15,19 @@ struct NewPostScreen: View {
     var body: some View {
         ZStack {
             NavigationView {
-                Form {
-                    TextField("Title (optional)", text: $viewModel.postTitleField)
-                    
-                    Section(header: Text("Post body: Describe your contents here...")) {
-                        TextEditor(text: $viewModel.postBodyField)
-                            .frame(height: 450)
-                            .font(.system(size: 18))
+                ScrollView(.vertical, showsIndicators: false) {
+                    GroupBox {
+                        TextField("Title (optional)", text: $viewModel.postTitleField)
                     }
+                    
+                    GroupBox(label: Text("Post Body"), content: {
+                        TextEditor(text: $viewModel.postBodyField)
+                            .font(.system(size: 20))
+                            .cornerRadius(7)
+                    })
+                    .frame(height: 400)
                 }
+                .padding()
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItemGroup(placement: .bottomBar) {
@@ -34,10 +38,32 @@ struct NewPostScreen: View {
                                     Label("Photo Library", systemImage: "photo")
                                 })
                             }
+                            
+                            Section {
+                                Button(action: {
+                                    viewModel.changeCameraCapturingMode = false
+                                    viewModel.showCamera.toggle()
+                                }, label: {
+                                    Label("Take Photo", systemImage: "camera")
+                                })
+                                
+                                Button(action: {
+                                    viewModel.changeCameraCapturingMode = true
+                                    viewModel.showVideoCam.toggle()
+                                }, label: {
+                                    Label("Capture Video", systemImage: "video")
+                                })
+                            }
                         } label: {
                             Image(systemName: "photo.on.rectangle.angled")
                                 .imageScale(.large)
                         }
+                        .sheet(isPresented: $viewModel.showCamera, content: {
+                            CameraView(switchCapturingMode: $viewModel.changeCameraCapturingMode)
+                        })
+                        .sheet(isPresented: $viewModel.showVideoCam, content: {
+                            CameraView(switchCapturingMode: $viewModel.changeCameraCapturingMode)
+                        })
 
                         
                         Spacer()

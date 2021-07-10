@@ -39,6 +39,11 @@
 		21BB7915263DD1DD00A95138 /* iConnect_iOS2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BB7914263DD1DD00A95138 /* iConnect_iOS2App.swift */; };
 		21BB7919263DD1DE00A95138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BB7918263DD1DE00A95138 /* Assets.xcassets */; };
 		21BB791C263DD1DE00A95138 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BB791B263DD1DE00A95138 /* Preview Assets.xcassets */; };
+		21BC4DA526860BD60034578F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DA426860BD60034578F /* ProfileView.swift */; };
+		21BC4DA726860BE70034578F /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DA626860BE70034578F /* ProfileVM.swift */; };
+		21BC4DA926860C980034578F /* ProfileSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DA826860C980034578F /* ProfileSetupView.swift */; };
+		21BC4DAB26860D980034578F /* ProfileSetupVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DAA26860D980034578F /* ProfileSetupVM.swift */; };
+		21BC4DAD2686105C0034578F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DAC2686105C0034578F /* ImagePicker.swift */; };
 		21D3BEF22677DA0000F25857 /* HomeViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3BEF12677DA0000F25857 /* HomeViewSettings.swift */; };
 		AD78E5FCAC0E8B116D1D6190 /* Pods_iConnect_iOS2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4210979FE72C1A430165ABC3 /* Pods_iConnect_iOS2.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +83,11 @@
 		21BB7918263DD1DE00A95138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21BB791B263DD1DE00A95138 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		21BB791D263DD1DE00A95138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21BC4DA426860BD60034578F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		21BC4DA626860BE70034578F /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		21BC4DA826860C980034578F /* ProfileSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupView.swift; sourceTree = "<group>"; };
+		21BC4DAA26860D980034578F /* ProfileSetupVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupVM.swift; sourceTree = "<group>"; };
+		21BC4DAC2686105C0034578F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		21D3BEF12677DA0000F25857 /* HomeViewSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSettings.swift; sourceTree = "<group>"; };
 		4210979FE72C1A430165ABC3 /* Pods_iConnect_iOS2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iConnect_iOS2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA02E9B6C5103C9AFBE7F79 /* Pods-iConnect_iOS2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iConnect_iOS2.debug.xcconfig"; path = "Target Support Files/Pods-iConnect_iOS2/Pods-iConnect_iOS2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +134,8 @@
 				218AC59E266179D30019F0AA /* HomeVM.swift */,
 				218AC5A0266180220019F0AA /* PostVM.swift */,
 				21A830A1266FE23C004065E1 /* WelcomeScreenVM.swift */,
+				21BC4DA626860BE70034578F /* ProfileVM.swift */,
+				21BC4DAA26860D980034578F /* ProfileSetupVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -157,6 +169,8 @@
 			children = (
 				210855BC2640C07100382446 /* NewPostScreen.swift */,
 				218E1B612649F29A00B2631E /* PostView.swift */,
+				21BC4DA426860BD60034578F /* ProfileView.swift */,
+				21BC4DAC2686105C0034578F /* ImagePicker.swift */,
 			);
 			path = "Secondary Views";
 			sourceTree = "<group>";
@@ -181,6 +195,7 @@
 				2191D624263E1A9A002EC24F /* Login.swift */,
 				2191D628263E21FE002EC24F /* Register.swift */,
 				218AC5A22661B5D50019F0AA /* DetailRegistration.swift */,
+				21BC4DA826860C980034578F /* ProfileSetupView.swift */,
 				21A8309F266FE22F004065E1 /* WelcomeScreen.swift */,
 			);
 			path = "Auth UI";
@@ -370,8 +385,10 @@
 				2191D625263E1A9A002EC24F /* Login.swift in Sources */,
 				2191D614263E12F3002EC24F /* LoginVM.swift in Sources */,
 				21886EF326850A620018E218 /* CustomButtons.swift in Sources */,
+				21BC4DAD2686105C0034578F /* ImagePicker.swift in Sources */,
 				2191D60F263E102A002EC24F /* AppDelegate.swift in Sources */,
 				2191D629263E21FE002EC24F /* Register.swift in Sources */,
+				21BC4DAB26860D980034578F /* ProfileSetupVM.swift in Sources */,
 				212F724E2676C61A00BBA61B /* CustomTableRow.swift in Sources */,
 				218AC5A32661B5D50019F0AA /* DetailRegistration.swift in Sources */,
 				218AC5A1266180220019F0AA /* PostVM.swift in Sources */,
@@ -379,7 +396,9 @@
 				21972277263F3C13000C06FE /* BlurView.swift in Sources */,
 				2191D61F263E187F002EC24F /* ContentView.swift in Sources */,
 				212F72512676CE6300BBA61B /* AccountSettings.swift in Sources */,
+				21BC4DA726860BE70034578F /* ProfileVM.swift in Sources */,
 				2197227B263F3D5B000C06FE /* Home.swift in Sources */,
+				21BC4DA926860C980034578F /* ProfileSetupView.swift in Sources */,
 				2191D616263E1303002EC24F /* RegisterVM.swift in Sources */,
 				210855BD2640C07100382446 /* NewPostScreen.swift in Sources */,
 				21972275263F3B0C000C06FE /* CustomTabBar.swift in Sources */,
@@ -389,6 +408,7 @@
 				21A830A2266FE23C004065E1 /* WelcomeScreenVM.swift in Sources */,
 				21A830A0266FE22F004065E1 /* WelcomeScreen.swift in Sources */,
 				2191D627263E2088002EC24F /* CustomEmptyView.swift in Sources */,
+				21BC4DA526860BD60034578F /* ProfileView.swift in Sources */,
 				212E3F16264989E40012D92B /* CustomTFAccessoryInputView.swift in Sources */,
 				210855BF2640C09100382446 /* NewPostVM.swift in Sources */,
 				2191D618263E144F002EC24F /* Methods.swift in Sources */,

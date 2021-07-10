@@ -50,5 +50,9 @@
 	<array>
 		<string>Oxanium-VariableFont_wght.ttf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>If you would like to share photos and videos with friends and families, you can allow access to your camera to do just that!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>If you would like to share photos and videos with friends and families, you can allow access to your photo library to do just that!</string>
 </dict>
 </plist>

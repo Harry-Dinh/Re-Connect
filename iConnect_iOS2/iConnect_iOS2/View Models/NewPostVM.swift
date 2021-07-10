@@ -29,6 +29,9 @@ class NewPostVM: ObservableObject {
     @Published var isEditing: Bool = false
     @Published var isPreviewing: Bool = false
     @Published var showProgressIndicator: Bool = false
+    @Published var changeCameraCapturingMode: Bool = false
+    @Published var showCamera: Bool = false
+    @Published var showVideoCam: Bool = false
     
     @Published var containerHeight: CGFloat = 300
     

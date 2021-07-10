@@ -1,0 +1,6 @@
+framework module Pods_iCList {
+  umbrella header "Pods-iCList-umbrella.h"
+
+  export *
+  module * { export * }
+}
