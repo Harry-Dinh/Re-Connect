@@ -12,6 +12,7 @@ class ProfileVM: ObservableObject {
     
     @Published var firstName: String = ""
     @Published var lastName: String = ""
+    @Published var username: String = ""
     @Published var pfpURL: String = ""
     @Published var selectedTab: Int = 0
     

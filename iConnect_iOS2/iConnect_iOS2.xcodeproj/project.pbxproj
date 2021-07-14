@@ -17,7 +17,7 @@
 		21886EF326850A620018E218 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21886EF226850A620018E218 /* CustomButtons.swift */; };
 		218AC59F266179D30019F0AA /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AC59E266179D30019F0AA /* HomeVM.swift */; };
 		218AC5A1266180220019F0AA /* PostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AC5A0266180220019F0AA /* PostVM.swift */; };
-		218AC5A32661B5D50019F0AA /* DetailRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AC5A22661B5D50019F0AA /* DetailRegistration.swift */; };
+		218AC5A32661B5D50019F0AA /* DetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AC5A22661B5D50019F0AA /* DetailInfo.swift */; };
 		218E1B622649F29A00B2631E /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218E1B612649F29A00B2631E /* PostView.swift */; };
 		2191D60D263E101B002EC24F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2191D60C263E101B002EC24F /* GoogleService-Info.plist */; };
 		2191D60F263E102A002EC24F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191D60E263E102A002EC24F /* AppDelegate.swift */; };
@@ -41,7 +41,7 @@
 		21BB791C263DD1DE00A95138 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21BB791B263DD1DE00A95138 /* Preview Assets.xcassets */; };
 		21BC4DA526860BD60034578F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DA426860BD60034578F /* ProfileView.swift */; };
 		21BC4DA726860BE70034578F /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DA626860BE70034578F /* ProfileVM.swift */; };
-		21BC4DA926860C980034578F /* ProfileSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DA826860C980034578F /* ProfileSetupView.swift */; };
+		21BC4DA926860C980034578F /* AccountSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DA826860C980034578F /* AccountSetup.swift */; };
 		21BC4DAB26860D980034578F /* ProfileSetupVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DAA26860D980034578F /* ProfileSetupVM.swift */; };
 		21BC4DAD2686105C0034578F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC4DAC2686105C0034578F /* ImagePicker.swift */; };
 		21D3BEF22677DA0000F25857 /* HomeViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3BEF12677DA0000F25857 /* HomeViewSettings.swift */; };
@@ -59,7 +59,7 @@
 		21886EF226850A620018E218 /* CustomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		218AC59E266179D30019F0AA /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		218AC5A0266180220019F0AA /* PostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVM.swift; sourceTree = "<group>"; };
-		218AC5A22661B5D50019F0AA /* DetailRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRegistration.swift; sourceTree = "<group>"; };
+		218AC5A22661B5D50019F0AA /* DetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfo.swift; sourceTree = "<group>"; };
 		218E1B612649F29A00B2631E /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		2191D60C263E101B002EC24F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2191D60E263E102A002EC24F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		21BB791D263DD1DE00A95138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21BC4DA426860BD60034578F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		21BC4DA626860BE70034578F /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
-		21BC4DA826860C980034578F /* ProfileSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupView.swift; sourceTree = "<group>"; };
+		21BC4DA826860C980034578F /* AccountSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetup.swift; sourceTree = "<group>"; };
 		21BC4DAA26860D980034578F /* ProfileSetupVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupVM.swift; sourceTree = "<group>"; };
 		21BC4DAC2686105C0034578F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		21D3BEF12677DA0000F25857 /* HomeViewSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewSettings.swift; sourceTree = "<group>"; };
@@ -113,6 +113,14 @@
 				212F72502676CE6300BBA61B /* AccountSettings.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		21417865269D1CB900A370F2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				21BC4DA426860BD60034578F /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		2191D610263E12D8002EC24F /* Resources */ = {
@@ -169,7 +177,7 @@
 			children = (
 				210855BC2640C07100382446 /* NewPostScreen.swift */,
 				218E1B612649F29A00B2631E /* PostView.swift */,
-				21BC4DA426860BD60034578F /* ProfileView.swift */,
+				21417865269D1CB900A370F2 /* Profile */,
 				21BC4DAC2686105C0034578F /* ImagePicker.swift */,
 			);
 			path = "Secondary Views";
@@ -194,8 +202,8 @@
 			children = (
 				2191D624263E1A9A002EC24F /* Login.swift */,
 				2191D628263E21FE002EC24F /* Register.swift */,
-				218AC5A22661B5D50019F0AA /* DetailRegistration.swift */,
-				21BC4DA826860C980034578F /* ProfileSetupView.swift */,
+				218AC5A22661B5D50019F0AA /* DetailInfo.swift */,
+				21BC4DA826860C980034578F /* AccountSetup.swift */,
 				21A8309F266FE22F004065E1 /* WelcomeScreen.swift */,
 			);
 			path = "Auth UI";
@@ -390,7 +398,7 @@
 				2191D629263E21FE002EC24F /* Register.swift in Sources */,
 				21BC4DAB26860D980034578F /* ProfileSetupVM.swift in Sources */,
 				212F724E2676C61A00BBA61B /* CustomTableRow.swift in Sources */,
-				218AC5A32661B5D50019F0AA /* DetailRegistration.swift in Sources */,
+				218AC5A32661B5D50019F0AA /* DetailInfo.swift in Sources */,
 				218AC5A1266180220019F0AA /* PostVM.swift in Sources */,
 				2197227D263F3D61000C06FE /* Settings.swift in Sources */,
 				21972277263F3C13000C06FE /* BlurView.swift in Sources */,
@@ -398,7 +406,7 @@
 				212F72512676CE6300BBA61B /* AccountSettings.swift in Sources */,
 				21BC4DA726860BE70034578F /* ProfileVM.swift in Sources */,
 				2197227B263F3D5B000C06FE /* Home.swift in Sources */,
-				21BC4DA926860C980034578F /* ProfileSetupView.swift in Sources */,
+				21BC4DA926860C980034578F /* AccountSetup.swift in Sources */,
 				2191D616263E1303002EC24F /* RegisterVM.swift in Sources */,
 				210855BD2640C07100382446 /* NewPostScreen.swift in Sources */,
 				21972275263F3B0C000C06FE /* CustomTabBar.swift in Sources */,

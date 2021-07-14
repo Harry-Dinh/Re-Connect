@@ -22,7 +22,7 @@ struct ProfileView: View {
                     Text(viewModel.unwrapUsernameFromStorage())
                         .font(.title)
                         .bold()
-                    Text("@Username")
+                    Text(viewModel.username)
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -32,7 +32,7 @@ struct ProfileView: View {
             
             CustomEmptyView(width: nil, height: 1, foregroundColor: .clear)
             
-            GroupBox(label: Label("Basic Information", systemImage: "info.circle").foregroundColor(.blue), content: {
+            GroupBox(label: Label("Basic Information", systemImage: "info.circle").foregroundColor(.secondary), content: {
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 15) {
@@ -45,10 +45,15 @@ struct ProfileView: View {
                     Label("Gender: Male", systemImage: "person.fill")
                 }
             })
+            .contextMenu {
+                Button(action: {}, label: {
+                    Label("Hide from Public", systemImage: "eye.slash")
+                })
+            }
             
             CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
             
-            GroupBox(label: Label("Public Information", systemImage: "globe").foregroundColor(.green), content: {
+            GroupBox(label: Label("Public Information", systemImage: "globe").foregroundColor(.secondary), content: {
                 Divider()
                 
                 VStack(alignment: .leading, spacing: 15) {
@@ -82,11 +87,16 @@ struct ProfileView: View {
             }
         }
         .padding([.top, .leading, .trailing])
-        .navigationTitle(viewModel.unwrapUsernameFromStorage())
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button("Edit") {}
+                Button(action: {}, label: {
+                    Image(systemName: "person.fill.viewfinder")
+                })
+                
+                Button(action: {}, label: {
+                    Image(systemName: "pencil")
+                })
             }
         }
     }

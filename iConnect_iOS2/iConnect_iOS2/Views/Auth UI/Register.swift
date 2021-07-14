@@ -94,7 +94,7 @@ struct Register: View {
                 CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
                 
                 // Sign In Button
-                NavigationLink(destination: DetailRegistration()) {
+                NavigationLink(destination: DetailInfo()) {
                     Text("Continue")
                         .font(.system(size: 20, weight: .semibold, design: .default))
                         .foregroundColor(.white)

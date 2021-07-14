@@ -33,7 +33,11 @@ class RegisterVM: ObservableObject {
     
     // Profile
     @Published var isPrivateAccount: Bool = true
-    @Published var privateAccountMessage: String = "Private Account hides your posts and media from the public, people must send you a request to follow you.\n\nPublic Account show your posts and media to the public, people can follow you without sending a request."
+    @Published var privateAccountMessage: String = "Private Account hides your posts and media from the public, people must send you a request to follow you.\n\nPublic Account show your posts and media to the public, people can follow you without sending a request.\n\nFor regular individuals, setting your account private is recommended. People like celebrities and important figures can set their account to public."
+    @Published var username: String = ""
+    @Published var learnMorePrivateAccount: Bool = false
+    @Published var learnMoreUsername: Bool = false
+    @Published var usernameMessage: String = "Your username is used to identify you on iConnect and people can find it to follow you. It can also be used for followers to tag you in their posts. However, you can disable tagging in Settings."
     
     // Preferences
     @Published var allowDiagnostic: Bool = true
@@ -93,5 +97,51 @@ class RegisterVM: ObservableObject {
         
         databaseRef.child("Users").child("User \(safeEmail)_\(currentUserID)").updateChildValues(updatedValues)
         print("Successfully updated user preferences and data")
+    }
+    
+    /// Update the date of birth and the gender of the user. Note: `dob` stands for `date of birth`
+    public func updateBasicInfo(dob: Date, gender: Int) {
+        let dobString = dateFormatter.string(from: dob)
+        
+        guard let email = Auth.auth().currentUser?.email,
+              let currentUserID = Auth.auth().currentUser?.uid else {
+            print("Cannot fetch user's data")
+            return
+        }
+        
+        let safeEmail = Methods.shared.convertToSafeEmail(email: email)
+        
+        let updatedValues: [String: Any] = ["date_of_birth": dobString, "gender": gender]
+        
+        databaseRef.child("Users").child("User \(safeEmail)_\(currentUserID)").updateChildValues(updatedValues)
+        print("Successfully update date of birth")
+    }
+    
+    public func updateDiagnosticPreferences(allowDiagnostic: Bool) {
+        guard let email = Auth.auth().currentUser?.email,
+              let currentUserID = Auth.auth().currentUser?.uid else {
+            print("Cannot fetch user's data")
+            return
+        }
+        
+        let safeEmail = Methods.shared.convertToSafeEmail(email: email)
+        
+        let updatedValues: [String: Any] = ["allow_diagnostic": allowDiagnostic]
+        
+        databaseRef.child("Users").child("User \(safeEmail)_\(currentUserID)").updateChildValues(updatedValues)
+    }
+    
+    public func setupProfileDetails(username: String, isPrivateAccount: Bool) {
+        guard let email = Auth.auth().currentUser?.email,
+              let currentUserID = Auth.auth().currentUser?.uid else {
+            print("Cannot fetch user's data")
+            return
+        }
+        
+        let safeEmail = Methods.shared.convertToSafeEmail(email: email)
+        
+        let updatedValues: [String: Any] = ["username": username, "is_private_account": isPrivateAccount]
+        
+        databaseRef.child("Users").child("User \(safeEmail)_\(currentUserID)").updateChildValues(updatedValues)
     }
 }
