@@ -21,7 +21,7 @@ struct CustomTableRow: View {
                     .foregroundColor(backgroundColor)
                 Image(systemName: icon!)
                     .foregroundColor(.white)
-                    .imageScale(.large)
+                    .imageScale(.medium)
             }
             
             VStack(alignment: .leading) {

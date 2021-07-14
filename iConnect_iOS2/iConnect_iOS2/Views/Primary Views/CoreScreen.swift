@@ -35,8 +35,10 @@ struct CoreScreen: View {
             }
             .tabItem { Label("My Profile", systemImage: "person.crop.circle") }
             
-            Settings()
-                .tabItem { Label("Settings", systemImage: "gearshape") }
+            NavigationView {
+                MenuView()
+            }
+                .tabItem { Label("Menu", systemImage: "list.bullet") }
         }
     }
 }

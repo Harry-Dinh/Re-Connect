@@ -13,77 +13,79 @@ struct ProfileView: View {
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            HStack {
-                Image(systemName: "person.crop.circle.fill")
-                    .resizable()
-                    .frame(width: 90, height: 90)
-                
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(viewModel.unwrapUsernameFromStorage())
-                        .font(.title)
-                        .bold()
-                    Text(viewModel.username)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-                
-                Spacer()
-            }
-            
-            CustomEmptyView(width: nil, height: 1, foregroundColor: .clear)
-            
-            GroupBox(label: Label("Basic Information", systemImage: "info.circle").foregroundColor(.secondary), content: {
-                Divider()
-                
-                VStack(alignment: .leading, spacing: 15) {
+            VStack {
+                HStack {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .frame(width: 90, height: 90)
                     
-                    HStack {
-                        Label("Birthday: Dec 18, 2004", systemImage: "gift.fill")
-                        Spacer()
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(viewModel.unwrapUsernameFromStorage())
+                            .font(.title)
+                            .bold()
+                        Text(viewModel.username)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
                     }
                     
-                    Label("Gender: Male", systemImage: "person.fill")
+                    Spacer()
                 }
-            })
-            .contextMenu {
-                Button(action: {}, label: {
-                    Label("Hide from Public", systemImage: "eye.slash")
+                
+                CustomEmptyView(width: nil, height: 1, foregroundColor: .clear)
+                
+                GroupBox(label: Label("Basic Information", systemImage: "info.circle").foregroundColor(.secondary), content: {
+                    Divider()
+                    
+                    VStack(alignment: .leading, spacing: 15) {
+                        
+                        HStack {
+                            Label("Birthday: Dec 18, 2004", systemImage: "gift.fill")
+                            Spacer()
+                        }
+                        
+                        Label("Gender: Male", systemImage: "person.fill")
+                    }
                 })
-            }
-            
-            CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
-            
-            GroupBox(label: Label("Public Information", systemImage: "globe").foregroundColor(.secondary), content: {
+                .contextMenu {
+                    Button(action: {}, label: {
+                        Label("Hide from Public", systemImage: "eye.slash")
+                    })
+                }
+                
+                CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
+                
+                GroupBox(label: Label("Public Information", systemImage: "globe").foregroundColor(.secondary), content: {
+                    Divider()
+                    
+                    VStack(alignment: .leading, spacing: 15) {
+                        HStack {
+                            Label("iConnect user since: July 2021", systemImage: "clock.fill")
+                            Spacer()
+                        }
+                        
+                        Label("Living in: Toronto, Ontario", systemImage: "mappin")
+                        
+                        Label("Education: Bloor Collegiate Institute", systemImage: "graduationcap.fill")
+                    }
+                })
+                
+                CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
+                
+                Picker(selection: $viewModel.selectedTab, label: Text(""), content: {
+                    Text("Posts").tag(0)
+                    Text("Photos & Videos").tag(1)
+                    Text("Deleted").tag(2)
+                })
+                .pickerStyle(SegmentedPickerStyle())
+                
                 Divider()
                 
-                VStack(alignment: .leading, spacing: 15) {
-                    HStack {
-                        Label("iConnect user since: July 2021", systemImage: "clock.fill")
-                        Spacer()
-                    }
-                    
-                    Label("Living in: Toronto, Ontario", systemImage: "mappin")
-                    
-                    Label("Education: Bloor Collegiate Institute", systemImage: "graduationcap.fill")
-                }
-            })
-            
-            CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
-            
-            Picker(selection: $viewModel.selectedTab, label: Text(""), content: {
-                Text("Posts").tag(0)
-                Text("Photos & Videos").tag(1)
-                Text("Deleted").tag(2)
-            })
-            .pickerStyle(SegmentedPickerStyle())
-            
-            Divider()
-            
-            CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
-            
-            ForEach(1..<10, id: \.self) { _ in
-                PostView()
                 CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
+                
+                ForEach(1..<10, id: \.self) { _ in
+                    PostView()
+                    CustomEmptyView(width: nil, height: 5, foregroundColor: .clear)
+                }
             }
         }
         .padding([.top, .leading, .trailing])

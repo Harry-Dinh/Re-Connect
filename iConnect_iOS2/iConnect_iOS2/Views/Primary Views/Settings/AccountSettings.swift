@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AccountSettings: View {
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         Form {
             Button("Sign Out") {
@@ -20,8 +23,21 @@ struct AccountSettings: View {
             }
             .foregroundColor(.red)
         }
-        .navigationTitle("My Account")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Image(systemName: "chevron.left.circle")
+                })
+                
+                Text("My Account")
+                    .font(.title3)
+                    .bold()
+            }
+        }
     }
 }
 

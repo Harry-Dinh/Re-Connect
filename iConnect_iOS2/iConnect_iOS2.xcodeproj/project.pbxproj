@@ -29,6 +29,8 @@
 		2191D627263E2088002EC24F /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191D626263E2088002EC24F /* CustomEmptyView.swift */; };
 		2191D629263E21FE002EC24F /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2191D628263E21FE002EC24F /* Register.swift */; };
 		2191D62C263E24DC002EC24F /* Oxanium-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2191D62B263E24D7002EC24F /* Oxanium-VariableFont_wght.ttf */; };
+		219713F2269F570E0014B445 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219713F1269F570E0014B445 /* MenuView.swift */; };
+		219713F4269F5E290014B445 /* AboutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219713F3269F5E290014B445 /* AboutSettings.swift */; };
 		21972275263F3B0C000C06FE /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21972274263F3B0C000C06FE /* CustomTabBar.swift */; };
 		21972277263F3C13000C06FE /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21972276263F3C13000C06FE /* BlurView.swift */; };
 		21972279263F3D19000C06FE /* CoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21972278263F3D19000C06FE /* CoreScreen.swift */; };
@@ -71,6 +73,8 @@
 		2191D626263E2088002EC24F /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		2191D628263E21FE002EC24F /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		2191D62B263E24D7002EC24F /* Oxanium-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxanium-VariableFont_wght.ttf"; sourceTree = SOURCE_ROOT; };
+		219713F1269F570E0014B445 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		219713F3269F5E290014B445 /* AboutSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutSettings.swift; sourceTree = "<group>"; };
 		21972274263F3B0C000C06FE /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		21972276263F3C13000C06FE /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		21972278263F3D19000C06FE /* CoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreScreen.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 			children = (
 				2197227C263F3D61000C06FE /* Settings.swift */,
 				212F72502676CE6300BBA61B /* AccountSettings.swift */,
+				219713F3269F5E290014B445 /* AboutSettings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				21972278263F3D19000C06FE /* CoreScreen.swift */,
 				2197227A263F3D5B000C06FE /* Home.swift */,
 				21D3BEF12677DA0000F25857 /* HomeViewSettings.swift */,
+				219713F1269F570E0014B445 /* MenuView.swift */,
 				212F724F2676C82C00BBA61B /* Settings */,
 			);
 			path = "Primary Views";
@@ -390,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219713F2269F570E0014B445 /* MenuView.swift in Sources */,
 				2191D625263E1A9A002EC24F /* Login.swift in Sources */,
 				2191D614263E12F3002EC24F /* LoginVM.swift in Sources */,
 				21886EF326850A620018E218 /* CustomButtons.swift in Sources */,
@@ -419,6 +426,7 @@
 				21BC4DA526860BD60034578F /* ProfileView.swift in Sources */,
 				212E3F16264989E40012D92B /* CustomTFAccessoryInputView.swift in Sources */,
 				210855BF2640C09100382446 /* NewPostVM.swift in Sources */,
+				219713F4269F5E290014B445 /* AboutSettings.swift in Sources */,
 				2191D618263E144F002EC24F /* Methods.swift in Sources */,
 				21D3BEF22677DA0000F25857 /* HomeViewSettings.swift in Sources */,
 				218E1B622649F29A00B2631E /* PostView.swift in Sources */,
