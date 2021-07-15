@@ -38,6 +38,6 @@ struct TabButton: View {
             Image(systemName: iconName)
                 .font(.title)
         })
-        .foregroundColor(selectedTab == iconName ? Color("iconnectBlue") : .gray)
+        .foregroundColor(selectedTab == iconName ? .accentColor : .gray)
     }
 }

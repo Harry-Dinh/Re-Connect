@@ -48,7 +48,9 @@ struct Home: View {
                         Image(systemName: "plus.circle.fill")
                     })
                     .sheet(isPresented: $newPostVM.showNewPost, content: {
-                        NewPostScreen()
+                        NavigationView {
+                            NewPostView()
+                        }
                     })
                 }
             }

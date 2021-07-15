@@ -40,7 +40,7 @@ class LoginVM: ObservableObject {
                 
                 UserDefaults.standard.set(firstName, forKey: "currentUserFirstName")
                 UserDefaults.standard.set(lastName, forKey: "currentUserLastName")
-                ProfileVM.shared.username = username
+                UserDefaults.standard.set(username, forKey: "currentUserUsername")
             }
             
             print("Successfully signed in")

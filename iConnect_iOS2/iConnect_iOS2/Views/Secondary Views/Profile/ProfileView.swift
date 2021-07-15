@@ -20,7 +20,7 @@ struct ProfileView: View {
                         .frame(width: 90, height: 90)
                     
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(viewModel.unwrapUsernameFromStorage())
+                        Text("\(viewModel.firstName) \(viewModel.lastName)")
                             .font(.title)
                             .bold()
                         Text(viewModel.username)
@@ -100,6 +100,9 @@ struct ProfileView: View {
                     Image(systemName: "pencil")
                 })
             }
+        }
+        .onAppear {
+            viewModel.unwrapUserInfoFromStorage()
         }
     }
 }

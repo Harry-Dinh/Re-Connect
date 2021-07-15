@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Settings: View {
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ScrollView {
@@ -39,7 +39,7 @@ struct Settings: View {
                         CustomTableRow(icon: "app.badge.fill", title: "Notifications", backgroundColor: .red)
                     }
                     
-                    NavigationLink(destination: EmptyView()) {
+                    NavigationLink(destination: PrivacyAndSecurity()) {
                         CustomTableRow(icon: "hand.raised.fill", title: "Privacy & Security", backgroundColor: .red)
                     }
                 }
@@ -54,21 +54,18 @@ struct Settings: View {
             }
             .padding()
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarLeading) {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "chevron.left.circle")
-                })
-                
-                Text("Settings")
-                    .font(.title3)
-                    .bold()
-            }
-        }
         .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(leading: HStack {
+            Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Image(systemName: "chevron.left.circle")
+                    .imageScale(.large)
+            })
+            
+            Text("Settings").font(.title3).bold()
+        })
     }
 }
 

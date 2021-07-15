@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210855BD2640C07100382446 /* NewPostScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210855BC2640C07100382446 /* NewPostScreen.swift */; };
 		210855BF2640C09100382446 /* NewPostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210855BE2640C09100382446 /* NewPostVM.swift */; };
 		212D1CC2266EE386000717C9 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212D1CC1266EE386000717C9 /* LogoView.swift */; };
 		212E3F16264989E40012D92B /* CustomTFAccessoryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212E3F15264989E40012D92B /* CustomTFAccessoryInputView.swift */; };
 		212F724E2676C61A00BBA61B /* CustomTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F724D2676C61A00BBA61B /* CustomTableRow.swift */; };
 		212F72512676CE6300BBA61B /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F72502676CE6300BBA61B /* AccountSettings.swift */; };
+		213F0181269FBB7C0095C70B /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F0180269FBB7C0095C70B /* NewPostView.swift */; };
+		213F0184269FC4F70095C70B /* PrivacyAndSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F0183269FC4F70095C70B /* PrivacyAndSecurity.swift */; };
 		217170792683C807006E7261 /* CustomControlViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217170782683C807006E7261 /* CustomControlViews.swift */; };
 		21886EF326850A620018E218 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21886EF226850A620018E218 /* CustomButtons.swift */; };
 		218AC59F266179D30019F0AA /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AC59E266179D30019F0AA /* HomeVM.swift */; };
@@ -51,12 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		210855BC2640C07100382446 /* NewPostScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostScreen.swift; sourceTree = "<group>"; };
 		210855BE2640C09100382446 /* NewPostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVM.swift; sourceTree = "<group>"; };
 		212D1CC1266EE386000717C9 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		212E3F15264989E40012D92B /* CustomTFAccessoryInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTFAccessoryInputView.swift; sourceTree = "<group>"; };
 		212F724D2676C61A00BBA61B /* CustomTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableRow.swift; sourceTree = "<group>"; };
 		212F72502676CE6300BBA61B /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
+		213F0180269FBB7C0095C70B /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
+		213F0183269FC4F70095C70B /* PrivacyAndSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAndSecurity.swift; sourceTree = "<group>"; };
 		217170782683C807006E7261 /* CustomControlViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlViews.swift; sourceTree = "<group>"; };
 		21886EF226850A620018E218 /* CustomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		218AC59E266179D30019F0AA /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
@@ -116,8 +118,16 @@
 				2197227C263F3D61000C06FE /* Settings.swift */,
 				212F72502676CE6300BBA61B /* AccountSettings.swift */,
 				219713F3269F5E290014B445 /* AboutSettings.swift */,
+				213F0183269FC4F70095C70B /* PrivacyAndSecurity.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		213F0182269FC4DE0095C70B /* Settings VMs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Settings VMs";
 			sourceTree = "<group>";
 		};
 		21417865269D1CB900A370F2 /* Profile */ = {
@@ -141,6 +151,7 @@
 		2191D612263E12E7002EC24F /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				213F0182269FC4DE0095C70B /* Settings VMs */,
 				2191D613263E12F3002EC24F /* LoginVM.swift */,
 				2191D615263E1303002EC24F /* RegisterVM.swift */,
 				210855BE2640C09100382446 /* NewPostVM.swift */,
@@ -181,10 +192,10 @@
 		2191D621263E18AC002EC24F /* Secondary Views */ = {
 			isa = PBXGroup;
 			children = (
-				210855BC2640C07100382446 /* NewPostScreen.swift */,
 				218E1B612649F29A00B2631E /* PostView.swift */,
 				21417865269D1CB900A370F2 /* Profile */,
 				21BC4DAC2686105C0034578F /* ImagePicker.swift */,
+				213F0180269FBB7C0095C70B /* NewPostView.swift */,
 			);
 			path = "Secondary Views";
 			sourceTree = "<group>";
@@ -415,7 +426,6 @@
 				2197227B263F3D5B000C06FE /* Home.swift in Sources */,
 				21BC4DA926860C980034578F /* AccountSetup.swift in Sources */,
 				2191D616263E1303002EC24F /* RegisterVM.swift in Sources */,
-				210855BD2640C07100382446 /* NewPostScreen.swift in Sources */,
 				21972275263F3B0C000C06FE /* CustomTabBar.swift in Sources */,
 				212D1CC2266EE386000717C9 /* LogoView.swift in Sources */,
 				21972279263F3D19000C06FE /* CoreScreen.swift in Sources */,
@@ -424,9 +434,11 @@
 				21A830A0266FE22F004065E1 /* WelcomeScreen.swift in Sources */,
 				2191D627263E2088002EC24F /* CustomEmptyView.swift in Sources */,
 				21BC4DA526860BD60034578F /* ProfileView.swift in Sources */,
+				213F0181269FBB7C0095C70B /* NewPostView.swift in Sources */,
 				212E3F16264989E40012D92B /* CustomTFAccessoryInputView.swift in Sources */,
 				210855BF2640C09100382446 /* NewPostVM.swift in Sources */,
 				219713F4269F5E290014B445 /* AboutSettings.swift in Sources */,
+				213F0184269FC4F70095C70B /* PrivacyAndSecurity.swift in Sources */,
 				2191D618263E144F002EC24F /* Methods.swift in Sources */,
 				21D3BEF22677DA0000F25857 /* HomeViewSettings.swift in Sources */,
 				218E1B622649F29A00B2631E /* PostView.swift in Sources */,

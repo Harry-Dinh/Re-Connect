@@ -15,17 +15,23 @@ class ProfileVM: ObservableObject {
     @Published var username: String = ""
     @Published var pfpURL: String = ""
     @Published var selectedTab: Int = 0
+    @Published var profileOnboarding: Bool = false
     
-    public func unwrapUsernameFromStorage() -> String {
+    public func unwrapUserInfoFromStorage() {
         if let first = UserDefaults.standard.string(forKey: "currentUserFirstName"),
-           let last = UserDefaults.standard.string(forKey: "currentUserLastName") {
-            self.firstName = first
-            self.lastName = last
+           let last = UserDefaults.standard.string(forKey: "currentUserLastName"),
+           let username = UserDefaults.standard.string(forKey: "currentUserUsername") {
             
-            return "\(firstName) \(lastName)"
-        }
-        else {
-            return "Unnamed User"
+            if first.isEmpty && last.isEmpty && username.isEmpty {
+                self.firstName = "Unknown"
+                self.lastName = "User"
+                self.username = "No username set"
+            }
+            else {
+                self.firstName = first
+                self.lastName = last
+                self.username = username
+            }
         }
     }
 }

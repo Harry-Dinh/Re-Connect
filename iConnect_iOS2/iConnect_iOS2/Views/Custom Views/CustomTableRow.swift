@@ -15,13 +15,15 @@ struct CustomTableRow: View {
     
     var body: some View {
         HStack {
-            ZStack {
-                Circle()
-                    .frame(width: 35, height: 35)
-                    .foregroundColor(backgroundColor)
-                Image(systemName: icon!)
-                    .foregroundColor(.white)
-                    .imageScale(.medium)
+            if !icon!.isEmpty {
+                ZStack {
+                    Circle()
+                        .frame(width: 35, height: 35)
+                        .foregroundColor(backgroundColor)
+                    Image(systemName: icon!)
+                        .foregroundColor(.white)
+                        .imageScale(.medium)
+                }
             }
             
             VStack(alignment: .leading) {
@@ -34,6 +36,32 @@ struct CustomTableRow: View {
             Image(systemName: "chevron.right")
                 .imageScale(.small)
                 .foregroundColor(.secondary)
+        }
+    }
+}
+
+struct CustomToggleLabel: View {
+    var icon: String?
+    var title: String
+    var backgroundColor: Color
+    
+    var body: some View {
+        HStack {
+            if !icon!.isEmpty {
+                ZStack {
+                    Circle()
+                        .frame(width: 35, height: 35)
+                        .foregroundColor(backgroundColor)
+                    Image(systemName: icon!)
+                        .foregroundColor(.white)
+                        .imageScale(.medium)
+                }
+            }
+            
+            VStack(alignment: .leading) {
+                Text(title)
+                    .foregroundColor(.primary)
+            }
         }
     }
 }

@@ -59,5 +59,9 @@ class NewPostVM: ObservableObject {
             
             print("Successfully write data to Firestore")
         }
+        
+        self.postTitleField = ""
+        self.postBodyField = ""
+        self.showNewPost = false
     }
 }

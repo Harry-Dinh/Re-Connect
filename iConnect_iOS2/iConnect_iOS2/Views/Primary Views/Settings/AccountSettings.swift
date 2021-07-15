@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AccountSettings: View {
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         Form {
@@ -25,19 +25,18 @@ struct AccountSettings: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarLeading) {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "chevron.left.circle")
-                })
-                
-                Text("My Account")
-                    .font(.title3)
-                    .bold()
-            }
-        }
+        .navigationBarItems(leading: HStack {
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Image(systemName: "chevron.left.circle")
+                    .imageScale(.large)
+            })
+            
+            Text("My Account")
+                .font(.title3)
+                .bold()
+        })
     }
 }
 

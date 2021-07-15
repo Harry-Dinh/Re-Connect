@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AboutSettings: View {
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ScrollView {
@@ -78,19 +78,18 @@ struct AboutSettings: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarLeading) {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "chevron.left.circle")
-                })
-                
-                Text("About")
-                    .font(.title3)
-                    .bold()
-            }
-        }
+        .navigationBarItems(leading: HStack {
+            Button(action: {
+                presentationMode.wrappedValue.dismiss()
+            }, label: {
+                Image(systemName: "chevron.left.circle")
+                    .imageScale(.large)
+            })
+            
+            Text("My Account")
+                .font(.title3)
+                .bold()
+        })
     }
 }
 
