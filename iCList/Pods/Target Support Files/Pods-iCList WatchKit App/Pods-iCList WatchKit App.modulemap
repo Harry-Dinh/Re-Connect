@@ -1,6 +1,0 @@
-framework module Pods_iCList_WatchKit_App {
-  umbrella header "Pods-iCList WatchKit App-umbrella.h"
-
-  export *
-  module * { export * }
-}
