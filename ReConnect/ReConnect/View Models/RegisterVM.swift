@@ -17,6 +17,9 @@ class RegisterVM: ObservableObject {
     // MARK: - FIREBASE PROPERTIES
     private var databaseRef = Database.database().reference()
     
+    // MARK: - SWIFTUI STATES
+    @Published var isTextFieldEditing: Bool = false
+    
     // MARK: - USER PROPERTIES
     // MARK: Basic Info
     @Published var firstName: String = ""
@@ -26,6 +29,7 @@ class RegisterVM: ObservableObject {
     @Published var password: String = ""
     @Published var dateOfBirth: Date = Date()
     @Published var username: String = ""
+    @Published var gender: Int = 0
     
     // MARK: Profile Settings
     @Published var isPrivateAccount: Bool = false
@@ -33,24 +37,23 @@ class RegisterVM: ObservableObject {
     
     // MARK: - USER METHODS
     public func createUserAccount(firstName: String, middleName: String, lastName: String, email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
             guard error == nil else {
                 print("Cannot create user account")
                 return
             }
             
             print("Sucessfully created user account")
+            self?.createUserObject(firstName: firstName, middleName: middleName, lastName: lastName, email: email)
         }
     }
     
-    public func createUserObject(firstName: String, middleName: String, lastName: String) {
+    public func createUserObject(firstName: String, middleName: String, lastName: String, email: String) {
         UserDefaults.standard.set(firstName, forKey: "firstName")
         UserDefaults.standard.set(middleName, forKey: "middleName")
         UserDefaults.standard.set(lastName, forKey: "lastName")
         
-        guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
-            print("Cannot fetch user's info")
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
@@ -59,7 +62,9 @@ class RegisterVM: ObservableObject {
         let userInfo: [String: Any] = [
             "firstName": firstName,
             "middleName": middleName,
-            "lastName": lastName
+            "lastName": lastName,
+            "email": safeEmail,
+            "uid": uid
         ]
         
         databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("User Info").setValue(userInfo)

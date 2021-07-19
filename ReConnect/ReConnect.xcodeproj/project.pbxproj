@@ -18,6 +18,9 @@
 		21C07B2526A3534D0025D324 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B2426A3534D0025D324 /* RegisterVM.swift */; };
 		21C07B2726A357AF0025D324 /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B2626A357AF0025D324 /* HelperMethods.swift */; };
 		21C07B2A26A35B770025D324 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B2926A35B770025D324 /* CustomTextField.swift */; };
+		21E457D726A603F900AE5C3F /* CoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E457D626A603F900AE5C3F /* CoreScreen.swift */; };
+		21E457D926A606CC00AE5C3F /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E457D826A606CC00AE5C3F /* LogoView.swift */; };
+		21E457DC26A6102300AE5C3F /* FurtherInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E457DB26A6102300AE5C3F /* FurtherInfoScreen.swift */; };
 		FB3D79712831E3230A565B06 /* Pods_ReConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7281E9ED11AC8A2F8B997D /* Pods_ReConnect.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,9 @@
 		21C07B2426A3534D0025D324 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
 		21C07B2626A357AF0025D324 /* HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 		21C07B2926A35B770025D324 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		21E457D626A603F900AE5C3F /* CoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreScreen.swift; sourceTree = "<group>"; };
+		21E457D826A606CC00AE5C3F /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		21E457DB26A6102300AE5C3F /* FurtherInfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurtherInfoScreen.swift; sourceTree = "<group>"; };
 		474D7B431A564498C2A7DB3E /* Pods-ReConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReConnect.release.xcconfig"; path = "Target Support Files/Pods-ReConnect/Pods-ReConnect.release.xcconfig"; sourceTree = "<group>"; };
 		CC7281E9ED11AC8A2F8B997D /* Pods_ReConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				21C07B2926A35B770025D324 /* CustomTextField.swift */,
+				21E457D826A606CC00AE5C3F /* LogoView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -131,6 +138,7 @@
 		21C07B2B26A3601F0025D324 /* Auth UI */ = {
 			isa = PBXGroup;
 			children = (
+				21E457DA26A6101000AE5C3F /* Detail Registrations */,
 				21C07B1D26A3532C0025D324 /* Login.swift */,
 				21C07B1F26A353320025D324 /* Register.swift */,
 			);
@@ -141,8 +149,17 @@
 			isa = PBXGroup;
 			children = (
 				21C07B0C26A350DE0025D324 /* ContentView.swift */,
+				21E457D626A603F900AE5C3F /* CoreScreen.swift */,
 			);
 			path = "Primary Views";
+			sourceTree = "<group>";
+		};
+		21E457DA26A6101000AE5C3F /* Detail Registrations */ = {
+			isa = PBXGroup;
+			children = (
+				21E457DB26A6102300AE5C3F /* FurtherInfoScreen.swift */,
+			);
+			path = "Detail Registrations";
 			sourceTree = "<group>";
 		};
 		51149CF8CD51287E7C68D75C /* Frameworks */ = {
@@ -276,10 +293,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E457DC26A6102300AE5C3F /* FurtherInfoScreen.swift in Sources */,
 				21C07B1E26A3532C0025D324 /* Login.swift in Sources */,
 				21C07B0D26A350DE0025D324 /* ContentView.swift in Sources */,
+				21E457D726A603F900AE5C3F /* CoreScreen.swift in Sources */,
 				21C07B2026A353320025D324 /* Register.swift in Sources */,
 				21C07B2726A357AF0025D324 /* HelperMethods.swift in Sources */,
+				21E457D926A606CC00AE5C3F /* LogoView.swift in Sources */,
 				21C07B2A26A35B770025D324 /* CustomTextField.swift in Sources */,
 				21C07B0B26A350DE0025D324 /* ReConnectApp.swift in Sources */,
 				21C07B2326A353460025D324 /* LoginVM.swift in Sources */,
