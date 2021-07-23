@@ -45,6 +45,11 @@ class RegisterVM: ObservableObject {
             
             print("Sucessfully created user account")
             self?.createUserObject(firstName: firstName, middleName: middleName, lastName: lastName, email: email)
+            self?.firstName = ""
+            self?.middleName = ""
+            self?.lastName = ""
+            self?.email = ""
+            self?.password = ""
         }
     }
     
@@ -68,5 +73,40 @@ class RegisterVM: ObservableObject {
         ]
         
         databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("User Info").setValue(userInfo)
+    }
+    
+    public func updateUserInfo(dateOfBirth: Date, gender: Int) {
+        guard let email = Auth.auth().currentUser?.email,
+              let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
+        
+        let dobString = HelperMethods.shared.dateFormatter.string(from: dateOfBirth)
+        
+        let userInfo: [String: Any] = [
+            "dateOfBirth": dobString,
+            "gender": gender
+        ]
+        
+        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("User Info").updateChildValues(userInfo)
+    }
+    
+    public func updateUserProfileInfo(username: String, isPrivateAccount: Bool, allowDiagnosticCollection: Bool) {
+        guard let email = Auth.auth().currentUser?.email,
+              let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
+        
+        let updatedInfo: [String: Any] = [
+            "username": username,
+            "isPrivateAccount": isPrivateAccount,
+            "allowDiagnosticPreferences": allowDiagnosticCollection
+        ]
+        
+        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("Profile Info").setValue(updatedInfo)
     }
 }

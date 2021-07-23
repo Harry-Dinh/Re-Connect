@@ -41,7 +41,7 @@ struct FurtherInfoScreen: View {
                 .cornerRadius(17)
                 .padding()
                 
-                NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: ProfileSetup()) {
                     Text("Continue")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -54,7 +54,7 @@ struct FurtherInfoScreen: View {
                         )
                 }
                 .simultaneousGesture(TapGesture().onEnded {
-                    
+                    viewModel.updateUserInfo(dateOfBirth: viewModel.dateOfBirth, gender: viewModel.gender)
                 })
             }
             .padding(.vertical)
@@ -68,6 +68,5 @@ struct DetailRegistrationScreen_Previews: PreviewProvider {
         NavigationView {
             FurtherInfoScreen()
         }
-        .previewDevice("iPhone 6s")
     }
 }

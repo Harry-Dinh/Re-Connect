@@ -1,22 +1,74 @@
 //
-//  CoreScreen.swift
+//  TabBar.swift
 //  ReConnect
 //
-//  Created by Harry Dinh on 2021-07-19.
+//  Created by Harry Dinh on 2021-07-23.
 //
 
 import SwiftUI
 
 struct CoreScreen: View {
+    
+    @Environment(\.colorScheme) var colorScheme
+    @State private var selectedTab = 0
+    
     var body: some View {
-        Button("Sign Out") {
-            LoginVM.shared.signOutCurrentUser()
+        TabView(selection: $selectedTab) {
+            NavigationView {
+                Home()
+            }
+            .tabItem { Label("Home", systemImage: "house.fill") }
+            .tag(0)
+            
+            NavigationView {
+                MenuScreen()
+            }
+            .tabItem { Label("Menu", systemImage: "list.bullet") }
+            .tag(2)
         }
     }
 }
 
-struct CoreScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        CoreScreen()
+struct TabButton: View {
+    
+    var icon: String
+    @Binding var selectedTab: String
+    var animation: Namespace.ID
+    
+    var body: some View {
+        Button(action: {
+            withAnimation {
+                selectedTab = icon
+            }
+        }, label: {
+            VStack(spacing: 6) {
+                // Top indicator
+                ZStack {
+                    CustomShape()
+                        .fill(Color.clear)
+                        .frame(width: 45, height: 6)
+                    
+                    if selectedTab == icon {
+                        CustomShape()
+                            .fill(Color.accentColor)
+                            .frame(width: 45, height: 6)
+                            .matchedGeometryEffect(id: "Tab_Change", in: animation)
+                    }
+                }
+                .padding(.bottom, 10)
+                
+                Image(systemName: icon)
+                    .font(.title2)
+                    .foregroundColor(selectedTab == icon ? .accentColor : .secondary)
+            }
+        })
+    }
+}
+
+struct CustomShape: Shape {
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.bottomLeft, .bottomRight], cornerRadii: CGSize(width: 10, height: 10))
+        
+        return Path(path.cgPath)
     }
 }

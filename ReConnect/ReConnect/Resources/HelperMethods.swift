@@ -10,6 +10,15 @@ import Foundation
 class HelperMethods {
     static let shared = HelperMethods()
     
+    // MARK: - PROPERTIES
+    public let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter
+    }()
+    
+    // MARK: - METHODS
     /// Locate a "." in the `email` and replace it with a dash "-".
     public func convertToSafeEmail(email: String) -> String {
         var safeEmail = ""
