@@ -17,6 +17,9 @@ struct ContentView: View {
         }
         else {
             CoreScreen()
+                .onAppear {
+                    ProfileVM.shared.fetchUserData()
+                }
         }
     }
 }

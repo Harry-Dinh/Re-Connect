@@ -23,8 +23,12 @@ struct Login: View {
             
             VStack(spacing: 20) {
                 CustomTextField(placeholder: "Email address", icon: "envelope", text: $viewModel.email)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
                 
                 CustomSecureField(placeholder: "Password", icon: "lock", text: $viewModel.password)
+                    .autocapitalization(.none)
+                    .keyboardType(.default)
                 
                 Button(action: {
                     viewModel.signInCurrentUser(email: viewModel.email, password: viewModel.password)

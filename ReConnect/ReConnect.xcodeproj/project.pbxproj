@@ -16,6 +16,8 @@
 		21193B9226AB638B0001AFDC /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B9126AB638B0001AFDC /* MenuScreen.swift */; };
 		21193B9426AB668D0001AFDC /* CustomListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B9326AB668D0001AFDC /* CustomListRow.swift */; };
 		21193B9726AB7EE30001AFDC /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B9626AB7EE30001AFDC /* AccountSettings.swift */; };
+		2183E38D26AB82A9007D2D35 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */; };
+		2183E38F26AB82B4007D2D35 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183E38E26AB82B4007D2D35 /* ProfileVM.swift */; };
 		21C07B0B26A350DE0025D324 /* ReConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B0A26A350DE0025D324 /* ReConnectApp.swift */; };
 		21C07B0D26A350DE0025D324 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B0C26A350DE0025D324 /* ContentView.swift */; };
 		21C07B0F26A350DE0025D324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C07B0E26A350DE0025D324 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		21C07B2526A3534D0025D324 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B2426A3534D0025D324 /* RegisterVM.swift */; };
 		21C07B2726A357AF0025D324 /* HelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B2626A357AF0025D324 /* HelperMethods.swift */; };
 		21C07B2A26A35B770025D324 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B2926A35B770025D324 /* CustomTextField.swift */; };
+		21D5845B26AC631D000452C0 /* CustomGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5845A26AC631D000452C0 /* CustomGroupBox.swift */; };
+		21D5845D26AC78FC000452C0 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5845C26AC78FC000452C0 /* EditProfile.swift */; };
 		21E457D926A606CC00AE5C3F /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E457D826A606CC00AE5C3F /* LogoView.swift */; };
 		21E457DC26A6102300AE5C3F /* FurtherInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E457DB26A6102300AE5C3F /* FurtherInfoScreen.swift */; };
 		FB3D79712831E3230A565B06 /* Pods_ReConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7281E9ED11AC8A2F8B997D /* Pods_ReConnect.framework */; };
@@ -43,6 +47,8 @@
 		21193B9126AB638B0001AFDC /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 		21193B9326AB668D0001AFDC /* CustomListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListRow.swift; sourceTree = "<group>"; };
 		21193B9626AB7EE30001AFDC /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
+		2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		2183E38E26AB82B4007D2D35 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		21C07B0726A350DE0025D324 /* ReConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C07B0A26A350DE0025D324 /* ReConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConnectApp.swift; sourceTree = "<group>"; };
 		21C07B0C26A350DE0025D324 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +62,8 @@
 		21C07B2426A3534D0025D324 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
 		21C07B2626A357AF0025D324 /* HelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperMethods.swift; sourceTree = "<group>"; };
 		21C07B2926A35B770025D324 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		21D5845A26AC631D000452C0 /* CustomGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGroupBox.swift; sourceTree = "<group>"; };
+		21D5845C26AC78FC000452C0 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
 		21E457D826A606CC00AE5C3F /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		21E457DB26A6102300AE5C3F /* FurtherInfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurtherInfoScreen.swift; sourceTree = "<group>"; };
 		474D7B431A564498C2A7DB3E /* Pods-ReConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReConnect.release.xcconfig"; path = "Target Support Files/Pods-ReConnect/Pods-ReConnect.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +89,15 @@
 				21193B9626AB7EE30001AFDC /* AccountSettings.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		2183E38B26AB8298007D2D35 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */,
+				21D5845C26AC78FC000452C0 /* EditProfile.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		21C07AFE26A350DE0025D324 = {
@@ -147,6 +164,7 @@
 			children = (
 				21C07B2226A353460025D324 /* LoginVM.swift */,
 				21C07B2426A3534D0025D324 /* RegisterVM.swift */,
+				2183E38E26AB82B4007D2D35 /* ProfileVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -158,6 +176,7 @@
 				21E457D826A606CC00AE5C3F /* LogoView.swift */,
 				21193B8B26AB58FA0001AFDC /* BlurView.swift */,
 				21193B9326AB668D0001AFDC /* CustomListRow.swift */,
+				21D5845A26AC631D000452C0 /* CustomGroupBox.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -175,6 +194,7 @@
 		21C07B2C26A360290025D324 /* Primary Views */ = {
 			isa = PBXGroup;
 			children = (
+				2183E38B26AB8298007D2D35 /* Profile */,
 				21C07B0C26A350DE0025D324 /* ContentView.swift */,
 				21193B8326AB41BA0001AFDC /* Home.swift */,
 				21193B9126AB638B0001AFDC /* MenuScreen.swift */,
@@ -337,13 +357,17 @@
 				21C07B2726A357AF0025D324 /* HelperMethods.swift in Sources */,
 				21193B8626AB49740001AFDC /* ProfileSetup.swift in Sources */,
 				21193B9426AB668D0001AFDC /* CustomListRow.swift in Sources */,
+				21D5845B26AC631D000452C0 /* CustomGroupBox.swift in Sources */,
 				21193B9726AB7EE30001AFDC /* AccountSettings.swift in Sources */,
 				21E457D926A606CC00AE5C3F /* LogoView.swift in Sources */,
 				21C07B2A26A35B770025D324 /* CustomTextField.swift in Sources */,
 				21C07B0B26A350DE0025D324 /* ReConnectApp.swift in Sources */,
+				21D5845D26AC78FC000452C0 /* EditProfile.swift in Sources */,
 				21C07B2326A353460025D324 /* LoginVM.swift in Sources */,
 				21193B8426AB41BA0001AFDC /* Home.swift in Sources */,
 				21C07B2526A3534D0025D324 /* RegisterVM.swift in Sources */,
+				2183E38F26AB82B4007D2D35 /* ProfileVM.swift in Sources */,
+				2183E38D26AB82A9007D2D35 /* ProfileScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

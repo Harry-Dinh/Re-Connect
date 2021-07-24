@@ -21,6 +21,12 @@ struct CoreScreen: View {
             .tag(0)
             
             NavigationView {
+                ProfileScreen()
+            }
+            .tabItem { Label("Profile", systemImage: "person.crop.circle.fill") }
+            .tag(1)
+            
+            NavigationView {
                 MenuScreen()
             }
             .tabItem { Label("Menu", systemImage: "list.bullet") }
