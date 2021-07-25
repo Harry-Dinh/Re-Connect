@@ -12,6 +12,7 @@ class ProfileVM: ObservableObject {
     static let shared = ProfileVM()
     
     private var databaseRef = Database.database().reference()
+    private var storageRef = Storage.storage().reference()
     
     @Published var firstName: String = ""
     @Published var middleName: String = ""
@@ -24,7 +25,17 @@ class ProfileVM: ObservableObject {
     // MARK: - SWIFTUI STATES
     @Published var showPrivateAccountPopUp: Bool = false
     @Published var editProfile: Bool = false
+    @Published var isTextFieldEditing: Bool = false
+    @Published var showImagePicker: Bool = false
+    @Published var showCameraInterface: Bool = false
+    @Published var showPhotoPickerActionSheet: Bool = false
     
+    // MARK: - EDIT PROFILE
+    @Published var profilePic: UIImage = UIImage()
+    @Published var profilePicData: Data = Data()
+    @Published var profilePicURL: String = ""
+    
+    // MARK: - METHODS
     public func fetchUserData() {
         guard let email = Auth.auth().currentUser?.email,
               let uid = Auth.auth().currentUser?.uid else {
@@ -76,6 +87,42 @@ class ProfileVM: ObservableObject {
             else {
                 print("No value at all")
             }
+        }
+        
+        storageRef.child("Images").child("User \(safeEmail)_\(uid)").child("Profile Pics").child("file.png").downloadURL(completion: { [weak self] url, error in
+            guard let url = url, error == nil else {
+                return
+            }
+            
+            let urlString = url.absoluteString
+            self?.profilePicURL = urlString
+            print("Download URL: \(urlString)")
+        })
+    }
+    
+    public func uploadProfilePicData() {
+        guard let email = Auth.auth().currentUser?.email,
+              let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
+        
+        storageRef.child("Images").child("User \(safeEmail)_\(uid)").child("Profile Pics").child("file.png").putData(profilePicData, metadata: nil) { [weak self] _, error in
+            guard error == nil else {
+                print("Failed to upload")
+                return
+            }
+            
+            self?.storageRef.child("Images").child("User \(safeEmail)_\(uid)").child("Profile Pics").child("file.png").downloadURL(completion: { url, error in
+                guard let url = url, error == nil else {
+                    return
+                }
+                
+                let urlString = url.absoluteString
+                self?.profilePicURL = urlString
+                print("Download URL: \(urlString)")
+            })
         }
     }
 }

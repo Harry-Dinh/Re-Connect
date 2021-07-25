@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2108361626ADB4B20086F9D7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2108361526ADB4B20086F9D7 /* ImagePicker.swift */; };
+		2108361926ADD5F00086F9D7 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2108361826ADD5F00086F9D7 /* SDWebImageSwiftUI */; };
+		2108361B26ADDC840086F9D7 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2108361A26ADDC840086F9D7 /* Discover.swift */; };
+		2108361D26ADDC8C0086F9D7 /* DiscoverVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2108361C26ADDC8C0086F9D7 /* DiscoverVM.swift */; };
 		21193B8426AB41BA0001AFDC /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B8326AB41BA0001AFDC /* Home.swift */; };
 		21193B8626AB49740001AFDC /* ProfileSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B8526AB49740001AFDC /* ProfileSetup.swift */; };
 		21193B8826AB4F210001AFDC /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B8726AB4F210001AFDC /* WelcomeScreen.swift */; };
@@ -38,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		1635CEC6865B56272FB269B4 /* Pods-ReConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReConnect.debug.xcconfig"; path = "Target Support Files/Pods-ReConnect/Pods-ReConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		2108361526ADB4B20086F9D7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2108361A26ADDC840086F9D7 /* Discover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discover.swift; sourceTree = "<group>"; };
+		2108361C26ADDC8C0086F9D7 /* DiscoverVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVM.swift; sourceTree = "<group>"; };
 		21193B8326AB41BA0001AFDC /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		21193B8526AB49740001AFDC /* ProfileSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetup.swift; sourceTree = "<group>"; };
 		21193B8726AB4F210001AFDC /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
@@ -75,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2108361926ADD5F00086F9D7 /* SDWebImageSwiftUI in Frameworks */,
 				FB3D79712831E3230A565B06 /* Pods_ReConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2108361426ADB4A40086F9D7 /* Secondary Views */ = {
+			isa = PBXGroup;
+			children = (
+				2108361526ADB4B20086F9D7 /* ImagePicker.swift */,
+			);
+			path = "Secondary Views";
+			sourceTree = "<group>";
+		};
 		21193B9526AB7ED40001AFDC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +168,7 @@
 		21C07B1C26A352F00025D324 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2108361426ADB4A40086F9D7 /* Secondary Views */,
 				21C07B2B26A3601F0025D324 /* Auth UI */,
 				21C07B2826A35B6D0025D324 /* Custom Views */,
 				21C07B2C26A360290025D324 /* Primary Views */,
@@ -165,6 +182,7 @@
 				21C07B2226A353460025D324 /* LoginVM.swift */,
 				21C07B2426A3534D0025D324 /* RegisterVM.swift */,
 				2183E38E26AB82B4007D2D35 /* ProfileVM.swift */,
+				2108361C26ADDC8C0086F9D7 /* DiscoverVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -197,6 +215,7 @@
 				2183E38B26AB8298007D2D35 /* Profile */,
 				21C07B0C26A350DE0025D324 /* ContentView.swift */,
 				21193B8326AB41BA0001AFDC /* Home.swift */,
+				2108361A26ADDC840086F9D7 /* Discover.swift */,
 				21193B9126AB638B0001AFDC /* MenuScreen.swift */,
 				21193B8D26AB5F4C0001AFDC /* CoreScreen.swift */,
 				21193B9526AB7ED40001AFDC /* Settings */,
@@ -249,6 +268,9 @@
 			dependencies = (
 			);
 			name = ReConnect;
+			packageProductDependencies = (
+				2108361826ADD5F00086F9D7 /* SDWebImageSwiftUI */,
+			);
 			productName = ReConnect;
 			productReference = 21C07B0726A350DE0025D324 /* ReConnect.app */;
 			productType = "com.apple.product-type.application";
@@ -276,6 +298,9 @@
 				Base,
 			);
 			mainGroup = 21C07AFE26A350DE0025D324;
+			packageReferences = (
+				2108361726ADD5F00086F9D7 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 21C07B0826A350DE0025D324 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,6 +379,7 @@
 				21193B8826AB4F210001AFDC /* WelcomeScreen.swift in Sources */,
 				21193B9226AB638B0001AFDC /* MenuScreen.swift in Sources */,
 				21C07B2026A353320025D324 /* Register.swift in Sources */,
+				2108361D26ADDC8C0086F9D7 /* DiscoverVM.swift in Sources */,
 				21C07B2726A357AF0025D324 /* HelperMethods.swift in Sources */,
 				21193B8626AB49740001AFDC /* ProfileSetup.swift in Sources */,
 				21193B9426AB668D0001AFDC /* CustomListRow.swift in Sources */,
@@ -366,6 +392,8 @@
 				21C07B2326A353460025D324 /* LoginVM.swift in Sources */,
 				21193B8426AB41BA0001AFDC /* Home.swift in Sources */,
 				21C07B2526A3534D0025D324 /* RegisterVM.swift in Sources */,
+				2108361B26ADDC840086F9D7 /* Discover.swift in Sources */,
+				2108361626ADB4B20086F9D7 /* ImagePicker.swift in Sources */,
 				2183E38F26AB82B4007D2D35 /* ProfileVM.swift in Sources */,
 				2183E38D26AB82A9007D2D35 /* ProfileScreen.swift in Sources */,
 			);
@@ -558,6 +586,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2108361726ADD5F00086F9D7 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2108361826ADD5F00086F9D7 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2108361726ADD5F00086F9D7 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 21C07AFF26A350DE0025D324 /* Project object */;
 }

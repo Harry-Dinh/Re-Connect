@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfileScreen: View {
     
@@ -14,9 +15,10 @@ struct ProfileScreen: View {
     var body: some View {
         ScrollView {
             HStack {
-                Image(systemName: "person.crop.circle.fill")
+                WebImage(url: URL(string: viewModel.profilePicURL))
                     .resizable()
                     .frame(width: 80, height: 80)
+                    .cornerRadius(15)
                 
                 VStack(alignment: .leading, spacing: 6) {
                     if !viewModel.middleName.isEmpty {

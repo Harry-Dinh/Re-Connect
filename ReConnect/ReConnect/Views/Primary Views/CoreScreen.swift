@@ -21,16 +21,22 @@ struct CoreScreen: View {
             .tag(0)
             
             NavigationView {
+                Discover()
+            }
+            .tabItem { Label("Discover", systemImage: "safari.fill") }
+            .tag(1)
+            
+            NavigationView {
                 ProfileScreen()
             }
             .tabItem { Label("Profile", systemImage: "person.crop.circle.fill") }
-            .tag(1)
+            .tag(2)
             
             NavigationView {
                 MenuScreen()
             }
             .tabItem { Label("Menu", systemImage: "list.bullet") }
-            .tag(2)
+            .tag(3)
         }
     }
 }

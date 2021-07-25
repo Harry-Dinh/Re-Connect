@@ -31,7 +31,8 @@ struct Home: View {
                         Label("New Story", systemImage: "plus.rectangle.portrait")
                     })
                 } label: {
-                    Image(systemName: "plus.circle.fill")
+                    Image(systemName: "plus")
+                        .imageScale(.large)
                 }
 
             }

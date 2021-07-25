@@ -17,20 +17,79 @@ struct EditProfile: View {
     
     var body: some View {
         Form {
-            Toggle(isOn: $viewModel.isPrivateAccount, label: {
-                Text("Use Private Account")
-            })
+            HStack {
+                Image(uiImage: viewModel.profilePic)
+                    .resizable()
+                    .frame(width: 80, height: 80)
+                    .cornerRadius(15)
+                
+                Button("Change profile picture") {
+                    viewModel.showPhotoPickerActionSheet.toggle()
+                }
+                .actionSheet(isPresented: $viewModel.showPhotoPickerActionSheet, content: {
+                    ActionSheet(title: Text("Choose where to select your profile picture"), message: nil, buttons: [
+                        .cancel(),
+                        .default(Text("Take Photo"), action: {
+                            viewModel.showCameraInterface.toggle()
+                        }),
+                        .default(Text("Choose from Library"), action: {
+                            viewModel.showImagePicker.toggle()
+                        })
+                    ])
+                })
+                .sheet(isPresented: $viewModel.showCameraInterface, content: {
+                    ImagePicker(selectedImage: $viewModel.profilePic, sourceType: .camera)
+                })
+                .sheet(isPresented: $viewModel.showImagePicker, content: {
+                    ImagePicker(selectedImage: $viewModel.profilePic, sourceType: .photoLibrary)
+                })
+            }
+            .padding(.vertical)
             
             Section {
+                Toggle(isOn: $viewModel.isPrivateAccount, label: {
+                    if viewModel.isPrivateAccount {
+                        Label("Use Private Account", systemImage: "lock.fill")
+                    }
+                    else {
+                        Label("Use Private Account", systemImage: "lock.open.fill")
+                    }
+                })
+            }
+            
+            Section(header: Text("Basic Info")) {
+                TextField("First name", text: $viewModel.firstName)
+                    .onTapGesture {
+                        viewModel.isTextFieldEditing = true
+                    }
+                TextField("Middle name (optional)", text: $viewModel.middleName)
+                    .onTapGesture {
+                        viewModel.isTextFieldEditing = true
+                    }
+                TextField("Last name", text: $viewModel.lastName)
+                    .onTapGesture {
+                        viewModel.isTextFieldEditing = true
+                    }
                 TextField("Change username (e.g: @JimKirk1701)", text: $viewModel.username)
+                    .onTapGesture {
+                        viewModel.isTextFieldEditing = true
+                    }
             }
         }
-        .navigationTitle("Edit Profile")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Save") {
-                    updateUserInfo()
-                    self.presentationMode.wrappedValue.dismiss()
+                if !viewModel.isTextFieldEditing {
+                    Button("Save") {
+                        updateUserInfo()
+                        viewModel.uploadProfilePicData()
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                }
+                else {
+                    Button("Done") {
+                        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                        viewModel.isTextFieldEditing = false
+                    }
                 }
             }
             
@@ -40,6 +99,8 @@ struct EditProfile: View {
                 }
             }
         }
+        .navigationTitle("Edit Profile")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func updateUserInfo() {
@@ -50,17 +111,27 @@ struct EditProfile: View {
         
         let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
         
-        let updatedValues: [String: Any] = [
+        let updatedProfileValues: [String: Any] = [
             "isPrivateAccount": viewModel.isPrivateAccount,
             "username": viewModel.username
         ]
         
-        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("Profile Info").updateChildValues(updatedValues)
+        let updatedBasicValues: [String: Any] = [
+            "firstName": viewModel.firstName,
+            "middleName": viewModel.middleName,
+            "lastName": viewModel.lastName
+        ]
+        
+        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("Profile Info").updateChildValues(updatedProfileValues)
+        
+        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("User Info").updateChildValues(updatedBasicValues)
     }
 }
 
 struct EditProfile_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfile()
+        NavigationView {
+            EditProfile()
+        }
     }
 }

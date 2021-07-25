@@ -46,5 +46,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow access to photo library to select photos and videos to share with other people. Your photos and videos data will never be collected.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow access to the camera to take photos and videos to share with other people. Your camera will never be used to spy on you.</string>
 </dict>
 </plist>
