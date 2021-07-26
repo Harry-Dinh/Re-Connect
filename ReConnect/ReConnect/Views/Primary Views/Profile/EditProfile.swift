@@ -58,22 +58,21 @@ struct EditProfile: View {
             }
             
             Section(header: Text("Basic Info")) {
-                TextField("First name", text: $viewModel.firstName)
-                    .onTapGesture {
-                        viewModel.isTextFieldEditing = true
-                    }
-                TextField("Middle name (optional)", text: $viewModel.middleName)
-                    .onTapGesture {
-                        viewModel.isTextFieldEditing = true
-                    }
-                TextField("Last name", text: $viewModel.lastName)
-                    .onTapGesture {
-                        viewModel.isTextFieldEditing = true
-                    }
-                TextField("Change username (e.g: @JimKirk1701)", text: $viewModel.username)
-                    .onTapGesture {
-                        viewModel.isTextFieldEditing = true
-                    }
+                TextField("First name", text: $viewModel.firstName, onEditingChanged: { isEditing in
+                    viewModel.isTextFieldEditing = isEditing
+                })
+                
+                TextField("Middle name (optional)", text: $viewModel.middleName, onEditingChanged: { isEditing in
+                    viewModel.isTextFieldEditing = isEditing
+                })
+                
+                TextField("Last name", text: $viewModel.lastName, onEditingChanged: { isEditing in
+                    viewModel.isTextFieldEditing = isEditing
+                })
+                
+                TextField("Username (e.g: @JimKirk1701)", text: $viewModel.username, onEditingChanged: { isEditing in
+                    viewModel.isTextFieldEditing = isEditing
+                })
             }
         }
         .toolbar {
@@ -104,8 +103,7 @@ struct EditProfile: View {
     }
     
     private func updateUserInfo() {
-        guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
+        guard let email = Auth.auth().currentUser?.email else {
             return
         }
         
@@ -122,9 +120,9 @@ struct EditProfile: View {
             "lastName": viewModel.lastName
         ]
         
-        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("Profile Info").updateChildValues(updatedProfileValues)
+        databaseRef.child("Users").child("\(safeEmail)").updateChildValues(updatedProfileValues)
         
-        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("User Info").updateChildValues(updatedBasicValues)
+        databaseRef.child("Users").child("\(safeEmail)").updateChildValues(updatedBasicValues)
     }
 }
 

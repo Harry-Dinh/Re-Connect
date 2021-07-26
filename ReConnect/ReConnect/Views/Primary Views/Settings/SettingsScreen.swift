@@ -21,6 +21,14 @@ struct SettingsScreen: View {
                 }
                 .cornerRadius(15)
                 .padding()
+                
+                GroupBox {
+                    NavigationLink(destination: DeveloperSettings()) {
+                        CustomListRow(hasIcon: true, showsChevron: true, icon: "hammer.fill", title: "Developer", color: .blue)
+                    }
+                }
+                .cornerRadius(15)
+                .padding()
             }
         }
         .navigationBarTitleDisplayMode(.inline)

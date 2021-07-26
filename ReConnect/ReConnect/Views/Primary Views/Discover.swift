@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIX
 
 struct Discover: View {
     
@@ -18,24 +19,25 @@ struct Discover: View {
     
     var body: some View {
         VStack {
-            searchField
-            ScrollView {
+            List {
                 
             }
+            .listStyle(PlainListStyle())
         }
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Text("Discover")
-                    .font(.title)
-                    .bold()
-            }
-            
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {}, label: {
+                Button(action: {}) {
                     Image(systemName: "camera.viewfinder")
-                })
+                }
             }
         }
+        .navigationSearchBar({
+            SearchBar("Search for people, posts and more!", text: $viewModel.searchField, isEditing: $viewModel.isTextFieldEditing, onCommit: {
+                // Execute the search function
+            })
+        })
+        .navigationTitle("Discover")
+        .navigationSearchBarHiddenWhenScrolling(false)
         .navigationBarTitleDisplayMode(.inline)
     }
 }

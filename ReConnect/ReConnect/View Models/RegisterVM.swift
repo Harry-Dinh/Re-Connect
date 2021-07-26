@@ -72,12 +72,11 @@ class RegisterVM: ObservableObject {
             "uid": uid
         ]
         
-        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("User Info").setValue(userInfo)
+        databaseRef.child("Users").child("\(safeEmail)").setValue(userInfo)
     }
     
     public func updateUserInfo(dateOfBirth: Date, gender: Int) {
-        guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
+        guard let email = Auth.auth().currentUser?.email else {
             return
         }
         
@@ -85,28 +84,27 @@ class RegisterVM: ObservableObject {
         
         let dobString = HelperMethods.shared.dateFormatter.string(from: dateOfBirth)
         
-        let userInfo: [String: Any] = [
+        let updatedValues: [String: Any] = [
             "dateOfBirth": dobString,
             "gender": gender
         ]
         
-        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("User Info").updateChildValues(userInfo)
+        databaseRef.child("Users").child("\(safeEmail)").updateChildValues(updatedValues)
     }
     
     public func updateUserProfileInfo(username: String, isPrivateAccount: Bool, allowDiagnosticCollection: Bool) {
-        guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
+        guard let email = Auth.auth().currentUser?.email else {
             return
         }
         
         let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
         
-        let updatedInfo: [String: Any] = [
+        let updatedValues: [String: Any] = [
             "username": username,
             "isPrivateAccount": isPrivateAccount,
-            "allowDiagnosticPreferences": allowDiagnosticCollection
+            "allowDiagnosticCollection": allowDiagnosticCollection
         ]
         
-        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("Profile Info").setValue(updatedInfo)
+        databaseRef.child("Users").child("\(safeEmail)").updateChildValues(updatedValues)
     }
 }

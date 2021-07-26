@@ -10,9 +10,9 @@ import SwiftUI
 struct Home: View {
     var body: some View {
         ScrollView {
-            ForEach(1..<100) { _ in
-                Text("W O O M Y")
-            }
+            Text("There is nothing here... yet.")
+                .font(.title)
+                .foregroundColor(.secondary)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

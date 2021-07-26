@@ -45,7 +45,7 @@ class ProfileVM: ObservableObject {
         let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
         
         // Fetch the user's full name and assign it to `fullName` variable.
-        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("User Info").observeSingleEvent(of: .value) { [weak self] snapshot in
+        databaseRef.child("Users").child("\(safeEmail)").observeSingleEvent(of: .value) { [weak self] snapshot in
             if let value = snapshot.value as? [String: AnyObject] {
                 let first = value["firstName"] as? String ?? "First"
                 let middle = value["middleName"] as? String ?? ""
@@ -76,7 +76,7 @@ class ProfileVM: ObservableObject {
             }
         }
         
-        databaseRef.child("Users").child("User \(safeEmail)_\(uid)").child("Profile Info").observeSingleEvent(of: .value) { [weak self] snapshot in
+        databaseRef.child("Users").child("\(safeEmail)").observeSingleEvent(of: .value) { [weak self] snapshot in
             if let value = snapshot.value as? [String: AnyObject] {
                 let username = value["username"] as? String ?? "@No Username"
                 let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
@@ -89,7 +89,7 @@ class ProfileVM: ObservableObject {
             }
         }
         
-        storageRef.child("Images").child("User \(safeEmail)_\(uid)").child("Profile Pics").child("file.png").downloadURL(completion: { [weak self] url, error in
+        storageRef.child("Images").child("\(safeEmail)").child("Profile Pics").child("\(safeEmail)_\(uid)_profilePic.png").downloadURL(completion: { [weak self] url, error in
             guard let url = url, error == nil else {
                 return
             }
@@ -108,13 +108,13 @@ class ProfileVM: ObservableObject {
         
         let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
         
-        storageRef.child("Images").child("User \(safeEmail)_\(uid)").child("Profile Pics").child("file.png").putData(profilePicData, metadata: nil) { [weak self] _, error in
+        storageRef.child("Images").child("\(safeEmail)").child("Profile Pics").child("\(safeEmail)_\(uid)_profilePic.png").putData(profilePicData, metadata: nil) { [weak self] _, error in
             guard error == nil else {
                 print("Failed to upload")
                 return
             }
             
-            self?.storageRef.child("Images").child("User \(safeEmail)_\(uid)").child("Profile Pics").child("file.png").downloadURL(completion: { url, error in
+            self?.storageRef.child("Images").child("\(safeEmail)").child("Profile Pics").child("\(safeEmail)_\(uid)_profilePic.png").downloadURL(completion: { url, error in
                 guard let url = url, error == nil else {
                     return
                 }

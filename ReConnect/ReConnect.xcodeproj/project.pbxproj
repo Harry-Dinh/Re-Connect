@@ -20,6 +20,8 @@
 		21193B9226AB638B0001AFDC /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B9126AB638B0001AFDC /* MenuScreen.swift */; };
 		21193B9426AB668D0001AFDC /* CustomListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B9326AB668D0001AFDC /* CustomListRow.swift */; };
 		21193B9726AB7EE30001AFDC /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21193B9626AB7EE30001AFDC /* AccountSettings.swift */; };
+		2165059926AF31B900F30000 /* DeveloperSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2165059826AF31B900F30000 /* DeveloperSettings.swift */; };
+		2165059C26AF408B00F30000 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 2165059B26AF408B00F30000 /* SwiftUIX */; };
 		2183E38D26AB82A9007D2D35 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */; };
 		2183E38F26AB82B4007D2D35 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183E38E26AB82B4007D2D35 /* ProfileVM.swift */; };
 		21C07B0B26A350DE0025D324 /* ReConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B0A26A350DE0025D324 /* ReConnectApp.swift */; };
@@ -54,6 +56,7 @@
 		21193B9126AB638B0001AFDC /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 		21193B9326AB668D0001AFDC /* CustomListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListRow.swift; sourceTree = "<group>"; };
 		21193B9626AB7EE30001AFDC /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
+		2165059826AF31B900F30000 /* DeveloperSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettings.swift; sourceTree = "<group>"; };
 		2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		2183E38E26AB82B4007D2D35 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		21C07B0726A350DE0025D324 /* ReConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2165059C26AF408B00F30000 /* SwiftUIX in Frameworks */,
 				2108361926ADD5F00086F9D7 /* SDWebImageSwiftUI in Frameworks */,
 				FB3D79712831E3230A565B06 /* Pods_ReConnect.framework in Frameworks */,
 			);
@@ -103,6 +107,7 @@
 			children = (
 				21193B8F26AB637F0001AFDC /* SettingsScreen.swift */,
 				21193B9626AB7EE30001AFDC /* AccountSettings.swift */,
+				2165059826AF31B900F30000 /* DeveloperSettings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			name = ReConnect;
 			packageProductDependencies = (
 				2108361826ADD5F00086F9D7 /* SDWebImageSwiftUI */,
+				2165059B26AF408B00F30000 /* SwiftUIX */,
 			);
 			productName = ReConnect;
 			productReference = 21C07B0726A350DE0025D324 /* ReConnect.app */;
@@ -300,6 +306,7 @@
 			mainGroup = 21C07AFE26A350DE0025D324;
 			packageReferences = (
 				2108361726ADD5F00086F9D7 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				2165059A26AF408B00F30000 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 21C07B0826A350DE0025D324 /* Products */;
 			projectDirPath = "";
@@ -387,6 +394,7 @@
 				21193B9726AB7EE30001AFDC /* AccountSettings.swift in Sources */,
 				21E457D926A606CC00AE5C3F /* LogoView.swift in Sources */,
 				21C07B2A26A35B770025D324 /* CustomTextField.swift in Sources */,
+				2165059926AF31B900F30000 /* DeveloperSettings.swift in Sources */,
 				21C07B0B26A350DE0025D324 /* ReConnectApp.swift in Sources */,
 				21D5845D26AC78FC000452C0 /* EditProfile.swift in Sources */,
 				21C07B2326A353460025D324 /* LoginVM.swift in Sources */,
@@ -596,6 +604,14 @@
 				minimumVersion = 2.0.2;
 			};
 		};
+		2165059A26AF408B00F30000 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -603,6 +619,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2108361726ADD5F00086F9D7 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		2165059B26AF408B00F30000 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2165059A26AF408B00F30000 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

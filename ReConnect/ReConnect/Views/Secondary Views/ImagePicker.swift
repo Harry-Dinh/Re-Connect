@@ -30,7 +30,9 @@ struct ImagePicker: UIViewControllerRepresentable {
                 return
             }
             
-            parent.selectedImage = image
+            DispatchQueue.main.async {
+                self.parent.selectedImage = image
+            }
             
             guard let imageData = image.pngData() else {
                 return
