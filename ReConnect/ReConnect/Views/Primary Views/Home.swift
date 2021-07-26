@@ -9,17 +9,17 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        ScrollView {
+        VStack(spacing: 10) {
+            Image(systemName: "heart.text.square.fill")
+                .font(.system(size: 100))
+                .foregroundColor(.secondary)
+            
             Text("There is nothing here... yet.")
                 .font(.title)
                 .foregroundColor(.secondary)
         }
+        .navigationTitle("Re:Connect")
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Text("Re:Connect")
-                    .font(.title)
-                    .bold()
-            }
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
@@ -37,7 +37,6 @@ struct Home: View {
 
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

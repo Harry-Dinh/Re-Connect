@@ -11,16 +11,19 @@ import SwiftUIX
 struct Discover: View {
     
     @ObservedObject var viewModel = DiscoverVM.shared
-    
-    var searchField: some View {
-        CustomSearchField(text: $viewModel.searchField, placeholder: "Search for people, posts and more!")
-            .padding()
-    }
+    let users = [UserModel]()
     
     var body: some View {
         VStack {
             List {
-                
+                ForEach(users, id: \.self) { user in
+                    if !user.middleName.isEmpty {
+                        DiscoverListRow(fullName: "\(user.firstName) \(user.middleName) \(user.lastName)", username: user.username)
+                    }
+                    else {
+                        DiscoverListRow(fullName: "\(user.firstName) \(user.lastName)", username: user.username)
+                    }
+                }
             }
             .listStyle(PlainListStyle())
         }
@@ -33,7 +36,7 @@ struct Discover: View {
         }
         .navigationSearchBar({
             SearchBar("Search for people, posts and more!", text: $viewModel.searchField, isEditing: $viewModel.isTextFieldEditing, onCommit: {
-                // Execute the search function
+                viewModel.fetchUsers()
             })
         })
         .navigationTitle("Discover")

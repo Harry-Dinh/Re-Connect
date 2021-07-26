@@ -32,14 +32,7 @@ struct MenuScreen: View {
             .cornerRadius(15)
             .padding()
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Text("Menu")
-                    .font(.title)
-                    .bold()
-            }
-        }
+        .navigationTitle("Menu")
     }
 }
 

@@ -8,11 +8,11 @@
 import SwiftUI
 import Firebase
 
-struct UserModel: Identifiable {
-    var id: String
-    var fullName: String
+struct UserModel: Hashable {
+    var firstName: String
+    var middleName: String
+    var lastName: String
     var username: String
-    var profilePicURL: String
 }
 
 class DiscoverVM: ObservableObject {
@@ -22,6 +22,25 @@ class DiscoverVM: ObservableObject {
     
     @Published var searchField: String = ""
     @Published var isTextFieldEditing: Bool = false
+    
+    var usersToFilter = [UserModel]()
+    var filteredUserResults = [UserModel]()
+    
+    public func fetchUsers() {
+        databaseRef.child("Users").queryOrdered(byChild: "lastName").queryStarting(atValue: "\u{f8ff}").queryLimited(toFirst: 20).observeSingleEvent(of: .childAdded) { [weak self] snapshot in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let firstName = dictionary["firstName"] as! String
+                let middleName = dictionary["middleName"] as! String
+                let lastName = dictionary["lastName"] as! String
+                let username = dictionary["username"] as! String
+                
+                let user = UserModel(firstName: firstName, middleName: middleName, lastName: lastName, username: username)
+                self?.usersToFilter.append(user)
+            }
+        }
+        
+        UITableView().reloadData()
+    }
 }
 
 /// A table view cell for the Discover tab
@@ -29,15 +48,9 @@ struct DiscoverListRow: View {
     
     var fullName: String
     var username: String
-    var profilePic: UIImage
     
     var body: some View {
         HStack {
-            Image(uiImage: profilePic)
-                .resizable()
-                .frame(width: 80, height: 80)
-                .cornerRadius(15)
-            
             VStack(alignment: .leading, spacing: 6) {
                 Text(fullName)
                     .font(.headline)
