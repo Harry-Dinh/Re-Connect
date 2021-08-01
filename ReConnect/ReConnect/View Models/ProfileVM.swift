@@ -44,51 +44,26 @@ class ProfileVM: ObservableObject {
         
         let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
         
-        // Fetch the user's full name and assign it to `fullName` variable.
-        databaseRef.child("Users").child("\(safeEmail)").observeSingleEvent(of: .value) { [weak self] snapshot in
-            if let value = snapshot.value as? [String: AnyObject] {
-                let first = value["firstName"] as? String ?? "First"
-                let middle = value["middleName"] as? String ?? ""
-                let last = value["lastName"] as? String ?? "Last"
-                let dateOfBirth = value["dateOfBirth"] as? String ?? "N/A"
+        // Fetch user's info
+        databaseRef.child("Users").child("\(safeEmail)_\(uid)").observeSingleEvent(of: .value) { [weak self] snapshot in
+            if let value = snapshot.value as? [String: Any] {
+                let first = value["firstName"] as! String
+                let middle = value["middleName"] as! String
+                let last = value["lastName"] as! String
+                let dateOfBirth = value["dateOfBirth"] as! String
+                let username = value["username"] as! String
+                let isPrivateAccount = value["isPrivateAccount"] as! Bool
                 
+                self?.firstName = first
+                self?.middleName = middle
+                self?.lastName = last
                 self?.dateOfBirth = dateOfBirth
-                
-                // Check if middle name is empty
-                // If empty, do not assign middle to middleName
-                if !middle.isEmpty {
-                    self?.firstName = first
-                    self?.middleName = middle
-                    self?.lastName = last
-                    
-                    self?.fullName = "\(String(describing: self?.firstName)) \(String(describing: self?.middleName)) \(String(describing: self?.lastName))"
-                }
-                else {
-                    self?.firstName = first
-                    self?.lastName = last
-                    
-                    self?.fullName = "\(String(describing: self?.firstName)) \(String(describing: self?.lastName))"
-                }
-            }
-            else {
-                print("No value at all")
-                self?.fullName = "Unknown User"
-            }
-        }
-        
-        databaseRef.child("Users").child("\(safeEmail)").observeSingleEvent(of: .value) { [weak self] snapshot in
-            if let value = snapshot.value as? [String: AnyObject] {
-                let username = value["username"] as? String ?? "@No Username"
-                let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
-                
                 self?.username = username
                 self?.isPrivateAccount = isPrivateAccount
             }
-            else {
-                print("No value at all")
-            }
         }
         
+        // Fetch user profile pic URL
         storageRef.child("Images").child("\(safeEmail)").child("Profile Pics").child("\(safeEmail)_\(uid)_profilePic.png").downloadURL(completion: { [weak self] url, error in
             guard let url = url, error == nil else {
                 return

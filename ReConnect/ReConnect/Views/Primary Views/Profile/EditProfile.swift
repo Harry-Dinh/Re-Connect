@@ -103,7 +103,8 @@ struct EditProfile: View {
     }
     
     private func updateUserInfo() {
-        guard let email = Auth.auth().currentUser?.email else {
+        guard let email = Auth.auth().currentUser?.email,
+              let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
@@ -120,9 +121,9 @@ struct EditProfile: View {
             "lastName": viewModel.lastName
         ]
         
-        databaseRef.child("Users").child("\(safeEmail)").updateChildValues(updatedProfileValues)
+        databaseRef.child("Users").child("\(safeEmail)_\(uid)").updateChildValues(updatedProfileValues)
         
-        databaseRef.child("Users").child("\(safeEmail)").updateChildValues(updatedBasicValues)
+        databaseRef.child("Users").child("\(safeEmail)_\(uid)").updateChildValues(updatedBasicValues)
     }
 }
 

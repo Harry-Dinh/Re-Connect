@@ -44,7 +44,9 @@ class RegisterVM: ObservableObject {
             }
             
             print("Sucessfully created user account")
-            self?.createUserObject(firstName: firstName, middleName: middleName, lastName: lastName, email: email)
+            let userModel = UserModel(firstName: firstName, middleName: middleName, lastName: lastName, email: email)
+            self?.createUserObject(user: userModel)
+            
             self?.firstName = ""
             self?.middleName = ""
             self?.lastName = ""
@@ -53,30 +55,70 @@ class RegisterVM: ObservableObject {
         }
     }
     
-    public func createUserObject(firstName: String, middleName: String, lastName: String, email: String) {
-        UserDefaults.standard.set(firstName, forKey: "firstName")
-        UserDefaults.standard.set(middleName, forKey: "middleName")
-        UserDefaults.standard.set(lastName, forKey: "lastName")
-        
+    public func createUserObject(user: UserModel) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
-        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
+        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: user.email)
         
         let userInfo: [String: Any] = [
-            "firstName": firstName,
-            "middleName": middleName,
-            "lastName": lastName,
+            "firstName": user.firstName,
+            "middleName": user.middleName,
+            "lastName": user.lastName,
             "email": safeEmail,
             "uid": uid
         ]
         
-        databaseRef.child("Users").child("\(safeEmail)").setValue(userInfo)
+        databaseRef.child("Users").child("\(safeEmail)_\(uid)").setValue(userInfo)
+        
+        // Create user node
+        databaseRef.child("User nodes").observeSingleEvent(of: .value) { [weak self] snapshot in
+            if var usersCollection = snapshot.value as? [[String: String]] {
+                let newElement = [
+                    "firstName": user.firstName,
+                    "middleName": user.middleName,
+                    "lastName": user.lastName,
+                    "email": safeEmail
+                ]
+                
+                usersCollection.append(newElement)
+                
+                self?.databaseRef.child("User nodes").setValue(usersCollection, withCompletionBlock: { error, _ in
+                    guard error == nil else {
+                        print("Cannot set user's data")
+                        return
+                    }
+                    
+                    print("Successfully set users data")
+                })
+            }
+            else {
+                let newCollection: [[String: String]] = [
+                    [
+                        "firstName": user.firstName,
+                        "middleName": user.middleName,
+                        "lastName": user.lastName,
+                        "email": safeEmail
+                    ]
+                ]
+                
+                self?.databaseRef.child("User nodes").setValue(newCollection, withCompletionBlock: { error, _ in
+                    guard error == nil else {
+                        print("Cannot set user's data")
+                        return
+                    }
+                    
+                    print("Successfully set user's data")
+                })
+            }
+        }
     }
     
     public func updateUserInfo(dateOfBirth: Date, gender: Int) {
-        guard let email = Auth.auth().currentUser?.email else {
+        
+        guard let email = Auth.auth().currentUser?.email,
+              let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
@@ -89,11 +131,13 @@ class RegisterVM: ObservableObject {
             "gender": gender
         ]
         
-        databaseRef.child("Users").child("\(safeEmail)").updateChildValues(updatedValues)
+        databaseRef.child("Users").child("\(safeEmail)_\(uid)").updateChildValues(updatedValues)
     }
     
     public func updateUserProfileInfo(username: String, isPrivateAccount: Bool, allowDiagnosticCollection: Bool) {
-        guard let email = Auth.auth().currentUser?.email else {
+        
+        guard let email = Auth.auth().currentUser?.email,
+              let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
@@ -105,6 +149,22 @@ class RegisterVM: ObservableObject {
             "allowDiagnosticCollection": allowDiagnosticCollection
         ]
         
-        databaseRef.child("Users").child("\(safeEmail)").updateChildValues(updatedValues)
+        databaseRef.child("Users").child("\(safeEmail)_\(uid)").updateChildValues(updatedValues)
+        databaseRef.child("User nodes").child("\(0...)")
+    }
+    
+    public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
+        databaseRef.child("User nodes").observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [[String: String]] else {
+                completion(.failure(FetchErrors.failedToFetch))
+                return
+            }
+            
+            completion(.success(value))
+        }
+    }
+    
+    public enum FetchErrors: Error {
+        case failedToFetch
     }
 }
