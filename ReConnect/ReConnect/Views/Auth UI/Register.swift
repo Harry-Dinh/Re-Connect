@@ -56,9 +56,6 @@ struct Register: View {
                                     .frame(height: 45)
                             )
                     }
-                    .simultaneousGesture(TapGesture().onEnded {
-                        viewModel.createUserAccount(firstName: viewModel.firstName, middleName: viewModel.middleName, lastName: viewModel.lastName, email: viewModel.email, password: viewModel.password)
-                    })
                 }
                 .padding()
             }

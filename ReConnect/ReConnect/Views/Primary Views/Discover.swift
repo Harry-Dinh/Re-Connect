@@ -11,37 +11,22 @@ import SwiftUIX
 struct Discover: View {
     
     @ObservedObject var viewModel = DiscoverVM.shared
-    var userModel = [UserModel]()
     
     var body: some View {
         VStack {
-            if !viewModel.noResultsLabelHidden {
-                Text("No Results")
-                    .font(.title)
-                    .foregroundColor(.secondary)
+            if viewModel.searchField.isEmpty {
+                Text("Search for something!")
             }
             else {
                 List {
-                    ForEach(userModel, id: \.self) { user in
-                        NavigationLink(destination: EmptyView()) {
-                            DiscoverListRow(fullName: "\(user.firstName) \(user.lastName)")
-                        }
+                    ForEach(viewModel.users, id: \.self) { user in
+                        DiscoverListRow(fullName: user.fullName, username: user.username)
                     }
                 }
             }
         }
         .navigationTitle("Discover")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationSearchBar({
-            SearchBar("Search for people, posts and more!", text: $viewModel.searchField, onCommit:  {
-                viewModel.hasFetched = true
-                
-                viewModel.searchFieldReturnButtonTapped(viewModel.searchField)
-            })
-            .onCancel {
-                viewModel.hasFetched = false
-            }
-        })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {}, label: {
@@ -49,6 +34,12 @@ struct Discover: View {
                 })
             }
         }
+        .navigationSearchBar {
+            SearchBar("Search...", text: $viewModel.searchField, onCommit:  {
+                viewModel.fetchUsers()
+            })
+        }
+        .navigationSearchBarHiddenWhenScrolling(false)
     }
 }
 

@@ -21,16 +21,9 @@ struct ProfileScreen: View {
                     .cornerRadius(15)
                 
                 VStack(alignment: .leading, spacing: 6) {
-                    if !viewModel.middleName.isEmpty {
-                        Text("\(viewModel.firstName) \(viewModel.middleName) \(viewModel.lastName)")
-                            .font(.title)
-                            .bold()
-                    }
-                    else {
-                        Text("\(viewModel.firstName) \(viewModel.lastName)")
-                            .font(.title)
-                            .bold()
-                    }
+                    Text(viewModel.fullName)
+                        .font(.title)
+                        .bold()
                     
                     if viewModel.isPrivateAccount {
                         Label(viewModel.username, systemImage: "lock.fill")
@@ -73,6 +66,7 @@ struct ProfileScreen: View {
                             Text("Following")
                         }
                     })
+
                 }
                 
                 CustomGroupBox(titleView: {
@@ -81,6 +75,14 @@ struct ProfileScreen: View {
                     Label(viewModel.dateOfBirth, systemImage: "gift.fill")
                         .font(.system(.title, design: .default))
                 })
+                
+                CustomGroupBox {
+                    EmptyView()
+                } contentView: {
+                    Label(viewModel.displayEmail, systemImage: "envelope.fill")
+                        .font(.system(.title, design: .default))
+                }
+
             }
             .padding()
         }

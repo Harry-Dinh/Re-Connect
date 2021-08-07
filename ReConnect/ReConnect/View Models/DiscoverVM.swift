@@ -9,83 +9,45 @@ import SwiftUI
 import SwiftUIX
 import Firebase
 
-struct UserModel: Hashable {
-    var firstName: String
-    var middleName: String
-    var lastName: String
-    var email: String
+struct UserModel: Identifiable, Hashable {
+    var id = UUID().uuidString
+    var fullName: String
+    var username: String
 }
 
 class DiscoverVM: ObservableObject {
     static let shared = DiscoverVM()
     
     private var databaseRef = Database.database().reference()
+    private var firestoreRef = Firestore.firestore()
     
-    private var users = [[String: String]]()
-    private var results = [[String: String]]()
-    var hasFetched = false
+    var users = [UserModel]()
     
     @Published var searchField: String = ""
     @Published var isTextFieldEditing: Bool = false
     @Published var noResultsLabelHidden: Bool = false
     
-    public func searchFieldReturnButtonTapped(_ query: String) {
-        guard !query.isEmpty, !query.replacingOccurrences(of: " ", with: "").isEmpty else {
+    public func fetchUsers() {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
-        results.removeAll()
-        self.searchUsers(query: query)
-    }
-    
-    public func searchUsers(query: String) {
-        // Check if array has Firebase results
-        // If it does, filter
-        // If not, fetch then filter
-        // Update the UI: either show results or no results label
-        
-        if hasFetched {
-            filterUsers(with: query)
-        }
-        else {
-            RegisterVM.shared.getAllUsers { [weak self] result in
-                switch result {
-                case .success(let usersCollection):
-                    self?.users = usersCollection
-                    self?.filterUsers(with: query)
-                case .failure(let error):
-                    print("Failed to get users: \(error)")
-                }
-            }
-        }
-    }
-    
-    func filterUsers(with term: String) {
-        guard hasFetched else {
-            return
-        }
-        
-        let results: [[String: String]] = self.users.filter {
-            guard let name = $0["name"]?.lowercased() else {
-                return false
+        let path = firestoreRef.collection("users")
+        path.addSnapshotListener { snapshot, error in
+            guard let doc = snapshot?.documents else {
+                print("No documents")
+                return
             }
             
-            return name.hasPrefix(term.lowercased())
-        }
-        
-        self.results = results
-        
-        updateUI()
-    }
-    
-    func updateUI() {
-        if results.isEmpty {
-            self.noResultsLabelHidden = false
-        }
-        else {
-            self.noResultsLabelHidden = true
-            let tableView = UITableView()
-            tableView.reloadData()
+            self.users = doc.map { snapshot -> UserModel in
+                let data = snapshot.data()
+                
+                let fullName = data["fullName"] as? String ?? "Unnamed User"
+                let username = data["username"] as? String ?? "No username"
+                
+                return UserModel(fullName: fullName, username: username)
+            }
         }
     }
 }
@@ -94,11 +56,16 @@ class DiscoverVM: ObservableObject {
 struct DiscoverListRow: View {
     
     var fullName: String
+    var username: String
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading) {
                 Text(fullName)
+                    .font(.headline)
+                Text(username)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
             }
         }
     }

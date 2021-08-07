@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WelcomeScreen: View {
     
+    @ObservedObject var viewModel = RegisterVM.shared
     @AppStorage("isSignedIn") var isSignedIn = false
     
     var body: some View {
@@ -24,6 +25,7 @@ struct WelcomeScreen: View {
                 .foregroundColor(.secondary)
             
             Button(action: {
+                viewModel.createUserAccount(firstName: viewModel.firstName, middleName: viewModel.middleName, lastName: viewModel.lastName, email: viewModel.email, password: viewModel.password)
                 self.isSignedIn = true
             }, label: {
                 Text("Get Started!")

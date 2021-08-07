@@ -12,11 +12,13 @@ class ProfileVM: ObservableObject {
     static let shared = ProfileVM()
     
     private var databaseRef = Database.database().reference()
+    private var firestoreRef = Firestore.firestore()
     private var storageRef = Storage.storage().reference()
     
-    @Published var firstName: String = ""
-    @Published var middleName: String = ""
-    @Published var lastName: String = ""
+    @Published var firstName = ""
+    @Published var middleName = ""
+    @Published var lastName = ""
+    @Published var displayEmail: String = ""
     @Published var fullName: String = ""
     @Published var username: String = ""
     @Published var isPrivateAccount: Bool = false
@@ -45,21 +47,21 @@ class ProfileVM: ObservableObject {
         let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
         
         // Fetch user's info
-        databaseRef.child("Users").child("\(safeEmail)_\(uid)").observeSingleEvent(of: .value) { [weak self] snapshot in
+        databaseRef.child("Users").child(uid).observeSingleEvent(of: .value) { [weak self] snapshot in
             if let value = snapshot.value as? [String: Any] {
-                let first = value["firstName"] as! String
-                let middle = value["middleName"] as! String
-                let last = value["lastName"] as! String
-                let dateOfBirth = value["dateOfBirth"] as! String
-                let username = value["username"] as! String
-                let isPrivateAccount = value["isPrivateAccount"] as! Bool
+                let fullName = value["fullName"] as? String ?? "Unnamed User"
+                let username = value["username"] as? String ?? "No username"
+                let dateOfBirth = value["dateOfBirth"] as? String ?? "Not specified"
+                let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
+                let email = value["email"] as? String ?? "No email"
+                let displayEmail = email.replacingOccurrences(of: "-", with: ".")
                 
-                self?.firstName = first
-                self?.middleName = middle
-                self?.lastName = last
-                self?.dateOfBirth = dateOfBirth
+                // Assign data to values
+                self?.fullName = fullName
                 self?.username = username
+                self?.dateOfBirth = dateOfBirth
                 self?.isPrivateAccount = isPrivateAccount
+                self?.displayEmail = displayEmail
             }
         }
         

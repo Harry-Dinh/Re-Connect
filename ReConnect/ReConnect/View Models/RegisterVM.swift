@@ -16,6 +16,7 @@ class RegisterVM: ObservableObject {
     
     // MARK: - FIREBASE PROPERTIES
     private var databaseRef = Database.database().reference()
+    private var firestoreRef = Firestore.firestore()
     
     // MARK: - SWIFTUI STATES
     @Published var isTextFieldEditing: Bool = false
@@ -43,9 +44,17 @@ class RegisterVM: ObservableObject {
                 return
             }
             
+            let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
+            
             print("Sucessfully created user account")
-            let userModel = UserModel(firstName: firstName, middleName: middleName, lastName: lastName, email: email)
-            self?.createUserObject(user: userModel)
+            if !middleName.isEmpty {
+                self?.createUserObject(fullName: "\(firstName) \(middleName) \(lastName)", email: email)
+                self?.createUserObjectOnDatabase(fullName: "\(firstName) \(middleName) \(lastName)", email: safeEmail)
+            }
+            else {
+                self?.createUserObject(fullName: "\(firstName) \(lastName)", email: email)
+                self?.createUserObjectOnDatabase(fullName: "\(firstName) \(lastName)", email: safeEmail)
+            }
             
             self?.firstName = ""
             self?.middleName = ""
@@ -55,102 +64,59 @@ class RegisterVM: ObservableObject {
         }
     }
     
-    public func createUserObject(user: UserModel) {
+    public func createUserObjectOnDatabase(fullName: String, email: String) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
-        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: user.email)
-        
-        let userInfo: [String: Any] = [
-            "firstName": user.firstName,
-            "middleName": user.middleName,
-            "lastName": user.lastName,
-            "email": safeEmail,
-            "uid": uid
+        let path = databaseRef.child("Users").child(uid)
+        let dobString = HelperMethods.shared.dateFormatter.string(from: dateOfBirth)
+        let userData: [String: Any] = [
+            "fullName": fullName,
+            "email": email,
+            "uid": uid,
+            "dateOfBirth": dobString,
+            "gender": gender,
+            "allowDiagnosticCollection": allowDiagnosticCollection,
+            "isPrivateAccount": isPrivateAccount,
+            "username": username
         ]
         
-        databaseRef.child("Users").child("\(safeEmail)_\(uid)").setValue(userInfo)
+        path.setValue(userData)
+    }
+    
+    /// Create the user's object on Firestore (call this after create everything!)
+    public func createUserObject(fullName: String, email: String) {
         
-        // Create user node
-        databaseRef.child("User nodes").observeSingleEvent(of: .value) { [weak self] snapshot in
-            if var usersCollection = snapshot.value as? [[String: String]] {
-                let newElement = [
-                    "firstName": user.firstName,
-                    "middleName": user.middleName,
-                    "lastName": user.lastName,
-                    "email": safeEmail
-                ]
-                
-                usersCollection.append(newElement)
-                
-                self?.databaseRef.child("User nodes").setValue(usersCollection, withCompletionBlock: { error, _ in
-                    guard error == nil else {
-                        print("Cannot set user's data")
-                        return
-                    }
-                    
-                    print("Successfully set users data")
-                })
-            }
-            else {
-                let newCollection: [[String: String]] = [
-                    [
-                        "firstName": user.firstName,
-                        "middleName": user.middleName,
-                        "lastName": user.lastName,
-                        "email": safeEmail
-                    ]
-                ]
-                
-                self?.databaseRef.child("User nodes").setValue(newCollection, withCompletionBlock: { error, _ in
-                    guard error == nil else {
-                        print("Cannot set user's data")
-                        return
-                    }
-                    
-                    print("Successfully set user's data")
-                })
-            }
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
         }
+        
+        let path = firestoreRef.collection("users")
+        let dobString = HelperMethods.shared.dateFormatter.string(from: dateOfBirth)
+        let userData: [String: Any] = [
+            "fullName": fullName,
+            "email": email,
+            "uid": uid,
+            "dateOfBirth": dobString,
+            "gender": gender,
+            "allowDiagnosticCollection": allowDiagnosticCollection,
+            "isPrivateAccount": isPrivateAccount,
+            "username": username
+        ]
+        
+        path.addDocument(data: userData)
     }
     
     public func updateUserInfo(dateOfBirth: Date, gender: Int) {
-        
-        guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
-        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
-        
-        let dobString = HelperMethods.shared.dateFormatter.string(from: dateOfBirth)
-        
-        let updatedValues: [String: Any] = [
-            "dateOfBirth": dobString,
-            "gender": gender
-        ]
-        
-        databaseRef.child("Users").child("\(safeEmail)_\(uid)").updateChildValues(updatedValues)
+        self.dateOfBirth = dateOfBirth
+        self.gender = gender
     }
     
     public func updateUserProfileInfo(username: String, isPrivateAccount: Bool, allowDiagnosticCollection: Bool) {
-        
-        guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
-        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
-        
-        let updatedValues: [String: Any] = [
-            "username": username,
-            "isPrivateAccount": isPrivateAccount,
-            "allowDiagnosticCollection": allowDiagnosticCollection
-        ]
-        
-        databaseRef.child("Users").child("\(safeEmail)_\(uid)").updateChildValues(updatedValues)
-        databaseRef.child("User nodes").child("\(0...)")
+        self.allowDiagnosticCollection = allowDiagnosticCollection
+        self.isPrivateAccount = isPrivateAccount
+        self.username = username
     }
     
     public func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
