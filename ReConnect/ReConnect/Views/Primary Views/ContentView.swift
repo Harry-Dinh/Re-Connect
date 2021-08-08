@@ -19,6 +19,7 @@ struct ContentView: View {
             CoreScreen()
                 .onAppear {
                     ProfileVM.shared.fetchUserData()
+                    DiscoverVM.shared.fetchUsers()
                 }
         }
     }

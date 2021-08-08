@@ -14,16 +14,14 @@ struct Discover: View {
     
     var body: some View {
         VStack {
-            if viewModel.searchField.isEmpty {
-                Text("Search for something!")
-            }
-            else {
-                List {
-                    ForEach(viewModel.users, id: \.self) { user in
-                        DiscoverListRow(fullName: user.fullName, username: user.username)
+            List {
+                ForEach(viewModel.users, id: \.self) { user in
+                    NavigationLink(destination: OtherUserProfile(displayName: user.fullName, username: user.username, isPrivateAccount: user.isPrivateAccount)) {
+                        DiscoverListRow(fullName: user.fullName, username: user.username, isPrivateAccount: user.isPrivateAccount)
                     }
                 }
             }
+            .listStyle(InsetGroupedListStyle())
         }
         .navigationTitle("Discover")
         .navigationBarTitleDisplayMode(.inline)

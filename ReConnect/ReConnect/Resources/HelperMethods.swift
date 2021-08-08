@@ -35,4 +35,14 @@ class HelperMethods {
         
         return safeEmail
     }
+    
+    /// Unwrap and return the current user's profile picture URL as a `String`.
+    public func unwrapPFPURLFromUserDefaults() -> String {
+        if let url = UserDefaults.standard.string(forKey: "currentUserPFP") {
+            return url
+        }
+        else {
+            return ""
+        }
+    }
 }

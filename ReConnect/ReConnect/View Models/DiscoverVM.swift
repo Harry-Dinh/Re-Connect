@@ -13,6 +13,7 @@ struct UserModel: Identifiable, Hashable {
     var id = UUID().uuidString
     var fullName: String
     var username: String
+    var isPrivateAccount: Bool
 }
 
 class DiscoverVM: ObservableObject {
@@ -28,11 +29,6 @@ class DiscoverVM: ObservableObject {
     @Published var noResultsLabelHidden: Bool = false
     
     public func fetchUsers() {
-        
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
         let path = firestoreRef.collection("users")
         path.addSnapshotListener { snapshot, error in
             guard let doc = snapshot?.documents else {
@@ -45,8 +41,9 @@ class DiscoverVM: ObservableObject {
                 
                 let fullName = data["fullName"] as? String ?? "Unnamed User"
                 let username = data["username"] as? String ?? "No username"
+                let isPrivateAccount = data["isPrivateAccount"] as? Bool ?? false
                 
-                return UserModel(fullName: fullName, username: username)
+                return UserModel(fullName: fullName, username: username, isPrivateAccount: isPrivateAccount)
             }
         }
     }
@@ -57,6 +54,7 @@ struct DiscoverListRow: View {
     
     var fullName: String
     var username: String
+    var isPrivateAccount: Bool
     
     var body: some View {
         HStack {
@@ -65,6 +63,19 @@ struct DiscoverListRow: View {
                     .font(.headline)
                 Text(username)
                     .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            
+            Spacer()
+            
+            if isPrivateAccount {
+                Image(systemName: "lock.fill")
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+            }
+            else {
+                Image(systemName: "lock.open.fill")
+                    .font(.headline)
                     .foregroundColor(.secondary)
             }
         }

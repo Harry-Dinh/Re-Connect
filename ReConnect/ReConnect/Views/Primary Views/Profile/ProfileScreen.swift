@@ -15,10 +15,18 @@ struct ProfileScreen: View {
     var body: some View {
         ScrollView {
             HStack {
-                WebImage(url: URL(string: viewModel.profilePicURL))
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .cornerRadius(15)
+                if viewModel.unwrappedPFPURL.isEmpty {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(15)
+                }
+                else {
+                    WebImage(url: URL(string: viewModel.unwrappedPFPURL))
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(15)
+                }
                 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(viewModel.fullName)

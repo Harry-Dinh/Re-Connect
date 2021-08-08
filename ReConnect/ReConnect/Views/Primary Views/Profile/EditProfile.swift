@@ -14,59 +14,71 @@ struct EditProfile: View {
     @Environment(\.presentationMode) var presentationMode
     
     private var databaseRef = Database.database().reference()
+    private var firestoreRef = Firestore.firestore()
     
     var body: some View {
         Form {
-            HStack {
-                Image(uiImage: viewModel.profilePic)
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .cornerRadius(15)
-                
-                Button("Change profile picture") {
-                    viewModel.showPhotoPickerActionSheet.toggle()
+            Section(header: Text("Profile Picture")) {
+                HStack {
+                    Image(uiImage: viewModel.profilePic)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(15)
+                    
+                    Button("Change profile picture") {
+                        viewModel.showPhotoPickerActionSheet.toggle()
+                    }
+                    .actionSheet(isPresented: $viewModel.showPhotoPickerActionSheet, content: {
+                        ActionSheet(title: Text("Choose where to select your profile picture"), message: nil, buttons: [
+                            .cancel(),
+                            .default(Text("Take Photo"), action: {
+                                viewModel.showCameraInterface.toggle()
+                            }),
+                            .default(Text("Choose from Library"), action: {
+                                viewModel.showImagePicker.toggle()
+                            })
+                        ])
+                    })
+                    .sheet(isPresented: $viewModel.showCameraInterface, content: {
+                        ImagePicker(selectedImage: $viewModel.profilePic, sourceType: .camera)
+                    })
+                    .sheet(isPresented: $viewModel.showImagePicker, content: {
+                        ImagePicker(selectedImage: $viewModel.profilePic, sourceType: .photoLibrary)
+                    })
                 }
-                .actionSheet(isPresented: $viewModel.showPhotoPickerActionSheet, content: {
-                    ActionSheet(title: Text("Choose where to select your profile picture"), message: nil, buttons: [
-                        .cancel(),
-                        .default(Text("Take Photo"), action: {
-                            viewModel.showCameraInterface.toggle()
-                        }),
-                        .default(Text("Choose from Library"), action: {
-                            viewModel.showImagePicker.toggle()
-                        })
-                    ])
+                .padding(.vertical)
+                
+                Button(action: {
+                    viewModel.uploadProfilePicData()
+                }, label: {
+                    Label("Save profile picture", systemImage: "photo")
                 })
-                .sheet(isPresented: $viewModel.showCameraInterface, content: {
-                    ImagePicker(selectedImage: $viewModel.profilePic, sourceType: .camera)
-                })
-                .sheet(isPresented: $viewModel.showImagePicker, content: {
-                    ImagePicker(selectedImage: $viewModel.profilePic, sourceType: .photoLibrary)
+                
+                Button(action: {
+                    
+                }, label: {
+                    Label("Continue without profile picture", systemImage: "trash")
+                        .foregroundColor(.red)
                 })
             }
-            .padding(.vertical)
             
-            Section {
+            Section(header: Text("Account Settings")) {
                 Toggle(isOn: $viewModel.isPrivateAccount, label: {
                     if viewModel.isPrivateAccount {
-                        Label("Use Private Account", systemImage: "lock.fill")
+                        Label("Use Private Account", systemImage: "lock")
                     }
                     else {
-                        Label("Use Private Account", systemImage: "lock.open.fill")
+                        Label("Use Private Account", systemImage: "lock.open")
                     }
+                })
+                
+                Toggle(isOn: $viewModel.diagnosticPreferences, label: {
+                    Label("Diagnostic Preferences", systemImage: "gear")
                 })
             }
             
             Section(header: Text("Basic Info")) {
-                TextField("First name", text: $viewModel.firstName, onEditingChanged: { isEditing in
-                    viewModel.isTextFieldEditing = isEditing
-                })
-                
-                TextField("Middle name (optional)", text: $viewModel.middleName, onEditingChanged: { isEditing in
-                    viewModel.isTextFieldEditing = isEditing
-                })
-                
-                TextField("Last name", text: $viewModel.lastName, onEditingChanged: { isEditing in
+                TextField("Display name", text: $viewModel.fullName, onEditingChanged: { isEditing in
                     viewModel.isTextFieldEditing = isEditing
                 })
                 
@@ -78,9 +90,8 @@ struct EditProfile: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if !viewModel.isTextFieldEditing {
-                    Button("Save") {
+                    Button("Save Info") {
                         updateUserInfo()
-                        viewModel.uploadProfilePicData()
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
@@ -103,27 +114,41 @@ struct EditProfile: View {
     }
     
     private func updateUserInfo() {
-        guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
-        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
-        
         let updatedProfileValues: [String: Any] = [
             "isPrivateAccount": viewModel.isPrivateAccount,
-            "username": viewModel.username
+            "username": viewModel.username,
+            "fullName": viewModel.fullName,
+            "diagnosticPreferences": viewModel.diagnosticPreferences
         ]
         
-        let updatedBasicValues: [String: Any] = [
-            "firstName": viewModel.firstName,
-            "middleName": viewModel.middleName,
-            "lastName": viewModel.lastName
-        ]
+        // Update data on Database
+        databaseRef.child("Users").child("\(uid)").updateChildValues(updatedProfileValues)
         
-        databaseRef.child("Users").child("\(safeEmail)_\(uid)").updateChildValues(updatedProfileValues)
-        
-        databaseRef.child("Users").child("\(safeEmail)_\(uid)").updateChildValues(updatedBasicValues)
+        // Update data on Firestore
+        let path = firestoreRef.collection("users")
+        path.whereField("uid", isEqualTo: uid).getDocuments { snapshot, error in
+            if let error = error {
+                // Some error happened
+                print(error)
+            }
+            else if snapshot?.documents.count != 1 {
+                // Success but could have things be error
+            }
+            else {
+                let updatedValues: [String: Any] = [
+                    "isPrivateAccount": viewModel.isPrivateAccount,
+                    "username": viewModel.username,
+                    "fullName": viewModel.fullName
+                ]
+                
+                let doc = snapshot?.documents.first
+                doc?.reference.updateData(updatedValues)
+            }
+        }
     }
 }
 
@@ -132,5 +157,6 @@ struct EditProfile_Previews: PreviewProvider {
         NavigationView {
             EditProfile()
         }
+        
     }
 }

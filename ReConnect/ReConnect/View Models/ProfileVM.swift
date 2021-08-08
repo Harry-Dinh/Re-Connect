@@ -15,14 +15,12 @@ class ProfileVM: ObservableObject {
     private var firestoreRef = Firestore.firestore()
     private var storageRef = Storage.storage().reference()
     
-    @Published var firstName = ""
-    @Published var middleName = ""
-    @Published var lastName = ""
     @Published var displayEmail: String = ""
     @Published var fullName: String = ""
     @Published var username: String = ""
     @Published var isPrivateAccount: Bool = false
     @Published var dateOfBirth: String = ""
+    @Published var diagnosticPreferences: Bool = true
     
     // MARK: - SWIFTUI STATES
     @Published var showPrivateAccountPopUp: Bool = false
@@ -36,15 +34,13 @@ class ProfileVM: ObservableObject {
     @Published var profilePic: UIImage = UIImage()
     @Published var profilePicData: Data = Data()
     @Published var profilePicURL: String = ""
+    @Published var unwrappedPFPURL: String = HelperMethods.shared.unwrapPFPURLFromUserDefaults()
     
     // MARK: - METHODS
     public func fetchUserData() {
-        guard let email = Auth.auth().currentUser?.email,
-              let uid = Auth.auth().currentUser?.uid else {
+        guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        
-        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
         
         // Fetch user's info
         databaseRef.child("Users").child(uid).observeSingleEvent(of: .value) { [weak self] snapshot in
@@ -55,17 +51,27 @@ class ProfileVM: ObservableObject {
                 let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
                 let email = value["email"] as? String ?? "No email"
                 let displayEmail = email.replacingOccurrences(of: "-", with: ".")
+                let diagnosticPreferences = value["allowDiagnosticPreferences"] as? Bool ?? false
                 
-                // Assign data to values
+                // Assign data to properties
                 self?.fullName = fullName
                 self?.username = username
                 self?.dateOfBirth = dateOfBirth
                 self?.isPrivateAccount = isPrivateAccount
                 self?.displayEmail = displayEmail
+                self?.diagnosticPreferences = diagnosticPreferences
             }
         }
+    }
+    
+    public func fetchProfilePic() {
+        guard let email = Auth.auth().currentUser?.email,
+              let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
         
-        // Fetch user profile pic URL
+        let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
+        
         storageRef.child("Images").child("\(safeEmail)").child("Profile Pics").child("\(safeEmail)_\(uid)_profilePic.png").downloadURL(completion: { [weak self] url, error in
             guard let url = url, error == nil else {
                 return
@@ -99,6 +105,8 @@ class ProfileVM: ObservableObject {
                 let urlString = url.absoluteString
                 self?.profilePicURL = urlString
                 print("Download URL: \(urlString)")
+                UserDefaults.standard.setValue(urlString, forKey: "currentUserPFP")
+                print("Successfully stored PFP data in UserDefaults")
             })
         }
     }

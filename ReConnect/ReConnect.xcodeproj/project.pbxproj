@@ -26,6 +26,7 @@
 		2165059C26AF408B00F30000 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 2165059B26AF408B00F30000 /* SwiftUIX */; };
 		2183E38D26AB82A9007D2D35 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */; };
 		2183E38F26AB82B4007D2D35 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183E38E26AB82B4007D2D35 /* ProfileVM.swift */; };
+		21BF6DB426BF439900007096 /* OtherUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF6DB326BF439900007096 /* OtherUserProfile.swift */; };
 		21C07B0B26A350DE0025D324 /* ReConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B0A26A350DE0025D324 /* ReConnectApp.swift */; };
 		21C07B0D26A350DE0025D324 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B0C26A350DE0025D324 /* ContentView.swift */; };
 		21C07B0F26A350DE0025D324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C07B0E26A350DE0025D324 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		2165059826AF31B900F30000 /* DeveloperSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettings.swift; sourceTree = "<group>"; };
 		2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		2183E38E26AB82B4007D2D35 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		21BF6DB326BF439900007096 /* OtherUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfile.swift; sourceTree = "<group>"; };
 		21C07B0726A350DE0025D324 /* ReConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C07B0A26A350DE0025D324 /* ReConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConnectApp.swift; sourceTree = "<group>"; };
 		21C07B0C26A350DE0025D324 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */,
 				21D5845C26AC78FC000452C0 /* EditProfile.swift */,
+				21BF6DB326BF439900007096 /* OtherUserProfile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				21C07B2726A357AF0025D324 /* HelperMethods.swift in Sources */,
 				21193B8626AB49740001AFDC /* ProfileSetup.swift in Sources */,
 				21193B9426AB668D0001AFDC /* CustomListRow.swift in Sources */,
+				21BF6DB426BF439900007096 /* OtherUserProfile.swift in Sources */,
 				21D5845B26AC631D000452C0 /* CustomGroupBox.swift in Sources */,
 				21193B9726AB7EE30001AFDC /* AccountSettings.swift in Sources */,
 				21E457D926A606CC00AE5C3F /* LogoView.swift in Sources */,
