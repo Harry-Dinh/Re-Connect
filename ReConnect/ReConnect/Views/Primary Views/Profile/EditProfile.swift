@@ -18,6 +18,16 @@ struct EditProfile: View {
     
     var body: some View {
         Form {
+            Section(header: Text("Basic Info")) {
+                TextField("Display name", text: $viewModel.fullName, onEditingChanged: { isEditing in
+                    viewModel.isTextFieldEditing = isEditing
+                })
+                
+                TextField("Username (e.g: @JimKirk1701)", text: $viewModel.username, onEditingChanged: { isEditing in
+                    viewModel.isTextFieldEditing = isEditing
+                })
+            }
+            
             Section(header: Text("Profile Picture")) {
                 HStack {
                     Image(uiImage: viewModel.profilePic)
@@ -74,16 +84,6 @@ struct EditProfile: View {
                 
                 Toggle(isOn: $viewModel.diagnosticPreferences, label: {
                     Label("Diagnostic Preferences", systemImage: "gear")
-                })
-            }
-            
-            Section(header: Text("Basic Info")) {
-                TextField("Display name", text: $viewModel.fullName, onEditingChanged: { isEditing in
-                    viewModel.isTextFieldEditing = isEditing
-                })
-                
-                TextField("Username (e.g: @JimKirk1701)", text: $viewModel.username, onEditingChanged: { isEditing in
-                    viewModel.isTextFieldEditing = isEditing
                 })
             }
         }

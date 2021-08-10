@@ -11,10 +11,9 @@ struct DeveloperSettings: View {
     var body: some View {
         Form {
             Button(action: {
-//                DiscoverVM.shared.fetchUsers()
+//                DiscoverVM.shared.filterCurrentUser()
             }, label: {
-                Text("Fetch users - DiscoverVM()")
-                    .font(.system(.body, design: .monospaced))
+                Text("Filter Current User - DiscoverVM()")
             })
         }
         .navigationTitle("Developer")
