@@ -21,6 +21,7 @@ class ProfileVM: ObservableObject {
     @Published var isPrivateAccount: Bool = false
     @Published var dateOfBirth: String = ""
     @Published var diagnosticPreferences: Bool = true
+    @Published var followerCount: Int = 0
     
     // MARK: - SWIFTUI STATES
     @Published var showPrivateAccountPopUp: Bool = false
@@ -29,6 +30,7 @@ class ProfileVM: ObservableObject {
     @Published var showImagePicker: Bool = false
     @Published var showCameraInterface: Bool = false
     @Published var showPhotoPickerActionSheet: Bool = false
+    @Published var showMoreActionsSheet: Bool = false
     
     // MARK: - EDIT PROFILE
     @Published var profilePic: UIImage = UIImage()

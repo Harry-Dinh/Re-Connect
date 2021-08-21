@@ -55,10 +55,25 @@ struct ProfileScreen: View {
                         EmptyView()
                     }, contentView: {
                         VStack(alignment: .center,spacing: 6) {
-                            Text("1.5M")
-                                .font(.system(.title, design: .rounded))
-                                .fontWeight(.semibold)
-                            Text("Followers")
+                            if viewModel.followerCount == 1 {
+                                Text("\(viewModel.followerCount)")
+                                    .font(.system(.title, design: .rounded))
+                                    .fontWeight(.semibold)
+                                Text("Follower")
+                            }
+                            else if viewModel.followerCount == 0 {
+                                Text("\(viewModel.followerCount)")
+                                    .font(.system(.title, design: .rounded))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.secondary)
+                                Text("Followers")
+                            }
+                            else {
+                                Text("\(viewModel.followerCount)")
+                                    .font(.system(.title, design: .rounded))
+                                    .fontWeight(.semibold)
+                                Text("Followers")
+                            }
                         }
                     })
                     
@@ -97,9 +112,18 @@ struct ProfileScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("My Profile")
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action: {}, label: {
                     Image(systemName: "camera.viewfinder")
+                })
+                
+                Button(action: {
+                    viewModel.showMoreActionsSheet.toggle()
+                }, label: {
+                    Image(systemName: "ellipsis.circle")
+                })
+                .sheet(isPresented: $viewModel.showMoreActionsSheet, content: {
+                    ProfileMoreActions()
                 })
             }
             

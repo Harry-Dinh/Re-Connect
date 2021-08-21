@@ -26,6 +26,11 @@
 		2165059C26AF408B00F30000 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 2165059B26AF408B00F30000 /* SwiftUIX */; };
 		2183E38D26AB82A9007D2D35 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */; };
 		2183E38F26AB82B4007D2D35 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2183E38E26AB82B4007D2D35 /* ProfileVM.swift */; };
+		21B4FC8526D19151005F7724 /* FollowedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B4FC8426D19151005F7724 /* FollowedUser.swift */; };
+		21B4FC8726D19190005F7724 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B4FC8626D19190005F7724 /* UserModel.swift */; };
+		21B4FC8926D1950C005F7724 /* CustomFormRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B4FC8826D1950C005F7724 /* CustomFormRow.swift */; };
+		21B4FC8B26D195D5005F7724 /* ProfileMoreActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B4FC8A26D195D5005F7724 /* ProfileMoreActions.swift */; };
+		21B4FC8D26D1979C005F7724 /* FollowersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B4FC8C26D1979C005F7724 /* FollowersList.swift */; };
 		21BF6DB426BF439900007096 /* OtherUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF6DB326BF439900007096 /* OtherUserProfile.swift */; };
 		21C07B0B26A350DE0025D324 /* ReConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B0A26A350DE0025D324 /* ReConnectApp.swift */; };
 		21C07B0D26A350DE0025D324 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C07B0C26A350DE0025D324 /* ContentView.swift */; };
@@ -64,6 +69,11 @@
 		2165059826AF31B900F30000 /* DeveloperSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettings.swift; sourceTree = "<group>"; };
 		2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		2183E38E26AB82B4007D2D35 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		21B4FC8426D19151005F7724 /* FollowedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowedUser.swift; sourceTree = "<group>"; };
+		21B4FC8626D19190005F7724 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		21B4FC8826D1950C005F7724 /* CustomFormRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFormRow.swift; sourceTree = "<group>"; };
+		21B4FC8A26D195D5005F7724 /* ProfileMoreActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMoreActions.swift; sourceTree = "<group>"; };
+		21B4FC8C26D1979C005F7724 /* FollowersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersList.swift; sourceTree = "<group>"; };
 		21BF6DB326BF439900007096 /* OtherUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfile.swift; sourceTree = "<group>"; };
 		21C07B0726A350DE0025D324 /* ReConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C07B0A26A350DE0025D324 /* ReConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConnectApp.swift; sourceTree = "<group>"; };
@@ -124,8 +134,19 @@
 				2183E38C26AB82A9007D2D35 /* ProfileScreen.swift */,
 				21D5845C26AC78FC000452C0 /* EditProfile.swift */,
 				21BF6DB326BF439900007096 /* OtherUserProfile.swift */,
+				21B4FC8A26D195D5005F7724 /* ProfileMoreActions.swift */,
+				21B4FC8C26D1979C005F7724 /* FollowersList.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		21B4FC8326D1913F005F7724 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21B4FC8426D19151005F7724 /* FollowedUser.swift */,
+				21B4FC8626D19190005F7724 /* UserModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		21C07AFE26A350DE0025D324 = {
@@ -152,6 +173,7 @@
 				21C07B1326A350DE0025D324 /* Info.plist */,
 				21C07B1926A351C30025D324 /* GoogleService-Info.plist */,
 				213D83EA26AF79CB00CDFE92 /* Launch Screen.storyboard */,
+				21B4FC8326D1913F005F7724 /* Models */,
 				21C07B1B26A352CF0025D324 /* Resources */,
 				21C07B2126A353390025D324 /* View Models */,
 				21C07B1C26A352F00025D324 /* Views */,
@@ -209,6 +231,7 @@
 				21193B9326AB668D0001AFDC /* CustomListRow.swift */,
 				21D5845A26AC631D000452C0 /* CustomGroupBox.swift */,
 				2121569E26BA05AC00FC20A2 /* DiscoverSearchBar.swift */,
+				21B4FC8826D1950C005F7724 /* CustomFormRow.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -390,13 +413,17 @@
 				21193B9026AB637F0001AFDC /* SettingsScreen.swift in Sources */,
 				21E457DC26A6102300AE5C3F /* FurtherInfoScreen.swift in Sources */,
 				21C07B1E26A3532C0025D324 /* Login.swift in Sources */,
+				21B4FC8D26D1979C005F7724 /* FollowersList.swift in Sources */,
 				21193B8C26AB58FA0001AFDC /* BlurView.swift in Sources */,
+				21B4FC8526D19151005F7724 /* FollowedUser.swift in Sources */,
 				21193B8E26AB5F4C0001AFDC /* CoreScreen.swift in Sources */,
 				21C07B0D26A350DE0025D324 /* ContentView.swift in Sources */,
 				21193B8826AB4F210001AFDC /* WelcomeScreen.swift in Sources */,
+				21B4FC8B26D195D5005F7724 /* ProfileMoreActions.swift in Sources */,
 				21193B9226AB638B0001AFDC /* MenuScreen.swift in Sources */,
 				21C07B2026A353320025D324 /* Register.swift in Sources */,
 				2108361D26ADDC8C0086F9D7 /* DiscoverVM.swift in Sources */,
+				21B4FC8926D1950C005F7724 /* CustomFormRow.swift in Sources */,
 				21C07B2726A357AF0025D324 /* HelperMethods.swift in Sources */,
 				21193B8626AB49740001AFDC /* ProfileSetup.swift in Sources */,
 				21193B9426AB668D0001AFDC /* CustomListRow.swift in Sources */,
@@ -411,6 +438,7 @@
 				21D5845D26AC78FC000452C0 /* EditProfile.swift in Sources */,
 				21C07B2326A353460025D324 /* LoginVM.swift in Sources */,
 				21193B8426AB41BA0001AFDC /* Home.swift in Sources */,
+				21B4FC8726D19190005F7724 /* UserModel.swift in Sources */,
 				21C07B2526A3534D0025D324 /* RegisterVM.swift in Sources */,
 				2108361B26ADDC840086F9D7 /* Discover.swift in Sources */,
 				2108361626ADB4B20086F9D7 /* ImagePicker.swift in Sources */,

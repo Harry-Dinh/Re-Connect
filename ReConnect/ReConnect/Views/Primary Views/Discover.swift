@@ -16,7 +16,7 @@ struct Discover: View {
         VStack {
             List {
                 ForEach(viewModel.users, id: \.self) { user in
-                    NavigationLink(destination: OtherUserProfile(displayName: user.fullName, username: user.username, isPrivateAccount: user.isPrivateAccount)) {
+                    NavigationLink(destination: OtherUserProfile(displayName: user.fullName, username: user.username, isPrivateAccount: user.isPrivateAccount, uid: user.uid)) {
                         DiscoverListRow(fullName: user.fullName, username: user.username, isPrivateAccount: user.isPrivateAccount)
                     }
                 }

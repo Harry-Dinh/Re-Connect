@@ -114,9 +114,7 @@ struct EditProfile: View {
     }
     
     private func updateUserInfo() {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            return
-        }
+        let uid = HelperMethods.shared.getCurrentUserUID()
         
         let updatedProfileValues: [String: Any] = [
             "isPrivateAccount": viewModel.isPrivateAccount,
@@ -136,7 +134,8 @@ struct EditProfile: View {
                 print(error)
             }
             else if snapshot?.documents.count != 1 {
-                // Success but could have things be error
+                // No documents
+                print("No documents")
             }
             else {
                 let updatedValues: [String: Any] = [

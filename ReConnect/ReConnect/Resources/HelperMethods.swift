@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class HelperMethods {
     static let shared = HelperMethods()
@@ -44,5 +45,14 @@ class HelperMethods {
         else {
             return ""
         }
+    }
+    
+    /// Return the current user's UID from Firebase Auth.
+    public func getCurrentUserUID() -> String {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return ""
+        }
+        
+        return uid
     }
 }

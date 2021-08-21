@@ -9,13 +9,6 @@ import SwiftUI
 import SwiftUIX
 import Firebase
 
-struct UserModel: Identifiable, Hashable {
-    var id = UUID().uuidString
-    var fullName: String
-    var username: String
-    var isPrivateAccount: Bool
-}
-
 class DiscoverVM: ObservableObject {
     static let shared = DiscoverVM()
     
@@ -42,8 +35,9 @@ class DiscoverVM: ObservableObject {
                 let fullName = data["fullName"] as? String ?? "Unnamed User"
                 let username = data["username"] as? String ?? "No username"
                 let isPrivateAccount = data["isPrivateAccount"] as? Bool ?? false
+                let uid = data["uid"] as? String ?? ""
                 
-                return UserModel(fullName: fullName, username: username, isPrivateAccount: isPrivateAccount)
+                return UserModel(fullName: fullName, username: username, isPrivateAccount: isPrivateAccount, uid: uid)
             }
         }
     }
@@ -58,11 +52,14 @@ struct DiscoverListRow: View {
     
     var body: some View {
         HStack {
+            Image(systemName: "person.crop.circle.fill")
+                .font(.largeTitle)
+            
             VStack(alignment: .leading) {
                 Text(fullName)
                     .font(.headline)
                 Text(username)
-                    .font(.subheadline)
+                    .font(.caption)
                     .foregroundColor(.secondary)
             }
             
@@ -70,14 +67,30 @@ struct DiscoverListRow: View {
             
             if isPrivateAccount {
                 Image(systemName: "lock.fill")
-                    .font(.headline)
-                    .foregroundColor(.secondary)
+                    .font(.caption)
+                    .foregroundColor(.white)
+                    .padding(7)
+                    .background(
+                        Circle()
+                            .foregroundColor(.accentColor)
+                    )
             }
             else {
                 Image(systemName: "lock.open.fill")
-                    .font(.headline)
-                    .foregroundColor(.secondary)
+                    .font(.subheadline)
+                    .foregroundColor(.white)
+                    .padding(7)
+                    .background(
+                        Circle()
+                            .foregroundColor(.green)
+                    )
             }
         }
+    }
+}
+
+struct DiscoverListRowPreview: PreviewProvider {
+    static var previews: some View {
+        DiscoverListRow(fullName: "Harry Dinh", username: "@HarryTDA16", isPrivateAccount: true)
     }
 }

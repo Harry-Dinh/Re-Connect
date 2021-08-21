@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct OtherUserProfile: View {
     
     var displayName: String
     var username: String
     var isPrivateAccount: Bool
+    var uid: String
+    var followingCount: Int = 0
+    var isFollowing: Bool = false
     
     var body: some View {
         ScrollView {
@@ -40,12 +44,21 @@ struct OtherUserProfile: View {
             }
             .padding()
             
-            Button(action: {}, label: {
+            Button(action: {
+                followUser(otherUserUID: uid)
+            }, label: {
                 CustomGroupBox {
                     EmptyView()
                 } contentView: {
-                    Label("Follow", systemImage: "person.fill")
-                        .font(.title3, weight: .bold)
+                    if !isFollowing {
+                        Label("Follow", systemImage: "person.fill")
+                            .font(.title3, weight: .bold)
+                    }
+                    else {
+                        Label("Followed", systemImage: "person.fill.checkmark")
+                            .foregroundColor(.green)
+                            .font(.title3, weight: .bold)
+                    }
                 }
             })
             .padding(.horizontal)
@@ -68,9 +81,18 @@ struct OtherUserProfile: View {
                     EmptyView()
                 }, contentView: {
                     VStack(alignment: .center,spacing: 6) {
-                        Text("1,576")
-                            .font(.system(.title, design: .rounded))
-                            .fontWeight(.semibold)
+                        if followingCount == 0 {
+                            Text("\(followingCount)")
+                                .font(.system(.title, design: .rounded))
+                                .fontWeight(.semibold)
+                                .foregroundColor(.secondary)
+                        }
+                        else if followingCount > 0 {
+                            Text("\(followingCount)")
+                                .font(.system(.title, design: .rounded))
+                                .fontWeight(.semibold)
+                        }
+                        
                         Text("Following")
                     }
                 })
@@ -117,6 +139,10 @@ struct OtherUserProfile: View {
                     
                     Section {
                         Button(action: {}, label: {
+                            Label("Scan to Follow", systemImage: "qrcode")
+                        })
+                        
+                        Button(action: {}, label: {
                             Label("Share", systemImage: "square.and.arrow.up")
                         })
                     }
@@ -139,12 +165,53 @@ struct OtherUserProfile: View {
         .navigationTitle(displayName)
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    /// Execute actions to follow a user
+    func followUser(otherUserUID: String) {
+        let currentUserUID = HelperMethods.shared.getCurrentUserUID()
+        
+        // Add user to Database
+        let databaseRef = Database.database().reference()
+        let databasePath = databaseRef.child("Users").child(currentUserUID).child("followers").child(otherUserUID)
+        
+        let otherUserInfo: [String: Any] = [
+            "followerUID": otherUserUID
+        ]
+        
+        databasePath.updateChildValues(otherUserInfo)
+        
+        // Get rid of the default value of following count then add 1 when the user follow somebody.
+        var followingCounter: Int = 0
+        followingCounter += 1
+        
+        // Update Firestore
+        let firestoreRef = Firestore.firestore()
+        let firestorePath = firestoreRef.collection("users")
+        firestorePath.whereField("uid", isEqualTo: currentUserUID).getDocuments { snapshot, error in
+            
+            if let error = error {
+                print(error)
+            }
+            else if snapshot?.documents.count != 1 {
+                print("No documents")
+            }
+            else {
+                let doc = snapshot?.documents.first?.reference
+                
+                let updatedValues: [String: Any] = [
+                    "followingCount": followingCounter
+                ]
+                
+                doc?.updateData(updatedValues)
+            }
+        }
+    }
 }
 
 struct OtherUserProfile_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            OtherUserProfile(displayName: "Harry Dinh", username: "@HarryTDA16", isPrivateAccount: true)
+            OtherUserProfile(displayName: "Harry Dinh", username: "@HarryTDA16", isPrivateAccount: true, uid: "asdasd")
         }
     }
 }
