@@ -21,7 +21,7 @@ class ProfileVM: ObservableObject {
     @Published var isPrivateAccount: Bool = false
     @Published var dateOfBirth: String = ""
     @Published var diagnosticPreferences: Bool = true
-    @Published var followerCount: Int = 0
+    @Published var followingCount: Int = 0
     
     // MARK: - SWIFTUI STATES
     @Published var showPrivateAccountPopUp: Bool = false
@@ -54,6 +54,7 @@ class ProfileVM: ObservableObject {
                 let email = value["email"] as? String ?? "No email"
                 let displayEmail = email.replacingOccurrences(of: "-", with: ".")
                 let diagnosticPreferences = value["allowDiagnosticPreferences"] as? Bool ?? false
+                let followingCount = value["followerUID"] as? Int ?? 0
                 
                 // Assign data to properties
                 self?.fullName = fullName
@@ -62,6 +63,7 @@ class ProfileVM: ObservableObject {
                 self?.isPrivateAccount = isPrivateAccount
                 self?.displayEmail = displayEmail
                 self?.diagnosticPreferences = diagnosticPreferences
+                self?.followingCount = followingCount
             }
         }
     }
@@ -73,8 +75,9 @@ class ProfileVM: ObservableObject {
         }
         
         let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
+        let storagePath = storageRef.child("Images").child("\(safeEmail)")
         
-        storageRef.child("Images").child("\(safeEmail)").child("Profile Pics").child("\(safeEmail)_\(uid)_profilePic.png").downloadURL(completion: { [weak self] url, error in
+        storagePath.child("\(safeEmail)_\(uid)_profilePic.png").downloadURL(completion: { [weak self] url, error in
             guard let url = url, error == nil else {
                 return
             }
@@ -92,14 +95,15 @@ class ProfileVM: ObservableObject {
         }
         
         let safeEmail = HelperMethods.shared.convertToSafeEmail(email: email)
+        let storagePath = storageRef.child("Images").child("\(safeEmail)").child("\(safeEmail)_\(uid)_profilePic.png")
         
-        storageRef.child("Images").child("\(safeEmail)").child("Profile Pics").child("\(safeEmail)_\(uid)_profilePic.png").putData(profilePicData, metadata: nil) { [weak self] _, error in
+        storagePath.putData(profilePicData, metadata: nil) { [weak self] _, error in
             guard error == nil else {
                 print("Failed to upload")
                 return
             }
             
-            self?.storageRef.child("Images").child("\(safeEmail)").child("Profile Pics").child("\(safeEmail)_\(uid)_profilePic.png").downloadURL(completion: { url, error in
+            storagePath.child("\(safeEmail)_\(uid)_profilePic.png").downloadURL(completion: { url, error in
                 guard let url = url, error == nil else {
                     return
                 }

@@ -55,21 +55,21 @@ struct ProfileScreen: View {
                         EmptyView()
                     }, contentView: {
                         VStack(alignment: .center,spacing: 6) {
-                            if viewModel.followerCount == 1 {
-                                Text("\(viewModel.followerCount)")
+                            if viewModel.followingCount == 1 {
+                                Text("\(viewModel.followingCount)")
                                     .font(.system(.title, design: .rounded))
                                     .fontWeight(.semibold)
                                 Text("Follower")
                             }
-                            else if viewModel.followerCount == 0 {
-                                Text("\(viewModel.followerCount)")
+                            else if viewModel.followingCount == 0 {
+                                Text("\(viewModel.followingCount)")
                                     .font(.system(.title, design: .rounded))
                                     .fontWeight(.semibold)
                                     .foregroundColor(.secondary)
                                 Text("Followers")
                             }
                             else {
-                                Text("\(viewModel.followerCount)")
+                                Text("\(viewModel.followingCount)")
                                     .font(.system(.title, design: .rounded))
                                     .fontWeight(.semibold)
                                 Text("Followers")

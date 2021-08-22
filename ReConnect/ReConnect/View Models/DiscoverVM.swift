@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftUIX
 import Firebase
 
 class DiscoverVM: ObservableObject {
@@ -53,7 +52,7 @@ struct DiscoverListRow: View {
     var body: some View {
         HStack {
             Image(systemName: "person.crop.circle.fill")
-                .font(.largeTitle)
+                .font(.system(size: 50))
             
             VStack(alignment: .leading) {
                 Text(fullName)
@@ -67,23 +66,15 @@ struct DiscoverListRow: View {
             
             if isPrivateAccount {
                 Image(systemName: "lock.fill")
-                    .font(.caption)
-                    .foregroundColor(.white)
-                    .padding(7)
-                    .background(
-                        Circle()
-                            .foregroundColor(.accentColor)
-                    )
+                    .imageScale(.large)
+                    .frame(width: 30)
+                    .foregroundColor(.secondary)
             }
             else {
                 Image(systemName: "lock.open.fill")
-                    .font(.subheadline)
-                    .foregroundColor(.white)
-                    .padding(7)
-                    .background(
-                        Circle()
-                            .foregroundColor(.green)
-                    )
+                    .imageScale(.large)
+                    .frame(width: 30)
+                    .foregroundColor(.secondary)
             }
         }
     }
@@ -91,6 +82,6 @@ struct DiscoverListRow: View {
 
 struct DiscoverListRowPreview: PreviewProvider {
     static var previews: some View {
-        DiscoverListRow(fullName: "Harry Dinh", username: "@HarryTDA16", isPrivateAccount: true)
+        DiscoverListRow(fullName: "Harry Dinh", username: "@HarryTDA16", isPrivateAccount: false)
     }
 }

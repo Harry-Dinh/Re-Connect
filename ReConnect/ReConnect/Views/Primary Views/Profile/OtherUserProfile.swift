@@ -14,8 +14,8 @@ struct OtherUserProfile: View {
     var username: String
     var isPrivateAccount: Bool
     var uid: String
-    var followingCount: Int = 0
-    var isFollowing: Bool = false
+    var followerCount: Int = 0
+    @State private var isFollowing: Bool = false
     
     var body: some View {
         ScrollView {
@@ -46,6 +46,7 @@ struct OtherUserProfile: View {
             
             Button(action: {
                 followUser(otherUserUID: uid)
+                isFollowing = true
             }, label: {
                 CustomGroupBox {
                     EmptyView()
@@ -55,7 +56,7 @@ struct OtherUserProfile: View {
                             .font(.title3, weight: .bold)
                     }
                     else {
-                        Label("Followed", systemImage: "person.fill.checkmark")
+                        Label("Following", systemImage: "person.fill.checkmark")
                             .foregroundColor(.green)
                             .font(.title3, weight: .bold)
                     }
@@ -68,10 +69,25 @@ struct OtherUserProfile: View {
                     EmptyView()
                 }, contentView: {
                     VStack(alignment: .center,spacing: 6) {
-                        Text("1.5M")
-                            .font(.system(.title, design: .rounded))
-                            .fontWeight(.semibold)
-                        Text("Followers")
+                        if followerCount == 1 {
+                            Text("\(followerCount)")
+                                .font(.system(.title, design: .rounded))
+                                .fontWeight(.semibold)
+                            Text("Follower")
+                        }
+                        else if followerCount == 0 {
+                            Text("\(followerCount)")
+                                .font(.system(.title, design: .rounded))
+                                .fontWeight(.semibold)
+                                .foregroundColor(.secondary)
+                            Text("Followers")
+                        }
+                        else if followerCount > 1 {
+                            Text("\(followerCount)")
+                                .font(.system(.title, design: .rounded))
+                                .fontWeight(.semibold)
+                            Text("Followers")
+                        }
                     }
                 })
                 
@@ -81,18 +97,9 @@ struct OtherUserProfile: View {
                     EmptyView()
                 }, contentView: {
                     VStack(alignment: .center,spacing: 6) {
-                        if followingCount == 0 {
-                            Text("\(followingCount)")
-                                .font(.system(.title, design: .rounded))
-                                .fontWeight(.semibold)
-                                .foregroundColor(.secondary)
-                        }
-                        else if followingCount > 0 {
-                            Text("\(followingCount)")
-                                .font(.system(.title, design: .rounded))
-                                .fontWeight(.semibold)
-                        }
-                        
+                        Text("1589")
+                            .font(.system(.title, design: .rounded))
+                            .fontWeight(.semibold)
                         Text("Following")
                     }
                 })
@@ -166,23 +173,29 @@ struct OtherUserProfile: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    /// Execute actions to follow a user
+    /// Execute actions to follow a user (for the current user.)
     func followUser(otherUserUID: String) {
         let currentUserUID = HelperMethods.shared.getCurrentUserUID()
         
+        // Get rid of the default value of following count then add 1 when the user follow somebody.
+        var followingCounter: Int = 0
+        followingCounter += 1
+        
         // Add user to Database
         let databaseRef = Database.database().reference()
-        let databasePath = databaseRef.child("Users").child(currentUserUID).child("followers").child(otherUserUID)
+        let databasePath = databaseRef.child("Users").child(currentUserUID).child("followers")
+        let databasePath1 = databaseRef.child("Users").child(currentUserUID).child("followers").child(otherUserUID)
+        
+        let updateFollowerCount: [String: Any] = [
+            "followerCount": followingCounter
+        ]
         
         let otherUserInfo: [String: Any] = [
             "followerUID": otherUserUID
         ]
         
-        databasePath.updateChildValues(otherUserInfo)
-        
-        // Get rid of the default value of following count then add 1 when the user follow somebody.
-        var followingCounter: Int = 0
-        followingCounter += 1
+        databasePath.updateChildValues(updateFollowerCount)
+        databasePath1.updateChildValues(otherUserInfo)
         
         // Update Firestore
         let firestoreRef = Firestore.firestore()

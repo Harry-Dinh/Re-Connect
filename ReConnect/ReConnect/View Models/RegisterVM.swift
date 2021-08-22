@@ -64,6 +64,7 @@ class RegisterVM: ObservableObject {
         }
     }
     
+    /// Create a node that represent a Re:Connect user on Firebase Database.
     public func createUserObjectOnDatabase(fullName: String, email: String) {
         guard let uid = Auth.auth().currentUser?.uid else {
             return
@@ -85,7 +86,7 @@ class RegisterVM: ObservableObject {
         path.setValue(userData)
     }
     
-    /// Create the user's object on Firestore (call this after create everything!)
+    /// Create a document on Firestore that represents a user with all of the registered data. Call this method after the user has set up everything when creating their account before logging into the `CoreScreen`.
     public func createUserObject(fullName: String, email: String) {
         
         guard let uid = Auth.auth().currentUser?.uid else {

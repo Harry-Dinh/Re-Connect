@@ -52,11 +52,14 @@ class LoginVM: ObservableObject {
         do {
             try Auth.auth().signOut()
             self.isSignedIn = false
+            
+            // Actions to do when signing out
             ProfileVM.shared.fullName = ""
             ProfileVM.shared.displayEmail = ""
             ProfileVM.shared.dateOfBirth = ""
             ProfileVM.shared.isPrivateAccount = false
             ProfileVM.shared.username = ""
+            UserDefaults.standard.setValue("", forKey: "currentUserPFP")
         }
         catch {
             print("Cannot sign out user")
