@@ -15,7 +15,7 @@ struct ProfileScreen: View {
     var body: some View {
         ScrollView {
             HStack {
-                if viewModel.unwrappedPFPURL.isEmpty {
+                if viewModel.unwrappedPFPURL == "" {
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
                         .frame(width: 80, height: 80)
@@ -34,14 +34,22 @@ struct ProfileScreen: View {
                         .bold()
                     
                     if viewModel.isPrivateAccount {
-                        Label(viewModel.username, systemImage: "lock.fill")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                        Menu {
+                            Text("This user is using a Private Account.")
+                        } label: {
+                            Label(viewModel.username, systemImage: "lock.fill")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
                     }
                     else {
-                        Label(viewModel.username, systemImage: "lock.open.fill")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                        Menu {
+                            Text("This user is using a Public Account.")
+                        } label: {
+                            Label(viewModel.username, systemImage: "lock.open.fill")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 
@@ -56,23 +64,38 @@ struct ProfileScreen: View {
                     }, contentView: {
                         VStack(alignment: .center,spacing: 6) {
                             if viewModel.followingCount == 1 {
-                                Text("\(viewModel.followingCount)")
-                                    .font(.system(.title, design: .rounded))
-                                    .fontWeight(.semibold)
-                                Text("Follower")
+                                NavigationLink(destination: FollowersList()) {
+                                    VStack(spacing: 6) {
+                                        Text("\(viewModel.followingCount)")
+                                            .font(.system(.title, design: .rounded))
+                                            .fontWeight(.semibold)
+                                        Text("Follower")
+                                    }
+                                    .foregroundColor(.primary)
+                                }
                             }
                             else if viewModel.followingCount == 0 {
-                                Text("\(viewModel.followingCount)")
-                                    .font(.system(.title, design: .rounded))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.secondary)
-                                Text("Followers")
+                                NavigationLink(destination: FollowersList()) {
+                                    VStack(spacing: 6) {
+                                        Text("\(viewModel.followingCount)")
+                                            .font(.system(.title, design: .rounded))
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.secondary)
+                                        Text("Followers")
+                                    }
+                                    .foregroundColor(.primary)
+                                }
                             }
                             else {
-                                Text("\(viewModel.followingCount)")
-                                    .font(.system(.title, design: .rounded))
-                                    .fontWeight(.semibold)
-                                Text("Followers")
+                                NavigationLink(destination: EmptyView()) {
+                                    VStack(spacing: 6) {
+                                        Text("\(viewModel.followingCount)")
+                                            .font(.system(.title, design: .rounded))
+                                            .fontWeight(.semibold)
+                                        Text("Followers")
+                                    }
+                                    .foregroundColor(.primary)
+                                }
                             }
                         }
                     })
@@ -93,18 +116,22 @@ struct ProfileScreen: View {
                 }
                 
                 CustomGroupBox(titleView: {
-                    EmptyView()
+                    Label("Personal Information".uppercased(), systemImage: "info.circle.fill")
                 }, contentView: {
-                    Label(viewModel.dateOfBirth, systemImage: "gift.fill")
-                        .font(.system(.title, design: .default))
+                    HStack {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Label(
+                                title: { Text(viewModel.displayEmail) },
+                                icon: { Text("Email address:").bold() })
+                            
+                            Label(
+                                title: { Text(viewModel.dateOfBirth) },
+                                icon: { Text("Date of Birth:").bold() })
+                        }
+                        
+                        Spacer()
+                    }
                 })
-                
-                CustomGroupBox {
-                    EmptyView()
-                } contentView: {
-                    Label(viewModel.displayEmail, systemImage: "envelope.fill")
-                        .font(.system(.title, design: .default))
-                }
 
             }
             .padding()
