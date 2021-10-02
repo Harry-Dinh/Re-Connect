@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		217CB2B02708EDE00084A7B5 /* ReConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB2AF2708EDE00084A7B5 /* ReConnectApp.swift */; };
+		217CB2B22708EDE00084A7B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB2B12708EDE00084A7B5 /* ContentView.swift */; };
+		217CB2B42708EDE20084A7B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217CB2B32708EDE20084A7B5 /* Assets.xcassets */; };
+		217CB2B72708EDE20084A7B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217CB2B62708EDE20084A7B5 /* Preview Assets.xcassets */; };
+		217CB2C02708F1690084A7B5 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 217CB2BF2708F1690084A7B5 /* FirebaseAnalytics */; };
+		217CB2C22708F1690084A7B5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 217CB2C12708F1690084A7B5 /* FirebaseAuth */; };
+		217CB2C42708F1690084A7B5 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 217CB2C32708F1690084A7B5 /* FirebaseDatabase */; };
+		217CB2C62708F1690084A7B5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 217CB2C52708F1690084A7B5 /* FirebaseFirestore */; };
+		217CB2C82708F1690084A7B5 /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 217CB2C72708F1690084A7B5 /* FirebaseFirestoreSwift-Beta */; };
+		217CB2CA2708F1690084A7B5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 217CB2C92708F1690084A7B5 /* FirebaseStorage */; };
+		217CB2CC2708F1C00084A7B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 217CB2CB2708F1C00084A7B5 /* GoogleService-Info.plist */; };
+		217CB2CE2708F3F70084A7B5 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB2CD2708F3F70084A7B5 /* Home.swift */; };
+		217CB2D02708F3FD0084A7B5 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB2CF2708F3FD0084A7B5 /* Login.swift */; };
+		217CB2D32708F4430084A7B5 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB2D22708F4430084A7B5 /* AuthVM.swift */; };
+		217CB2D72708F63B0084A7B5 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217CB2D62708F63B0084A7B5 /* Register.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		217CB2AC2708EDE00084A7B5 /* ReConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		217CB2AF2708EDE00084A7B5 /* ReConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConnectApp.swift; sourceTree = "<group>"; };
+		217CB2B12708EDE00084A7B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		217CB2B32708EDE20084A7B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		217CB2B62708EDE20084A7B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		217CB2BD2708EEF10084A7B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		217CB2CB2708F1C00084A7B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		217CB2CD2708F3F70084A7B5 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		217CB2CF2708F3FD0084A7B5 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		217CB2D22708F4430084A7B5 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
+		217CB2D62708F63B0084A7B5 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		217CB2A92708EDE00084A7B5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				217CB2C42708F1690084A7B5 /* FirebaseDatabase in Frameworks */,
+				217CB2C62708F1690084A7B5 /* FirebaseFirestore in Frameworks */,
+				217CB2C82708F1690084A7B5 /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				217CB2C02708F1690084A7B5 /* FirebaseAnalytics in Frameworks */,
+				217CB2C22708F1690084A7B5 /* FirebaseAuth in Frameworks */,
+				217CB2CA2708F1690084A7B5 /* FirebaseStorage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		217CB2A32708EDE00084A7B5 = {
+			isa = PBXGroup;
+			children = (
+				217CB2AE2708EDE00084A7B5 /* ReConnect */,
+				217CB2AD2708EDE00084A7B5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		217CB2AD2708EDE00084A7B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				217CB2AC2708EDE00084A7B5 /* ReConnect.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		217CB2AE2708EDE00084A7B5 /* ReConnect */ = {
+			isa = PBXGroup;
+			children = (
+				217CB2D52708F4DC0084A7B5 /* Resources */,
+				217CB2D12708F4390084A7B5 /* View Models */,
+				217CB2CB2708F1C00084A7B5 /* GoogleService-Info.plist */,
+				217CB2BD2708EEF10084A7B5 /* Info.plist */,
+				217CB2D42708F4CF0084A7B5 /* Views */,
+				217CB2B32708EDE20084A7B5 /* Assets.xcassets */,
+				217CB2B52708EDE20084A7B5 /* Preview Content */,
+			);
+			path = ReConnect;
+			sourceTree = "<group>";
+		};
+		217CB2B52708EDE20084A7B5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				217CB2B62708EDE20084A7B5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		217CB2D12708F4390084A7B5 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				217CB2D22708F4430084A7B5 /* AuthVM.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		217CB2D42708F4CF0084A7B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				217CB2B12708EDE00084A7B5 /* ContentView.swift */,
+				217CB2CD2708F3F70084A7B5 /* Home.swift */,
+				217CB2CF2708F3FD0084A7B5 /* Login.swift */,
+				217CB2D62708F63B0084A7B5 /* Register.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		217CB2D52708F4DC0084A7B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				217CB2AF2708EDE00084A7B5 /* ReConnectApp.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		217CB2AB2708EDE00084A7B5 /* ReConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 217CB2BA2708EDE20084A7B5 /* Build configuration list for PBXNativeTarget "ReConnect" */;
+			buildPhases = (
+				217CB2A82708EDE00084A7B5 /* Sources */,
+				217CB2A92708EDE00084A7B5 /* Frameworks */,
+				217CB2AA2708EDE00084A7B5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReConnect;
+			packageProductDependencies = (
+				217CB2BF2708F1690084A7B5 /* FirebaseAnalytics */,
+				217CB2C12708F1690084A7B5 /* FirebaseAuth */,
+				217CB2C32708F1690084A7B5 /* FirebaseDatabase */,
+				217CB2C52708F1690084A7B5 /* FirebaseFirestore */,
+				217CB2C72708F1690084A7B5 /* FirebaseFirestoreSwift-Beta */,
+				217CB2C92708F1690084A7B5 /* FirebaseStorage */,
+			);
+			productName = ReConnect;
+			productReference = 217CB2AC2708EDE00084A7B5 /* ReConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		217CB2A42708EDE00084A7B5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					217CB2AB2708EDE00084A7B5 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 217CB2A72708EDE00084A7B5 /* Build configuration list for PBXProject "ReConnect" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 217CB2A32708EDE00084A7B5;
+			packageReferences = (
+				217CB2BE2708F1690084A7B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 217CB2AD2708EDE00084A7B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				217CB2AB2708EDE00084A7B5 /* ReConnect */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		217CB2AA2708EDE00084A7B5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				217CB2B72708EDE20084A7B5 /* Preview Assets.xcassets in Resources */,
+				217CB2B42708EDE20084A7B5 /* Assets.xcassets in Resources */,
+				217CB2CC2708F1C00084A7B5 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		217CB2A82708EDE00084A7B5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				217CB2D72708F63B0084A7B5 /* Register.swift in Sources */,
+				217CB2D32708F4430084A7B5 /* AuthVM.swift in Sources */,
+				217CB2B22708EDE00084A7B5 /* ContentView.swift in Sources */,
+				217CB2CE2708F3F70084A7B5 /* Home.swift in Sources */,
+				217CB2B02708EDE00084A7B5 /* ReConnectApp.swift in Sources */,
+				217CB2D02708F3FD0084A7B5 /* Login.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		217CB2B82708EDE20084A7B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		217CB2B92708EDE20084A7B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		217CB2BB2708EDE20084A7B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = W29Q2GKBT5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReConnect/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iConnect.ReConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		217CB2BC2708EDE20084A7B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = W29Q2GKBT5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ReConnect/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iConnect.ReConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		217CB2A72708EDE00084A7B5 /* Build configuration list for PBXProject "ReConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				217CB2B82708EDE20084A7B5 /* Debug */,
+				217CB2B92708EDE20084A7B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		217CB2BA2708EDE20084A7B5 /* Build configuration list for PBXNativeTarget "ReConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				217CB2BB2708EDE20084A7B5 /* Debug */,
+				217CB2BC2708EDE20084A7B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		217CB2BE2708F1690084A7B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		217CB2BF2708F1690084A7B5 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 217CB2BE2708F1690084A7B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		217CB2C12708F1690084A7B5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 217CB2BE2708F1690084A7B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		217CB2C32708F1690084A7B5 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 217CB2BE2708F1690084A7B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		217CB2C52708F1690084A7B5 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 217CB2BE2708F1690084A7B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		217CB2C72708F1690084A7B5 /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 217CB2BE2708F1690084A7B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		217CB2C92708F1690084A7B5 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 217CB2BE2708F1690084A7B5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 217CB2A42708EDE00084A7B5 /* Project object */;
+}
