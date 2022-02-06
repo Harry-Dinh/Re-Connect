@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
+		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
 		21D4AA7827AE254A00684886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D4AA7727AE254A00684886 /* Assets.xcassets */; };
 		21D4AA7B27AE254A00684886 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D4AA7A27AE254A00684886 /* Preview Assets.xcassets */; };
 		21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4AA8B27AE25CF00684886 /* ReConApp2.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
+		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
 		21D4AA7027AE254900684886 /* Re:Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Re:Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D4AA7727AE254A00684886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21D4AA7A27AE254A00684886 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -47,6 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2154735927AF19920008B882 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				2154735A27AF19B30008B882 /* AuthVM.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		2154735C27AF19D20008B882 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2154735D27AF19DF0008B882 /* ReConUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		21D4AA6727AE254900684886 = {
 			isa = PBXGroup;
 			children = (
@@ -66,10 +86,12 @@
 		21D4AA7227AE254900684886 /* ReConApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				2154735C27AF19D20008B882 /* Models */,
 				21D4AA9627AE283800684886 /* GoogleService-Info.plist */,
 				21D4AA9527AE26F800684886 /* Info.plist */,
 				21D4AA8F27AE267E00684886 /* Resources */,
 				21D4AA9027AE268600684886 /* Views */,
+				2154735927AF19920008B882 /* View Models */,
 				21D4AA7727AE254A00684886 /* Assets.xcassets */,
 				21D4AA7927AE254A00684886 /* Preview Content */,
 			);
@@ -185,6 +207,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */,
+				2154735B27AF19B30008B882 /* AuthVM.swift in Sources */,
 				21D4AA8E27AE25EE00684886 /* ContentView.swift in Sources */,
 				21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */,
 			);
