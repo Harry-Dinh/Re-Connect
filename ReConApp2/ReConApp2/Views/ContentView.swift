@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("isSignedIn") var isSignedIn = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if !isSignedIn {
+            LoginView()
+        }
+        else {
+            Text("Home!")
+        }
     }
 }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
+		21AEB26727B8665C0041D58E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26627B8665C0041D58E /* LoginView.swift */; };
+		21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26827B86C200041D58E /* CustomEmptyView.swift */; };
 		21D4AA7827AE254A00684886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D4AA7727AE254A00684886 /* Assets.xcassets */; };
 		21D4AA7B27AE254A00684886 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D4AA7A27AE254A00684886 /* Preview Assets.xcassets */; };
 		21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4AA8B27AE25CF00684886 /* ReConApp2.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
+		21AEB26627B8665C0041D58E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		21AEB26827B86C200041D58E /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		21D4AA7027AE254900684886 /* Re:Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Re:Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D4AA7727AE254A00684886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21D4AA7A27AE254A00684886 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				21D4AA8D27AE25EE00684886 /* ContentView.swift */,
+				21AEB26627B8665C0041D58E /* LoginView.swift */,
+				21AEB26827B86C200041D58E /* CustomEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,7 +216,9 @@
 				2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */,
 				2154735B27AF19B30008B882 /* AuthVM.swift in Sources */,
 				21D4AA8E27AE25EE00684886 /* ContentView.swift in Sources */,
+				21AEB26727B8665C0041D58E /* LoginView.swift in Sources */,
 				21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */,
+				21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
