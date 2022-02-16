@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21202E6227BC64A0006A1A19 /* CustomTextField.swift */; };
+		21202E6527BC67BC006A1A19 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21202E6427BC67BC006A1A19 /* RegisterView.swift */; };
 		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
 		21AEB26727B8665C0041D58E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26627B8665C0041D58E /* LoginView.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21202E6227BC64A0006A1A19 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		21202E6427BC67BC006A1A19 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
 		21AEB26627B8665C0041D58E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21202E6127BC6495006A1A19 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				21AEB26827B86C200041D58E /* CustomEmptyView.swift */,
+				21202E6227BC64A0006A1A19 /* CustomTextField.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		2154735927AF19920008B882 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +138,8 @@
 			children = (
 				21D4AA8D27AE25EE00684886 /* ContentView.swift */,
 				21AEB26627B8665C0041D58E /* LoginView.swift */,
-				21AEB26827B86C200041D58E /* CustomEmptyView.swift */,
+				21202E6427BC67BC006A1A19 /* RegisterView.swift */,
+				21202E6127BC6495006A1A19 /* Custom */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,10 +227,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */,
 				2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */,
 				2154735B27AF19B30008B882 /* AuthVM.swift in Sources */,
 				21D4AA8E27AE25EE00684886 /* ContentView.swift in Sources */,
 				21AEB26727B8665C0041D58E /* LoginView.swift in Sources */,
+				21202E6527BC67BC006A1A19 /* RegisterView.swift in Sources */,
 				21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */,
 				21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */,
 			);

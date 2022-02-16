@@ -11,10 +11,11 @@ struct LoginView: View {
     
     @ObservedObject var vm = AuthVM.shared
     @FocusState var focusedField: AuthVM.AuthFields?
+    @State private var showRegisterView = false
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: 5) {
                     Image("logo")
                         .resizable()
@@ -30,8 +31,7 @@ struct LoginView: View {
                 CustomEmptyView(width: nil, height: 10, color: .clear)
                 
                 VStack(spacing: 10) {
-                    TextField("Email Address", text: .constant(""))
-                        .textFieldStyle(.roundedBorder)
+                    CustomTextField(text: .constant(""), placeholder: "Email address", isSecureTextEntry: false)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                         .keyboardType(.emailAddress)
@@ -39,8 +39,7 @@ struct LoginView: View {
                         .onSubmit { focusedField = .password }
                         .submitLabel(.next)
                     
-                    SecureField("Password", text: .constant(""))
-                        .textFieldStyle(.roundedBorder)
+                    CustomTextField(text: .constant(""), placeholder: "Password", isSecureTextEntry: true)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                         .focused($focusedField, equals: .password)
@@ -51,20 +50,22 @@ struct LoginView: View {
                         .submitLabel(.done)
                     
                     Button(action: {}) {
-                        Label("Sign In", systemImage: "checkmark.circle")
-                            .font(.custom("Rubik Light Medium", size: 17, relativeTo: .body))
+                        Text("Sign In")
+                            .fontWeight(.semibold)
+                            .frame(maxWidth: 300)
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
                     
-                    CustomEmptyView(width: nil, height: 5, color: .clear)
+                    CustomEmptyView(width: 10, height: nil, color: .clear)
                     
-                    Button(action: {}) {
-                        Label("Create Account", systemImage: "person.crop.circle.badge.plus")
-                            .font(.custom("Rubik Light Medium", size: 17, relativeTo: .body))
+                    HStack {
+                        Text("Don't have an account? Create one")
+                        Button("here") {
+                            showRegisterView.toggle()
+                        }
+                        .fullScreenCover(isPresented: $showRegisterView, content: RegisterView.init)
                     }
-                    .buttonStyle(.bordered)
-                    .controlSize(.regular)
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
