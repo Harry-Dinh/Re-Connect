@@ -13,12 +13,13 @@ class AuthVM: ObservableObject {
     static let shared = AuthVM()
     
     // MARK: - FIREBASE & OTHER FRAMEWORKS
-    let firestoreRef = Firestore.firestore()
+    let databaseRef = Database.database().reference()
     
     // MARK: - ENUMERATIONS
     enum AuthFields: Hashable {
         case firstName
         case lastName
+        case username
         case email
         case password
     }
@@ -26,20 +27,23 @@ class AuthVM: ObservableObject {
     // MARK: - FIELDS
     @Published var firstName: String = ""
     @Published var lastName: String = ""
+    @Published var username: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
     
     // MARK: - SWIFTUI
     @Published var showRegisterView: Bool = false
+    @Environment(\.presentationMode) var presentationMode
     @AppStorage("isSignedIn") var isSignedIn: Bool = false
     
     // MARK: - METHODS
     
     public func insertUser(user: ReConUser) {
-        let path = firestoreRef.collection("ReConUsers").document()
+        let path = databaseRef.child("ReConUsers").childByAutoId()
         let userData: [String: Any] = [
             "firstName": user.firstName,
             "lastName": user.lastName,
+            "username": user.username,
             "email": user.email,
             "bio": user.bio,
             "age": user.age,
@@ -48,12 +52,12 @@ class AuthVM: ObservableObject {
             "followings": user.followingCount
         ]
         
-        path.collection("Info").addDocument(data: userData)
+        path.child("Info").setValue(userData)
     }
     
     // MARK: - STATIC METHODS
     
-    public static func createAccount(firstName: String, lastName: String, email: String, password: String) {
+    public static func createAccount(firstName: String, lastName: String, username: String, email: String, password: String) {
         // Create account on Firebase Auth
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             guard error == nil else {
@@ -61,8 +65,20 @@ class AuthVM: ObservableObject {
                 return
             }
             
-            let user = ReConUser(firstName: firstName, lastName: lastName, email: email, bio: "", age: 0, gender: -1, followerCount: 0, followingCount: 0)
+            let user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: "", age: 0, gender: -1, followerCount: 0, followingCount: 0)
             AuthVM.shared.insertUser(user: user)
+            AuthVM.shared.presentationMode.wrappedValue.dismiss()
+            AuthVM.shared.isSignedIn = true
+        }
+    }
+    
+    public static func signOut() {
+        do {
+            try Auth.auth().signOut()
+            AuthVM.shared.isSignedIn = false
+        }
+        catch {
+            debugPrint("Cannot sign out the user")
         }
     }
 }

@@ -16,7 +16,8 @@ struct ContentView: View {
             LoginView()
         }
         else {
-            Text("Home!")
+            CoreView()
+                .onAppear { ProfileVM.getUserInfo() }
         }
     }
 }

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21202E6227BC64A0006A1A19 /* CustomTextField.swift */; };
 		21202E6527BC67BC006A1A19 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21202E6427BC67BC006A1A19 /* RegisterView.swift */; };
+		21291CA227C2DB19000FDD49 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CA127C2DB19000FDD49 /* CoreView.swift */; };
+		21291CA427C2DB38000FDD49 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CA327C2DB38000FDD49 /* HomeView.swift */; };
+		21291CA627C2DB3E000FDD49 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CA527C2DB3E000FDD49 /* SettingsView.swift */; };
+		21291CA827C2DB48000FDD49 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CA727C2DB48000FDD49 /* MenuView.swift */; };
+		21291CAA27C2DE84000FDD49 /* CustomListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CA927C2DE84000FDD49 /* CustomListRow.swift */; };
+		21291CAD27C2E5EF000FDD49 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CAC27C2E5EF000FDD49 /* ProfileView.swift */; };
+		21291CAF27C2E5F8000FDD49 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CAE27C2E5F8000FDD49 /* ProfileVM.swift */; };
 		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
 		21AEB26727B8665C0041D58E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26627B8665C0041D58E /* LoginView.swift */; };
@@ -29,6 +36,13 @@
 /* Begin PBXFileReference section */
 		21202E6227BC64A0006A1A19 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21202E6427BC67BC006A1A19 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		21291CA127C2DB19000FDD49 /* CoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreView.swift; sourceTree = "<group>"; };
+		21291CA327C2DB38000FDD49 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		21291CA527C2DB3E000FDD49 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		21291CA727C2DB48000FDD49 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		21291CA927C2DE84000FDD49 /* CustomListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListRow.swift; sourceTree = "<group>"; };
+		21291CAC27C2E5EF000FDD49 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		21291CAE27C2E5F8000FDD49 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
 		21AEB26627B8665C0041D58E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -64,14 +78,24 @@
 			children = (
 				21AEB26827B86C200041D58E /* CustomEmptyView.swift */,
 				21202E6227BC64A0006A1A19 /* CustomTextField.swift */,
+				21291CA927C2DE84000FDD49 /* CustomListRow.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		21291CAB27C2E580000FDD49 /* App Settings */ = {
+			isa = PBXGroup;
+			children = (
+				21291CA527C2DB3E000FDD49 /* SettingsView.swift */,
+			);
+			path = "App Settings";
 			sourceTree = "<group>";
 		};
 		2154735927AF19920008B882 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
 				2154735A27AF19B30008B882 /* AuthVM.swift */,
+				21291CAE27C2E5F8000FDD49 /* ProfileVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -103,9 +127,9 @@
 		21D4AA7227AE254900684886 /* ReConApp2 */ = {
 			isa = PBXGroup;
 			children = (
-				2154735C27AF19D20008B882 /* Models */,
 				21D4AA9627AE283800684886 /* GoogleService-Info.plist */,
 				21D4AA9527AE26F800684886 /* Info.plist */,
+				2154735C27AF19D20008B882 /* Models */,
 				21D4AA8F27AE267E00684886 /* Resources */,
 				21D4AA9027AE268600684886 /* Views */,
 				2154735927AF19920008B882 /* View Models */,
@@ -139,6 +163,11 @@
 				21D4AA8D27AE25EE00684886 /* ContentView.swift */,
 				21AEB26627B8665C0041D58E /* LoginView.swift */,
 				21202E6427BC67BC006A1A19 /* RegisterView.swift */,
+				21291CA127C2DB19000FDD49 /* CoreView.swift */,
+				21291CA327C2DB38000FDD49 /* HomeView.swift */,
+				21291CA727C2DB48000FDD49 /* MenuView.swift */,
+				21291CAC27C2E5EF000FDD49 /* ProfileView.swift */,
+				21291CAB27C2E580000FDD49 /* App Settings */,
 				21202E6127BC6495006A1A19 /* Custom */,
 			);
 			path = Views;
@@ -228,13 +257,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */,
+				21291CA827C2DB48000FDD49 /* MenuView.swift in Sources */,
+				21291CA227C2DB19000FDD49 /* CoreView.swift in Sources */,
+				21291CAA27C2DE84000FDD49 /* CustomListRow.swift in Sources */,
 				2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */,
+				21291CA427C2DB38000FDD49 /* HomeView.swift in Sources */,
 				2154735B27AF19B30008B882 /* AuthVM.swift in Sources */,
 				21D4AA8E27AE25EE00684886 /* ContentView.swift in Sources */,
 				21AEB26727B8665C0041D58E /* LoginView.swift in Sources */,
 				21202E6527BC67BC006A1A19 /* RegisterView.swift in Sources */,
+				21291CAF27C2E5F8000FDD49 /* ProfileVM.swift in Sources */,
 				21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */,
 				21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */,
+				21291CAD27C2E5EF000FDD49 /* ProfileView.swift in Sources */,
+				21291CA627C2DB3E000FDD49 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

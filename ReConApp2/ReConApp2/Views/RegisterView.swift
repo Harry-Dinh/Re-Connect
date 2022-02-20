@@ -18,18 +18,43 @@ struct RegisterView: View {
             ZStack {
                 List {
                     Section(header: Label("Basic Info", systemImage: "info.circle")) {
-                        CustomTextField(text: .constant(""), placeholder: "First name", isSecureTextEntry: false)
+                        CustomTextField(text: $vm.firstName, placeholder: "First name", isSecureTextEntry: false)
+                            .disableAutocorrection(true)
+                            .textInputAutocapitalization(.words)
                             .focused($focusedField, equals: .firstName)
-                        CustomTextField(text: .constant(""), placeholder: "Last name", isSecureTextEntry: false)
+                            .submitLabel(.next)
+                            .onSubmit { focusedField = .lastName }
+                        CustomTextField(text: $vm.lastName, placeholder: "Last name", isSecureTextEntry: false)
+                            .disableAutocorrection(true)
+                            .textInputAutocapitalization(.words)
                             .focused($focusedField, equals: .lastName)
+                            .submitLabel(.next)
+                            .onSubmit { focusedField = .username }
+                        
+                        CustomTextField(text: $vm.username, placeholder: "Username (i.e. @JimKirk1701)", isSecureTextEntry: false)
+                            .disableAutocorrection(true)
+                            .textInputAutocapitalization(.none)
+                            .keyboardType(.twitter)
+                            .focused($focusedField, equals: .username)
+                            .submitLabel(.next)
+                            .onSubmit { focusedField = .email }
                     }
                     .listRowSeparator(.hidden)
                     
                     Section(header: Label("Credentials", systemImage: "at")) {
-                        CustomTextField(text: .constant(""), placeholder: "Email address", isSecureTextEntry: false)
+                        CustomTextField(text: $vm.email, placeholder: "Email address", isSecureTextEntry: false)
+                            .keyboardType(.emailAddress)
+                            .textInputAutocapitalization(.none)
+                            .disableAutocorrection(true)
                             .focused($focusedField, equals: .email)
-                        CustomTextField(text: .constant(""), placeholder: "Password", isSecureTextEntry: true)
+                            .submitLabel(.next)
+                            .onSubmit { focusedField = .password }
+                        CustomTextField(text: $vm.password, placeholder: "Password", isSecureTextEntry: true)
+                            .textInputAutocapitalization(.none)
+                            .disableAutocorrection(true)
                             .focused($focusedField, equals: .password)
+                            .submitLabel(.done)
+                            .onSubmit { focusedField = nil }
                     }
                     .listRowSeparator(.hidden)
                 }
@@ -42,20 +67,36 @@ struct RegisterView: View {
                             presentationMode.wrappedValue.dismiss()
                         }
                     }
+                    
+                    ToolbarItem(placement: .keyboard) {
+                        HStack {
+                            Spacer()
+                            
+                            if focusedField == .username {
+                                Button("Next") { focusedField = .email }
+                            }
+                            
+                            Button("Done") { focusedField = nil }
+                        }
+                    }
                 }
                 
-                VStack {
-                    Spacer()
-                    Button(action: {}) {
-                        Text("Create Account")
-                            .fontWeight(.semibold)
-                            .frame(maxWidth: 300)
+                if focusedField == nil {
+                    VStack {
+                        Spacer()
+                        Button(action: {
+                            AuthVM.createAccount(firstName: vm.firstName, lastName: vm.lastName, username: vm.username, email: vm.email, password: vm.password)
+                        }) {
+                            Text("Create Account")
+                                .fontWeight(.semibold)
+                                .frame(maxWidth: 300)
+                        }
+                        .ignoresSafeArea()
+                        .buttonStyle(.borderedProminent)
+                        .controlSize(.large)
+                        .frame(width: UIScreen.main.bounds.width, height: 100)
+                        .background(.ultraThinMaterial, in: Rectangle())
                     }
-                    .ignoresSafeArea()
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
-                    .frame(width: UIScreen.main.bounds.width, height: 100)
-                    .background(.ultraThinMaterial, in: Rectangle())
                 }
             }
         }

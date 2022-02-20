@@ -7,9 +7,35 @@
 
 import Foundation
 
-struct ReConUser {
+struct ReConUser: Codable {
+    
+    init() {
+        firstName = ""
+        lastName = ""
+        username = ""
+        email = ""
+        bio = ""
+        age = 0
+        gender = -1
+        followerCount = 0
+        followingCount = 0
+    }
+    
+    init(firstName: String, lastName: String, username: String, email: String, bio: String, age: Int, gender: Int, followerCount: Int, followingCount: Int) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.username = username
+        self.email = email
+        self.bio = bio
+        self.age = age
+        self.gender = gender
+        self.followerCount = followerCount
+        self.followingCount = followingCount
+    }
+    
     var firstName: String
     var lastName: String
+    var username: String
     var email: String
     var bio: String
     var age: Int
