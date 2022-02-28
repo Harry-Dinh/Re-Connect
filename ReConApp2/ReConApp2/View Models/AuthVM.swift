@@ -39,7 +39,7 @@ class AuthVM: ObservableObject {
     // MARK: - METHODS
     
     public func insertUser(user: ReConUser) {
-        let path = databaseRef.child("ReConUsers").childByAutoId()
+        let path = databaseRef.child("ReConUsers").child("\(AuthVM.getUID()!)")
         let userData: [String: Any] = [
             "firstName": user.firstName,
             "lastName": user.lastName,
@@ -49,13 +49,26 @@ class AuthVM: ObservableObject {
             "age": user.age,
             "gender": user.gender,
             "followers": user.followerCount,
-            "followings": user.followingCount
+            "followings": user.followingCount,
+            "firebase_uid": AuthVM.getUID()!
         ]
         
         path.child("Info").setValue(userData)
     }
     
     // MARK: - STATIC METHODS
+    
+    public static func signInUser(email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            guard error == nil else {
+                print("Cannot sign in user")
+                return
+            }
+            
+            AuthVM.shared.isSignedIn = true
+            AuthVM.shared.presentationMode.wrappedValue.dismiss()
+        }
+    }
     
     public static func createAccount(firstName: String, lastName: String, username: String, email: String, password: String) {
         // Create account on Firebase Auth
@@ -65,7 +78,9 @@ class AuthVM: ObservableObject {
                 return
             }
             
-            let user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: "", age: 0, gender: -1, followerCount: 0, followingCount: 0)
+            let uid = result?.user.uid
+            
+            let user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: "", age: 0, gender: -1, followerCount: 0, followingCount: 0, firebaseUID: uid!)
             AuthVM.shared.insertUser(user: user)
             AuthVM.shared.presentationMode.wrappedValue.dismiss()
             AuthVM.shared.isSignedIn = true
@@ -80,5 +95,9 @@ class AuthVM: ObservableObject {
         catch {
             debugPrint("Cannot sign out the user")
         }
+    }
+    
+    public static func getUID() -> String? {
+        return Auth.auth().currentUser?.uid
     }
 }

@@ -13,6 +13,9 @@ struct CoreView: View {
             HomeView()
                 .tabItem { Label("Home", systemImage: "house") }
             
+            DiscoverView()
+                .tabItem { Label("Discover", systemImage: "safari") }
+            
             ProfileView()
                 .tabItem { Label("Profile", systemImage: "person.crop.circle") }
             

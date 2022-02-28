@@ -36,8 +36,10 @@ struct HomeView: View {
                     Button(action: {}) {
                         Image(systemName: "magnifyingglass")
                     }
-                    .buttonStyle(.bordered)
-                    .clipShape(Circle())
+                    
+                    Button(action: {}) {
+                        Image(systemName: "plus")
+                    }
                 }
             }
         }

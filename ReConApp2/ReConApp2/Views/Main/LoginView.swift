@@ -31,7 +31,7 @@ struct LoginView: View {
                 CustomEmptyView(width: nil, height: 10, color: .clear)
                 
                 VStack(spacing: 10) {
-                    CustomTextField(text: .constant(""), placeholder: "Email address", isSecureTextEntry: false)
+                    CustomTextField(text: $vm.email, placeholder: "Email address", isSecureTextEntry: false)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                         .keyboardType(.emailAddress)
@@ -39,17 +39,23 @@ struct LoginView: View {
                         .onSubmit { focusedField = .password }
                         .submitLabel(.next)
                     
-                    CustomTextField(text: .constant(""), placeholder: "Password", isSecureTextEntry: true)
+                    CustomTextField(text: $vm.password, placeholder: "Password", isSecureTextEntry: true)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                         .focused($focusedField, equals: .password)
                         .onSubmit {
                             focusedField = nil
-                            // Sign in actions
+                            AuthVM.signInUser(email: vm.email, password: vm.password)
+                            vm.email = ""
+                            vm.password = ""
                         }
                         .submitLabel(.done)
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        AuthVM.signInUser(email: vm.email, password: vm.password)
+                        vm.email = ""
+                        vm.password = ""
+                    }) {
                         Text("Sign In")
                             .fontWeight(.semibold)
                             .frame(maxWidth: 300)

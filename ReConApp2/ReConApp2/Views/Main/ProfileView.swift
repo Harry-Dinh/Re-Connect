@@ -24,12 +24,32 @@ struct ProfileView: View {
                                 .font(.custom("Rubik Light SemiBold", size: 28, relativeTo: .title))
                             Text(vm.user.username)
                                 .font(.custom("Rubik", size: 17, relativeTo: .body))
+                            
+                            switch vm.user.gender {
+                            case 0:
+                                Text("she/her")
+                                    .padding(.horizontal, 7)
+                                    .padding(.vertical, 5)
+                                    .foregroundColor(.black)
+                                    .background(Color.yellow, in: Capsule())
+                                    .font(.custom("Rubik", size: 13, relativeTo: .footnote))
+                            case 1:
+                                Text("he/him")
+                                    .padding(.horizontal, 7)
+                                    .padding(.vertical, 5)
+                                    .foregroundColor(.white)
+                                    .background(Color.accentColor, in: Capsule())
+                                    .font(.custom("Rubik", size: 13, relativeTo: .footnote))
+                            default:
+                                EmptyView()
+                            }
                         }
                     }
                     
                     Text(vm.user.bio)
                         .font(.subheadline)
                         .italic()
+                        .padding(.bottom, 7)
                     
                     HStack {
                         GroupBox {
@@ -42,7 +62,7 @@ struct ProfileView: View {
                             }
                             .padding(.vertical)
                         } label: {
-                            Text("FOLLOWERS")
+                            Label("FOLLOWERS", systemImage: "person.2")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -58,7 +78,7 @@ struct ProfileView: View {
                             }
                             .padding(.vertical)
                         } label: {
-                            Text("FOLLOWINGS")
+                            Label("FOLLOWING", systemImage: "checkmark.circle")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
@@ -80,24 +100,26 @@ struct ProfileView: View {
                     }
                 }
                 .listRowSeparator(.hidden)
+                .headerProminence(.standard)
             }
+            .navigationBarTitleDisplayMode(.inline)
             .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {}) {
                         Image(systemName: "qrcode")
                     }
-                    .buttonStyle(.borderedProminent)
-                    .clipShape(Circle())
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {}) {
+                    Button(action: { vm.showEditProfileView.toggle() }) {
                         Image(systemName: "pencil")
                     }
-                    .buttonStyle(.bordered)
-                    .clipShape(Circle())
+                    .sheet(isPresented: $vm.showEditProfileView, content: EditProfileView.init)
                 }
+            }
+            .refreshable {
+                ProfileVM.getUserInfo()
             }
         }
     }

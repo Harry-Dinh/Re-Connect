@@ -15,6 +15,12 @@ struct SettingsView: View {
                     AuthVM.signOut()
                 }
             }
+            
+            Section(header: Text("Developer")) {
+                Button("Print current user UID") {
+                    print(AuthVM.getUID() ?? "no UID")
+                }
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Settings")

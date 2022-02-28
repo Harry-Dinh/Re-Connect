@@ -16,6 +16,8 @@
 		21291CAA27C2DE84000FDD49 /* CustomListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CA927C2DE84000FDD49 /* CustomListRow.swift */; };
 		21291CAD27C2E5EF000FDD49 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CAC27C2E5EF000FDD49 /* ProfileView.swift */; };
 		21291CAF27C2E5F8000FDD49 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CAE27C2E5F8000FDD49 /* ProfileVM.swift */; };
+		2136B89B27CC268400DD742C /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2136B89A27CC268400DD742C /* EditProfileView.swift */; };
+		2136B89D27CC501E00DD742C /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2136B89C27CC501E00DD742C /* DiscoverView.swift */; };
 		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
 		21AEB26727B8665C0041D58E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26627B8665C0041D58E /* LoginView.swift */; };
@@ -43,6 +45,8 @@
 		21291CA927C2DE84000FDD49 /* CustomListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListRow.swift; sourceTree = "<group>"; };
 		21291CAC27C2E5EF000FDD49 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		21291CAE27C2E5F8000FDD49 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		2136B89A27CC268400DD742C /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		2136B89C27CC501E00DD742C /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
 		21AEB26627B8665C0041D58E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,29 @@
 				21291CA527C2DB3E000FDD49 /* SettingsView.swift */,
 			);
 			path = "App Settings";
+			sourceTree = "<group>";
+		};
+		2136B89827CC266B00DD742C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				21D4AA8D27AE25EE00684886 /* ContentView.swift */,
+				21AEB26627B8665C0041D58E /* LoginView.swift */,
+				21202E6427BC67BC006A1A19 /* RegisterView.swift */,
+				21291CA127C2DB19000FDD49 /* CoreView.swift */,
+				21291CA327C2DB38000FDD49 /* HomeView.swift */,
+				21291CA727C2DB48000FDD49 /* MenuView.swift */,
+				21291CAC27C2E5EF000FDD49 /* ProfileView.swift */,
+				2136B89C27CC501E00DD742C /* DiscoverView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2136B89927CC267300DD742C /* Secondary */ = {
+			isa = PBXGroup;
+			children = (
+				2136B89A27CC268400DD742C /* EditProfileView.swift */,
+			);
+			path = Secondary;
 			sourceTree = "<group>";
 		};
 		2154735927AF19920008B882 /* View Models */ = {
@@ -160,13 +187,8 @@
 		21D4AA9027AE268600684886 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				21D4AA8D27AE25EE00684886 /* ContentView.swift */,
-				21AEB26627B8665C0041D58E /* LoginView.swift */,
-				21202E6427BC67BC006A1A19 /* RegisterView.swift */,
-				21291CA127C2DB19000FDD49 /* CoreView.swift */,
-				21291CA327C2DB38000FDD49 /* HomeView.swift */,
-				21291CA727C2DB48000FDD49 /* MenuView.swift */,
-				21291CAC27C2E5EF000FDD49 /* ProfileView.swift */,
+				2136B89927CC267300DD742C /* Secondary */,
+				2136B89827CC266B00DD742C /* Main */,
 				21291CAB27C2E580000FDD49 /* App Settings */,
 				21202E6127BC6495006A1A19 /* Custom */,
 			);
@@ -257,7 +279,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */,
+				2136B89D27CC501E00DD742C /* DiscoverView.swift in Sources */,
 				21291CA827C2DB48000FDD49 /* MenuView.swift in Sources */,
+				2136B89B27CC268400DD742C /* EditProfileView.swift in Sources */,
 				21291CA227C2DB19000FDD49 /* CoreView.swift in Sources */,
 				21291CAA27C2DE84000FDD49 /* CustomListRow.swift in Sources */,
 				2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */,

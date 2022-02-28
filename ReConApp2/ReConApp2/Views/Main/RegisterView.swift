@@ -44,7 +44,7 @@ struct RegisterView: View {
                     Section(header: Label("Credentials", systemImage: "at")) {
                         CustomTextField(text: $vm.email, placeholder: "Email address", isSecureTextEntry: false)
                             .keyboardType(.emailAddress)
-                            .textInputAutocapitalization(.none)
+                            .textInputAutocapitalization(.never)
                             .disableAutocorrection(true)
                             .focused($focusedField, equals: .email)
                             .submitLabel(.next)
@@ -94,8 +94,6 @@ struct RegisterView: View {
                         .ignoresSafeArea()
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)
-                        .frame(width: UIScreen.main.bounds.width, height: 100)
-                        .background(.ultraThinMaterial, in: Rectangle())
                     }
                 }
             }

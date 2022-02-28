@@ -19,9 +19,10 @@ struct ReConUser: Codable {
         gender = -1
         followerCount = 0
         followingCount = 0
+        firebaseUID = ""
     }
     
-    init(firstName: String, lastName: String, username: String, email: String, bio: String, age: Int, gender: Int, followerCount: Int, followingCount: Int) {
+    init(firstName: String, lastName: String, username: String, email: String, bio: String, age: Int, gender: Int, followerCount: Int, followingCount: Int, firebaseUID: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.username = username
@@ -31,6 +32,7 @@ struct ReConUser: Codable {
         self.gender = gender
         self.followerCount = followerCount
         self.followingCount = followingCount
+        self.firebaseUID = firebaseUID
     }
     
     var firstName: String
@@ -42,4 +44,5 @@ struct ReConUser: Codable {
     var gender: Int
     var followerCount: Int
     var followingCount: Int
+    var firebaseUID: String
 }
