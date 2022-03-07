@@ -16,14 +16,22 @@ struct ProfileView: View {
             List {
                 Section {
                     HStack {
-                        Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: 80))
+                        AsyncImage(url: URL(string: vm.user.profilePicURL!)) { image in
+                            image.resizable()
+                        } placeholder: {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .foregroundColor(.secondary)
+                        }
+                        .frame(width: 80, height: 80)
+                        .clipShape(Circle())
+                        .shadow(color: .secondary, radius: 5, x: 0, y: 0)
                         
                         VStack(alignment: .leading, spacing: 5) {
                             Text("\(vm.user.firstName) \(vm.user.lastName)")
-                                .font(.custom("Rubik Light SemiBold", size: 28, relativeTo: .title))
+                                .font(.title)
+                                .fontWeight(.semibold)
                             Text(vm.user.username)
-                                .font(.custom("Rubik", size: 17, relativeTo: .body))
                             
                             switch vm.user.gender {
                             case 0:
@@ -32,14 +40,14 @@ struct ProfileView: View {
                                     .padding(.vertical, 5)
                                     .foregroundColor(.black)
                                     .background(Color.yellow, in: Capsule())
-                                    .font(.custom("Rubik", size: 13, relativeTo: .footnote))
+                                    .font(.footnote)
                             case 1:
                                 Text("he/him")
                                     .padding(.horizontal, 7)
                                     .padding(.vertical, 5)
                                     .foregroundColor(.white)
                                     .background(Color.accentColor, in: Capsule())
-                                    .font(.custom("Rubik", size: 13, relativeTo: .footnote))
+                                    .font(.footnote)
                             default:
                                 EmptyView()
                             }
@@ -56,8 +64,7 @@ struct ProfileView: View {
                             HStack {
                                 Spacer()
                                 Text("\(vm.user.followerCount)")
-                                    .font(.custom("Rubik", size: 28, relativeTo: .title))
-                                    .fontWeight(.medium)
+                                    .font(.system(size: 28, weight: .medium, design: .rounded))
                                 Spacer()
                             }
                             .padding(.vertical)
@@ -72,8 +79,7 @@ struct ProfileView: View {
                             HStack {
                                 Spacer()
                                 Text("\(vm.user.followingCount)")
-                                    .font(.custom("Rubik", size: 28, relativeTo: .title))
-                                    .fontWeight(.medium)
+                                    .font(.system(size: 28, weight: .medium, design: .rounded))
                                 Spacer()
                             }
                             .padding(.vertical)

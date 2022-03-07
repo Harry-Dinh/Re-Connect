@@ -80,7 +80,7 @@ class AuthVM: ObservableObject {
             
             let uid = result?.user.uid
             
-            let user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: "", age: 0, gender: -1, followerCount: 0, followingCount: 0, firebaseUID: uid!)
+            let user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: "", age: 0, gender: -1, followerCount: 0, followingCount: 0, firebaseUID: uid!, profilePicURL: nil)
             AuthVM.shared.insertUser(user: user)
             AuthVM.shared.presentationMode.wrappedValue.dismiss()
             AuthVM.shared.isSignedIn = true

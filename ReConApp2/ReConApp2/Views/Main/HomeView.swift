@@ -24,10 +24,11 @@ struct HomeView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     VStack(alignment: .leading) {
                         Text(dateFormatter.string(from: Date()).uppercased())
-                            .font(.custom("Rubik", size: 13, relativeTo: .footnote))
+                            .font(.footnote)
                             .foregroundColor(.secondary)
                         Text("Re:Connect")
-                            .font(.custom("Rubik Light SemiBold", size: 28, relativeTo: .title))
+                            .font(.title)
+                            .bold()
                     }
                     .padding(.top)
                 }

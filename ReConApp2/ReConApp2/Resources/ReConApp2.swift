@@ -13,8 +13,6 @@ struct ReConApp2: App {
     
     init() {
         FirebaseApp.configure()
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont(name: "Rubik Light Bold", size: 34)!]
-        UINavigationBar.appearance().titleTextAttributes = [.font: UIFont(name: "Rubik Light Medium", size: 17)!]
     }
     
     var body: some Scene {

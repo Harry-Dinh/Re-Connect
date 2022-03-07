@@ -13,6 +13,7 @@ class ProfileVM: ObservableObject {
     static let shared = ProfileVM()
     
     let databaseRef = Database.database().reference()
+    let storageRef = Storage.storage()
     
     enum Fields: Hashable {
         case firstName
@@ -23,9 +24,17 @@ class ProfileVM: ObservableObject {
     }
     
     @Published var user: ReConUser = ReConUser()
+    @Published var profilePic: UIImage?
+    
+    // SwiftUI States
     @Published var showEditProfileView = false
+    @Published var showPhotoPicker = false
+    @Published var showCameraView = false
+    @Published var showPhotoPickerActionSheet = false
     
     public func updateUserInfo(user: ReConUser) {
+        // Upload the pfp before updating the user data in order to get the pfp URL to load in the view later
+        persistImageToStorage()
         
         let updatedValues: [String: Any] = [
             "age": user.age,
@@ -34,10 +43,39 @@ class ProfileVM: ObservableObject {
             "firstName": user.firstName,
             "gender": user.gender,
             "lastName": user.lastName,
-            "username": user.username
+            "username": user.username,
+            "profile_pic_url": user.profilePicURL!
         ]
         
         databaseRef.child("ReConUsers").child(AuthVM.getUID()!).child("Info").updateChildValues(updatedValues)
+    }
+    
+    public func persistImageToStorage() {
+        let uid = AuthVM.getUID()
+        let path = storageRef.reference(withPath: uid!)
+        
+        guard let imageData = self.profilePic?.jpegData(compressionQuality: 0.5) else { return }
+        
+        path.putData(imageData, metadata: nil) { [weak self] metadata, error in
+            if let error = error {
+                print("Cannot upload image data\n:Error: \(error.localizedDescription)")
+                return
+            }
+            
+            path.downloadURL { url, error in
+                if let err = error {
+                    print("Cannot download image data\nError: \(err.localizedDescription)")
+                }
+                
+                print("Successfully downloaded URL\nURL: \(url?.absoluteString ?? "No URL")")
+                let urlStr = url?.absoluteString
+                self?.setProfilePic(urlStr: urlStr!)
+            }
+        }
+    }
+    
+    private func setProfilePic(urlStr: String) {
+        user.profilePicURL = urlStr
     }
     
     public static func getUserInfo() {
@@ -53,8 +91,9 @@ class ProfileVM: ObservableObject {
                 let gender = value["gender"] as? Int ?? -1
                 let lastName = value["lastName"] as? String ?? "User"
                 let username = value["username"] as? String ?? "No username"
+                let profilePicURL = value["profile_pic_url"] as? String ?? ""
                 
-                ProfileVM.shared.user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebase_uid)
+                ProfileVM.shared.user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebase_uid, profilePicURL: profilePicURL)
             }
         }
     }

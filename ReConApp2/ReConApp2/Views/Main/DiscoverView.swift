@@ -18,13 +18,8 @@ struct DiscoverView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Discover")
-                        .font(.custom("Rubik Light SemiBold", size: 28, relativeTo: .title))
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {}) {
-                        Image(systemName: "qrcode")
-                    }
+                        .font(.title)
+                        .bold()
                 }
             }
         }

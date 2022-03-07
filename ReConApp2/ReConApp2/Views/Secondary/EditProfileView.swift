@@ -16,6 +16,43 @@ struct EditProfileView: View {
     var body: some View {
         NavigationView {
             List {
+                Section(header: Text("Profile Picture")) {
+                    HStack {
+                        Spacer()
+                        
+                        if let image = vm.profilePic {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 200, height: 200)
+                                .clipShape(Circle())
+                                .padding()
+                                .onTapGesture {
+                                    vm.showPhotoPicker.toggle()
+                                }
+                                .sheet(isPresented: $vm.showPhotoPicker, content: { PhotoPicker(image: $vm.profilePic) })
+                        }
+                        else {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .frame(width: 200, height: 200)
+                                .foregroundColor(.secondary)
+                                .padding()
+                                .onTapGesture {
+                                    vm.showPhotoPicker.toggle()
+                                }
+                                .sheet(isPresented: $vm.showPhotoPicker, content: { PhotoPicker(image: $vm.profilePic) })
+                        }
+                        
+                        Spacer()
+                    }
+                    .listRowBackground(Color.clear)
+                    
+                    Button(action: {
+                        vm.profilePic = nil
+                    }) { Label("Clear Profile Picture", systemImage: "trash").foregroundColor(.red) }
+                }
+                
                 Section(header: Label("Basic Info", systemImage: "info.circle")) {
                     TextField("First name", text: $vm.user.firstName)
                         .textInputAutocapitalization(.words)
@@ -38,14 +75,20 @@ struct EditProfileView: View {
                     
                     Stepper("Age \(vm.user.age)", value: $vm.user.age)
                     
-                    Picker(selection: $vm.user.gender) {
-                        Text("Female").tag(0)
-                        Text("Male").tag(1)
-                        Text("Prefer not to say").tag(2)
-                    } label: {
-                        Text("Gender")
+                    HStack {
+                        Text("Gender:")
+                        
+                        Spacer()
+                        
+                        Picker(selection: $vm.user.gender) {
+                            Text("Female").tag(0)
+                            Text("Male").tag(1)
+                            Text("Prefer not to say").tag(2)
+                        } label: {
+                            Text("Gender")
+                        }
+                        .pickerStyle(.menu)
                     }
-                    .pickerStyle(.menu)
                 }
                 
                 Section(header: Label("Profile Info", systemImage: "person.crop.circle")) {
@@ -67,7 +110,10 @@ struct EditProfileView: View {
             .navigationTitle("Edit Your Profile")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") { presentationMode.wrappedValue.dismiss() }
+                    Button("Cancel") {
+                        vm.profilePic = nil
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {

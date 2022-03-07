@@ -22,6 +22,7 @@
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
 		21AEB26727B8665C0041D58E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26627B8665C0041D58E /* LoginView.swift */; };
 		21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26827B86C200041D58E /* CustomEmptyView.swift */; };
+		21BAD3CD27D5829B0051ED7C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */; };
 		21D4AA7827AE254A00684886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D4AA7727AE254A00684886 /* Assets.xcassets */; };
 		21D4AA7B27AE254A00684886 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D4AA7A27AE254A00684886 /* Preview Assets.xcassets */; };
 		21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4AA8B27AE25CF00684886 /* ReConApp2.swift */; };
@@ -51,6 +52,7 @@
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
 		21AEB26627B8665C0041D58E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21AEB26827B86C200041D58E /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
+		21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		21D4AA7027AE254900684886 /* Re:Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Re:Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D4AA7727AE254A00684886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21D4AA7A27AE254A00684886 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				2136B89A27CC268400DD742C /* EditProfileView.swift */,
+				21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */,
 			);
 			path = Secondary;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 			files = (
 				21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */,
 				2136B89D27CC501E00DD742C /* DiscoverView.swift in Sources */,
+				21BAD3CD27D5829B0051ED7C /* PhotoPicker.swift in Sources */,
 				21291CA827C2DB48000FDD49 /* MenuView.swift in Sources */,
 				2136B89B27CC268400DD742C /* EditProfileView.swift in Sources */,
 				21291CA227C2DB19000FDD49 /* CoreView.swift in Sources */,
@@ -430,6 +434,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ReConApp2/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow Re:Connect access to your photo library to allow you to share photos and videos with people you followed.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -462,6 +467,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ReConApp2/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow Re:Connect access to your photo library to allow you to share photos and videos with people you followed.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

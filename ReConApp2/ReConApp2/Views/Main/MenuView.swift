@@ -22,7 +22,8 @@ struct MenuView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Menu")
-                        .font(.custom("Rubik Light SemiBold", size: 28, relativeTo: .title))
+                        .font(.title)
+                        .bold()
                 }
             }
             .searchable(text: .constant(""))
