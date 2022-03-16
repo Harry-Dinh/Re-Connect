@@ -22,7 +22,9 @@ struct MenuView: View {
                         CustomListRow(title: "Settings", subtitle: nil, iconName: "gearshape.fill", tintColor: .gray)
                     }
                     
-                    CustomListRow(title: "About This App", subtitle: nil, iconName: "info.circle.fill", tintColor: .gray)
+                    NavigationLink(destination: AboutThisAppView()) {
+                        CustomListRow(title: "About This App", subtitle: nil, iconName: "info.circle.fill", tintColor: .gray)
+                    }
                 }
                 .headerProminence(.increased)
             }

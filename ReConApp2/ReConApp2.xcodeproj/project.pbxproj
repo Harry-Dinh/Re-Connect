@@ -25,6 +25,7 @@
 		21BAD3CD27D5829B0051ED7C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */; };
 		21D1D22A27E2667700F7A826 /* DiscoverVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1D22927E2667700F7A826 /* DiscoverVM.swift */; };
 		21D1D22C27E26C9900F7A826 /* DiscoverUserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1D22B27E26C9900F7A826 /* DiscoverUserRowView.swift */; };
+		21D1D22E27E2856600F7A826 /* AboutThisAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1D22D27E2856600F7A826 /* AboutThisAppView.swift */; };
 		21D4AA7827AE254A00684886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D4AA7727AE254A00684886 /* Assets.xcassets */; };
 		21D4AA7B27AE254A00684886 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21D4AA7A27AE254A00684886 /* Preview Assets.xcassets */; };
 		21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4AA8B27AE25CF00684886 /* ReConApp2.swift */; };
@@ -58,6 +59,7 @@
 		21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		21D1D22927E2667700F7A826 /* DiscoverVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVM.swift; sourceTree = "<group>"; };
 		21D1D22B27E26C9900F7A826 /* DiscoverUserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserRowView.swift; sourceTree = "<group>"; };
+		21D1D22D27E2856600F7A826 /* AboutThisAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutThisAppView.swift; sourceTree = "<group>"; };
 		21D4AA7027AE254900684886 /* Re:Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Re:Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D4AA7727AE254A00684886 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21D4AA7A27AE254A00684886 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				21291CA527C2DB3E000FDD49 /* SettingsView.swift */,
+				21D1D22D27E2856600F7A826 /* AboutThisAppView.swift */,
 			);
 			path = "App Settings";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */,
 				21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */,
 				21291CAD27C2E5EF000FDD49 /* ProfileView.swift in Sources */,
+				21D1D22E27E2856600F7A826 /* AboutThisAppView.swift in Sources */,
 				21291CA627C2DB3E000FDD49 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
