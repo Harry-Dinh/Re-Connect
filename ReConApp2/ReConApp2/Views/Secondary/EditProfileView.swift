@@ -24,7 +24,7 @@ struct EditProfileView: View {
                             Image(uiImage: image)
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: 200, height: 200)
+                                .frame(width: 150, height: 150)
                                 .clipShape(Circle())
                                 .padding()
                                 .onTapGesture {
@@ -35,7 +35,7 @@ struct EditProfileView: View {
                         else {
                             Image(systemName: "person.crop.circle.fill")
                                 .resizable()
-                                .frame(width: 200, height: 200)
+                                .frame(width: 150, height: 150)
                                 .foregroundColor(.secondary)
                                 .padding()
                                 .onTapGesture {
@@ -51,6 +51,21 @@ struct EditProfileView: View {
                     Button(action: {
                         vm.profilePic = nil
                     }) { Label("Clear Profile Picture", systemImage: "trash").foregroundColor(.red) }
+                    
+//                    Button(action: {
+//                        UIPasteboard.general.string = vm.user.profilePicURL
+//                    }) {
+//                        Label("Copy Picture URL", systemImage: "doc.on.doc")
+//                    }
+                    
+                    Button(action: { vm.showAlertProfilePicURL.toggle() }) {
+                        Label("Show Picture URL", systemImage: "link")
+                    }
+                    .alert(isPresented: $vm.showAlertProfilePicURL) {
+                        Alert(title: Text("Profile Picture URL"), message: Text(vm.user.profilePicURL ?? "No URL"),
+                              primaryButton: .default(Text("Copy URL"),action: { UIPasteboard.general.string = vm.user.profilePicURL }),
+                              secondaryButton: .cancel(Text("Dismiss")))
+                    }
                 }
                 
                 Section(header: Label("Basic Info", systemImage: "info.circle")) {
@@ -73,7 +88,9 @@ struct EditProfileView: View {
                         .focused($focusedField, equals: .email)
                         .keyboardType(.emailAddress)
                     
-                    Stepper("Age \(vm.user.age)", value: $vm.user.age)
+                    Stepper(value: $vm.user.age, in: 13...90, step: 1) {
+                        Text("Age \(vm.user.age)")
+                    }
                     
                     HStack {
                         Text("Gender:")
@@ -119,7 +136,6 @@ struct EditProfileView: View {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button("Save") {
                         vm.updateUserInfo(user: vm.user)
-                        ProfileVM.getUserInfo()
                         presentationMode.wrappedValue.dismiss()
                     }
                     .font(.system(size: 17, weight: .semibold, design: .default))

@@ -31,11 +31,13 @@ class ProfileVM: ObservableObject {
     @Published var showPhotoPicker = false
     @Published var showCameraView = false
     @Published var showPhotoPickerActionSheet = false
+    @Published var showAlertProfilePicURL = false
     
     public func updateUserInfo(user: ReConUser) {
-        // Upload the pfp before updating the user data in order to get the pfp URL to load in the view later
-        persistImageToStorage()
         
+        let uid = AuthVM.getUID()!
+        
+        // Upload data
         let updatedValues: [String: Any] = [
             "age": user.age,
             "bio": user.bio,
@@ -44,42 +46,14 @@ class ProfileVM: ObservableObject {
             "gender": user.gender,
             "lastName": user.lastName,
             "username": user.username,
-            "profile_pic_url": user.profilePicURL!
+            "profile_pic_url": user.profilePicURL ?? "No URL"
         ]
         
-        databaseRef.child("ReConUsers").child(AuthVM.getUID()!).child("Info").updateChildValues(updatedValues)
-    }
-    
-    public func persistImageToStorage() {
-        let uid = AuthVM.getUID()
-        let path = storageRef.reference(withPath: uid!)
-        
-        guard let imageData = self.profilePic?.jpegData(compressionQuality: 0.5) else { return }
-        
-        path.putData(imageData, metadata: nil) { [weak self] metadata, error in
-            if let error = error {
-                print("Cannot upload image data\n:Error: \(error.localizedDescription)")
-                return
-            }
-            
-            path.downloadURL { url, error in
-                if let err = error {
-                    print("Cannot download image data\nError: \(err.localizedDescription)")
-                }
-                
-                print("Successfully downloaded URL\nURL: \(url?.absoluteString ?? "No URL")")
-                let urlStr = url?.absoluteString
-                self?.setProfilePic(urlStr: urlStr!)
-            }
-        }
-    }
-    
-    private func setProfilePic(urlStr: String) {
-        user.profilePicURL = urlStr
+        databaseRef.child("ReConUsers").child(uid).updateChildValues(updatedValues)
     }
     
     public static func getUserInfo() {
-        ProfileVM.shared.databaseRef.child("ReConUsers").child(AuthVM.getUID()!).child("Info").observeSingleEvent(of: .value) { snapshot in
+        ProfileVM.shared.databaseRef.child("ReConUsers").child(AuthVM.getUID()!).observeSingleEvent(of: .value) { snapshot in
             if let value = snapshot.value as? [String: AnyObject] {
                 let age = value["age"] as? Int ?? 0
                 let bio = value["bio"] as? String ?? "No bio"

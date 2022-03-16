@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfileView: View {
     
@@ -16,16 +17,21 @@ struct ProfileView: View {
             List {
                 Section {
                     HStack {
-                        AsyncImage(url: URL(string: vm.user.profilePicURL!)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            Image(systemName: "person.crop.circle.fill")
+                        if let url = URL(string: vm.user.profilePicURL!) {
+                            WebImage(url: url)
                                 .resizable()
-                                .foregroundColor(.secondary)
+                                .frame(width: 80, height: 80)
+                                .clipShape(Circle())
+                                .shadow(color: Color.secondary.opacity(0.5), radius: 5, x: 0, y: 0)
                         }
-                        .frame(width: 80, height: 80)
-                        .clipShape(Circle())
-                        .shadow(color: .secondary, radius: 5, x: 0, y: 0)
+                        else {
+                            Image(systemName: "person.crop.circle.fill")
+                            .resizable()
+                            .foregroundColor(.secondary)
+                            .frame(width: 80, height: 80)
+                            .clipShape(Circle())
+                            .shadow(color: Color.secondary.opacity(0.5), radius: 5, x: 0, y: 0)
+                        }
                         
                         VStack(alignment: .leading, spacing: 5) {
                             Text("\(vm.user.firstName) \(vm.user.lastName)")
@@ -111,13 +117,11 @@ struct ProfileView: View {
             .navigationBarTitleDisplayMode(.inline)
             .listStyle(.plain)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {}) {
                         Image(systemName: "qrcode")
                     }
-                }
-                
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    
                     Button(action: { vm.showEditProfileView.toggle() }) {
                         Image(systemName: "pencil")
                     }

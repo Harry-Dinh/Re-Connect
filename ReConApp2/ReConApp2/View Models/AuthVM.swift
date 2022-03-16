@@ -53,7 +53,7 @@ class AuthVM: ObservableObject {
             "firebase_uid": AuthVM.getUID()!
         ]
         
-        path.child("Info").setValue(userData)
+        path.setValue(userData)
     }
     
     // MARK: - STATIC METHODS

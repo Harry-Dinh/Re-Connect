@@ -20,6 +20,10 @@ struct SettingsView: View {
                 Button("Print current user UID") {
                     print(AuthVM.getUID() ?? "no UID")
                 }
+                
+                Button("Print users list") {
+                    DiscoverVM.shared.getAllUsers()
+                }
             }
         }
         .navigationBarTitleDisplayMode(.inline)

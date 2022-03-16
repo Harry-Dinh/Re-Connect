@@ -17,10 +17,8 @@ struct CustomListRow: View {
     var body: some View {
         HStack {
             Image(systemName: iconName)
-                .foregroundStyle(.white)
-                .padding(7)
-                .background(tintColor)
-                .cornerRadius(7)
+                .foregroundColor(tintColor)
+                .frame(width: 30)
             
             if subtitle != nil {
                 VStack(alignment: .leading, spacing: 5) {
@@ -34,6 +32,7 @@ struct CustomListRow: View {
                 Text(title)
             }
         }
+        .padding(.vertical, 5)
     }
 }
 

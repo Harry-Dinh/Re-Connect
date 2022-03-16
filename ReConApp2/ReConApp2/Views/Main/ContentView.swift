@@ -17,7 +17,10 @@ struct ContentView: View {
         }
         else {
             CoreView()
-                .onAppear { ProfileVM.getUserInfo() }
+                .onAppear {
+                    ProfileVM.getUserInfo()
+                    DiscoverVM.shared.getAllUsers()
+                }
         }
     }
 }

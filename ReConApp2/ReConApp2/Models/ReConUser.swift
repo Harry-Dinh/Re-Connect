@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct ReConUser: Codable {
+struct ReConUser: Identifiable {
+    var id: String
+    
     
     init() {
         firstName = ""
@@ -21,6 +23,7 @@ struct ReConUser: Codable {
         followingCount = 0
         firebaseUID = ""
         profilePicURL = ""
+        id = UUID().uuidString
     }
     
     init(firstName: String, lastName: String, username: String, email: String, bio: String, age: Int, gender: Int, followerCount: Int, followingCount: Int, firebaseUID: String, profilePicURL: String?) {
@@ -35,6 +38,7 @@ struct ReConUser: Codable {
         self.followingCount = followingCount
         self.firebaseUID = firebaseUID
         self.profilePicURL = profilePicURL
+        self.id = UUID().uuidString
     }
     
     var firstName: String

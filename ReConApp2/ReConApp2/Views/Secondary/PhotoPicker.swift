@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct PhotoPicker: UIViewControllerRepresentable {
     
@@ -24,10 +25,34 @@ struct PhotoPicker: UIViewControllerRepresentable {
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             parent.image = info[.editedImage] as? UIImage
+            
+            // Upload image
+            let uid = AuthVM.getUID()!
+            let path = Storage.storage().reference().child("Profile Pics").child(uid)
+            
+            guard let imageData = parent.image?.jpegData(compressionQuality: 0.5) else { return }
+            
+            path.putData(imageData, metadata: nil) { metadata, error in
+                if let error = error {
+                    print("Cannot upload image data\nError: \(error.localizedDescription)")
+                    return
+                }
+                
+                path.downloadURL { url, error in
+                    if let error = error {
+                        print("Cannot download image url\nError: \(error.localizedDescription)")
+                    }
+                    
+                    print("Successfully download URL\nURL: \(url?.absoluteString ?? "No URL")")
+                    ProfileVM.shared.user.profilePicURL = url?.absoluteString
+                }
+            }
+            
             picker.dismiss(animated: true)
         }
         
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.image = nil
             picker.dismiss(animated: true)
         }
     }

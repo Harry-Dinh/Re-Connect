@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct DiscoverView: View {
+    
+    @ObservedObject var vm = DiscoverVM.shared
+    
     var body: some View {
         NavigationView {
             List {
-                
+                Section(header: Text("Users")) {
+                    ForEach(vm.users) { user in
+                        NavigationLink(destination: EmptyView()) {
+                            DiscoverUserRowView(firstName: user.firstName, lastName: user.lastName, pfpURLStr: user.profilePicURL ?? "", bio: user.bio)
+                        }
+                    }
+                }
+                .headerProminence(.increased)
             }
+            .listStyle(.insetGrouped)
             .navigationBarTitleDisplayMode(.inline)
             .searchable(text: .constant(""))
             .toolbar {
@@ -21,6 +32,9 @@ struct DiscoverView: View {
                         .font(.title)
                         .bold()
                 }
+            }
+            .refreshable {
+                vm.getAllUsers()
             }
         }
     }
