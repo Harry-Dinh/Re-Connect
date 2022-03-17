@@ -32,6 +32,7 @@ class ProfileVM: ObservableObject {
     @Published var showCameraView = false
     @Published var showPhotoPickerActionSheet = false
     @Published var showAlertProfilePicURL = false
+    @Published var showEditPfpSpinner = false
     
     public func updateUserInfo(user: ReConUser) {
         

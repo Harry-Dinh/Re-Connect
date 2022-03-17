@@ -16,32 +16,52 @@ struct EditProfileView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Profile Picture")) {
+                Section(header: Text("Profile Photo")) {
                     HStack {
                         Spacer()
                         
                         if let image = vm.profilePic {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 150, height: 150)
-                                .clipShape(Circle())
-                                .padding()
-                                .onTapGesture {
-                                    vm.showPhotoPicker.toggle()
+                            VStack(spacing: 5) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 150, height: 150)
+                                    .clipShape(Circle())
+                                    .onTapGesture {
+                                        vm.showPhotoPicker.toggle()
+                                    }
+                                    .sheet(isPresented: $vm.showPhotoPicker, content: { PhotoPicker(image: $vm.profilePic) })
+                                
+                                if !vm.showEditPfpSpinner {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(.green)
+                                        .imageScale(.large)
                                 }
-                                .sheet(isPresented: $vm.showPhotoPicker, content: { PhotoPicker(image: $vm.profilePic) })
+                                else {
+                                    ProgressView("UPLOADING...")
+                                }
+                            }
                         }
                         else {
-                            Image(systemName: "person.crop.circle.fill")
-                                .resizable()
-                                .frame(width: 150, height: 150)
-                                .foregroundColor(.secondary)
-                                .padding()
-                                .onTapGesture {
-                                    vm.showPhotoPicker.toggle()
-                                }
+                            VStack(spacing: 5) {
+                                Image(systemName: "person.crop.circle.fill")
+                                    .resizable()
+                                    .frame(width: 150, height: 150)
+                                    .foregroundColor(.secondary)
+                                    .onTapGesture {
+                                        vm.showPhotoPicker.toggle()
+                                    }
                                 .sheet(isPresented: $vm.showPhotoPicker, content: { PhotoPicker(image: $vm.profilePic) })
+                                
+                                if !vm.showEditPfpSpinner {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(.green)
+                                        .imageScale(.large)
+                                }
+                                else {
+                                    ProgressView("UPLOADING...")
+                                }
+                            }
                         }
                         
                         Spacer()
@@ -50,19 +70,19 @@ struct EditProfileView: View {
                     
                     Button(action: {
                         vm.profilePic = nil
-                    }) { Label("Clear Profile Picture", systemImage: "trash").foregroundColor(.red) }
+                    }) { Label("Clear Profile Photo", systemImage: "trash").foregroundColor(.red) }
                     
 //                    Button(action: {
 //                        UIPasteboard.general.string = vm.user.profilePicURL
 //                    }) {
-//                        Label("Copy Picture URL", systemImage: "doc.on.doc")
+//                        Label("Copy Photo URL", systemImage: "doc.on.doc")
 //                    }
                     
                     Button(action: { vm.showAlertProfilePicURL.toggle() }) {
-                        Label("Show Picture URL", systemImage: "link")
+                        Label("Show Photo URL", systemImage: "link")
                     }
                     .alert(isPresented: $vm.showAlertProfilePicURL) {
-                        Alert(title: Text("Profile Picture URL"), message: Text(vm.user.profilePicURL ?? "No URL"),
+                        Alert(title: Text("Profile Photo URL"), message: Text(vm.user.profilePicURL ?? "No URL"),
                               primaryButton: .default(Text("Copy URL"),action: { UIPasteboard.general.string = vm.user.profilePicURL }),
                               secondaryButton: .cancel(Text("Dismiss")))
                     }
@@ -131,14 +151,17 @@ struct EditProfileView: View {
                         vm.profilePic = nil
                         presentationMode.wrappedValue.dismiss()
                     }
+                    .disabled(vm.showEditPfpSpinner)
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button("Save") {
                         vm.updateUserInfo(user: vm.user)
+                        vm.profilePic = nil
                         presentationMode.wrappedValue.dismiss()
                     }
                     .font(.system(size: 17, weight: .semibold, design: .default))
+                    .disabled(vm.showEditPfpSpinner)
                 }
                 
                 ToolbarItemGroup(placement: .keyboard) {

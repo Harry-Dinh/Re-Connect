@@ -27,6 +27,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
             parent.image = info[.editedImage] as? UIImage
             
             // Upload image
+            ProfileVM.shared.showEditPfpSpinner = true
             let uid = AuthVM.getUID()!
             let path = Storage.storage().reference().child("Profile Pics").child(uid)
             
@@ -45,6 +46,7 @@ struct PhotoPicker: UIViewControllerRepresentable {
                     
                     print("Successfully download URL\nURL: \(url?.absoluteString ?? "No URL")")
                     ProfileVM.shared.user.profilePicURL = url?.absoluteString
+                    ProfileVM.shared.showEditPfpSpinner = false
                 }
             }
             

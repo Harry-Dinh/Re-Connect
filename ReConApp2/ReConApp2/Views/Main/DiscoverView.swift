@@ -16,16 +16,16 @@ struct DiscoverView: View {
             List {
                 Section(header: Text("Users")) {
                     ForEach(vm.users) { user in
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: ProfileDiscoverView(user: user)) {
                             DiscoverUserRowView(firstName: user.firstName, lastName: user.lastName, pfpURLStr: user.profilePicURL ?? "", bio: user.bio)
                         }
                     }
                 }
                 .headerProminence(.increased)
             }
+            .searchable(text: $vm.searchParam)
             .listStyle(.insetGrouped)
             .navigationBarTitleDisplayMode(.inline)
-            .searchable(text: .constant(""))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Discover")

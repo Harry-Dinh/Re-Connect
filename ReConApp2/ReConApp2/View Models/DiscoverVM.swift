@@ -18,6 +18,7 @@ class DiscoverVM: ObservableObject {
     
     /// Retrieve all users data in Firebase Database
     public func getAllUsers() {
+        users = []
         
         databaseRef.child("ReConUsers").observeSingleEvent(of: .value) { [weak self] snapshot in
             for case let child as DataSnapshot in snapshot.children {
