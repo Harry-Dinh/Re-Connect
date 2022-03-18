@@ -47,7 +47,8 @@ class ProfileVM: ObservableObject {
             "gender": user.gender,
             "lastName": user.lastName,
             "username": user.username,
-            "profile_pic_url": user.profilePicURL ?? "No URL"
+            "profile_pic_url": user.profilePicURL ?? "No URL",
+            "isPrivateAccount": user.isPrivateAccount
         ]
         
         databaseRef.child("ReConUsers").child(uid).updateChildValues(updatedValues)
@@ -67,8 +68,9 @@ class ProfileVM: ObservableObject {
                 let lastName = value["lastName"] as? String ?? "User"
                 let username = value["username"] as? String ?? "No username"
                 let profilePicURL = value["profile_pic_url"] as? String ?? ""
+                let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
                 
-                ProfileVM.shared.user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebase_uid, profilePicURL: profilePicURL)
+                ProfileVM.shared.user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebase_uid, profilePicURL: profilePicURL, isPrivateAccount: isPrivateAccount)
             }
         }
     }

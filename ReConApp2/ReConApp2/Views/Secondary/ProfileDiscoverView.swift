@@ -37,23 +37,34 @@ struct ProfileDiscoverView: View {
                         .font(.system(size: 28, weight: .semibold, design: .default))
                     Text(user.username)
                     
-                    switch user.gender {
-                    case 0:
-                        Text("she/her")
-                            .padding(.horizontal, 7)
-                            .padding(.vertical, 5)
-                            .foregroundColor(.black)
-                            .background(Color.yellow, in: Capsule())
-                            .font(.footnote)
-                    case 1:
-                        Text("he/him")
-                            .padding(.horizontal, 7)
-                            .padding(.vertical, 5)
-                            .foregroundColor(.white)
-                            .background(Color.accentColor, in: Capsule())
-                            .font(.footnote)
-                    default:
-                        EmptyView()
+                    HStack {
+                        if user.isPrivateAccount {
+                            Menu(content: {
+                                Text("This user is using a private account")
+                            }) {
+                                Image(systemName: "lock.fill")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        
+                        switch user.gender {
+                        case 0:
+                            Text("she/her")
+                                .padding(.horizontal, 7)
+                                .padding(.vertical, 5)
+                                .foregroundColor(.black)
+                                .background(Color.yellow, in: Capsule())
+                                .font(.footnote)
+                        case 1:
+                            Text("he/him")
+                                .padding(.horizontal, 7)
+                                .padding(.vertical, 5)
+                                .foregroundColor(.white)
+                                .background(Color.accentColor, in: Capsule())
+                                .font(.footnote)
+                        default:
+                            EmptyView()
+                        }
                     }
                 }
             }
@@ -124,7 +135,7 @@ struct ProfileDiscoverView: View {
 struct ProfileDiscoverView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ProfileDiscoverView(user: ReConUser(firstName: "Harry", lastName: "Dinh", username: "@HarryTDA", email: "harry@gmail.com", bio: "Re:Connect", age: 17, gender: 1, followerCount: 56, followingCount: 125, firebaseUID: "", profilePicURL: nil))
+            ProfileDiscoverView(user: ReConUser(firstName: "Harry", lastName: "Dinh", username: "@HarryTDA", email: "harry@gmail.com", bio: "Re:Connect", age: 17, gender: 1, followerCount: 56, followingCount: 125, firebaseUID: "", profilePicURL: nil, isPrivateAccount: true))
         }
     }
 }

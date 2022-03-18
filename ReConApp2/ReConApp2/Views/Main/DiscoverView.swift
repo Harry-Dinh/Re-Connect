@@ -17,11 +17,17 @@ struct DiscoverView: View {
                 Section(header: Text("Users")) {
                     ForEach(vm.users) { user in
                         NavigationLink(destination: ProfileDiscoverView(user: user)) {
-                            DiscoverUserRowView(firstName: user.firstName, lastName: user.lastName, pfpURLStr: user.profilePicURL ?? "", bio: user.bio)
+                            DiscoverUserRowView(user: user)
                         }
                     }
                 }
                 .headerProminence(.increased)
+                .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                    Button(action: {}) {
+                        Label("Follow", systemImage: "checkmark.circle")
+                    }
+                    .tint(.accentColor)
+                }
             }
             .searchable(text: $vm.searchParam)
             .listStyle(.insetGrouped)

@@ -38,9 +38,10 @@ class DiscoverVM: ObservableObject {
                 let lastName = value["lastName"] as? String ?? ""
                 let profilePicURL = value["profile_pic_url"] as? String ?? ""
                 let username = value["username"] as? String ?? ""
+                let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
                 
                 if firebaseUID != AuthVM.getUID() {
-                    let user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebaseUID, profilePicURL: profilePicURL)
+                    let user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebaseUID, profilePicURL: profilePicURL, isPrivateAccount: isPrivateAccount)
                     
                     self?.users.append(user)
                 }

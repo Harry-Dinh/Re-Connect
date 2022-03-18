@@ -39,23 +39,34 @@ struct ProfileView: View {
                                 .fontWeight(.semibold)
                             Text(vm.user.username)
                             
-                            switch vm.user.gender {
-                            case 0:
-                                Text("she/her")
-                                    .padding(.horizontal, 7)
-                                    .padding(.vertical, 5)
-                                    .foregroundColor(.black)
-                                    .background(Color.yellow, in: Capsule())
-                                    .font(.footnote)
-                            case 1:
-                                Text("he/him")
-                                    .padding(.horizontal, 7)
-                                    .padding(.vertical, 5)
-                                    .foregroundColor(.white)
-                                    .background(Color.accentColor, in: Capsule())
-                                    .font(.footnote)
-                            default:
-                                EmptyView()
+                            HStack {
+                                if vm.user.isPrivateAccount {
+                                    Menu(content: {
+                                        Text("This user is using a private account")
+                                    }) {
+                                        Image(systemName: "lock.fill")
+                                            .foregroundColor(.primary)
+                                    }
+                                }
+                                
+                                switch vm.user.gender {
+                                case 0:
+                                    Text("she/her")
+                                        .padding(.horizontal, 7)
+                                        .padding(.vertical, 5)
+                                        .foregroundColor(.black)
+                                        .background(Color.yellow, in: Capsule())
+                                        .font(.footnote)
+                                case 1:
+                                    Text("he/him")
+                                        .padding(.horizontal, 7)
+                                        .padding(.vertical, 5)
+                                        .foregroundColor(.white)
+                                        .background(Color.accentColor, in: Capsule())
+                                        .font(.footnote)
+                                default:
+                                    EmptyView()
+                                }
                             }
                         }
                     }

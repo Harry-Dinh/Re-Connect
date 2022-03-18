@@ -10,19 +10,19 @@ import SwiftUI
 struct SettingsView: View {
     var body: some View {
         Form {
-            Section(header: Text("User Account")) {
-                Button("Sign Out") {
-                    AuthVM.signOut()
+            Section {
+                NavigationLink(destination: UserSettingsView()) {
+                    CustomListRow(title: "User Account", iconName: "person.crop.circle.fill", tintColor: .primary)
                 }
             }
             
-            Section(header: Text("Developer")) {
-                Button("Print current user UID") {
-                    print(AuthVM.getUID() ?? "no UID")
+            Section {
+                NavigationLink(destination: EmptyView()) {
+                    CustomListRow(title: "General", iconName: "gear", tintColor: .primary)
                 }
                 
-                Button("Print users list") {
-                    DiscoverVM.shared.getAllUsers()
+                NavigationLink(destination: EmptyView()) {
+                    CustomListRow(title: "Privacy & Security", iconName: "hand.raised.fill", tintColor: .primary)
                 }
             }
         }

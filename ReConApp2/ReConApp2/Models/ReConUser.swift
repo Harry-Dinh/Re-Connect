@@ -24,9 +24,10 @@ struct ReConUser: Identifiable {
         firebaseUID = ""
         profilePicURL = ""
         id = UUID().uuidString
+        isPrivateAccount = false
     }
     
-    init(firstName: String, lastName: String, username: String, email: String, bio: String, age: Int, gender: Int, followerCount: Int, followingCount: Int, firebaseUID: String, profilePicURL: String?) {
+    init(firstName: String, lastName: String, username: String, email: String, bio: String, age: Int, gender: Int, followerCount: Int, followingCount: Int, firebaseUID: String, profilePicURL: String?, isPrivateAccount: Bool) {
         self.firstName = firstName
         self.lastName = lastName
         self.username = username
@@ -39,6 +40,7 @@ struct ReConUser: Identifiable {
         self.firebaseUID = firebaseUID
         self.profilePicURL = profilePicURL
         self.id = UUID().uuidString
+        self.isPrivateAccount = isPrivateAccount
     }
     
     var firstName: String
@@ -52,4 +54,5 @@ struct ReConUser: Identifiable {
     var followingCount: Int
     var firebaseUID: String
     var profilePicURL: String?
+    var isPrivateAccount: Bool
 }

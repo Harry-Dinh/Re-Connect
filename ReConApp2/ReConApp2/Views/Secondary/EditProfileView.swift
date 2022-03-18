@@ -13,6 +13,10 @@ struct EditProfileView: View {
     @FocusState var focusedField: ProfileVM.Fields?
     @Environment(\.presentationMode) var presentationMode
     
+    init() {
+        UISwitch.appearance().onTintColor = UIColor(Color.accentColor)
+    }
+    
     var body: some View {
         NavigationView {
             List {
@@ -33,12 +37,23 @@ struct EditProfileView: View {
                                     .sheet(isPresented: $vm.showPhotoPicker, content: { PhotoPicker(image: $vm.profilePic) })
                                 
                                 if !vm.showEditPfpSpinner {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(.green)
-                                        .imageScale(.large)
+                                    HStack {
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .foregroundColor(.green)
+                                            .frame(width: 20)
+                                        Text("SUCCESSFULLY UPLOADED")
+                                            .font(.footnote)
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
                                 else {
-                                    ProgressView("UPLOADING...")
+                                    HStack {
+                                        ProgressView()
+                                            .frame(width: 20)
+                                        Text("UPLOADING")
+                                            .font(.footnote)
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
                             }
                         }
@@ -54,12 +69,23 @@ struct EditProfileView: View {
                                 .sheet(isPresented: $vm.showPhotoPicker, content: { PhotoPicker(image: $vm.profilePic) })
                                 
                                 if !vm.showEditPfpSpinner {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .foregroundColor(.green)
-                                        .imageScale(.large)
+                                    HStack {
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .foregroundColor(.green)
+                                            .frame(width: 20)
+                                        Text("SUCCESSFULLY UPLOADED")
+                                            .font(.footnote)
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
                                 else {
-                                    ProgressView("UPLOADING...")
+                                    HStack {
+                                        ProgressView()
+                                            .frame(width: 20)
+                                        Text("UPLOADING")
+                                            .font(.footnote)
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
                             }
                         }
@@ -135,6 +161,11 @@ struct EditProfileView: View {
                         .onSubmit { focusedField = .bio }
                         .focused($focusedField, equals: .username)
                         .keyboardType(.twitter)
+                    
+                    Toggle(isOn: $vm.user.isPrivateAccount) {
+                        Text("Use Private Account")
+                    }
+                    
                 }
                 
                 Section(header: Label("Bio", systemImage: "textformat.alt")) {
@@ -149,6 +180,7 @@ struct EditProfileView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
                         vm.profilePic = nil
+                        ProfileVM.getUserInfo()
                         presentationMode.wrappedValue.dismiss()
                     }
                     .disabled(vm.showEditPfpSpinner)

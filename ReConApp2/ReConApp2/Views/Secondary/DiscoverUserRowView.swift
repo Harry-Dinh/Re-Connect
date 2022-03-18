@@ -10,15 +10,12 @@ import SDWebImageSwiftUI
 
 struct DiscoverUserRowView: View {
     
-    var firstName: String
-    var lastName: String
-    var pfpURLStr: String
-    var bio: String
+    var user: ReConUser
     
     var body: some View {
         HStack {
-            if !pfpURLStr.isEmpty {
-                WebImage(url: URL(string: pfpURLStr))
+            if !user.profilePicURL!.isEmpty {
+                WebImage(url: URL(string: user.profilePicURL!))
                     .resizable()
                     .scaledToFill()
                     .clipShape(Circle())
@@ -33,8 +30,22 @@ struct DiscoverUserRowView: View {
             }
             
             VStack(alignment: .leading, spacing: 5) {
-                Text("\(firstName) \(lastName)")
-                Text(bio)
+                Text("\(user.firstName) \(user.lastName)")
+                    .font(.headline)
+                
+                if !user.isPrivateAccount {
+                    Text(user.username)
+                        .font(.subheadline)
+                }
+                else {
+                    HStack(spacing: 5) {
+                        Text(Image(systemName: "lock.fill"))
+                        Text(user.username)
+                    }
+                    .font(.subheadline)
+                }
+                
+                Text(user.bio)
                     .font(.footnote)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
@@ -46,6 +57,6 @@ struct DiscoverUserRowView: View {
 
 struct DiscoverUserRowView_Previews: PreviewProvider {
     static var previews: some View {
-        DiscoverUserRowView(firstName: "Harry", lastName: "Dinh", pfpURLStr: "https://cdn.vox-cdn.com/thumbor/o53k-QbKFns_s-OP89E8o34Ho8U=/0x0:599x500/1200x800/filters:focal(286x259:380x353)/cdn.vox-cdn.com/uploads/chorus_image/image/69634799/download__5_.0.jpg", bio: "Re:Connect")
+        DiscoverUserRowView(user: ReConUser())
     }
 }

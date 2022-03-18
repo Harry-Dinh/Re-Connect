@@ -10,7 +10,7 @@ import SwiftUI
 struct MenuView: View {
     var body: some View {
         NavigationView {
-            Form {
+            List {
                 Section(header: Text("My Contents")) {
                     CustomListRow(title: "Saved Items", subtitle: nil, iconName: "bookmark.fill", tintColor: .orange)
                     CustomListRow(title: "Groups", subtitle: nil, iconName: "person.3.fill", tintColor: .blue)
@@ -28,6 +28,7 @@ struct MenuView: View {
                 }
                 .headerProminence(.increased)
             }
+            .listStyle(.insetGrouped)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

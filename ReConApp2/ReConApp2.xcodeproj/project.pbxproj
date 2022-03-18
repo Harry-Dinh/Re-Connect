@@ -20,6 +20,7 @@
 		2136B89D27CC501E00DD742C /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2136B89C27CC501E00DD742C /* DiscoverView.swift */; };
 		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
+		218A8B8427E408ED00C23EBD /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218A8B8327E408ED00C23EBD /* UserSettingsView.swift */; };
 		21AEB26727B8665C0041D58E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26627B8665C0041D58E /* LoginView.swift */; };
 		21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26827B86C200041D58E /* CustomEmptyView.swift */; };
 		21BAD3CD27D5829B0051ED7C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */; };
@@ -55,6 +56,7 @@
 		2136B89C27CC501E00DD742C /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
+		218A8B8327E408ED00C23EBD /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
 		21AEB26627B8665C0041D58E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21AEB26827B86C200041D58E /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
@@ -95,7 +97,6 @@
 				21AEB26827B86C200041D58E /* CustomEmptyView.swift */,
 				21202E6227BC64A0006A1A19 /* CustomTextField.swift */,
 				21291CA927C2DE84000FDD49 /* CustomListRow.swift */,
-				21D1D22B27E26C9900F7A826 /* DiscoverUserRowView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -105,6 +106,7 @@
 			children = (
 				21291CA527C2DB3E000FDD49 /* SettingsView.swift */,
 				21D1D22D27E2856600F7A826 /* AboutThisAppView.swift */,
+				218A8B8327E408ED00C23EBD /* UserSettingsView.swift */,
 			);
 			path = "App Settings";
 			sourceTree = "<group>";
@@ -130,6 +132,7 @@
 				2136B89A27CC268400DD742C /* EditProfileView.swift */,
 				21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */,
 				21C293DF27E3670900307861 /* ProfileDiscoverView.swift */,
+				21D1D22B27E26C9900F7A826 /* DiscoverUserRowView.swift */,
 			);
 			path = Secondary;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				21202E6527BC67BC006A1A19 /* RegisterView.swift in Sources */,
 				21291CAF27C2E5F8000FDD49 /* ProfileVM.swift in Sources */,
 				21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */,
+				218A8B8427E408ED00C23EBD /* UserSettingsView.swift in Sources */,
 				21C293E027E3670900307861 /* ProfileDiscoverView.swift in Sources */,
 				21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */,
 				21291CAD27C2E5EF000FDD49 /* ProfileView.swift in Sources */,
