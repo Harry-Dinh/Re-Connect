@@ -7,13 +7,14 @@
 
 import Foundation
 
-struct ReConUser: Identifiable {
+struct ReConUser: Identifiable, Encodable, Decodable {
     var id: String
     
     
     init() {
         firstName = ""
         lastName = ""
+        fullName = ""
         username = ""
         email = ""
         bio = ""
@@ -30,6 +31,7 @@ struct ReConUser: Identifiable {
     init(firstName: String, lastName: String, username: String, email: String, bio: String, age: Int, gender: Int, followerCount: Int, followingCount: Int, firebaseUID: String, profilePicURL: String?, isPrivateAccount: Bool) {
         self.firstName = firstName
         self.lastName = lastName
+        fullName = "\(firstName) \(lastName)"
         self.username = username
         self.email = email
         self.bio = bio
@@ -45,6 +47,7 @@ struct ReConUser: Identifiable {
     
     var firstName: String
     var lastName: String
+    var fullName: String
     var username: String
     var email: String
     var bio: String

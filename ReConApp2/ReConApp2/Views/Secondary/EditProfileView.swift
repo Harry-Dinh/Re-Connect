@@ -13,8 +13,10 @@ struct EditProfileView: View {
     @FocusState var focusedField: ProfileVM.Fields?
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var textEditorHeight: CGFloat = 20
+    
     init() {
-        UISwitch.appearance().onTintColor = UIColor(Color.accentColor)
+        UITextView.appearance().backgroundColor = .clear
     }
     
     var body: some View {
@@ -56,6 +58,7 @@ struct EditProfileView: View {
                                     }
                                 }
                             }
+                            .listRowSeparator(.hidden)
                         }
                         else {
                             VStack(spacing: 5) {
@@ -168,19 +171,35 @@ struct EditProfileView: View {
                     
                 }
                 
+                // Resizing text editor curtisey of: https://stackoverflow.com/questions/69002861/controlling-size-of-texteditor-in-swiftui
                 Section(header: Label("Bio", systemImage: "textformat.alt")) {
-                    TextEditor(text: $vm.user.bio)
-                        .focused($focusedField, equals: .bio)
-                        .frame(height: 150)
+                    ZStack(alignment: .leading) {
+                        Text(vm.user.bio)
+                            .font(.body)
+                            .foregroundColor(.clear)
+                            .padding(14)
+                            .background(
+                                GeometryReader {
+                                    Color.clear.preference(key: ViewHeightKey.self, value: $0.frame(in: .local).size.height)
+                                }
+                            )
+                        
+                        TextEditor(text: $vm.user.bio)
+                            .font(.body)
+                            .focused($focusedField, equals: .bio)
+                            .frame(height: max(40, textEditorHeight))
+                    }
+                    .onPreferenceChange(ViewHeightKey.self) { textEditorHeight = $0 }
                 }
             }
+            .listStyle(.grouped)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Edit Your Profile")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
                         vm.profilePic = nil
-                        ProfileVM.getUserInfo()
+                        ProfileVM.getCurrentUserInfo()
                         presentationMode.wrappedValue.dismiss()
                     }
                     .disabled(vm.showEditPfpSpinner)
@@ -204,12 +223,18 @@ struct EditProfileView: View {
                 }
             }
         }
-        .interactiveDismissDisabled()
     }
 }
 
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
         EditProfileView()
+    }
+}
+
+struct ViewHeightKey: PreferenceKey {
+    static var defaultValue: CGFloat { 0 }
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = value + nextValue()
     }
 }

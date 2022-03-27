@@ -33,17 +33,8 @@ struct DiscoverUserRowView: View {
                 Text("\(user.firstName) \(user.lastName)")
                     .font(.headline)
                 
-                if !user.isPrivateAccount {
-                    Text(user.username)
-                        .font(.subheadline)
-                }
-                else {
-                    HStack(spacing: 5) {
-                        Text(Image(systemName: "lock.fill"))
-                        Text(user.username)
-                    }
+                Text(user.username)
                     .font(.subheadline)
-                }
                 
                 Text(user.bio)
                     .font(.footnote)

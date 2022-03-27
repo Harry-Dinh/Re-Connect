@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21058EDE27F10C4000FE666D /* DeveloperSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21058EDD27F10C4000FE666D /* DeveloperSettingsView.swift */; };
 		21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21202E6227BC64A0006A1A19 /* CustomTextField.swift */; };
 		21202E6527BC67BC006A1A19 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21202E6427BC67BC006A1A19 /* RegisterView.swift */; };
 		21291CA227C2DB19000FDD49 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CA127C2DB19000FDD49 /* CoreView.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21058EDD27F10C4000FE666D /* DeveloperSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsView.swift; sourceTree = "<group>"; };
 		21202E6227BC64A0006A1A19 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21202E6427BC67BC006A1A19 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		21291CA127C2DB19000FDD49 /* CoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				21291CA527C2DB3E000FDD49 /* SettingsView.swift */,
 				21D1D22D27E2856600F7A826 /* AboutThisAppView.swift */,
 				218A8B8327E408ED00C23EBD /* UserSettingsView.swift */,
+				21058EDD27F10C4000FE666D /* DeveloperSettingsView.swift */,
 			);
 			path = "App Settings";
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21058EDE27F10C4000FE666D /* DeveloperSettingsView.swift in Sources */,
 				21D1D22A27E2667700F7A826 /* DiscoverVM.swift in Sources */,
 				21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */,
 				2136B89D27CC501E00DD742C /* DiscoverView.swift in Sources */,

@@ -90,7 +90,12 @@ class AuthVM: ObservableObject {
     public static func signOut() {
         do {
             try Auth.auth().signOut()
+            
+            UserDefaults.standard.set(nil, forKey: "currentUser")
+            print("Successfully cleared current user info")
+            
             AuthVM.shared.isSignedIn = false
+            print("Successfully signed out")
         }
         catch {
             debugPrint("Cannot sign out the user")

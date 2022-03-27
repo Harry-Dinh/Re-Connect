@@ -18,7 +18,9 @@ struct ContentView: View {
         else {
             CoreView()
                 .onAppear {
-                    ProfileVM.getUserInfo()
+                    // METHODS TO BE CALLED WHEN THE APP LAUNCHES
+                    ProfileVM.getCurrentUserInfo()
+                    ProfileVM.shared.writeUserToDefaults()
                     DiscoverVM.shared.getAllUsers()
                 }
         }

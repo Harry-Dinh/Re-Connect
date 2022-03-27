@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct ProfileDiscoverView: View {
     
     var user: ReConUser
+    @ObservedObject var vm = DiscoverVM.shared
     
     var body: some View {
         List {
@@ -76,11 +77,23 @@ struct ProfileDiscoverView: View {
                 .padding(.bottom, 7)
                 .listRowSeparator(.hidden)
             
+            // Controls for users who are not followed by the current user
             HStack {
-                Button(action: {}) {
-                    Text("Follow")
-                        .frame(maxWidth: UIScreen.main.bounds.width)
-                        .frame(height: 30)
+                Button(action: {
+                    vm.followUser(otherUser: user)
+                }) {
+                    if !vm.showFollowingIndicator {
+                        Text("Follow")
+                            .fontWeight(.medium)
+                            .frame(maxWidth: UIScreen.main.bounds.width)
+                            .frame(height: 30)
+                    }
+                    else {
+                        HStack {
+                            ProgressView()
+                            Text("Following...")
+                        }
+                    }
                 }
                 .buttonStyle(.borderedProminent)
                 
@@ -92,6 +105,13 @@ struct ProfileDiscoverView: View {
                 }
                 .buttonStyle(.bordered)
             }
+            .listRowSeparator(.hidden)
+            
+            GroupBox {
+                Text(user.firebaseUID)
+                    .foregroundColor(.secondary)
+            }
+            .cornerRadius(15)
             .listRowSeparator(.hidden)
             
             HStack {

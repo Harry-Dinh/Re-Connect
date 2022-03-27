@@ -23,6 +23,7 @@ class ProfileVM: ObservableObject {
         case bio
     }
     
+    /// An object that represent the current user.
     @Published var user: ReConUser = ReConUser()
     @Published var profilePic: UIImage?
     
@@ -36,7 +37,7 @@ class ProfileVM: ObservableObject {
     
     public func updateUserInfo(user: ReConUser) {
         
-        let uid = AuthVM.getUID()!
+        let uid = user.firebaseUID
         
         // Upload data
         let updatedValues: [String: Any] = [
@@ -48,13 +49,55 @@ class ProfileVM: ObservableObject {
             "lastName": user.lastName,
             "username": user.username,
             "profile_pic_url": user.profilePicURL ?? "No URL",
-            "isPrivateAccount": user.isPrivateAccount
+            "isPrivateAccount": user.isPrivateAccount,
+            "followings": user.followingCount,
+            "followers": user.followerCount
         ]
         
         databaseRef.child("ReConUsers").child(uid).updateChildValues(updatedValues)
     }
     
-    public static func getUserInfo() {
+    // Writing and reading objects from UserDefaults curtisey of: https://medium.com/@herlinaastari/store-a-custom-object-with-userdefaults-in-swift-5-2bbacfd92c8a
+    
+    /// Write the current user as a `ReConUser` object to `UserDefaults`. Note that the `getCurrentUserInfo()` method had to run before calling this method.
+    public func writeUserToDefaults() {
+        do {
+            let user = ProfileVM.shared.user
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(user)
+            UserDefaults.standard.set(data, forKey: "currentUser")
+            print("Successfully write data to UserDefaults")
+        }
+        catch {
+            print("Cannot write user info to UserDefaults")
+        }
+    }
+    
+    /// Read the data of the current user from `UserDefaults` then write it to a `ReConUser` object that will be returned.
+    /// - Returns: An optional `ReConUser` object (the data can be `nil` and therefore the object is optional to prevent crashes.)
+    public func readUserFromDefaults() -> ReConUser? {
+        guard let data = UserDefaults.standard.data(forKey: "currentUser") else {
+            print("Cannot read user data")
+            return nil
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            let user = try decoder.decode(ReConUser.self, from: data)
+            print("Successfully read data to UserDefaults")
+            return user
+        }
+        catch {
+            print("Cannot read the user data or key does not exist")
+        }
+        
+        return nil
+    }
+    
+    // MARK: - CLASS METHODS
+    
+    /// Fetch the current user information and store them in a `ReConUser` object locally on the device
+    public static func getCurrentUserInfo() {
         ProfileVM.shared.databaseRef.child("ReConUsers").child(AuthVM.getUID()!).observeSingleEvent(of: .value) { snapshot in
             if let value = snapshot.value as? [String: AnyObject] {
                 let age = value["age"] as? Int ?? 0

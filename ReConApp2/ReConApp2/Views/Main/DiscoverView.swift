@@ -10,26 +10,35 @@ import SwiftUI
 struct DiscoverView: View {
     
     @ObservedObject var vm = DiscoverVM.shared
+    private var usersSearchResults: [ReConUser] {
+        if vm.searchParam.isEmpty {
+            return vm.users
+        }
+        else {
+            return vm.users.filter { $0.fullName.localizedCaseInsensitiveContains(vm.searchParam) }
+        }
+    }
     
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Users")) {
-                    ForEach(vm.users) { user in
+                    ForEach(usersSearchResults) { user in
                         NavigationLink(destination: ProfileDiscoverView(user: user)) {
                             DiscoverUserRowView(user: user)
                         }
                     }
                 }
                 .headerProminence(.increased)
-                .swipeActions(edge: .leading, allowsFullSwipe: true) {
-                    Button(action: {}) {
-                        Label("Follow", systemImage: "checkmark.circle")
-                    }
-                    .tint(.accentColor)
-                }
+                // SWIPE TO FOLLOW HAS TO BE IMPLEMENTED LATER
+//                .swipeActions(edge: .leading, allowsFullSwipe: true) {
+//                    Button(action: {}) {
+//                        Label("Follow", systemImage: "checkmark.circle")
+//                    }
+//                    .tint(.accentColor)
+//                }
             }
-            .searchable(text: $vm.searchParam)
+            .searchable(text: $vm.searchParam, prompt: "Search for users, posts and more...")
             .listStyle(.insetGrouped)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

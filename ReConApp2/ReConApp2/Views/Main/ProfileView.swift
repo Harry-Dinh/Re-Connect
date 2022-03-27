@@ -128,19 +128,21 @@ struct ProfileView: View {
             .navigationBarTitleDisplayMode(.inline)
             .listStyle(.plain)
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {}) {
                         Image(systemName: "qrcode")
                     }
-                    
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: { vm.showEditProfileView.toggle() }) {
-                        Image(systemName: "pencil")
+                        Text("Edit")
                     }
-                    .sheet(isPresented: $vm.showEditProfileView, content: EditProfileView.init)
+                    .fullScreenCover(isPresented: $vm.showEditProfileView, content: EditProfileView.init)
                 }
             }
             .refreshable {
-                ProfileVM.getUserInfo()
+                ProfileVM.getCurrentUserInfo()
             }
         }
     }

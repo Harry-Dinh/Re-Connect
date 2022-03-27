@@ -25,6 +25,12 @@ struct SettingsView: View {
                     CustomListRow(title: "Privacy & Security", iconName: "hand.raised.fill", tintColor: .primary)
                 }
             }
+            
+            Section {
+                NavigationLink(destination: DeveloperSettingsView()) {
+                    CustomListRow(title: "Developer", iconName: "hammer.fill", tintColor: .primary)
+                }
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Settings")
