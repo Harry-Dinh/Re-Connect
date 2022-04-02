@@ -9,13 +9,20 @@ import Foundation
 import Firebase
 import SwiftUI
 
+/// A class that handles every authentication–related tasks in the app.
 class AuthVM: ObservableObject {
+    
+    /// A shared instance of the object
     static let shared = AuthVM()
     
     // MARK: - FIREBASE & OTHER FRAMEWORKS
-    let databaseRef = Database.database().reference()
+    
+    /// A reference to Firebase Database
+    private let databaseRef = Database.database().reference()
     
     // MARK: - ENUMERATIONS
+    
+    /// A set of enums that attached to each text field to indicate what field is currently in focus.
     enum AuthFields: Hashable {
         case firstName
         case lastName
@@ -25,10 +32,20 @@ class AuthVM: ObservableObject {
     }
     
     // MARK: - FIELDS
+    
+    /// A placeholder string for the user's first name
     @Published var firstName: String = ""
+    
+    /// A placeholder string for the user's last name
     @Published var lastName: String = ""
+    
+    /// A placeholder string for the user's username
     @Published var username: String = ""
+    
+    /// A placeholder string for the user's email address
     @Published var email: String = ""
+    
+    /// A placeholder string for the user's password (NOTE: This variable is not protected)
     @Published var password: String = ""
     
     // MARK: - SWIFTUI
@@ -38,6 +55,8 @@ class AuthVM: ObservableObject {
     
     // MARK: - METHODS
     
+    /// Create a node of a user in Firebase Database when the user is created.
+    /// - Parameter user: A `ReConUser` object containing the information to be inserted into the node.
     public func insertUser(user: ReConUser) {
         let path = databaseRef.child("ReConUsers").child("\(AuthVM.getUID()!)")
         let userData: [String: Any] = [
@@ -56,8 +75,12 @@ class AuthVM: ObservableObject {
         path.setValue(userData)
     }
     
-    // MARK: - STATIC METHODS
+    // MARK: - CLASS METHODS
     
+    /// Sign in the user with the provided email and password using Firebase Auth API.
+    /// - Parameters:
+    ///   - email: The user's email
+    ///   - password: The user's password (NOTE: This variable is not protected)
     public static func signInUser(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             guard error == nil else {
@@ -70,6 +93,13 @@ class AuthVM: ObservableObject {
         }
     }
     
+    /// Create a user account using Firebase Auth API then call the `insertUser(user: ReConUser)` method.
+    /// - Parameters:
+    ///   - firstName: The user's first name
+    ///   - lastName: The user's last name
+    ///   - username: The user's username
+    ///   - email: The user's email address
+    ///   - password: The user's password for the account creation process (will not be saved in the Database)
     public static func createAccount(firstName: String, lastName: String, username: String, email: String, password: String) {
         // Create account on Firebase Auth
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
@@ -87,6 +117,7 @@ class AuthVM: ObservableObject {
         }
     }
     
+    /// Sign out the current user along with clearing any data that is associated with that user.
     public static func signOut() {
         do {
             try Auth.auth().signOut()
@@ -102,6 +133,8 @@ class AuthVM: ObservableObject {
         }
     }
     
+    /// Get the current user Firebase UID
+    /// - Returns: The current user's Firebase UID
     public static func getUID() -> String? {
         return Auth.auth().currentUser?.uid
     }
