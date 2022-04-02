@@ -22,10 +22,10 @@ struct LoginView: View {
                         .frame(width: 150, height: 150)
                     
                     Text("Re:Connect")
-                        .font(.custom("Rubik", size: 34, relativeTo: .largeTitle))
+                        .font(.custom("Inter", size: 34, relativeTo: .largeTitle))
                         .fontWeight(.semibold)
                     Text("The world's most secure social media")
-                        .font(.custom("Rubik", size: 17, relativeTo: .body))
+                        .font(.custom("Inter", size: 17, relativeTo: .body))
                 }
                 
                 CustomEmptyView(width: nil, height: 10, color: .clear)

@@ -18,11 +18,11 @@ struct AboutThisAppView: View {
                 
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Re:Connect")
-                        .font(.custom("Rubik", size: 28, relativeTo: .title))
+                        .font(.custom("Inter", size: 28, relativeTo: .title))
                         .fontWeight(.semibold)
                     
                     Text("From Re:Connect Inc.")
-                        .font(.custom("Rubik", size: 15, relativeTo: .subheadline))
+                        .font(.custom("Inter", size: 15, relativeTo: .subheadline))
                 }
             }
             .listRowBackground(Color.clear)
@@ -32,6 +32,14 @@ struct AboutThisAppView: View {
                     Text("Version")
                     Spacer()
                     Text("1.0")
+                        .font(.system(.body, design: .monospaced))
+                        .foregroundColor(.secondary)
+                }
+                
+                HStack {
+                    Text("Build ID")
+                    Spacer()
+                    Text("22A21719TAS")
                         .font(.system(.body, design: .monospaced))
                         .foregroundColor(.secondary)
                 }

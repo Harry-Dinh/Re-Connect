@@ -22,6 +22,7 @@
 		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
 		218A8B8427E408ED00C23EBD /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218A8B8327E408ED00C23EBD /* UserSettingsView.swift */; };
+		21A6BB0927F8F66300DB11B3 /* Inter-VariableFont_slnt,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21A6BB0827F8F66300DB11B3 /* Inter-VariableFont_slnt,wght.ttf */; };
 		21AEB26727B8665C0041D58E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26627B8665C0041D58E /* LoginView.swift */; };
 		21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26827B86C200041D58E /* CustomEmptyView.swift */; };
 		21BAD3CD27D5829B0051ED7C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */; };
@@ -59,6 +60,7 @@
 		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
 		218A8B8327E408ED00C23EBD /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
+		21A6BB0827F8F66300DB11B3 /* Inter-VariableFont_slnt,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-VariableFont_slnt,wght.ttf"; sourceTree = "<group>"; };
 		21AEB26627B8665C0041D58E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21AEB26827B86C200041D58E /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		21D4AA8F27AE267E00684886 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21A6BB0827F8F66300DB11B3 /* Inter-VariableFont_slnt,wght.ttf */,
 				21D4AA9127AE26DE00684886 /* Rubik-Italic-VariableFont_wght.ttf */,
 				21D4AA9227AE26DE00684886 /* Rubik-VariableFont_wght.ttf */,
 				21D4AA8B27AE25CF00684886 /* ReConApp2.swift */,
@@ -292,6 +295,7 @@
 				21D4AA7B27AE254A00684886 /* Preview Assets.xcassets in Resources */,
 				21D4AA9727AE283800684886 /* GoogleService-Info.plist in Resources */,
 				21D4AA7827AE254A00684886 /* Assets.xcassets in Resources */,
+				21A6BB0927F8F66300DB11B3 /* Inter-VariableFont_slnt,wght.ttf in Resources */,
 				21D4AA9427AE26DE00684886 /* Rubik-VariableFont_wght.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,7 +460,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 22A21719TAS;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConApp2/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
@@ -489,7 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 22A21719TAS;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConApp2/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
