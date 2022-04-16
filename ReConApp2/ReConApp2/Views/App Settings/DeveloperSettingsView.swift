@@ -9,14 +9,10 @@ import SwiftUI
 
 struct DeveloperSettingsView: View {
     
-    private var firstName = ProfileVM.shared.readUserFromDefaults()?.firstName ?? "First"
-    private var lastName = ProfileVM.shared.readUserFromDefaults()?.lastName ?? "Last"
-    
     var body: some View {
         List {
-            Section(footer: Text("Current user from UserDefaults test")) {
-                Text("\(firstName) \(lastName)")
-                Text(ProfileVM.shared.readUserFromDefaults()?.firebaseUID ?? "No Firebase ID")
+            Button("Print followers Firebase UID") {
+                ProfileVM.shared.fetchFollowings()
             }
         }
         .navigationTitle("Developer")

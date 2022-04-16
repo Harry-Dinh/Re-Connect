@@ -14,7 +14,7 @@ struct UserSettingsView: View {
                 AuthVM.signOut()
             }
             
-            Section(header: Text("Account Info")) {
+            Section(footer: Text("The current user's Firebase UID")) {
                 Text(AuthVM.getUID() ?? "No UID")
                     .font(.system(.body, design: .monospaced))
                     .textSelection(.enabled)

@@ -46,7 +46,7 @@ struct ProfileView: View {
                             HStack {
                                 if vm.user.isPrivateAccount {
                                     Menu(content: {
-                                        Text("This user is using a private account")
+                                        Text("You are using a private account")
                                     }) {
                                         Image(systemName: "lock.fill")
                                             .foregroundColor(.primary)

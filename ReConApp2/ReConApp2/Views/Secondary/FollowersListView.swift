@@ -29,6 +29,7 @@ struct FollowersListView: View {
                             DiscoverUserRowView(user: follower)
                         }
                     }
+                    .listStyle(.insetGrouped)
                 }
             }
             .navigationTitle("Followers")

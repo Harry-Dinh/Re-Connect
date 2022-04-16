@@ -29,9 +29,10 @@ struct FollowingsListView: View {
                             DiscoverUserRowView(user: user)
                         }
                     }
+                    .listStyle(.insetGrouped)
                 }
             }
-            .navigationTitle("Followers")
+            .navigationTitle("Following")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -39,13 +40,22 @@ struct FollowingsListView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu {} label: {
+                    Menu {
+                        Button {
+                            ProfileVM.shared.fetchFollowings()
+                        } label: {
+                            Label("Refresh", systemImage: "arrow.clockwise")
+                        }
+
+                    } label: {
                         Image(systemName: "line.3.horizontal.decrease.circle")
                     }
                 }
             }
         }
         .interactiveDismissDisabled()
+        .onAppear { ProfileVM.shared.fetchFollowings() }
+        .refreshable { ProfileVM.shared.fetchFollowings() }
     }
 }
 
