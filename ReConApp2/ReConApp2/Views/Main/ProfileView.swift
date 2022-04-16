@@ -33,6 +33,10 @@ struct ProfileView: View {
                             .shadow(color: Color.secondary.opacity(0.5), radius: 5, x: 0, y: 0)
                         }
                         
+                        if !vm.user.isPrivateAccount || vm.user.gender == 0 {
+                            CustomEmptyView(width: 5, height: nil, color: .clear)
+                        }
+                        
                         VStack(alignment: .leading, spacing: 5) {
                             Text("\(vm.user.firstName) \(vm.user.lastName)")
                                 .font(.title)

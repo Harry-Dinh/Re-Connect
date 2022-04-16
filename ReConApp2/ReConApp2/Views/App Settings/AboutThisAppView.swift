@@ -29,7 +29,7 @@ struct AboutThisAppView: View {
             
             Section {
                 HStack {
-                    Text("Version")
+                    Text("Version (beta)")
                     Spacer()
                     Text("1.0")
                         .font(.system(.body, design: .monospaced))
