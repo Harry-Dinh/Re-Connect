@@ -59,10 +59,11 @@ class DiscoverVM: ObservableObject {
     
     /// Actions taken to "follow" another user on Re:Connect.
     /// - Parameter otherUser: A `ReConUser` object that represent the other user.
-    public func followUser(otherUser: ReConUser) {
+    public func followUser(user: ReConUser) {
         showFollowingIndicator = true
         
-        let currentUser = ProfileVM.shared.user
+        var currentUser = ProfileVM.shared.user
+        var otherUser = user
         
         // UPDATE FOR THE CURRENT USER
         // ---------------------------
@@ -70,8 +71,14 @@ class DiscoverVM: ObservableObject {
         let followingUpdate: [String: Any] = [ otherUser.firebaseUID: otherUser.firebaseUID ]
         let infoUpdate: [String: Any] = [ "followings": currentUser.followingCount + 1 ]
         
+        // Save followed user on database
+        
         databaseRef.child("ReConUsers").child(currentUser.firebaseUID).updateChildValues(infoUpdate)
         databaseRef.child("ReConUsers").child(currentUser.firebaseUID).child("Followings").updateChildValues(followingUpdate)
+        
+        // Save followed user locally on device
+        
+        currentUser.followings.append(otherUser)
         
         // UPDATE FOR THE OTHER USER
         // -------------------------
@@ -79,8 +86,14 @@ class DiscoverVM: ObservableObject {
         let followerUpdate: [String: Any] = [ currentUser.firebaseUID: currentUser.firebaseUID ]
         let otherInfoUpdate: [String: Any] = [ "followers": otherUser.followerCount + 1 ]
         
+        // Save follower info on database
+        
         databaseRef.child("ReConUsers").child(otherUser.firebaseUID).updateChildValues(otherInfoUpdate)
         databaseRef.child("ReConUsers").child(otherUser.firebaseUID).child("Followers").updateChildValues(followerUpdate)
+        
+        // Save follower info locally on device
+        
+        otherUser.followers.append(currentUser)
         
         showFollowingIndicator = false
         

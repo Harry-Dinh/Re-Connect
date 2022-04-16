@@ -33,7 +33,7 @@ struct ProfileView: View {
                             .shadow(color: Color.secondary.opacity(0.5), radius: 5, x: 0, y: 0)
                         }
                         
-                        if !vm.user.isPrivateAccount || vm.user.gender == 0 {
+                        if !vm.user.isPrivateAccount || vm.user.gender == 2 {
                             CustomEmptyView(width: 5, height: nil, color: .clear)
                         }
                         
@@ -94,6 +94,10 @@ struct ProfileView: View {
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                         }
+                        .onTapGesture { vm.showFollowersList.toggle() }
+                        .sheet(isPresented: $vm.showFollowersList, content: {
+                            FollowersListView(followersList: vm.user.followers)
+                        })
                         .cornerRadius(15)
                         
                         GroupBox {
@@ -110,6 +114,10 @@ struct ProfileView: View {
                                 .foregroundColor(.secondary)
                         }
                         .cornerRadius(15)
+                        .onTapGesture { vm.showFollowingList.toggle() }
+                        .sheet(isPresented: $vm.showFollowingList) {
+                            FollowingsListView(followingList: vm.user.followings)
+                        }
                     }
                     
                     VStack {

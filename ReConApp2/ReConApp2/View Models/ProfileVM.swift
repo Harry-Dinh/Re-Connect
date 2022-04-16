@@ -34,6 +34,8 @@ class ProfileVM: ObservableObject {
     @Published var showPhotoPickerActionSheet = false
     @Published var showAlertProfilePicURL = false
     @Published var showEditPfpSpinner = false
+    @Published var showFollowersList = false
+    @Published var showFollowingList = false
     
     public func updateUserInfo(user: ReConUser) {
         
@@ -93,6 +95,37 @@ class ProfileVM: ObservableObject {
         
         return nil
     }
+    
+    /// Fetch the information from the user with the provided Firebase UID and store them in a `ReConUser` object locally on the device
+    /// - Parameter firebaseUID: The Firebase UID of the user that you want to retrieve information from
+    public func getUserInfo(firebaseUID: String) {
+        databaseRef.child("ReConUsers").child(firebaseUID).observeSingleEvent(of: .value) { [weak self] snapshot in
+            if let value = snapshot.value as? [String: AnyObject] {
+                let age = value["age"] as? Int ?? 0
+                let bio = value["bio"] as? String ?? "No bio"
+                let email = value["email"] as? String ?? "No Email"
+                let firebase_uid = value["firebase_uid"] as? String ?? ""
+                let firstName = value["firstName"] as? String ?? "Unnamed"
+                let followers = value["followers"] as? Int ?? 0
+                let followings = value["followings"] as? Int ?? 0
+                let gender = value["gender"] as? Int ?? -1
+                let lastName = value["lastName"] as? String ?? "User"
+                let username = value["username"] as? String ?? "No username"
+                let profilePicURL = value["profile_pic_url"] as? String ?? ""
+                let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
+                
+                self?.user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebase_uid, profilePicURL: profilePicURL, isPrivateAccount: isPrivateAccount)
+            }
+        }
+    }
+    
+//    public func fetchFollowers(user: ReConUser) {
+//        var currentUser = user
+//
+//        databaseRef.child("ReConUsers").child("Followers").observeSingleEvent(of: .value) { snapshot in
+//            // Loop through every node (Firebase UID of other users) and call the `getUserInfo(firebaseUID: String)` method to get that user and append to `currentUser.followers`
+//        }
+//    }
     
     // MARK: - CLASS METHODS
     

@@ -33,6 +33,10 @@ struct ProfileDiscoverView: View {
                         .shadow(color: Color.secondary.opacity(0.5), radius: 5, x: 0, y: 0)
                 }
                 
+                if !user.isPrivateAccount || user.gender == 2 {
+                    CustomEmptyView(width: 5, height: nil, color: .clear)
+                }
+                
                 VStack(alignment: .leading, spacing: 5) {
                     Text("\(user.firstName) \(user.lastName)")
                         .font(.system(size: 28, weight: .semibold, design: .default))
@@ -80,7 +84,7 @@ struct ProfileDiscoverView: View {
             // Controls for users who are not followed by the current user
             HStack {
                 Button(action: {
-                    vm.followUser(otherUser: user)
+                    vm.followUser(user: user)
                 }) {
                     if !vm.showFollowingIndicator {
                         Text("Follow")
