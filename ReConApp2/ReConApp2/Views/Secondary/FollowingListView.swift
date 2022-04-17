@@ -9,13 +9,13 @@ import SwiftUI
 
 struct FollowingsListView: View {
     
-    var followingList: [ReConUser]
+    var user: ReConUser
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
             ZStack {
-                if followingList.isEmpty {
+                if user.followings.isEmpty {
                     VStack(spacing: 5) {
                         Text(Image(systemName: "checkmark.circle.fill"))
                         Text("You have not follow anybody")
@@ -25,11 +25,14 @@ struct FollowingsListView: View {
                 }
                 else {
                     List {
-                        ForEach(followingList) { user in
-                            DiscoverUserRowView(user: user)
+                        ForEach(user.followings) { following in
+                            DiscoverUserRowView(user: following)
                         }
                     }
                     .listStyle(.insetGrouped)
+                    .refreshable {
+                        ProfileVM.shared.fetchFollowings()
+                    }
                 }
             }
             .navigationTitle("Following")
@@ -41,12 +44,16 @@ struct FollowingsListView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
-                        Button {
-                            ProfileVM.shared.fetchFollowings()
-                        } label: {
-                            Label("Refresh", systemImage: "arrow.clockwise")
-                        }
+                        EditButton()
+                        
+                        Section {
+                            Button {
+                                ProfileVM.shared.fetchFollowings()
+                            } label: {
+                                Label("Refresh", systemImage: "arrow.clockwise")
+                            }
 
+                        }
                     } label: {
                         Image(systemName: "line.3.horizontal.decrease.circle")
                     }
@@ -54,13 +61,11 @@ struct FollowingsListView: View {
             }
         }
         .interactiveDismissDisabled()
-        .onAppear { ProfileVM.shared.fetchFollowings() }
-        .refreshable { ProfileVM.shared.fetchFollowings() }
     }
 }
 
 struct FollowingList_Previews: PreviewProvider {
     static var previews: some View {
-        FollowersListView(followersList: [])
+        FollowingsListView(user: ReConUser())
     }
 }

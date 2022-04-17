@@ -36,10 +36,12 @@ struct DiscoverUserRowView: View {
                 Text(user.username)
                     .font(.subheadline)
                 
-                Text(user.bio)
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                    .lineLimit(1)
+                if !user.bio.isEmpty {
+                    Text(user.bio)
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
             }
         }
         .padding(.vertical, 7)

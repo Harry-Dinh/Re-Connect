@@ -116,7 +116,7 @@ struct ProfileView: View {
                         .cornerRadius(15)
                         .onTapGesture { vm.showFollowingList.toggle() }
                         .sheet(isPresented: $vm.showFollowingList) {
-                            FollowingsListView(followingList: vm.user.followings)
+                            FollowingsListView(user: vm.user)
                         }
                     }
                     
@@ -137,6 +137,11 @@ struct ProfileView: View {
                 .listRowSeparator(.hidden)
                 .headerProminence(.standard)
             }
+            .refreshable {
+                ProfileVM.getCurrentUserInfo()
+                ProfileVM.shared.fetchFollowers()
+                ProfileVM.shared.fetchFollowings()
+            }
             .navigationBarTitleDisplayMode(.inline)
             .listStyle(.plain)
             .toolbar {
@@ -152,9 +157,6 @@ struct ProfileView: View {
                     }
                     .fullScreenCover(isPresented: $vm.showEditProfileView, content: EditProfileView.init)
                 }
-            }
-            .refreshable {
-                ProfileVM.getCurrentUserInfo()
             }
         }
     }

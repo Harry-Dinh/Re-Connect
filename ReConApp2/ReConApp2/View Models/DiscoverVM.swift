@@ -80,6 +80,8 @@ class DiscoverVM: ObservableObject {
         
         currentUser.followings.append(otherUser)
         
+        ProfileVM.shared.fetchFollowings()
+        
         // UPDATE FOR THE OTHER USER
         // -------------------------
         

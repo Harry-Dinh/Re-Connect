@@ -20,6 +20,8 @@ struct ContentView: View {
                 .onAppear {
                     // METHODS TO BE CALLED WHEN THE APP LAUNCHES
                     ProfileVM.getCurrentUserInfo()
+                    ProfileVM.shared.fetchFollowers()
+                    ProfileVM.shared.fetchFollowings()
                     ProfileVM.shared.writeUserToDefaults()
                     DiscoverVM.shared.getAllUsers()
                 }

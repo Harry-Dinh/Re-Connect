@@ -11,7 +11,7 @@ struct DeveloperSettingsView: View {
     
     var body: some View {
         List {
-            Button("Print followers Firebase UID") {
+            Button("Print following Firebase UID") {
                 ProfileVM.shared.fetchFollowings()
             }
         }

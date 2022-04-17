@@ -96,31 +96,32 @@ class ProfileVM: ObservableObject {
         return nil
     }
     
-    public func returnUserInfo(firebaseUID: String) -> ReConUser {
+    public func returnUserInfo(firebaseUID: String, completion: @escaping (ReConUser?) -> Void) {
         var followingUser: ReConUser = ReConUser()
         
         databaseRef.child("ReConUsers").child(firebaseUID).observeSingleEvent(of: .value) { snapshot in
-            if let value = snapshot.value as? [String: AnyObject] {
-                let age = value["age"] as? Int ?? 0
-                let bio = value["bio"] as? String ?? "No bio"
-                let email = value["email"] as? String ?? "No Email"
-                let firebase_uid = value["firebase_uid"] as? String ?? ""
-                let firstName = value["firstName"] as? String ?? "Unnamed"
-                let followers = value["followers"] as? Int ?? 0
-                let followings = value["followings"] as? Int ?? 0
-                let gender = value["gender"] as? Int ?? -1
-                let lastName = value["lastName"] as? String ?? "User"
-                let username = value["username"] as? String ?? "No username"
-                let profilePicURL = value["profile_pic_url"] as? String ?? ""
-                let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
-                
-                followingUser = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebase_uid, profilePicURL: profilePicURL, isPrivateAccount: isPrivateAccount)
+            guard let value = snapshot.value as? [String: Any] else {
+                completion(nil)
+                return
             }
-            else {
-                print("User not found")
-            }
+            
+            let age = value["age"] as? Int ?? 0
+            let bio = value["bio"] as? String ?? "No bio"
+            let email = value["email"] as? String ?? "No Email"
+            let firebase_uid = value["firebase_uid"] as? String ?? ""
+            let firstName = value["firstName"] as? String ?? "Unnamed"
+            let followers = value["followers"] as? Int ?? 0
+            let followings = value["followings"] as? Int ?? 0
+            let gender = value["gender"] as? Int ?? -1
+            let lastName = value["lastName"] as? String ?? "User"
+            let username = value["username"] as? String ?? "No username"
+            let profilePicURL = value["profile_pic_url"] as? String ?? ""
+            let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
+            
+            followingUser = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebase_uid, profilePicURL: profilePicURL, isPrivateAccount: isPrivateAccount)
+            
+            completion(followingUser)
         }
-        return followingUser
     }
     
     public func fetchFollowings() {
@@ -128,14 +129,34 @@ class ProfileVM: ObservableObject {
         
         databaseRef.child("ReConUsers").child(AuthVM.getUID()!).child("Followings").observeSingleEvent(of: .value) { [weak self] snapshot in
             // Loop through every node (Firebase UID of other users) and call the `getUserInfo(firebaseUID: String)` method to get that user and append to `currentUser.followers`
-            guard let value = snapshot.value as? [String: AnyObject] else {
-                print("No value in followings")
-                return
+            if let value = snapshot.value as? [String: Any] {
+                for key in value.keys {
+                    self?.returnUserInfo(firebaseUID: key) { followingUser in
+                        guard let followingUser = followingUser else {
+                            return
+                        }
+                        
+                        self?.user.followings.append(followingUser)
+                    }
+                }
             }
-            
-            for firebaseUID in value.keys {
-                let following = self?.returnUserInfo(firebaseUID: firebaseUID as String)
-                print("\(following?.fullName ?? "No name") & Firebase ID: \(following?.firebaseUID ?? "No ID")")
+        }
+    }
+    
+    public func fetchFollowers() {
+        user.followers = []
+        
+        databaseRef.child("ReConUsers").child(AuthVM.getUID()!).child("Followers").observeSingleEvent(of: .value) { [weak self] snapshot in
+            if let value = snapshot.value as? [String: Any] {
+                for key in value.keys {
+                    self?.returnUserInfo(firebaseUID: key) { followingUser in
+                        guard let followingUser = followingUser else {
+                            return
+                        }
+                        
+                        self?.user.followers.append(followingUser)
+                    }
+                }
             }
         }
     }
@@ -145,7 +166,7 @@ class ProfileVM: ObservableObject {
     /// Fetch the current user information and store them in a `ReConUser` object locally on the device
     public static func getCurrentUserInfo() {
         ProfileVM.shared.databaseRef.child("ReConUsers").child(AuthVM.getUID()!).observeSingleEvent(of: .value) { snapshot in
-            if let value = snapshot.value as? [String: AnyObject] {
+            if let value = snapshot.value as? [String: Any] {
                 let age = value["age"] as? Int ?? 0
                 let bio = value["bio"] as? String ?? "No bio"
                 let email = value["email"] as? String ?? "No Email"

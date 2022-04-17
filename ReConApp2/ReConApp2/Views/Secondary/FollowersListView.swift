@@ -30,6 +30,9 @@ struct FollowersListView: View {
                         }
                     }
                     .listStyle(.insetGrouped)
+                    .refreshable {
+                        ProfileVM.shared.fetchFollowers()
+                    }
                 }
             }
             .navigationTitle("Followers")
@@ -40,7 +43,18 @@ struct FollowersListView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu {} label: {
+                    Menu {
+                        EditButton()
+
+                        Section {
+                            Button {
+                                ProfileVM.shared.fetchFollowers()
+                            } label: {
+                                Label("Refresh", systemImage: "arrow.clockwise")
+                            }
+
+                        }
+                    } label: {
                         Image(systemName: "line.3.horizontal.decrease.circle")
                     }
                 }
