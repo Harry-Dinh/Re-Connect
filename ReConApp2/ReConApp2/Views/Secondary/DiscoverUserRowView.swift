@@ -16,10 +16,10 @@ struct DiscoverUserRowView: View {
         HStack {
             if !user.profilePicURL!.isEmpty {
                 WebImage(url: URL(string: user.profilePicURL!))
+                    .placeholder { ProgressView() }
                     .resizable()
-                    .scaledToFill()
-                    .clipShape(Circle())
                     .frame(width: 45, height: 45)
+                    .clipShape(Circle())
             }
             else {
                 Image(systemName: "person.crop.circle.fill")

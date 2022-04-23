@@ -39,7 +39,7 @@ struct AboutThisAppView: View {
                 HStack {
                     Text("Build ID")
                     Spacer()
-                    Text("22A171453NUS")
+                    Text("22A222102IRF")
                         .font(.system(.body, design: .monospaced))
                         .foregroundColor(.secondary)
                 }
