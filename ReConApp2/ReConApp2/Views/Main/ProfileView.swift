@@ -152,7 +152,9 @@ struct ProfileView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { vm.showEditProfileView.toggle() }) {
+                    Button(action: {
+                        vm.showEditProfileView.toggle()
+                    }) {
                         Text("Edit")
                     }
                     .fullScreenCover(isPresented: $vm.showEditProfileView, content: EditProfileView.init)

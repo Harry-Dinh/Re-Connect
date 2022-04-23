@@ -31,6 +31,11 @@ class AuthVM: ObservableObject {
         case password
     }
     
+    enum AuthenticationReasons: Hashable {
+        case profileEdit
+        case lockApp
+    }
+    
     // MARK: - FIELDS
     
     /// A placeholder string for the user's first name

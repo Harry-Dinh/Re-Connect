@@ -39,9 +39,19 @@ struct AboutThisAppView: View {
                 HStack {
                     Text("Build ID")
                     Spacer()
-                    Text("22A222102IRF")
+                    Text("22A231304TAS")
                         .font(.system(.body, design: .monospaced))
                         .foregroundColor(.secondary)
+                }
+            }
+            
+            Section {
+                Button(action: {}) {
+                    Text("Terms and Conditions")
+                }
+                
+                Button(action: {}) {
+                    Text("Privacy Policy")
                 }
             }
             

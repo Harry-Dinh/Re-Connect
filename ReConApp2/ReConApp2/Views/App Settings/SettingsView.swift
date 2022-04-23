@@ -21,7 +21,7 @@ struct SettingsView: View {
                     CustomListRow(title: "General", iconName: "gear", tintColor: .primary)
                 }
                 
-                NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: PrivacySecuritySettingsView()) {
                     CustomListRow(title: "Privacy & Security", iconName: "hand.raised.fill", tintColor: .primary)
                 }
             }

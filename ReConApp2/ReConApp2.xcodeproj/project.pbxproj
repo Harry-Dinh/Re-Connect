@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21058EDE27F10C4000FE666D /* DeveloperSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21058EDD27F10C4000FE666D /* DeveloperSettingsView.swift */; };
+		211765C52814538A00684982 /* PrivacySecuritySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211765C42814538A00684982 /* PrivacySecuritySettingsView.swift */; };
 		21202E6327BC64A0006A1A19 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21202E6227BC64A0006A1A19 /* CustomTextField.swift */; };
 		21202E6527BC67BC006A1A19 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21202E6427BC67BC006A1A19 /* RegisterView.swift */; };
 		21291CA227C2DB19000FDD49 /* CoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CA127C2DB19000FDD49 /* CoreView.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		21058EDD27F10C4000FE666D /* DeveloperSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsView.swift; sourceTree = "<group>"; };
+		211765C42814538A00684982 /* PrivacySecuritySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySecuritySettingsView.swift; sourceTree = "<group>"; };
 		21202E6227BC64A0006A1A19 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		21202E6427BC67BC006A1A19 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		21291CA127C2DB19000FDD49 /* CoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				21D1D22D27E2856600F7A826 /* AboutThisAppView.swift */,
 				218A8B8327E408ED00C23EBD /* UserSettingsView.swift */,
 				21058EDD27F10C4000FE666D /* DeveloperSettingsView.swift */,
+				211765C42814538A00684982 /* PrivacySecuritySettingsView.swift */,
 			);
 			path = "App Settings";
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				21291CAF27C2E5F8000FDD49 /* ProfileVM.swift in Sources */,
 				21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */,
 				218A8B8427E408ED00C23EBD /* UserSettingsView.swift in Sources */,
+				211765C52814538A00684982 /* PrivacySecuritySettingsView.swift in Sources */,
 				21C293E027E3670900307861 /* ProfileDiscoverView.swift in Sources */,
 				21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */,
 				21291CAD27C2E5EF000FDD49 /* ProfileView.swift in Sources */,
@@ -468,12 +472,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22A222102IRF;
+				CURRENT_PROJECT_VERSION = 22A231304TAS;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConApp2/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ReConApp2/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please verify to make changes to your user profile.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow Re:Connect access to your photo library to allow you to share photos and videos with people you followed.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -501,12 +506,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22A222102IRF;
+				CURRENT_PROJECT_VERSION = 22A231304TAS;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConApp2/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ReConApp2/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please verify to make changes to your user profile.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow Re:Connect access to your photo library to allow you to share photos and videos with people you followed.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

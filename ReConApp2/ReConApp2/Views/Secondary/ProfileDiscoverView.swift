@@ -12,6 +12,11 @@ struct ProfileDiscoverView: View {
     
     var user: ReConUser
     @ObservedObject var vm = DiscoverVM.shared
+    @State private var isFollowing: Bool = false
+    
+    init(user: ReConUser) {
+        self.user = user
+    }
     
     var body: some View {
         List {
@@ -85,12 +90,22 @@ struct ProfileDiscoverView: View {
             HStack {
                 Button(action: {
                     vm.followUser(user: user)
+                    isFollowing = DiscoverVM.shared.isFollowing(user: user)
+                    ProfileVM.getCurrentUserInfo()
                 }) {
                     if !vm.showFollowingIndicator {
-                        Text("Follow")
-                            .fontWeight(.medium)
-                            .frame(maxWidth: UIScreen.main.bounds.width)
-                            .frame(height: 30)
+                        if !isFollowing {
+                            Text("Follow")
+                                .fontWeight(.medium)
+                                .frame(maxWidth: UIScreen.main.bounds.width)
+                                .frame(height: 30)
+                        }
+                        else {
+                            Text("Following")
+                                .fontWeight(.medium)
+                                .frame(maxWidth: UIScreen.main.bounds.width)
+                                .frame(height: 30)
+                        }
                     }
                     else {
                         HStack {
@@ -100,6 +115,7 @@ struct ProfileDiscoverView: View {
                     }
                 }
                 .buttonStyle(.borderedProminent)
+                .disabled(isFollowing)
                 
                 Spacer()
                 
@@ -153,6 +169,9 @@ struct ProfileDiscoverView: View {
         }
         .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            isFollowing = DiscoverVM.shared.isFollowing(user: user)
+        }
     }
 }
 

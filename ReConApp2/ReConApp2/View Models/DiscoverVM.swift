@@ -101,4 +101,15 @@ class DiscoverVM: ObservableObject {
         
         // NOTE: IN THE FUTURE, REMEMBER TO HANDLE FOLLOWER REQUESTS FOR PRIVATE ACCOUNTS
     }
+    
+    public func isFollowing(user: ReConUser) -> Bool {
+        let currentUser = ProfileVM.shared.user
+        
+        for otherUser in currentUser.followings {
+            if otherUser.firebaseUID == user.firebaseUID {
+                return true
+            }
+        }
+        return false
+    }
 }

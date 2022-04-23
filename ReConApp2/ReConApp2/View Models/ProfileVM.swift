@@ -36,6 +36,7 @@ class ProfileVM: ObservableObject {
     @Published var showEditPfpSpinner = false
     @Published var showFollowersList = false
     @Published var showFollowingList = false
+    @AppStorage("biometricEnabled") var biometricEnabled = false
     
     public func updateUserInfo(user: ReConUser) {
         

@@ -41,13 +41,7 @@ struct DiscoverView: View {
             .searchable(text: $vm.searchParam, prompt: "Search for users, posts and more...")
             .listStyle(.insetGrouped)
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Text("Discover")
-                        .font(.title)
-                        .bold()
-                }
-            }
+            .navigationTitle("Discover")
             .refreshable {
                 vm.getAllUsers()
             }
