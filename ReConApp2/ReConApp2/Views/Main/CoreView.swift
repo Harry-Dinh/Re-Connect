@@ -20,6 +20,9 @@ struct CoreView: View {
                 ProfileView()
                     .tabItem { Label("Profile", systemImage: "person.crop.circle") }
                 
+                NotificationListView()
+                    .tabItem { Label("Notifications", systemImage: "bell.badge") }
+                
                 MenuView()
                     .tabItem { Label("Menu", systemImage: "list.bullet.rectangle.portrait")}
             }

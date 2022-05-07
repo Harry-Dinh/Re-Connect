@@ -29,8 +29,15 @@ struct MenuView: View {
                 .headerProminence(.increased)
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Menu")
+            .navigationBarTitleDisplayMode(.inline)
             .searchable(text: .constant(""))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text("Menu")
+                        .font(.title)
+                        .bold()
+                }
+            }
         }
     }
 }

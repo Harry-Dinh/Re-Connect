@@ -16,8 +16,11 @@ struct UserSettingsView: View {
             
             Section(footer: Text("The current user's Firebase UID")) {
                 Text(AuthVM.getUID() ?? "No UID")
-                    .font(.system(.body, design: .monospaced))
                     .textSelection(.enabled)
+            }
+            
+            Button("Delete Account", role: .destructive) {
+                
             }
         }
         .navigationBarTitleDisplayMode(.inline)

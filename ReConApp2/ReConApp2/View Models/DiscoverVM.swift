@@ -60,46 +60,69 @@ class DiscoverVM: ObservableObject {
     /// Actions taken to "follow" another user on Re:Connect.
     /// - Parameter otherUser: A `ReConUser` object that represent the other user.
     public func followUser(user: ReConUser) {
-        showFollowingIndicator = true
-        
         var currentUser = ProfileVM.shared.user
         var otherUser = user
         
-        // UPDATE FOR THE CURRENT USER
-        // ---------------------------
+        showFollowingIndicator = true
         
-        let followingUpdate: [String: Any] = [ otherUser.firebaseUID: otherUser.firebaseUID ]
-        let infoUpdate: [String: Any] = [ "followings": currentUser.followingCount + 1 ]
-        
-        // Save followed user on database
-        
-        databaseRef.child("ReConUsers").child(currentUser.firebaseUID).updateChildValues(infoUpdate)
-        databaseRef.child("ReConUsers").child(currentUser.firebaseUID).child("Followings").updateChildValues(followingUpdate)
-        
-        // Save followed user locally on device
-        
-        currentUser.followings.append(otherUser)
-        
-        ProfileVM.shared.fetchFollowings()
-        
-        // UPDATE FOR THE OTHER USER
-        // -------------------------
-        
-        let followerUpdate: [String: Any] = [ currentUser.firebaseUID: currentUser.firebaseUID ]
-        let otherInfoUpdate: [String: Any] = [ "followers": otherUser.followerCount + 1 ]
-        
-        // Save follower info on database
-        
-        databaseRef.child("ReConUsers").child(otherUser.firebaseUID).updateChildValues(otherInfoUpdate)
-        databaseRef.child("ReConUsers").child(otherUser.firebaseUID).child("Followers").updateChildValues(followerUpdate)
-        
-        // Save follower info locally on device
-        
-        otherUser.followers.append(currentUser)
+        if otherUser.isPrivateAccount {
+            
+            // CREATE A REQUEST IN A FORM OF A RECONNOTIFICATION
+            //----------------------------
+            let notificationTitle = "\(currentUser.fullName) has requested to follow you"
+            let date = Date()
+            var icon: String
+            
+            if currentUser.profilePicURL == "" {
+                icon = "person.crop.circle.fill"
+            }
+            else {
+                icon = currentUser.profilePicURL!
+            }
+            
+            let notification = ReConNotification(title: notificationTitle, subtitle: "", date: date, icon: icon, type: .followerRequest)
+            
+            // SEND THE NOTIFICATION TO THE OTHER USER'S DATABASE NODE
+            //----------------------------
+            
+            NotificationVM.shared.insertNotification(notification: notification, user: otherUser)
+        }
+        else {
+            
+            // UPDATE FOR THE CURRENT USER
+            // ---------------------------
+            
+            let followingUpdate: [String: Any] = [ otherUser.firebaseUID: otherUser.firebaseUID ]
+            let infoUpdate: [String: Any] = [ "followings": currentUser.followingCount + 1 ]
+            
+            // Save followed user on database
+            
+            databaseRef.child("ReConUsers").child(currentUser.firebaseUID).updateChildValues(infoUpdate)
+            databaseRef.child("ReConUsers").child(currentUser.firebaseUID).child("Followings").updateChildValues(followingUpdate)
+            
+            // Save followed user locally on device
+            
+            currentUser.followings.append(otherUser)
+            
+            ProfileVM.shared.fetchFollowings()
+            
+            // UPDATE FOR THE OTHER USER
+            // -------------------------
+            
+            let followerUpdate: [String: Any] = [ currentUser.firebaseUID: currentUser.firebaseUID ]
+            let otherInfoUpdate: [String: Any] = [ "followers": otherUser.followerCount + 1 ]
+            
+            // Save follower info on database
+            
+            databaseRef.child("ReConUsers").child(otherUser.firebaseUID).updateChildValues(otherInfoUpdate)
+            databaseRef.child("ReConUsers").child(otherUser.firebaseUID).child("Followers").updateChildValues(followerUpdate)
+            
+            // Save follower info locally on device
+            
+            otherUser.followers.append(currentUser)
+        }
         
         showFollowingIndicator = false
-        
-        // NOTE: IN THE FUTURE, REMEMBER TO HANDLE FOLLOWER REQUESTS FOR PRIVATE ACCOUNTS
     }
     
     public func isFollowing(user: ReConUser) -> Bool {

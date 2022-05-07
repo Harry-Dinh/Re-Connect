@@ -29,18 +29,16 @@ struct AboutThisAppView: View {
             
             Section {
                 HStack {
-                    Text("Version (beta)")
+                    Text("Version")
                     Spacer()
-                    Text("1.0")
-                        .font(.system(.body, design: .monospaced))
+                    Text("1.0 (beta)")
                         .foregroundColor(.secondary)
                 }
                 
                 HStack {
                     Text("Build ID")
                     Spacer()
-                    Text("22A231304TAS")
-                        .font(.system(.body, design: .monospaced))
+                    Text("22M71722")
                         .foregroundColor(.secondary)
                 }
             }

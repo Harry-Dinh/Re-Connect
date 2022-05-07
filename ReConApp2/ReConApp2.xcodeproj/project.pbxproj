@@ -22,6 +22,8 @@
 		2136B89D27CC501E00DD742C /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2136B89C27CC501E00DD742C /* DiscoverView.swift */; };
 		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
+		217E7CD928270E40002FF5EB /* ReConNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217E7CD828270E40002FF5EB /* ReConNotification.swift */; };
+		217E7CDB28271222002FF5EB /* NotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217E7CDA28271222002FF5EB /* NotificationVM.swift */; };
 		218A8B8427E408ED00C23EBD /* UserSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218A8B8327E408ED00C23EBD /* UserSettingsView.swift */; };
 		2193B271280A43440079D78F /* FollowersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193B270280A43440079D78F /* FollowersListView.swift */; };
 		2193B273280A48340079D78F /* FollowingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2193B272280A48340079D78F /* FollowingListView.swift */; };
@@ -29,6 +31,8 @@
 		21AEB26727B8665C0041D58E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26627B8665C0041D58E /* LoginView.swift */; };
 		21AEB26927B86C200041D58E /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AEB26827B86C200041D58E /* CustomEmptyView.swift */; };
 		21BAD3CD27D5829B0051ED7C /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */; };
+		21BCA4B528257446005ECE0E /* NotificationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BCA4B428257446005ECE0E /* NotificationListView.swift */; };
+		21BCA4B728257851005ECE0E /* NotificationListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BCA4B628257851005ECE0E /* NotificationListRowView.swift */; };
 		21C293E027E3670900307861 /* ProfileDiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C293DF27E3670900307861 /* ProfileDiscoverView.swift */; };
 		21D1D22A27E2667700F7A826 /* DiscoverVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1D22927E2667700F7A826 /* DiscoverVM.swift */; };
 		21D1D22C27E26C9900F7A826 /* DiscoverUserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1D22B27E26C9900F7A826 /* DiscoverUserRowView.swift */; };
@@ -63,6 +67,8 @@
 		2136B89C27CC501E00DD742C /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
+		217E7CD828270E40002FF5EB /* ReConNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConNotification.swift; sourceTree = "<group>"; };
+		217E7CDA28271222002FF5EB /* NotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVM.swift; sourceTree = "<group>"; };
 		218A8B8327E408ED00C23EBD /* UserSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsView.swift; sourceTree = "<group>"; };
 		2193B270280A43440079D78F /* FollowersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListView.swift; sourceTree = "<group>"; };
 		2193B272280A48340079D78F /* FollowingListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowingListView.swift; sourceTree = "<group>"; };
@@ -70,6 +76,8 @@
 		21AEB26627B8665C0041D58E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		21AEB26827B86C200041D58E /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		21BAD3CC27D5829B0051ED7C /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		21BCA4B428257446005ECE0E /* NotificationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListView.swift; sourceTree = "<group>"; };
+		21BCA4B628257851005ECE0E /* NotificationListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListRowView.swift; sourceTree = "<group>"; };
 		21C293DF27E3670900307861 /* ProfileDiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDiscoverView.swift; sourceTree = "<group>"; };
 		21D1D22927E2667700F7A826 /* DiscoverVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVM.swift; sourceTree = "<group>"; };
 		21D1D22B27E26C9900F7A826 /* DiscoverUserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserRowView.swift; sourceTree = "<group>"; };
@@ -134,6 +142,7 @@
 				21291CA727C2DB48000FDD49 /* MenuView.swift */,
 				21291CAC27C2E5EF000FDD49 /* ProfileView.swift */,
 				2136B89C27CC501E00DD742C /* DiscoverView.swift */,
+				21BCA4B428257446005ECE0E /* NotificationListView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 				21D1D22B27E26C9900F7A826 /* DiscoverUserRowView.swift */,
 				2193B270280A43440079D78F /* FollowersListView.swift */,
 				2193B272280A48340079D78F /* FollowingListView.swift */,
+				21BCA4B628257851005ECE0E /* NotificationListRowView.swift */,
 			);
 			path = Secondary;
 			sourceTree = "<group>";
@@ -157,6 +167,7 @@
 				2154735A27AF19B30008B882 /* AuthVM.swift */,
 				21291CAE27C2E5F8000FDD49 /* ProfileVM.swift */,
 				21D1D22927E2667700F7A826 /* DiscoverVM.swift */,
+				217E7CDA28271222002FF5EB /* NotificationVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				2154735D27AF19DF0008B882 /* ReConUser.swift */,
+				217E7CD828270E40002FF5EB /* ReConNotification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,9 +335,13 @@
 				2193B273280A48340079D78F /* FollowingListView.swift in Sources */,
 				21BAD3CD27D5829B0051ED7C /* PhotoPicker.swift in Sources */,
 				21291CA827C2DB48000FDD49 /* MenuView.swift in Sources */,
+				217E7CDB28271222002FF5EB /* NotificationVM.swift in Sources */,
+				21BCA4B528257446005ECE0E /* NotificationListView.swift in Sources */,
+				21BCA4B728257851005ECE0E /* NotificationListRowView.swift in Sources */,
 				2193B271280A43440079D78F /* FollowersListView.swift in Sources */,
 				2136B89B27CC268400DD742C /* EditProfileView.swift in Sources */,
 				21291CA227C2DB19000FDD49 /* CoreView.swift in Sources */,
+				217E7CD928270E40002FF5EB /* ReConNotification.swift in Sources */,
 				21291CAA27C2DE84000FDD49 /* CustomListRow.swift in Sources */,
 				2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */,
 				21D1D22C27E26C9900F7A826 /* DiscoverUserRowView.swift in Sources */,

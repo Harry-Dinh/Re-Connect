@@ -20,13 +20,16 @@ struct HomeView: View {
             VStack {
                 
             }
-            .navigationTitle("Re:Connect")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     VStack(alignment: .leading) {
                         Text(dateFormatter.string(from: Date()).uppercased())
                             .font(.footnote)
                             .foregroundColor(.secondary)
+                        Text("Re:Connect")
+                            .font(.title)
+                            .bold()
                     }
                     .padding(.top)
                 }
