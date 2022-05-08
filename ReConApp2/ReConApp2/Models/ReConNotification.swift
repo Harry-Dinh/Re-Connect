@@ -20,17 +20,15 @@ struct ReConNotification: Identifiable {
         title = ""
         subtitle = ""
         date = Date()
-        systemIcon = ""
         icon = ""
         type = .others
     }
     
-    init(title: String, subtitle: String, date: Date, systemIcon: String, type: NotificationType) {
+    init(title: String, subtitle: String, date: Date, type: NotificationType) {
         id = UUID()
         self.title = title
         self.subtitle = subtitle
         self.date = date
-        self.systemIcon = systemIcon
         icon = ""
         self.type = type
     }
@@ -40,17 +38,6 @@ struct ReConNotification: Identifiable {
         self.title = title
         self.subtitle = subtitle
         self.date = date
-        systemIcon = ""
-        self.icon = icon
-        self.type = type
-    }
-    
-    init(title: String, subtitle: String, date: Date, systemIcon: String, icon: String, type: NotificationType) {
-        id = UUID()
-        self.title = title
-        self.subtitle = subtitle
-        self.date = date
-        self.systemIcon = systemIcon
         self.icon = icon
         self.type = type
     }
@@ -59,7 +46,6 @@ struct ReConNotification: Identifiable {
     var title: String
     var subtitle: String
     var date: Date
-    var systemIcon: String
     var icon: String
     var type: NotificationType
     
@@ -69,6 +55,17 @@ struct ReConNotification: Identifiable {
             return "followerRequest"
         case .others:
             return "others"
+        }
+    }
+    
+    public static func stringToNotificationType(stringType: String) -> NotificationType? {
+        switch stringType {
+        case "followerRequest":
+            return .followerRequest
+        case "others":
+            return .others
+        default:
+            return nil
         }
     }
 }

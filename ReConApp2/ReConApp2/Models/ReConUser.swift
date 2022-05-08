@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ReConUser: Identifiable, Encodable, Decodable {
+struct ReConUser: Identifiable {
     var id: String
     
     
@@ -28,6 +28,7 @@ struct ReConUser: Identifiable, Encodable, Decodable {
         isPrivateAccount = false
         followers = []
         followings = []
+        notifications = []
     }
     
     init(firstName: String, lastName: String, username: String, email: String, bio: String, age: Int, gender: Int, followerCount: Int, followingCount: Int, firebaseUID: String, profilePicURL: String?, isPrivateAccount: Bool) {
@@ -47,6 +48,7 @@ struct ReConUser: Identifiable, Encodable, Decodable {
         self.isPrivateAccount = isPrivateAccount
         followers = []
         followings = []
+        notifications = []
     }
     
     /// The user's first name
@@ -93,4 +95,7 @@ struct ReConUser: Identifiable, Encodable, Decodable {
     
     /// An array of `ReConUser` containing the users that this user followed
     var followings: [ReConUser]
+    
+    /// An array of `ReConNotification` containing the notifications of this user
+    var notifications: [ReConNotification]
 }

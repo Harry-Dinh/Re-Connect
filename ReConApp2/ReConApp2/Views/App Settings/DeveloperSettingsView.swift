@@ -14,6 +14,10 @@ struct DeveloperSettingsView: View {
             Button("Print following Firebase UID") {
                 ProfileVM.shared.fetchFollowings()
             }
+            
+            Button("Get notifications") {
+                NotificationVM.shared.getNotificationsFrom(user: ProfileVM.shared.user)
+            }
         }
         .navigationTitle("Developer")
     }

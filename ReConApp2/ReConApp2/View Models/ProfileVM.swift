@@ -62,40 +62,40 @@ class ProfileVM: ObservableObject {
     
     // Writing and reading objects from UserDefaults curtisey of: https://medium.com/@herlinaastari/store-a-custom-object-with-userdefaults-in-swift-5-2bbacfd92c8a
     
-    /// Write the current user as a `ReConUser` object to `UserDefaults`. Note that the `getCurrentUserInfo()` method had to run before calling this method.
-    public func writeUserToDefaults() {
-        do {
-            let user = ProfileVM.shared.user
-            let encoder = JSONEncoder()
-            let data = try encoder.encode(user)
-            UserDefaults.standard.set(data, forKey: "currentUser")
-            print("Successfully write data to UserDefaults")
-        }
-        catch {
-            print("Cannot write user info to UserDefaults")
-        }
-    }
-    
-    /// Read the data of the current user from `UserDefaults` then write it to a `ReConUser` object that will be returned.
-    /// - Returns: An optional `ReConUser` object (the data can be `nil` and therefore the object is optional to prevent crashes.)
-    public func readUserFromDefaults() -> ReConUser? {
-        guard let data = UserDefaults.standard.data(forKey: "currentUser") else {
-            print("Cannot read user data")
-            return nil
-        }
-        
-        do {
-            let decoder = JSONDecoder()
-            let user = try decoder.decode(ReConUser.self, from: data)
-            print("Successfully read data to UserDefaults")
-            return user
-        }
-        catch {
-            print("Cannot read the user data or key does not exist")
-        }
-        
-        return nil
-    }
+//    /// Write the current user as a `ReConUser` object to `UserDefaults`. Note that the `getCurrentUserInfo()` method had to run before calling this method.
+//    public func writeUserToDefaults() {
+//        do {
+//            let user = ProfileVM.shared.user
+//            let encoder = JSONEncoder()
+//            let data = try encoder.encode(user)
+//            UserDefaults.standard.set(data, forKey: "currentUser")
+//            print("Successfully write data to UserDefaults")
+//        }
+//        catch {
+//            print("Cannot write user info to UserDefaults")
+//        }
+//    }
+//    
+//    /// Read the data of the current user from `UserDefaults` then write it to a `ReConUser` object that will be returned.
+//    /// - Returns: An optional `ReConUser` object (the data can be `nil` and therefore the object is optional to prevent crashes.)
+//    public func readUserFromDefaults() -> ReConUser? {
+//        guard let data = UserDefaults.standard.data(forKey: "currentUser") else {
+//            print("Cannot read user data")
+//            return nil
+//        }
+//        
+//        do {
+//            let decoder = JSONDecoder()
+//            let user = try decoder.decode(ReConUser.self, from: data)
+//            print("Successfully read data to UserDefaults")
+//            return user
+//        }
+//        catch {
+//            print("Cannot read the user data or key does not exist")
+//        }
+//        
+//        return nil
+//    }
     
     public func returnUserInfo(firebaseUID: String, completion: @escaping (ReConUser?) -> Void) {
         var followingUser: ReConUser = ReConUser()

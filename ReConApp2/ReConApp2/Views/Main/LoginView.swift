@@ -24,7 +24,7 @@ struct LoginView: View {
                     Text("Re:Connect")
                         .font(.custom("Inter", size: 34, relativeTo: .largeTitle))
                         .fontWeight(.semibold)
-                    Text("The world's most secure social media")
+                    Text("A fresh start to a new era")
                         .font(.custom("Inter", size: 17, relativeTo: .body))
                 }
                 

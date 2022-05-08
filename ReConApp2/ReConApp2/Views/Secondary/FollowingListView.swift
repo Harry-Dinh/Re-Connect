@@ -39,7 +39,12 @@ struct FollowingsListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Done") { presentationMode.wrappedValue.dismiss() }
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Text("Done")
+                            .fontWeight(.semibold)
+                    }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {

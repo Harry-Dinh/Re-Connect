@@ -22,7 +22,7 @@ struct ContentView: View {
                     ProfileVM.getCurrentUserInfo()
                     ProfileVM.shared.fetchFollowers()
                     ProfileVM.shared.fetchFollowings()
-                    ProfileVM.shared.writeUserToDefaults()
+//                    ProfileVM.shared.writeUserToDefaults()
                     DiscoverVM.shared.getAllUsers()
                 }
         }
