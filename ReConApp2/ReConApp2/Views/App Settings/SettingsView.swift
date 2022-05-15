@@ -22,7 +22,7 @@ struct SettingsView: View {
                 }
                 
                 NavigationLink(destination: PrivacySecuritySettingsView()) {
-                    CustomListRow(title: "Privacy & Security", iconName: "hand.raised.fill", tintColor: .primary)
+                    CustomListRow(title: "Privacy & Security", iconName: "lock.fill", tintColor: .primary)
                 }
             }
             

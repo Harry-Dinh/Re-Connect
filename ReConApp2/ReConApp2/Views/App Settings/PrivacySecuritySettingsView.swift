@@ -15,7 +15,7 @@ struct PrivacySecuritySettingsView: View {
         Form {
             Section(footer: Text("Use Touch ID or Face ID for editing your Re:Connect profile and locking the app.")) {
                 Toggle(isOn: $biometricEnabled) {
-                    Text("Use Touch/Face ID")
+                    Text("Use Touch ID/Face ID")
                 }
             }
             

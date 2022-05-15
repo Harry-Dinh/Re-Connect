@@ -13,12 +13,32 @@ struct NotificationListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(notificationList) { notification in
-                    NotificationListRowView(notification: notification)
+            ZStack {
+                if notificationList.isEmpty {
+                    VStack {
+                        Image(systemName: "checkmark.circle.fill")
+                        Text("No new notifications. You're caught up!")
+                    }
+                    .foregroundColor(.secondary)
+                }
+                else {
+                    List {
+                        ForEach(notificationList) { notification in
+                            NotificationListRowView(notification: notification)
+                        }
+                    }
+                    .listStyle(.plain)
+                    .refreshable {
+                        NotificationVM.shared.getNotificationsFrom(user: ProfileVM.shared.user) { list in
+                            guard let list = list else {
+                                return
+                            }
+
+                            ProfileVM.shared.user.notifications = list
+                        }
+                    }
                 }
             }
-            .listStyle(.plain)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -26,9 +46,25 @@ struct NotificationListView: View {
                         .font(.title)
                         .bold()
                 }
-            }
-            .refreshable {
-                NotificationVM.shared.getNotificationsFrom(user: ProfileVM.shared.user)
+                
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    if notificationList.isEmpty {
+                        Button(action: {
+                            NotificationVM.shared.getNotificationsFrom(user: ProfileVM.shared.user) { list in
+                                guard let list = list else {
+                                    return
+                                }
+
+                                ProfileVM.shared.user.notifications = list
+                            }
+                        }) {
+                            Image(systemName: "arrow.clockwise")
+                        }
+                    }
+                    else {
+                        EditButton()
+                    }
+                }
             }
         }
     }

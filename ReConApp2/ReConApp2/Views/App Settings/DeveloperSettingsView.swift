@@ -16,7 +16,13 @@ struct DeveloperSettingsView: View {
             }
             
             Button("Get notifications") {
-                NotificationVM.shared.getNotificationsFrom(user: ProfileVM.shared.user)
+                NotificationVM.shared.getNotificationsFrom(user: ProfileVM.shared.user) { list in
+                    guard let list = list else {
+                        return
+                    }
+
+                    ProfileVM.shared.user.notifications = list
+                }
             }
         }
         .navigationTitle("Developer")

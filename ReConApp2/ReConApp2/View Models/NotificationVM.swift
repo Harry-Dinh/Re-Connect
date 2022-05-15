@@ -35,13 +35,16 @@ class NotificationVM: ObservableObject {
         databaseRef.child("ReConUsers").child(user.firebaseUID).child("Notifications").childByAutoId().updateChildValues(userNotification)
     }
     
-    public func getNotificationsFrom(user: ReConUser) {
+    public func getNotificationsFrom(user: ReConUser, completion: @escaping ([ReConNotification]?) -> Void) {
         ProfileVM.shared.user.notifications = []
+        var notifications: [ReConNotification] = []
+        var notification = ReConNotification()
         
         databaseRef.child("ReConUsers").child(user.firebaseUID).child("Notifications").observeSingleEvent(of: .value) { snapshot in
             for case let child as DataSnapshot in snapshot.children {
                 guard let value = child.value as? [String: Any] else {
                     print("No notifcation values")
+                    completion(nil)
                     return
                 }
                 
@@ -64,9 +67,11 @@ class NotificationVM: ObservableObject {
                     icon = icon.replacingOccurrences(of: "-", with: ".")
                 }
                 
-                let notifi = ReConNotification(title: title, subtitle: subtitle, date: date, icon: icon, type: ReConNotification.stringToNotificationType(stringType: type)!)
-
-                ProfileVM.shared.user.notifications.append(notifi)
+                notification = ReConNotification(title: title, subtitle: subtitle, date: date, icon: icon, type: ReConNotification.stringToNotificationType(stringType: type)!)
+                
+                notifications.append(notification)
+                
+                completion(notifications)
             }
         }
     }

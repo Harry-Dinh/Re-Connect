@@ -41,12 +41,6 @@ struct UserSettingsView: View {
                 }
             }
             
-            Section {
-                Button(action: {}) {
-                    Label("Contact Support", systemImage: "phone")
-                }
-            }
-            
             Section(header: Text("Account Options")) {
                 Button(action: {
                     AuthVM.signOut()
@@ -56,6 +50,10 @@ struct UserSettingsView: View {
                 
                 Button(action: {}) {
                     Label("Change Email or Password...", systemImage: "rectangle.and.pencil.and.ellipsis")
+                }
+                
+                Button(action: {}) {
+                    Label("Contact Support", systemImage: "phone")
                 }
             }
             

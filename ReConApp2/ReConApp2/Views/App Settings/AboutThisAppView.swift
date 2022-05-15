@@ -33,15 +33,13 @@ struct AboutThisAppView: View {
                     Spacer()
                     Text("1.0 (beta)")
                         .foregroundColor(.secondary)
-                        .font(.subheadline)
                 }
                 
                 HStack {
                     Text("Build ID")
                     Spacer()
-                    Text("22M81742")
+                    Text("22M142211")
                         .foregroundColor(.secondary)
-                        .font(.subheadline)
                 }
             }
             
