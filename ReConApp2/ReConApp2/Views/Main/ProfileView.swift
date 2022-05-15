@@ -146,9 +146,12 @@ struct ProfileView: View {
             .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {}) {
+                    Button(action: {
+                        vm.showQRCodeScanner.toggle()
+                    }) {
                         Image(systemName: "qrcode")
                     }
+                    .sheet(isPresented: $vm.showQRCodeScanner, content: QRCodeScannerView.init)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {

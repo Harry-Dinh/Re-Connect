@@ -22,6 +22,8 @@ struct DeveloperSettingsView: View {
                     }
 
                     ProfileVM.shared.user.notifications = list
+                    
+                    print(ProfileVM.shared.user.notifications)
                 }
             }
         }

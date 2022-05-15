@@ -9,32 +9,38 @@ import SwiftUI
 
 struct NotificationListView: View {
     
-    var notificationList: [ReConNotification]
+    var user: ReConUser
+    @ObservedObject private var profileVM = ProfileVM.shared
+    @ObservedObject private var notificationVM = NotificationVM.shared
     
     var body: some View {
         NavigationView {
             ZStack {
-                if notificationList.isEmpty {
-                    VStack {
+                if user.notifications.isEmpty {
+                    VStack(spacing: 5) {
                         Image(systemName: "checkmark.circle.fill")
+                            .foregroundStyle(.white, .green)
+                            .font(.title2)
+                        
                         Text("No new notifications. You're caught up!")
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                            .font(.title3)
                     }
-                    .foregroundColor(.secondary)
+                    .padding()
+                    .navigationBarTitleDisplayMode(.inline)
                 }
                 else {
-                    List {
-                        ForEach(notificationList) { notification in
-                            NotificationListRowView(notification: notification)
-                        }
+                    List(user.notifications) { notification in
+                        NotificationListRowView(notification: notification)
                     }
                     .listStyle(.plain)
                     .refreshable {
-                        NotificationVM.shared.getNotificationsFrom(user: ProfileVM.shared.user) { list in
-                            guard let list = list else {
+                        notificationVM.getNotificationsFrom(user: profileVM.user) { notifications in
+                            guard let notifications = notifications else {
                                 return
                             }
-
-                            ProfileVM.shared.user.notifications = list
+                            profileVM.user.notifications = notifications
                         }
                     }
                 }
@@ -43,19 +49,18 @@ struct NotificationListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("Notifications")
-                        .font(.title)
                         .bold()
+                        .font(.title)
                 }
                 
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    if notificationList.isEmpty {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if user.notifications.isEmpty {
                         Button(action: {
-                            NotificationVM.shared.getNotificationsFrom(user: ProfileVM.shared.user) { list in
-                                guard let list = list else {
+                            notificationVM.getNotificationsFrom(user: profileVM.user) { notifications in
+                                guard let notifications = notifications else {
                                     return
                                 }
-
-                                ProfileVM.shared.user.notifications = list
+                                profileVM.user.notifications = notifications
                             }
                         }) {
                             Image(systemName: "arrow.clockwise")
@@ -66,12 +71,21 @@ struct NotificationListView: View {
                     }
                 }
             }
+            .onAppear {
+                notificationVM.getNotificationsFrom(user: profileVM.user) { notifications in
+                    guard let notifications = notifications else {
+                        return
+                    }
+                    profileVM.user.notifications = notifications
+                }
+            }
         }
     }
 }
 
 struct NotificationListView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationListView(notificationList: [])
+        NotificationListView(user: ReConUser())
+            .preferredColorScheme(.dark)
     }
 }

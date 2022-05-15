@@ -47,6 +47,7 @@ struct NotificationListRowView: View {
                     .controlSize(.small)
                 }
             }
+            .padding(.vertical, 7)
         }
         else {
             

@@ -20,7 +20,7 @@ struct CoreView: View {
                 ProfileView()
                     .tabItem { Label("Profile", systemImage: "person.crop.circle") }
                 
-                NotificationListView(notificationList: ProfileVM.shared.user.notifications)
+                NotificationListView(user: ProfileVM.shared.user)
                     .tabItem { Label("Notifications", systemImage: "bell.badge") }
                 
                 MenuView()

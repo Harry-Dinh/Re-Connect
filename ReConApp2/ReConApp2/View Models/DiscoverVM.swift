@@ -71,14 +71,7 @@ class DiscoverVM: ObservableObject {
             //----------------------------
             let notificationTitle = "\(currentUser.fullName) has requested to follow you"
             let date = Date()
-            var icon: String
-            
-            if currentUser.profilePicURL == "" {
-                icon = "person.crop.circle.fill"
-            }
-            else {
-                icon = currentUser.profilePicURL!
-            }
+            let icon: String = "person.fill.questionmark"
             
             let notification = ReConNotification(title: notificationTitle, subtitle: "", date: date, icon: icon, type: .followerRequest)
             

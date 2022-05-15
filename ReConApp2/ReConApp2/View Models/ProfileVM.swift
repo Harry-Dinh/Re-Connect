@@ -36,6 +36,8 @@ class ProfileVM: ObservableObject {
     @Published var showEditPfpSpinner = false
     @Published var showFollowersList = false
     @Published var showFollowingList = false
+    @Published var showQRCodeScanner = false
+    
     @AppStorage("biometricEnabled") var biometricEnabled = false
     
     public func updateUserInfo(user: ReConUser) {
@@ -181,6 +183,7 @@ class ProfileVM: ObservableObject {
                 let profilePicURL = value["profile_pic_url"] as? String ?? ""
                 let isPrivateAccount = value["isPrivateAccount"] as? Bool ?? false
                 
+                // Initialize the user object with the fetched data
                 ProfileVM.shared.user = ReConUser(firstName: firstName, lastName: lastName, username: username, email: email, bio: bio, age: age, gender: gender, followerCount: followers, followingCount: followings, firebaseUID: firebase_uid, profilePicURL: profilePicURL, isPrivateAccount: isPrivateAccount)
             }
         }

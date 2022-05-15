@@ -20,6 +20,8 @@
 		21291CAF27C2E5F8000FDD49 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21291CAE27C2E5F8000FDD49 /* ProfileVM.swift */; };
 		2136B89B27CC268400DD742C /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2136B89A27CC268400DD742C /* EditProfileView.swift */; };
 		2136B89D27CC501E00DD742C /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2136B89C27CC501E00DD742C /* DiscoverView.swift */; };
+		214264EF283184240060A983 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214264EE283184240060A983 /* QRCodeScannerView.swift */; };
+		214264F1283185980060A983 /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214264F0283185980060A983 /* CustomLabelView.swift */; };
 		2154735B27AF19B30008B882 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735A27AF19B30008B882 /* AuthVM.swift */; };
 		2154735E27AF19DF0008B882 /* ReConUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2154735D27AF19DF0008B882 /* ReConUser.swift */; };
 		217E7CD928270E40002FF5EB /* ReConNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217E7CD828270E40002FF5EB /* ReConNotification.swift */; };
@@ -65,6 +67,8 @@
 		21291CAE27C2E5F8000FDD49 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		2136B89A27CC268400DD742C /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		2136B89C27CC501E00DD742C /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		214264EE283184240060A983 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerView.swift; sourceTree = "<group>"; };
+		214264F0283185980060A983 /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
 		2154735A27AF19B30008B882 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
 		2154735D27AF19DF0008B882 /* ReConUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConUser.swift; sourceTree = "<group>"; };
 		217E7CD828270E40002FF5EB /* ReConNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConNotification.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				21AEB26827B86C200041D58E /* CustomEmptyView.swift */,
 				21202E6227BC64A0006A1A19 /* CustomTextField.swift */,
 				21291CA927C2DE84000FDD49 /* CustomListRow.swift */,
+				214264F0283185980060A983 /* CustomLabelView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				2193B270280A43440079D78F /* FollowersListView.swift */,
 				2193B272280A48340079D78F /* FollowingListView.swift */,
 				21BCA4B628257851005ECE0E /* NotificationListRowView.swift */,
+				214264EE283184240060A983 /* QRCodeScannerView.swift */,
 			);
 			path = Secondary;
 			sourceTree = "<group>";
@@ -348,7 +354,9 @@
 				21291CA427C2DB38000FDD49 /* HomeView.swift in Sources */,
 				2154735B27AF19B30008B882 /* AuthVM.swift in Sources */,
 				21D4AA8E27AE25EE00684886 /* ContentView.swift in Sources */,
+				214264F1283185980060A983 /* CustomLabelView.swift in Sources */,
 				21AEB26727B8665C0041D58E /* LoginView.swift in Sources */,
+				214264EF283184240060A983 /* QRCodeScannerView.swift in Sources */,
 				21202E6527BC67BC006A1A19 /* RegisterView.swift in Sources */,
 				21291CAF27C2E5F8000FDD49 /* ProfileVM.swift in Sources */,
 				21D4AA8C27AE25CF00684886 /* ReConApp2.swift in Sources */,
@@ -488,7 +496,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22M142211;
+				CURRENT_PROJECT_VERSION = 22M151427;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConApp2/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
@@ -522,7 +530,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22M142211;
+				CURRENT_PROJECT_VERSION = 22M151427;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConApp2/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;

@@ -38,7 +38,7 @@ struct AboutThisAppView: View {
                 HStack {
                     Text("Build ID")
                     Spacer()
-                    Text("22M142211")
+                    Text("22M151427")
                         .foregroundColor(.secondary)
                 }
             }

@@ -17,6 +17,22 @@ struct RegisterView: View {
         NavigationView {
             ZStack {
                 List {
+                    VStack(spacing: 5) {
+                        Image(systemName: "person.crop.circle.badge.plus")
+                            .font(.system(size: 70))
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundColor(.accentColor)
+                        
+                        HStack {
+                            Spacer()
+                            Text("Create New Account")
+                                .font(.title)
+                                .bold()
+                            Spacer()
+                        }
+                    }
+                    .listRowSeparator(.hidden)
+                    
                     Section(header: Label("Basic Info", systemImage: "info.circle")) {
                         CustomTextField(text: $vm.firstName, placeholder: "First name", isSecureTextEntry: false)
                             .disableAutocorrection(true)
@@ -59,7 +75,6 @@ struct RegisterView: View {
                     .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
-                .navigationTitle("Create New Account")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -89,12 +104,13 @@ struct RegisterView: View {
                         }) {
                             Text("Create Account")
                                 .fontWeight(.semibold)
-                                .frame(maxWidth: 300)
+                                .frame(maxWidth: 285)
                         }
-                        .ignoresSafeArea()
+                        .ignoresSafeArea(.container)
                         .buttonStyle(.borderedProminent)
                         .controlSize(.large)
                     }
+                    .padding(.bottom)
                 }
             }
         }
