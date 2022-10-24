@@ -40,7 +40,7 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    ForEach(objManager.lists) { list in
+                    ForEach(objManager.userLists) { list in
                         NavigationLink(destination: ListDetailedView(listItem: list)) {
                             Label {
                                 Text(list.icon)

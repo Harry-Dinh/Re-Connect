@@ -10,7 +10,7 @@ import Foundation
 class ObjectManager: ObservableObject {
     static let current = ObjectManager()
     
-    public var lists: [ListItem] = []
+    public var userLists: [ListItem] = []
     
     public var systemLists: [ListItem] = [
         ListItem(id: "0001", name: "Inbox", icon: "📥", tasks: []),
