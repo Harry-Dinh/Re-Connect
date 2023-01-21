@@ -11,5 +11,5 @@ import SwiftUI
 class ContentVM: ObservableObject {
     public static let shared = ContentVM()
     
-    @State public var newListAction = false
+    @Published var newListAction = false
 }

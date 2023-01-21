@@ -12,12 +12,12 @@ struct SidebarView: View {
     @ObservedObject var runtimeManager = RuntimeManager.shared
     
     var body: some View {
-        List(runtimeManager.todoLists) { list in
-            Label(list.name, systemImage: "list.bullet")
-        }
-        .listStyle(.sidebar)
-        .refreshable {
-            runtimeManager.refreshListArray()
+        List {
+            ForEach(runtimeManager.todoLists) { list in
+                NavigationLink(destination: ListDetailView(list: list)) {
+                    SidebarRowView(listName: list.name)
+                }
+            }
         }
     }
 }

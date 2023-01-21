@@ -23,4 +23,6 @@ struct ToDoItem: Identifiable {
         self.name = name
         self.isCompleted = false
     }
+    
+    public static let example = ToDoItem(name: "Milk")
 }

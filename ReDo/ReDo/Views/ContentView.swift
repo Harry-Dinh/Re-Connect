@@ -15,20 +15,38 @@ struct ContentView: View {
         NavigationSplitView {
             SidebarView()
         } detail: {
-            EmptyView()
+            ListDetailView(list: nil)
         }
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Menu {
-                    Button("New List...") {
-                        contentVM.newListAction.toggle()
+            
+            ToolbarItemGroup(placement: .automatic) {
+                Button(action: {}) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+                
+                Group {
+                    Menu {
+                        Button("Edit List...") {}
+                        Button("Duplicate List") {}
+                        Button("Delete List...") {}
+                        Button("Save as Template...") {}
+                        Divider()
+                        Button("Print...") {}
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
                     }
-                    Button("New To Do...") {}
-                } label: {
-                    Image(systemName: "plus")
+                    
+                    Menu {
+                        Button("New List...") {
+                            contentVM.newListAction.toggle()
+                        }
+                        Button("New To Do...") {}
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .sheet(isPresented: $contentVM.newListAction, content: CreateListView.init)
                 }
                 .menuIndicator(.hidden)
-                .sheet(isPresented: $contentVM.newListAction, content: CreateListView.init)
             }
         }
     }

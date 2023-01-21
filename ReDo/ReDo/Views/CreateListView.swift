@@ -10,17 +10,23 @@ import SwiftUI
 struct CreateListView: View {
     
     @State private var listName = ""
+    @State private var listColor = Color.accentColor
+    
     @Environment(\.dismiss) var dismiss
     @ObservedObject var runtimeManager = RuntimeManager.shared
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: 15) {
             Text("Create New List")
                 .font(.title3)
                 .bold()
             
             TextField("List name", text: $listName)
                 .textFieldStyle(.roundedBorder)
+            
+            ColorPicker("List Color", selection: $listColor)
+            
+            // Navigation Buttons
             
             HStack {
                 Spacer()
@@ -35,6 +41,7 @@ struct CreateListView: View {
                     dismiss.callAsFunction()
                 }
                 .keyboardShortcut(.defaultAction)
+                .disabled(listName.isEmpty)
             }
         }
         .padding()

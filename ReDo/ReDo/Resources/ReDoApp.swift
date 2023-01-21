@@ -14,18 +14,20 @@ struct ReDoApp: App {
             ContentView()
         }
         .commands {
-            CommandGroup(before: .systemServices) {
-                Button("Refresh Sidebar") {
-                    RuntimeManager.shared.refreshListArray()
-                }
-                .keyboardShortcut("r")
-            }
-            
             CommandGroup(replacing: .newItem) {
                 Button("New To Do...") {}
                     .keyboardShortcut("n")
-                Button("New List...") {}
-                    .keyboardShortcut("n", modifiers: [.shift, .command])
+                Button("New List...") {
+                    ContentVM.shared.newListAction.toggle()
+                }
+                .keyboardShortcut("n", modifiers: [.shift, .command])
+                
+//                Divider()
+//                
+//                Button("Refresh Sidebar") {
+//                    RuntimeManager.shared.refreshListArray()
+//                }
+//                .keyboardShortcut("r")
             }
             
             CommandGroup(after: .newItem) {
@@ -34,6 +36,12 @@ struct ReDoApp: App {
                     .keyboardShortcut(.delete)
                 Button("Delete List...") {}
                     .keyboardShortcut(.delete, modifiers: [.shift, .command])
+            }
+            
+            CommandMenu("Debug") {
+                Button("Print Lists in Array") {
+                    RuntimeManager.shared.printlist()
+                }
             }
         }
         

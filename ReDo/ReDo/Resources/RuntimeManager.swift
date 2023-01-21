@@ -10,7 +10,7 @@ import Foundation
 class RuntimeManager: ObservableObject {
     public static let shared = RuntimeManager()
     
-    public var todoLists: [ToDoList] = []
+    @Published var todoLists: [ToDoList] = []
     
     public func createList(listName: String) {
         let list = ToDoList(name: listName)
@@ -18,8 +18,13 @@ class RuntimeManager: ObservableObject {
         print("Item added successfully")
     }
     
+    public func printlist() {
+        print(todoLists)
+    }
+    
     public func refreshListArray() {
         let list = todoLists
+        todoLists = []
         todoLists = list
         print("Refreshed the array")
     }

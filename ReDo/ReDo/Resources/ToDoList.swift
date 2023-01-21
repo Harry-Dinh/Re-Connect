@@ -23,4 +23,6 @@ struct ToDoList: Identifiable {
         self.name = name
         self.todos = []
     }
+    
+    public static let example = ToDoList(name: "Groceries")
 }
