@@ -21,6 +21,7 @@
 		215BCED12975FF010094864E /* RuntimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215BCED02975FF010094864E /* RuntimeManager.swift */; };
 		215BCED32975FF840094864E /* CreateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215BCED22975FF840094864E /* CreateListView.swift */; };
 		215BCED52976070E0094864E /* ContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215BCED42976070E0094864E /* ContentVM.swift */; };
+		219F304F297CA6AC00FAA95D /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F304E297CA6AC00FAA95D /* CreateTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		215BCED02975FF010094864E /* RuntimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeManager.swift; sourceTree = "<group>"; };
 		215BCED22975FF840094864E /* CreateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListView.swift; sourceTree = "<group>"; };
 		215BCED42976070E0094864E /* ContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentVM.swift; sourceTree = "<group>"; };
+		219F304E297CA6AC00FAA95D /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				215BCED22975FF840094864E /* CreateListView.swift */,
 				215BCEC62975FB540094864E /* SidebarView.swift */,
 				2105EEA5297C595B0008FFFD /* ListDetailView.swift */,
+				219F304E297CA6AC00FAA95D /* CreateTaskView.swift */,
 				215BCECA2975FC180094864E /* SettingsView.swift */,
 				2105EEA3297C58A80008FFFD /* SidebarRowView.swift */,
 			);
@@ -192,6 +195,7 @@
 				215BCED32975FF840094864E /* CreateListView.swift in Sources */,
 				215BCECF2975FCC60094864E /* ToDoItem.swift in Sources */,
 				2105EEA6297C595B0008FFFD /* ListDetailView.swift in Sources */,
+				219F304F297CA6AC00FAA95D /* CreateTaskView.swift in Sources */,
 				215BCECD2975FCAA0094864E /* ToDoList.swift in Sources */,
 				215BCED12975FF010094864E /* RuntimeManager.swift in Sources */,
 				215BCED52976070E0094864E /* ContentVM.swift in Sources */,

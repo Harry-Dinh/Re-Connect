@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var contentVM = ContentVM.shared
+    @Environment(\.openWindow) var openWindow
     
     var body: some View {
         NavigationSplitView {
@@ -40,7 +41,13 @@ struct ContentView: View {
                         Button("New List...") {
                             contentVM.newListAction.toggle()
                         }
-                        Button("New To Do...") {}
+                        Button("New Task...") {
+                            contentVM.newTaskAction.toggle()
+                            
+                            if (contentVM.newTaskAction || !contentVM.newTaskAction) {
+                                openWindow.callAsFunction(id: "newTaskScreen")
+                            }
+                        }
                     } label: {
                         Image(systemName: "plus")
                     }

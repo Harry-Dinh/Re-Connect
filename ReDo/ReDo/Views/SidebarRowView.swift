@@ -9,20 +9,22 @@ import SwiftUI
 
 struct SidebarRowView: View {
     
-    var listName: String
+    var list: ToDoList
+    var icon: String
     
     var body: some View {
         HStack {
-            Image(systemName: "list.bullet.circle")
-                .font(.title)
-            Text(listName)
+            Image(systemName: icon)
+//                .font(.title3)
+                .foregroundColor(list.color)
+            Text(list.name)
         }
     }
 }
 
 struct SidebarRowView_Previews: PreviewProvider {
     static var previews: some View {
-        SidebarRowView(listName: "Groceries")
+        SidebarRowView(list: ToDoList.example, icon: "list.bullet")
             .padding()
     }
 }

@@ -36,7 +36,7 @@ struct CreateListView: View {
                 }
                 .keyboardShortcut(.escape)
                 Button("Done") {
-                    runtimeManager.createList(listName: listName)
+                    runtimeManager.createList(listName: listName, color: listColor)
                     listName = ""
                     dismiss.callAsFunction()
                 }

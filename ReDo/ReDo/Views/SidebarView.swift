@@ -13,10 +13,18 @@ struct SidebarView: View {
     
     var body: some View {
         List {
-            ForEach(runtimeManager.todoLists) { list in
-                NavigationLink(destination: ListDetailView(list: list)) {
-                    SidebarRowView(listName: list.name)
+            NavigationLink(destination: ListDetailView(list: runtimeManager.inbox)) {
+                SidebarRowView(list: runtimeManager.inbox, icon: "tray")
+            }
+            
+            Section {
+                ForEach(runtimeManager.todoLists) { list in
+                    NavigationLink(destination: ListDetailView(list: list)) {
+                        SidebarRowView(list: list, icon: "list.bullet")
+                    }
                 }
+            } header: {
+                Text("My Lists")
             }
         }
     }

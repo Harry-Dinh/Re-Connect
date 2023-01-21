@@ -6,14 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
 class RuntimeManager: ObservableObject {
     public static let shared = RuntimeManager()
     
     @Published var todoLists: [ToDoList] = []
+    @Published var inbox: ToDoList = ToDoList(name: "Inbox", color: Color.accentColor)
     
-    public func createList(listName: String) {
-        let list = ToDoList(name: listName)
+    public func createList(listName: String, color: Color) {
+        let list = ToDoList(name: listName, color: color)
         todoLists.append(list)
         print("Item added successfully")
     }

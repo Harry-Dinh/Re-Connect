@@ -15,7 +15,9 @@ struct ReDoApp: App {
         }
         .commands {
             CommandGroup(replacing: .newItem) {
-                Button("New To Do...") {}
+                Button("New Task...") {
+                    ContentVM.shared.newTaskAction.toggle()
+                }
                     .keyboardShortcut("n")
                 Button("New List...") {
                     ContentVM.shared.newListAction.toggle()
@@ -33,7 +35,7 @@ struct ReDoApp: App {
             CommandGroup(after: .newItem) {
                 Divider()
                 Button("Delete To Do") {}
-                    .keyboardShortcut(.delete)
+                    .keyboardShortcut(.delete, modifiers: [])
                 Button("Delete List...") {}
                     .keyboardShortcut(.delete, modifiers: [.shift, .command])
             }
@@ -44,6 +46,11 @@ struct ReDoApp: App {
                 }
             }
         }
+        
+        Window("Create New Task", id: "newTaskScreen") {
+            CreateTaskView()
+        }
+        .windowResizability(.contentSize)
         
         Settings {
             SettingsView()
