@@ -13,6 +13,10 @@ class RuntimeManager: ObservableObject {
     
     @Published var todoLists: [ToDoList] = []
     @Published var inbox: ToDoList = ToDoList(name: "Inbox", color: Color.accentColor)
+    @Published var todayList: ToDoList = ToDoList(name: "Today", color: Color.yellow)
+    
+    public var inboxID: String = ""
+    public var todayID: String = ""
     
     public func createList(listName: String, color: Color) {
         let list = ToDoList(name: listName, color: color)

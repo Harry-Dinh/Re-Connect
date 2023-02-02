@@ -56,6 +56,11 @@ struct ContentView: View {
                 .menuIndicator(.hidden)
             }
         }
+        .onAppear {
+            print("on appear called")
+            RuntimeManager.shared.inboxID = RuntimeManager.shared.inbox.id
+            RuntimeManager.shared.todayID = RuntimeManager.shared.todayList.id
+        }
     }
 }
 

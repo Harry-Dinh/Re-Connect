@@ -17,6 +17,10 @@ struct SidebarView: View {
                 SidebarRowView(list: runtimeManager.inbox, icon: "tray")
             }
             
+            NavigationLink(destination: ListDetailView(list: runtimeManager.todayList)) {
+                SidebarRowView(list: runtimeManager.todayList, icon: "star")
+            }
+            
             Section {
                 ForEach(runtimeManager.todoLists) { list in
                     NavigationLink(destination: ListDetailView(list: list)) {

@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct ReDoApp: App {
+    
+    @Environment(\.openWindow) var openWindow
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -16,20 +19,13 @@ struct ReDoApp: App {
         .commands {
             CommandGroup(replacing: .newItem) {
                 Button("New Task...") {
-                    ContentVM.shared.newTaskAction.toggle()
+                    openWindow.callAsFunction(id: "newTaskScreen")
                 }
                     .keyboardShortcut("n")
                 Button("New List...") {
                     ContentVM.shared.newListAction.toggle()
                 }
                 .keyboardShortcut("n", modifiers: [.shift, .command])
-                
-//                Divider()
-//                
-//                Button("Refresh Sidebar") {
-//                    RuntimeManager.shared.refreshListArray()
-//                }
-//                .keyboardShortcut("r")
             }
             
             CommandGroup(after: .newItem) {

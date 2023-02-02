@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateTaskView: View {
     
     @State private var taskName = ""
+    @ObservedObject private var runtime = RuntimeManager.shared
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
