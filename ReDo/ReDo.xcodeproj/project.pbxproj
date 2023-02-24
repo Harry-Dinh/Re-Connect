@@ -21,6 +21,7 @@
 		215BCED12975FF010094864E /* RuntimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215BCED02975FF010094864E /* RuntimeManager.swift */; };
 		215BCED32975FF840094864E /* CreateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215BCED22975FF840094864E /* CreateListView.swift */; };
 		215BCED52976070E0094864E /* ContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215BCED42976070E0094864E /* ContentVM.swift */; };
+		217F7CB529A9614F005AD71E /* SettingsGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F7CB429A9614F005AD71E /* SettingsGeneralView.swift */; };
 		219F304F297CA6AC00FAA95D /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F304E297CA6AC00FAA95D /* CreateTaskView.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +29,7 @@
 		2105EEA3297C58A80008FFFD /* SidebarRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarRowView.swift; sourceTree = "<group>"; };
 		2105EEA5297C595B0008FFFD /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		2105EEA7297C5E9D0008FFFD /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
-		215BCEB42975FAF80094864E /* ReDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		215BCEB42975FAF80094864E /* Re:Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Re:Tasks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		215BCEB72975FAF80094864E /* ReDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReDoApp.swift; sourceTree = "<group>"; };
 		215BCEB92975FAF80094864E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		215BCEBB2975FAFA0094864E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,6 +42,7 @@
 		215BCED02975FF010094864E /* RuntimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeManager.swift; sourceTree = "<group>"; };
 		215BCED22975FF840094864E /* CreateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListView.swift; sourceTree = "<group>"; };
 		215BCED42976070E0094864E /* ContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentVM.swift; sourceTree = "<group>"; };
+		217F7CB429A9614F005AD71E /* SettingsGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGeneralView.swift; sourceTree = "<group>"; };
 		219F304E297CA6AC00FAA95D /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +68,7 @@
 		215BCEB52975FAF80094864E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				215BCEB42975FAF80094864E /* ReDo.app */,
+				215BCEB42975FAF80094864E /* Re:Tasks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,13 +96,13 @@
 		215BCEC82975FBF80094864E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				217F7CB129A959B2005AD71E /* App Settings */,
 				215BCEB92975FAF80094864E /* ContentView.swift */,
 				2105EEA7297C5E9D0008FFFD /* ItemRowView.swift */,
 				215BCED22975FF840094864E /* CreateListView.swift */,
 				215BCEC62975FB540094864E /* SidebarView.swift */,
 				2105EEA5297C595B0008FFFD /* ListDetailView.swift */,
 				219F304E297CA6AC00FAA95D /* CreateTaskView.swift */,
-				215BCECA2975FC180094864E /* SettingsView.swift */,
 				2105EEA3297C58A80008FFFD /* SidebarRowView.swift */,
 			);
 			path = Views;
@@ -116,6 +118,15 @@
 				215BCED42976070E0094864E /* ContentVM.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		217F7CB129A959B2005AD71E /* App Settings */ = {
+			isa = PBXGroup;
+			children = (
+				215BCECA2975FC180094864E /* SettingsView.swift */,
+				217F7CB429A9614F005AD71E /* SettingsGeneralView.swift */,
+			);
+			path = "App Settings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +146,7 @@
 			);
 			name = ReDo;
 			productName = ReDo;
-			productReference = 215BCEB42975FAF80094864E /* ReDo.app */;
+			productReference = 215BCEB42975FAF80094864E /* Re:Tasks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -194,6 +205,7 @@
 				2105EEA4297C58A80008FFFD /* SidebarRowView.swift in Sources */,
 				215BCED32975FF840094864E /* CreateListView.swift in Sources */,
 				215BCECF2975FCC60094864E /* ToDoItem.swift in Sources */,
+				217F7CB529A9614F005AD71E /* SettingsGeneralView.swift in Sources */,
 				2105EEA6297C595B0008FFFD /* ListDetailView.swift in Sources */,
 				219F304F297CA6AC00FAA95D /* CreateTaskView.swift in Sources */,
 				215BCECD2975FCAA0094864E /* ToDoList.swift in Sources */,
@@ -341,7 +353,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ReConnect.ReDo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Re:Tasks";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -368,7 +380,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ReConnect.ReDo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Re:Tasks";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};

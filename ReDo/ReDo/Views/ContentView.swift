@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var contentVM = ContentVM.shared
+    @ObservedObject var runtimeManager = RuntimeManager.shared
     @Environment(\.openWindow) var openWindow
     
     var body: some View {
@@ -26,15 +27,19 @@ struct ContentView: View {
                 }
                 
                 Group {
-                    Menu {
-                        Button("Edit List...") {}
-                        Button("Duplicate List") {}
-                        Button("Delete List...") {}
-                        Button("Save as Template...") {}
-                        Divider()
-                        Button("Print...") {}
-                    } label: {
-                        Image(systemName: "ellipsis.circle")
+                    if runtimeManager.selectedSidebarRow != nil {
+                        Menu {
+                            Button("Edit List...") {}
+                                .disabled(runtimeManager.selectedSidebarRow!.isCoreList || runtimeManager.selectedSidebarRow == nil)
+                            Button("Delete List...") {}
+                                .disabled(runtimeManager.selectedSidebarRow!.isCoreList || runtimeManager.selectedSidebarRow == nil)
+                            Button("Duplicate List") {}
+                            Button("Save as Template...") {}
+                            Divider()
+                            Button("Print...") {}
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                        }
                     }
                     
                     Menu {
@@ -53,13 +58,13 @@ struct ContentView: View {
                     }
                     .sheet(isPresented: $contentVM.newListAction, content: CreateListView.init)
                 }
-                .menuIndicator(.hidden)
             }
         }
         .onAppear {
             print("on appear called")
             RuntimeManager.shared.inboxID = RuntimeManager.shared.inbox.id
             RuntimeManager.shared.todayID = RuntimeManager.shared.todayList.id
+            RuntimeManager.setCoreList()
         }
     }
 }

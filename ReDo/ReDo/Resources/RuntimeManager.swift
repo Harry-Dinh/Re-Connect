@@ -13,7 +13,10 @@ class RuntimeManager: ObservableObject {
     
     @Published var todoLists: [ToDoList] = []
     @Published var inbox: ToDoList = ToDoList(name: "Inbox", color: Color.accentColor)
-    @Published var todayList: ToDoList = ToDoList(name: "Today", color: Color.yellow)
+    @Published var todayList: ToDoList = ToDoList(name: "Today", color: Color.accentColor)
+    
+    /// The list of the row selected on the sidebar
+    @Published var selectedSidebarRow: ToDoList? = nil
     
     public var inboxID: String = ""
     public var todayID: String = ""
@@ -33,5 +36,18 @@ class RuntimeManager: ObservableObject {
         todoLists = []
         todoLists = list
         print("Refreshed the array")
+    }
+    
+    public func setSelectedList(list: ToDoList) {
+        selectedSidebarRow = list
+        print("assigned new selected list")
+    }
+    
+    // MARK: - onAppear() calls
+    
+    /// Turning the inbox and today lists into core lists
+    public static func setCoreList() {
+        RuntimeManager.shared.inbox.setCoreList(isCoreList: true)
+        RuntimeManager.shared.todayList.setCoreList(isCoreList: true)
     }
 }

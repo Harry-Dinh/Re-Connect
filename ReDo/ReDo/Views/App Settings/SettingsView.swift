@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @State private var selectedTab = 0
+    
     var body: some View {
-        TabView {
-            Text("General Tab")
+        TabView(selection: $selectedTab) {
+            SettingsGeneralView()
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }
+                .tag(0)
             
             Text("Account Tab")
+                .padding()
                 .tabItem {
                     Label("Account", systemImage: "at")
                 }
+                .tag(1)
         }
-        .frame(width: 300, height: 200)
     }
 }
 

@@ -13,12 +13,14 @@ struct ToDoList: Identifiable {
     var name: String
     var color: Color
     var todos: [ToDoItem]
+    var isCoreList: Bool
     
     init() {
         self.id = UUID().uuidString
         self.name = "Untitled List"
         self.color = Color.accentColor
         self.todos = []
+        self.isCoreList = false
     }
     
     init(name: String, color: Color) {
@@ -26,6 +28,11 @@ struct ToDoList: Identifiable {
         self.name = name
         self.color = color
         self.todos = []
+        self.isCoreList = false
+    }
+    
+    public mutating func setCoreList(isCoreList: Bool) {
+        self.isCoreList = isCoreList
     }
     
     public static let example = ToDoList(name: "Groceries", color: Color.cyan)

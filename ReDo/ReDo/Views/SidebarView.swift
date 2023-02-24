@@ -14,17 +14,34 @@ struct SidebarView: View {
     var body: some View {
         List {
             NavigationLink(destination: ListDetailView(list: runtimeManager.inbox)) {
-                SidebarRowView(list: runtimeManager.inbox, icon: "tray")
+                SidebarRowView(list: runtimeManager.inbox, icon: "tray", isCoreList: true)
+            }
+            .onTapGesture {
+                runtimeManager.setSelectedList(list: runtimeManager.inbox)
             }
             
-            NavigationLink(destination: ListDetailView(list: runtimeManager.todayList)) {
-                SidebarRowView(list: runtimeManager.todayList, icon: "star")
-            }
+            Section {
+                NavigationLink(destination: ListDetailView(list: runtimeManager.todayList)) {
+                    SidebarRowView(list: runtimeManager.todayList, icon: "star", isCoreList: true)
+                }
+                .onTapGesture {
+                    runtimeManager.setSelectedList(list: runtimeManager.todayList)
+                }
+            } header: { Text("Smart Lists") }
+            .collapsible(false)
             
             Section {
                 ForEach(runtimeManager.todoLists) { list in
                     NavigationLink(destination: ListDetailView(list: list)) {
-                        SidebarRowView(list: list, icon: "list.bullet")
+                        SidebarRowView(list: list, icon: "list.bullet", isCoreList: false)
+                    }
+                    .onTapGesture {
+                        runtimeManager.setSelectedList(list: list)
+                    }
+                    .contextMenu {
+                        Button("Rename...") {}
+                        Button("Delete...") {}
+                        Button("Show List Info") {}
                     }
                 }
             } header: {

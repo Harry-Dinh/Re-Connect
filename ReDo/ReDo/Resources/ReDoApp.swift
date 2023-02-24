@@ -35,12 +35,6 @@ struct ReDoApp: App {
                 Button("Delete List...") {}
                     .keyboardShortcut(.delete, modifiers: [.shift, .command])
             }
-            
-            CommandMenu("Debug") {
-                Button("Print Lists in Array") {
-                    RuntimeManager.shared.printlist()
-                }
-            }
         }
         
         Window("Create New Task", id: "newTaskScreen") {
@@ -51,5 +45,6 @@ struct ReDoApp: App {
         Settings {
             SettingsView()
         }
+        .windowResizability(.contentSize)
     }
 }
