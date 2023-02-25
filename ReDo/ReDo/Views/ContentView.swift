@@ -17,54 +17,12 @@ struct ContentView: View {
         NavigationSplitView {
             SidebarView()
         } detail: {
-            ListDetailView(list: nil)
-        }
-        .toolbar {
-            
-            ToolbarItemGroup(placement: .automatic) {
-                Button(action: {}) {
-                    Image(systemName: "square.and.arrow.up")
-                }
-                
-                Group {
-                    if runtimeManager.selectedSidebarRow != nil {
-                        Menu {
-                            Button("Edit List...") {}
-                                .disabled(runtimeManager.selectedSidebarRow!.isCoreList || runtimeManager.selectedSidebarRow == nil)
-                            Button("Delete List...") {}
-                                .disabled(runtimeManager.selectedSidebarRow!.isCoreList || runtimeManager.selectedSidebarRow == nil)
-                            Button("Duplicate List") {}
-                            Button("Save as Template...") {}
-                            Divider()
-                            Button("Print...") {}
-                        } label: {
-                            Image(systemName: "ellipsis.circle")
-                        }
-                    }
-                    
-                    Menu {
-                        Button("New List...") {
-                            contentVM.newListAction.toggle()
-                        }
-                        Button("New Task...") {
-                            contentVM.newTaskAction.toggle()
-                            
-                            if (contentVM.newTaskAction || !contentVM.newTaskAction) {
-                                openWindow.callAsFunction(id: "newTaskScreen")
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .sheet(isPresented: $contentVM.newListAction, content: CreateListView.init)
-                }
-            }
+            ListDetailView(list: runtimeManager.todayList)
         }
         .onAppear {
             print("on appear called")
-            RuntimeManager.shared.inboxID = RuntimeManager.shared.inbox.id
-            RuntimeManager.shared.todayID = RuntimeManager.shared.todayList.id
             RuntimeManager.setCoreList()
+            runtimeManager.setSelectedList(list: runtimeManager.todayList)
         }
     }
 }

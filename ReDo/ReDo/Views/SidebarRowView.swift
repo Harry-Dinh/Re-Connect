@@ -11,7 +11,6 @@ struct SidebarRowView: View {
     
     var list: ToDoList
     var icon: String
-    var isCoreList: Bool
     
     var body: some View {
         HStack {
@@ -24,7 +23,7 @@ struct SidebarRowView: View {
 
 struct SidebarRowView_Previews: PreviewProvider {
     static var previews: some View {
-        SidebarRowView(list: ToDoList.example, icon: "list.bullet", isCoreList: false)
+        SidebarRowView(list: ToDoList.example, icon: "list.bullet")
             .padding()
     }
 }

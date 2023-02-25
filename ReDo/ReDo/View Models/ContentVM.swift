@@ -13,4 +13,5 @@ class ContentVM: ObservableObject {
     
     @Published var newTaskAction = false
     @Published var newListAction = false
+    @Published var listDeletionAlert = false
 }

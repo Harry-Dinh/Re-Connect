@@ -23,6 +23,9 @@
 		215BCED52976070E0094864E /* ContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215BCED42976070E0094864E /* ContentVM.swift */; };
 		217F7CB529A9614F005AD71E /* SettingsGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F7CB429A9614F005AD71E /* SettingsGeneralView.swift */; };
 		219F304F297CA6AC00FAA95D /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219F304E297CA6AC00FAA95D /* CreateTaskView.swift */; };
+		21E6AA2729AAA29000D571CD /* AboutThisAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E6AA2629AAA29000D571CD /* AboutThisAppView.swift */; };
+		21E6AA2929AAA37B00D571CD /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E6AA2829AAA37B00D571CD /* CustomEmptyView.swift */; };
+		21E6AA2E29AAA7D400D571CD /* BlurredWindowBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E6AA2D29AAA7D400D571CD /* BlurredWindowBackgroundModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		215BCED42976070E0094864E /* ContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentVM.swift; sourceTree = "<group>"; };
 		217F7CB429A9614F005AD71E /* SettingsGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGeneralView.swift; sourceTree = "<group>"; };
 		219F304E297CA6AC00FAA95D /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
+		21E6AA2629AAA29000D571CD /* AboutThisAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutThisAppView.swift; sourceTree = "<group>"; };
+		21E6AA2829AAA37B00D571CD /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
+		21E6AA2D29AAA7D400D571CD /* BlurredWindowBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredWindowBackgroundModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,8 @@
 		215BCEB62975FAF80094864E /* ReDo */ = {
 			isa = PBXGroup;
 			children = (
+				21E6AA2529AA96BE00D571CD /* Models */,
+				21E6AA2429AA96B400D571CD /* View Models */,
 				215BCEC92975FBFF0094864E /* Resources */,
 				215BCEC82975FBF80094864E /* Views */,
 				215BCEBB2975FAFA0094864E /* Assets.xcassets */,
@@ -96,6 +104,7 @@
 		215BCEC82975FBF80094864E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				21E6AA2C29AAA7B700D571CD /* Custom Views */,
 				217F7CB129A959B2005AD71E /* App Settings */,
 				215BCEB92975FAF80094864E /* ContentView.swift */,
 				2105EEA7297C5E9D0008FFFD /* ItemRowView.swift */,
@@ -104,6 +113,7 @@
 				2105EEA5297C595B0008FFFD /* ListDetailView.swift */,
 				219F304E297CA6AC00FAA95D /* CreateTaskView.swift */,
 				2105EEA3297C58A80008FFFD /* SidebarRowView.swift */,
+				21E6AA2629AAA29000D571CD /* AboutThisAppView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,10 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				215BCEB72975FAF80094864E /* ReDoApp.swift */,
-				215BCECC2975FCAA0094864E /* ToDoList.swift */,
-				215BCECE2975FCC60094864E /* ToDoItem.swift */,
-				215BCED02975FF010094864E /* RuntimeManager.swift */,
-				215BCED42976070E0094864E /* ContentVM.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -127,6 +133,33 @@
 				217F7CB429A9614F005AD71E /* SettingsGeneralView.swift */,
 			);
 			path = "App Settings";
+			sourceTree = "<group>";
+		};
+		21E6AA2429AA96B400D571CD /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				215BCED02975FF010094864E /* RuntimeManager.swift */,
+				215BCED42976070E0094864E /* ContentVM.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		21E6AA2529AA96BE00D571CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				215BCECC2975FCAA0094864E /* ToDoList.swift */,
+				215BCECE2975FCC60094864E /* ToDoItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		21E6AA2C29AAA7B700D571CD /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				21E6AA2829AAA37B00D571CD /* CustomEmptyView.swift */,
+				21E6AA2D29AAA7D400D571CD /* BlurredWindowBackgroundModifier.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +233,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				215BCEBA2975FAF80094864E /* ContentView.swift in Sources */,
+				21E6AA2729AAA29000D571CD /* AboutThisAppView.swift in Sources */,
 				215BCECB2975FC180094864E /* SettingsView.swift in Sources */,
+				21E6AA2E29AAA7D400D571CD /* BlurredWindowBackgroundModifier.swift in Sources */,
 				2105EEA8297C5E9D0008FFFD /* ItemRowView.swift in Sources */,
 				2105EEA4297C58A80008FFFD /* SidebarRowView.swift in Sources */,
+				21E6AA2929AAA37B00D571CD /* CustomEmptyView.swift in Sources */,
 				215BCED32975FF840094864E /* CreateListView.swift in Sources */,
 				215BCECF2975FCC60094864E /* ToDoItem.swift in Sources */,
 				217F7CB529A9614F005AD71E /* SettingsGeneralView.swift in Sources */,
@@ -340,12 +376,14 @@
 				CODE_SIGN_ENTITLEMENTS = ReDo/ReDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 230702251459;
 				DEVELOPMENT_ASSET_PATHS = "\"ReDo/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re:Tasks";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -367,12 +405,14 @@
 				CODE_SIGN_ENTITLEMENTS = ReDo/ReDo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 230702251459;
 				DEVELOPMENT_ASSET_PATHS = "\"ReDo/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re:Tasks";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

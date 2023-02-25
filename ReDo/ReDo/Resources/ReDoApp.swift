@@ -35,6 +35,14 @@ struct ReDoApp: App {
                 Button("Delete List...") {}
                     .keyboardShortcut(.delete, modifiers: [.shift, .command])
             }
+            
+            CommandGroup(replacing: .appInfo) {
+                Button {
+                    openWindow.callAsFunction(id: "aboutPanel")
+                } label: {
+                    Text("About Re:Tasks")
+                }
+            }
         }
         
         Window("Create New Task", id: "newTaskScreen") {
@@ -45,6 +53,13 @@ struct ReDoApp: App {
         Settings {
             SettingsView()
         }
+        .windowResizability(.contentSize)
+        
+        Window("About Re:Tasks", id: "aboutPanel") {
+            AboutThisAppView()
+                .background(BlurredWindowBackgroundModifier().ignoresSafeArea(.all))
+        }
+        .windowStyle(.titleBar)
         .windowResizability(.contentSize)
     }
 }
