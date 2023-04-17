@@ -15,5 +15,14 @@ struct Teacher: ClassroomUser, Identifiable {
     var id: String
     var username: String
     var institutionURL: String
-//    var classes: [Classroom]
+    var emailAddress: String
+    var classes: [Classroom]
+    
+    func getID() -> String { return self.id }
+    func getUsername() -> String { return self.username }
+    func getinstitutionURL() -> String { return self.institutionURL }
+    func getClasses() -> [Classroom] { return self.classes }
+    
+    mutating func setUsername(username: String) { self.username = username }
+    mutating func setEmail(emailAddress: String) { self.emailAddress = emailAddress }
 }

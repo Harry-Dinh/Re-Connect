@@ -13,5 +13,5 @@ struct Classroom: Identifiable {
     private var name: String
     private var accentColor: String
     private var classCode: String
-    // private var classPosts: [ClassPost]
+    private var classPosts: [any ClassPost]
 }
