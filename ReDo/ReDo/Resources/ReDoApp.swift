@@ -57,7 +57,6 @@ struct ReDoApp: App {
         
         Window("About Re:Tasks", id: "aboutPanel") {
             AboutThisAppView()
-                .background(BlurredWindowBackgroundModifier().ignoresSafeArea(.all))
         }
         .windowStyle(.titleBar)
         .windowResizability(.contentSize)

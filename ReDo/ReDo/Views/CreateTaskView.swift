@@ -10,12 +10,23 @@ import SwiftUI
 struct CreateTaskView: View {
     
     @State private var taskName = ""
+    @State private var selectedList = RuntimeManager.shared.inbox.id
     @ObservedObject private var runtime = RuntimeManager.shared
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             TextField("Task name", text: $taskName)
+                .textFieldStyle(.squareBorder)
+            
+            Picker("Add to", selection: $selectedList) {
+                Text(runtime.inbox.name).tag(0)
+                Text(runtime.todayList.name).tag(1)
+                Divider()
+                ForEach(runtime.userToDoLists) { list in
+                    Text(list.name).tag(list.id)
+                }
+            }
             
             HStack {
                 Spacer()
@@ -39,6 +50,7 @@ struct CreateTaskView: View {
         }
         .padding()
         .frame(minWidth: 300, maxWidth: 300)
+        .background(BlurredWindowBackgroundModifier())
     }
 }
 

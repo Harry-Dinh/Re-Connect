@@ -24,5 +24,13 @@ struct ToDoItem: Identifiable {
         self.isCompleted = false
     }
     
+    public mutating func setCompletion(isCompleted: Bool) {
+        self.isCompleted = isCompleted
+    }
+    
+    public mutating func setName(name: String) {
+        self.name = name
+    }
+    
     public static let example = ToDoItem(name: "Milk")
 }
