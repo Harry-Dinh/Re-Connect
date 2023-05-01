@@ -6,15 +6,34 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseAuth
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        FirebaseApp.configure()
+    }
+}
 
 @main
 struct ClassroomApp: App {
     
-    @AppStorage("isSignedIn") var isSignedIn = false
+    @Environment(\.openWindow) var openWindow
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup("Welcome to Classroom", id: "loginWindow") {
             LoginView()
+                .onAppear {
+                    if Auth.auth().currentUser != nil {
+                        let hostingVC = NSHostingController(rootView: LoginView())
+                        let window = NSWindow(contentViewController: hostingVC)
+                        let windowController = NSWindowController()
+                        windowController.window = window
+                        windowController.window?.close()
+                        openWindow.callAsFunction(id: "mainWindow")
+                    }
+                }
         }
         .windowResizability(.contentSize)
         .windowToolbarStyle(.unified(showsTitle: false))

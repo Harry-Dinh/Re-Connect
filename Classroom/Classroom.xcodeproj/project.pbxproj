@@ -15,6 +15,13 @@
 		2122518629EDBE3100812C1C /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122518529EDBE3100812C1C /* Teacher.swift */; };
 		2122518829EDBF9100812C1C /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122518729EDBF9100812C1C /* Student.swift */; };
 		2122518A29EDC14300812C1C /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122518929EDC14300812C1C /* Classroom.swift */; };
+		21B3042329F1DFC70036E048 /* CreateStudentAccView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B3042229F1DFC70036E048 /* CreateStudentAccView.swift */; };
+		21C13F042A00310900D397F6 /* CreateTeacherAccView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C13F032A00310900D397F6 /* CreateTeacherAccView.swift */; };
+		21C13F062A0034D600D397F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21C13F052A0034D600D397F6 /* GoogleService-Info.plist */; };
+		21C13F092A00356C00D397F6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 21C13F082A00356C00D397F6 /* FirebaseAuth */; };
+		21C13F0B2A00356C00D397F6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 21C13F0A2A00356C00D397F6 /* FirebaseDatabase */; };
+		21C13F0D2A00356C00D397F6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 21C13F0C2A00356C00D397F6 /* FirebaseFirestore */; };
+		21C13F0F2A00356C00D397F6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 21C13F0E2A00356C00D397F6 /* FirebaseStorage */; };
 		21D4C71929EDDD9A00876128 /* ClassPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4C71829EDDD9A00876128 /* ClassPost.swift */; };
 		21D4C71B29EDDE3000876128 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D4C71A29EDDE3000876128 /* Announcement.swift */; };
 		21DA96A829F08450003EBB31 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA96A729F08450003EBB31 /* LoginView.swift */; };
@@ -34,6 +41,9 @@
 		2122518529EDBE3100812C1C /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		2122518729EDBF9100812C1C /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		2122518929EDC14300812C1C /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		21B3042229F1DFC70036E048 /* CreateStudentAccView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudentAccView.swift; sourceTree = "<group>"; };
+		21C13F032A00310900D397F6 /* CreateTeacherAccView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTeacherAccView.swift; sourceTree = "<group>"; };
+		21C13F052A0034D600D397F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		21D4C71829EDDD9A00876128 /* ClassPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassPost.swift; sourceTree = "<group>"; };
 		21D4C71A29EDDE3000876128 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		21DA96A729F08450003EBB31 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -47,6 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21C13F0B2A00356C00D397F6 /* FirebaseDatabase in Frameworks */,
+				21C13F0F2A00356C00D397F6 /* FirebaseStorage in Frameworks */,
+				21C13F092A00356C00D397F6 /* FirebaseAuth in Frameworks */,
+				21C13F0D2A00356C00D397F6 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +86,7 @@
 		2122517229EDBCFE00812C1C /* Classroom */ = {
 			isa = PBXGroup;
 			children = (
+				21C13F052A0034D600D397F6 /* GoogleService-Info.plist */,
 				2122518229EDBD4E00812C1C /* Models */,
 				21DA96AB29F08EEF003EBB31 /* View Models */,
 				21DA96A529F08409003EBB31 /* Resources */,
@@ -119,6 +134,8 @@
 				21DA96A729F08450003EBB31 /* LoginView.swift */,
 				21DA96AE29F08F08003EBB31 /* RegisterView.swift */,
 				21DA96A929F085CF003EBB31 /* AuthViewTextField.swift */,
+				21B3042229F1DFC70036E048 /* CreateStudentAccView.swift */,
+				21C13F032A00310900D397F6 /* CreateTeacherAccView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +164,12 @@
 			dependencies = (
 			);
 			name = Classroom;
+			packageProductDependencies = (
+				21C13F082A00356C00D397F6 /* FirebaseAuth */,
+				21C13F0A2A00356C00D397F6 /* FirebaseDatabase */,
+				21C13F0C2A00356C00D397F6 /* FirebaseFirestore */,
+				21C13F0E2A00356C00D397F6 /* FirebaseStorage */,
+			);
 			productName = Classroom;
 			productReference = 2122517029EDBCFE00812C1C /* Classroom.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +198,9 @@
 				Base,
 			);
 			mainGroup = 2122516729EDBCFE00812C1C;
+			packageReferences = (
+				21C13F072A00356B00D397F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2122517129EDBCFE00812C1C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -191,6 +217,7 @@
 			files = (
 				2122517B29EDBD0000812C1C /* Preview Assets.xcassets in Resources */,
 				2122517829EDBD0000812C1C /* Assets.xcassets in Resources */,
+				21C13F062A0034D600D397F6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,8 +234,10 @@
 				21DA96A829F08450003EBB31 /* LoginView.swift in Sources */,
 				2122518429EDBD6300812C1C /* ClassroomUser.swift in Sources */,
 				2122518829EDBF9100812C1C /* Student.swift in Sources */,
+				21B3042329F1DFC70036E048 /* CreateStudentAccView.swift in Sources */,
 				21DA96AA29F085CF003EBB31 /* AuthViewTextField.swift in Sources */,
 				21D4C71929EDDD9A00876128 /* ClassPost.swift in Sources */,
+				21C13F042A00310900D397F6 /* CreateTeacherAccView.swift in Sources */,
 				21DA96AD29F08EFE003EBB31 /* AuthVM.swift in Sources */,
 				21DA96AF29F08F08003EBB31 /* RegisterView.swift in Sources */,
 				2122517429EDBCFE00812C1C /* ClassroomApp.swift in Sources */,
@@ -346,6 +375,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,6 +403,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -408,6 +439,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		21C13F072A00356B00D397F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		21C13F082A00356C00D397F6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21C13F072A00356B00D397F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		21C13F0A2A00356C00D397F6 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21C13F072A00356B00D397F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		21C13F0C2A00356C00D397F6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21C13F072A00356B00D397F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		21C13F0E2A00356C00D397F6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21C13F072A00356B00D397F6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2122516829EDBCFE00812C1C /* Project object */;
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>497393591219-2a1muddaiaemk9st2kv0mdtqkdkc00bb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.497393591219-2a1muddaiaemk9st2kv0mdtqkdkc00bb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBGt149_fYCugsT40GVt6sD0ByQWkweDyo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>497393591219</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ReConnect.Classroom</string>
+	<key>PROJECT_ID</key>
+	<string>betterclassroom-f0921</string>
+	<key>STORAGE_BUCKET</key>
+	<string>betterclassroom-f0921.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:497393591219:ios:17ec8fe1de6e25922621c6</string>
+</dict>
+</plist>

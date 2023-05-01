@@ -14,11 +14,12 @@ struct RegisterView: View {
     var body: some View {
         NavigationSplitView {
             List {
-                Label("Student Account", systemImage: "person")
-                Label("Teacher Account", systemImage: "person.crop.circle")
+                NavigationLink(destination: CreateStudentAccView()) {
+                    Label("Student Account", systemImage: "person")
+                }
                 
-                Section {
-                    Label("Register Your Organization", systemImage: "building.2.crop.circle")
+                NavigationLink(destination: CreateTeacherAccView()) {
+                    Label("Teacher Account", systemImage: "person.crop.circle")
                 }
             }
             .frame(width: 220)
@@ -33,9 +34,11 @@ struct RegisterView: View {
                 }
             }
         } detail: {
-            EmptyView()
+            Text("Please choose an account to create on the sidebar")
+                .font(.title)
+                .foregroundColor(.secondary)
         }
-        .frame(width: 600, height: 600)
+        .frame(width: 800, height: 600)
         .navigationSplitViewStyle(.prominentDetail)
     }
 }
