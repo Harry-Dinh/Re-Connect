@@ -6,10 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
+    
+    @AppStorage("isSignedIn") var isSignedIn = false
+    
     var body: some View {
-        Text("Signed In")
+        if !isSignedIn {
+            LoginView()
+        } else {
+            HomeView()
+        }
     }
 }
 

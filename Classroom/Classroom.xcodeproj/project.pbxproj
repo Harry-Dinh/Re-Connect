@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210DAFEE2A021D7000A80C7C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210DAFED2A021D7000A80C7C /* HomeView.swift */; };
 		2122517429EDBCFE00812C1C /* ClassroomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122517329EDBCFE00812C1C /* ClassroomApp.swift */; };
 		2122517629EDBCFE00812C1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122517529EDBCFE00812C1C /* ContentView.swift */; };
 		2122517829EDBD0000812C1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2122517729EDBD0000812C1C /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210DAFED2A021D7000A80C7C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2122517029EDBCFE00812C1C /* Classroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2122517329EDBCFE00812C1C /* ClassroomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomApp.swift; sourceTree = "<group>"; };
 		2122517529EDBCFE00812C1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				2122517529EDBCFE00812C1C /* ContentView.swift */,
+				210DAFED2A021D7000A80C7C /* HomeView.swift */,
 				21DA96A729F08450003EBB31 /* LoginView.swift */,
 				21DA96AE29F08F08003EBB31 /* RegisterView.swift */,
 				21DA96A929F085CF003EBB31 /* AuthViewTextField.swift */,
@@ -231,6 +234,7 @@
 				21D4C71B29EDDE3000876128 /* Announcement.swift in Sources */,
 				2122518629EDBE3100812C1C /* Teacher.swift in Sources */,
 				2122517629EDBCFE00812C1C /* ContentView.swift in Sources */,
+				210DAFEE2A021D7000A80C7C /* HomeView.swift in Sources */,
 				21DA96A829F08450003EBB31 /* LoginView.swift in Sources */,
 				2122518429EDBD6300812C1C /* ClassroomUser.swift in Sources */,
 				2122518829EDBF9100812C1C /* Student.swift in Sources */,
