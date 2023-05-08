@@ -13,6 +13,7 @@
 		2187CF092A08A75500659A96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2187CF072A08A75500659A96 /* Main.storyboard */; };
 		2187CF0B2A08A75600659A96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2187CF0A2A08A75600659A96 /* Assets.xcassets */; };
 		2187CF0E2A08A75600659A96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2187CF0C2A08A75600659A96 /* LaunchScreen.storyboard */; };
+		2187CF162A08D00F00659A96 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2187CF152A08D00F00659A96 /* CreateAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2187CF0A2A08A75600659A96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2187CF0D2A08A75600659A96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2187CF0F2A08A75600659A96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2187CF152A08D00F00659A96 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				2187CF012A08A75500659A96 /* AppDelegate.swift */,
 				2187CF032A08A75500659A96 /* SceneDelegate.swift */,
 				2187CF052A08A75500659A96 /* ViewController.swift */,
+				2187CF152A08D00F00659A96 /* CreateAccountViewController.swift */,
 				2187CF072A08A75500659A96 /* Main.storyboard */,
 				2187CF0A2A08A75600659A96 /* Assets.xcassets */,
 				2187CF0C2A08A75600659A96 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2187CF162A08D00F00659A96 /* CreateAccountViewController.swift in Sources */,
 				2187CF062A08A75500659A96 /* ViewController.swift in Sources */,
 				2187CF022A08A75500659A96 /* AppDelegate.swift in Sources */,
 				2187CF042A08A75500659A96 /* SceneDelegate.swift in Sources */,
