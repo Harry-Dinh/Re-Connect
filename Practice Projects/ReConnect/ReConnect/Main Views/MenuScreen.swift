@@ -9,11 +9,7 @@ import SwiftUI
 
 struct MenuScreen: View {
     
-    private let contentSectionItems: [RECListRowItem] = [
-        RECListRowItem(label: "Followers", iconStr: "person.2", tintColor: .accentColor),
-        RECListRowItem(label: "Following", iconStr: "person.3", tintColor: .accentColor),
-        RECListRowItem(label: "Bookmarks", iconStr: "book.closed", tintColor: .orange)
-    ]
+    @ObservedObject var viewModel = MenuScreenVM.viewModel
     
     var body: some View {
         NavigationView {
@@ -21,15 +17,8 @@ struct MenuScreen: View {
                 ProfileListRowView(user: RECUser.placeholderUser)
                 
                 Section {
-                    ForEach(contentSectionItems) { content in
-                        HStack {
-                            Label {
-                                Text(content.label)
-                            } icon: {
-                                Image(systemName: content.iconStr ?? "gear")
-                                    .foregroundColor(content.tintColor)
-                            }
-                        }
+                    ForEach(viewModel.contentSectionItems) { content in
+                        RECMenuListRow(rowItem: content)
                     }
                 }
             }

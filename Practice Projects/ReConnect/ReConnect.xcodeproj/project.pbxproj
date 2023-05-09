@@ -15,6 +15,11 @@
 		2123643B2A08FB0F005827D2 /* ProfileListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */; };
 		2123643F2A08FB55005827D2 /* RECUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123643E2A08FB55005827D2 /* RECUser.swift */; };
 		212364412A090087005827D2 /* RECListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212364402A090087005827D2 /* RECListRowItem.swift */; };
+		21A765462A0A060900761219 /* MenuScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A765452A0A060900761219 /* MenuScreenVM.swift */; };
+		21A765482A0A06AB00761219 /* RECMenuListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A765472A0A06AB00761219 /* RECMenuListRow.swift */; };
+		21A7654A2A0A0A3900761219 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A765492A0A0A3900761219 /* LoginScreen.swift */; };
+		21A7654C2A0A0A4D00761219 /* LoginScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7654B2A0A0A4D00761219 /* LoginScreenVM.swift */; };
+		21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListRowView.swift; sourceTree = "<group>"; };
 		2123643E2A08FB55005827D2 /* RECUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECUser.swift; sourceTree = "<group>"; };
 		212364402A090087005827D2 /* RECListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListRowItem.swift; sourceTree = "<group>"; };
+		21A765452A0A060900761219 /* MenuScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenVM.swift; sourceTree = "<group>"; };
+		21A765472A0A06AB00761219 /* RECMenuListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECMenuListRow.swift; sourceTree = "<group>"; };
+		21A765492A0A0A3900761219 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		21A7654B2A0A0A4D00761219 /* LoginScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenVM.swift; sourceTree = "<group>"; };
+		21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECAuthTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				212364292A08F948005827D2 /* ReConnectApp.swift */,
+				21A765442A0A05F500761219 /* View Models */,
 				2123643D2A08FB32005827D2 /* Models */,
 				2123643C2A08FB29005827D2 /* Main Views */,
 				212364392A08FAFF005827D2 /* Custom Views */,
@@ -81,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */,
+				21A765472A0A06AB00761219 /* RECMenuListRow.swift */,
+				21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -90,6 +103,7 @@
 			children = (
 				2123642B2A08F948005827D2 /* ContentView.swift */,
 				212364372A08FA97005827D2 /* MenuScreen.swift */,
+				21A765492A0A0A3900761219 /* LoginScreen.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -101,6 +115,15 @@
 				212364402A090087005827D2 /* RECListRowItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		21A765442A0A05F500761219 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				21A765452A0A060900761219 /* MenuScreenVM.swift */,
+				21A7654B2A0A0A4D00761219 /* LoginScreenVM.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,10 +197,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				212364412A090087005827D2 /* RECListRowItem.swift in Sources */,
+				21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */,
 				212364382A08FA97005827D2 /* MenuScreen.swift in Sources */,
+				21A7654A2A0A0A3900761219 /* LoginScreen.swift in Sources */,
+				21A765482A0A06AB00761219 /* RECMenuListRow.swift in Sources */,
 				2123643F2A08FB55005827D2 /* RECUser.swift in Sources */,
+				21A765462A0A060900761219 /* MenuScreenVM.swift in Sources */,
 				2123642C2A08F948005827D2 /* ContentView.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,
+				21A7654C2A0A0A4D00761219 /* LoginScreenVM.swift in Sources */,
 				2123643B2A08FB0F005827D2 /* ProfileListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

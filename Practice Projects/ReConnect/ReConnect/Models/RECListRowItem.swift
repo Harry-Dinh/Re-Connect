@@ -33,4 +33,7 @@ struct RECListRowItem: Identifiable {
         self.iconStr = nil
         self.tintColor = nil
     }
+    
+    /// The placeholder item for a menu row.
+    public static let placeholderItem = RECListRowItem(label: "General", iconStr: "gear", tintColor: .gray)
 }
