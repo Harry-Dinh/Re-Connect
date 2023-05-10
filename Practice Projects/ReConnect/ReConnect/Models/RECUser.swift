@@ -17,6 +17,9 @@ struct RECUser {
     /// The username (i.e. @HarryTDA) is for tagging this user in posts.
     var username: String
     
+    /// The email address of this user.
+    var emailAddress: String
+    
     /// The URL string leading to the profile picture of the user.
     var pfpURL: String?
     
@@ -31,31 +34,39 @@ struct RECUser {
         self.uid = UUID().uuidString
         self.displayName = "Generic User"
         self.username = "@generic_user"
+        self.emailAddress = "no_email"
         self.pfpURL = ""
         self.age = -1
         self.isProtectedAccount = true
     }
     
     /// Create a Re:Connect user (for setting up basic information and other info filled out later)
-    init(displayName: String, age: Int) {
+    init(displayName: String, emailAddress: String) {
         self.uid = UUID().uuidString
         self.displayName = displayName
         self.username = ""
+        self.emailAddress = emailAddress
         self.pfpURL = ""
-        self.age = age
+        self.age = -1
         self.isProtectedAccount = true
     }
     
     /// Create a Re:Connect user (include all information beside the unique identifier)
-    init(displayName: String, username: String, pfpURL: String?, age: Int, isProtectedAccount: Bool) {
+    init(displayName: String, username: String, emailAddress: String, pfpURL: String?, age: Int, isProtectedAccount: Bool) {
         self.uid = UUID().uuidString
         self.displayName = displayName
         self.username = username
+        self.emailAddress = emailAddress
         self.pfpURL = pfpURL
         self.age = age
         self.isProtectedAccount = isProtectedAccount
     }
     
     /// The generic placeholder user for displaying in previews when there are no data to work with.
-    public static let placeholderUser = RECUser(displayName: "Harry Dinh", username: "@HarryTDA", pfpURL: nil, age: 18, isProtectedAccount: true)
+    public static let placeholderUser = RECUser(displayName: "Harry Dinh",
+                                                username: "@HarryTDA",
+                                                emailAddress: "harrydinh@gmail.com",
+                                                pfpURL: nil,
+                                                age: 18,
+                                                isProtectedAccount: true)
 }

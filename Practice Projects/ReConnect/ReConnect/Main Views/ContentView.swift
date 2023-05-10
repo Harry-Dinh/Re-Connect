@@ -9,19 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var selectedTab = 0
+    @ObservedObject var viewModel = LoginScreenVM.viewModel
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            Text("Home")
-                .tabItem{ Label("Home", systemImage: "house") }
-                .tag(0)
-            Text("Search")
-                .tabItem{ Label("Search", systemImage: "magnifyingglass") }
-                .tag(1)
-            MenuScreen()
-                .tabItem{ Label("Menu", systemImage: "list.bullet") }
-                .tag(2)
+        if viewModel.isSignedIn {
+            CoreScreen()
+        } else {
+            LoginScreen()
         }
     }
 }

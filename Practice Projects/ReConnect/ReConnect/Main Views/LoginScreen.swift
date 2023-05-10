@@ -12,25 +12,37 @@ struct LoginScreen: View {
     @ObservedObject var viewModel = LoginScreenVM.viewModel
     
     var body: some View {
-        VStack(spacing: 15) {
-            Text("Re:Connect")
-                .font(.largeTitle)
-                .bold()
-            
-            VStack(spacing: 10) {
-                RECAuthTextField(text: $viewModel.emailField,
-                                 placeholderText: "Email address",
-                                 iconStr: "envelope",
-                                 isSecureTextEntry: false)
+        NavigationView {
+            VStack(spacing: 15) {
+                RECHeader(icon: "message.fill", label: "Re:Connect")
                 
-                RECAuthTextField(text: $viewModel.passwordField,
-                                 placeholderText: "Password",
-                                 iconStr: "lock",
-                                 isSecureTextEntry: true)
+                VStack(spacing: 10) {
+                    RECAuthTextField(text: $viewModel.emailField,
+                                     placeholderText: "Email address",
+                                     iconStr: "envelope",
+                                     isSecureTextEntry: false)
+                    
+                    RECAuthTextField(text: $viewModel.passwordField,
+                                     placeholderText: "Password",
+                                     iconStr: "lock",
+                                     isSecureTextEntry: true)
+                }
+                
+                RECAuthButton(label: "Sign In") {}
+                
+                Spacer()
+                
+                HStack(spacing: 5) {
+                    Text("Don't have an account? Create one")
+                    Button("here.") {
+                        viewModel.presentRegisterScreen.toggle()
+                    }
+                }
             }
-            
-            Button("Sign In") {}
-                .buttonStyle(.borderedProminent)
+            .navigationBarTitleDisplayMode(.inline)
+            .fullScreenCover(isPresented: $viewModel.presentRegisterScreen) {
+                RegisterScreen()
+            }
         }
     }
 }
