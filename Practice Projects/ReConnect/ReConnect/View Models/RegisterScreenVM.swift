@@ -7,9 +7,13 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseDatabase
 
 class RegisterScreenVM: ObservableObject {
     static let viewModel = RegisterScreenVM()
+    
+    /// The reference to Firebase Database.
+    private let databaseReference = Database.database().reference()
     
     @ObservedObject var loginVM = LoginScreenVM.viewModel
     
@@ -59,6 +63,31 @@ class RegisterScreenVM: ObservableObject {
              2. Unwrap the user's email address and display name to cache on the device for faster performance
              3. Perform segue to the next registration screen.
              */
+            
+            guard let emailAddress = result.user.email,
+                  let displayName = result.user.displayName else {
+                self?.failedToUnwrapUserInfo = true
+                return
+            }
+            
+            let tempUser = RECUser(displayName: displayName, emailAddress: emailAddress)
+            self?.writeToDatabase(with: tempUser)
+            self?.loginVM.loggedInUser = tempUser
+            
+            // Perform segue to the next registration screen. Do this using programmatic push navigation instead of NavigationLink.
         }
+    }
+    
+    /// Write the existing user data (`uid`, `emailAddress` and `displayName`) to Firebase Database.
+    /// - Parameter user: The user's data to write to the database.
+    public func writeToDatabase(with user: RECUser) {
+        let userData: [String: Any] = [
+            "uid": user.getUID(),
+            "displayName": user.displayName,
+            "emailAddress": user.emailAddress
+        ]
+        
+        // This line means write data above in the path: RECUsers/user.uid/
+        databaseReference.child("RECUsers").child(user.getUID()).setValue(userData)
     }
 }

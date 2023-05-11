@@ -62,6 +62,12 @@ struct RECUser {
         self.isProtectedAccount = isProtectedAccount
     }
     
+    /// Securely return the unique identifier of this user without having to call `user.uid` directly.
+    /// - Returns: The unique identifier of this user.
+    public func getUID() -> String {
+        return self.uid
+    }
+    
     /// The generic placeholder user for displaying in previews when there are no data to work with.
     public static let placeholderUser = RECUser(displayName: "Harry Dinh",
                                                 username: "@HarryTDA",
