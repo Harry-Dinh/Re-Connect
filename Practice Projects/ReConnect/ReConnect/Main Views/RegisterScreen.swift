@@ -14,10 +14,11 @@ struct RegisterScreen: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                RECHeader(icon: "person.crop.circle.badge.plus", label: "Create New Account")
+            List {
+                RECHeader(icon: "person.crop.circle.badge.plus", label: "Create New Account", isListHeader: true)
+                    .listRowBackground(Color.clear)
                 
-                VStack(spacing: 15) {
+                Section {
                     RECAuthTextField(text: $viewModel.firstNameField,
                                      placeholderText: "First name",
                                      iconStr: "person",
@@ -37,9 +38,14 @@ struct RegisterScreen: View {
                                      placeholderText: "Password",
                                      iconStr: "lock",
                                      isSecureTextEntry: true)
-                    
-                    RECAuthButton(label: "Continue") {}
                 }
+                
+                Button(action: {
+                    viewModel.createAccount(with: viewModel.emailField, and: viewModel.passwordField)
+                }) {
+                    RECListButtonLabel(title: "Continue", style: .backgroundProminant)
+                }
+                .listRowBackground(Color.accentColor)
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -47,6 +53,24 @@ struct RegisterScreen: View {
                     Button("Cancel") {
                         dismissView.callAsFunction()
                     }
+                }
+            }
+            .background(
+                NavigationLink(value: viewModel.pushToDetailedRegistration, label: EmptyView.init)
+            )
+            .alert("Email Not Valid", isPresented: $viewModel.showEmailNotValidAlert) {
+                Button(role: .cancel, action: {}) {
+                    Text("Dismiss")
+                }
+            }
+            .alert("Account Creation Failed", isPresented: $viewModel.firebaseAccountCreationFailed) {
+                Button(role: .cancel, action: {}) {
+                    Text("Dismiss")
+                }
+            }
+            .alert("Unwrap Failed", isPresented: $viewModel.failedToUnwrapUserInfo) {
+                Button(role: .cancel, action: {}) {
+                    Text("Dismiss")
                 }
             }
         }

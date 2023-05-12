@@ -8,7 +8,12 @@
 import SwiftUI
 
 class MenuScreenVM: ObservableObject {
+    
+    // MARK: - CLASS PROPERTIES
+    
     static let viewModel = MenuScreenVM()
+    
+    // MARK: - SWIFTUI VIEWS PROPERTIES
     
     /// The default section of menus
     public let contentSectionItems: [RECListRowItem] = [

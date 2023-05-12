@@ -13,14 +13,16 @@ struct LoginScreen: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 15) {
-                RECHeader(icon: "message.fill", label: "Re:Connect")
+            List {
+                RECHeader(icon: "message.fill", label: "Welcome to Re:Connect", isListHeader: true)
+                    .listRowBackground(Color.clear)
                 
-                VStack(spacing: 10) {
+                Section {
                     RECAuthTextField(text: $viewModel.emailField,
                                      placeholderText: "Email address",
                                      iconStr: "envelope",
                                      isSecureTextEntry: false)
+                    .keyboardType(.emailAddress)
                     
                     RECAuthTextField(text: $viewModel.passwordField,
                                      placeholderText: "Password",
@@ -28,21 +30,23 @@ struct LoginScreen: View {
                                      isSecureTextEntry: true)
                 }
                 
-                RECAuthButton(label: "Sign In") {}
-                
-                Spacer()
-                
-                HStack(spacing: 5) {
-                    Text("Don't have an account? Create one")
-                    Button("here.") {
-                        viewModel.presentRegisterScreen.toggle()
+                Section {
+                    Button(action: {}) {
+                        RECListButtonLabel(title: "Sign In", style: .backgroundProminant)
                     }
+                    .listRowBackground(Color.accentColor)
+                }
+                
+                Section {
+                    Button(action: {
+                        viewModel.presentRegisterScreen.toggle()
+                    }) {
+                        RECListButtonLabel(title: "Create Account", style: .labelProminant)
+                    }
+                    .listRowBackground(Color.accentColor.opacity(0.25))
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .fullScreenCover(isPresented: $viewModel.presentRegisterScreen) {
-                RegisterScreen()
-            }
+            .fullScreenCover(isPresented: $viewModel.presentRegisterScreen, content: RegisterScreen.init)
         }
     }
 }

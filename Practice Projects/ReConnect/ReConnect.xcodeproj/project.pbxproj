@@ -15,6 +15,9 @@
 		2123643B2A08FB0F005827D2 /* ProfileListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */; };
 		2123643F2A08FB55005827D2 /* RECUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123643E2A08FB55005827D2 /* RECUser.swift */; };
 		212364412A090087005827D2 /* RECListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212364402A090087005827D2 /* RECListRowItem.swift */; };
+		213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */; };
+		213DAE1B2A0DE0E400C52165 /* DetailedRegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */; };
+		213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */; };
 		21735D5F2A0C8EF900086A49 /* RECSystemAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21735D5E2A0C8EF900086A49 /* RECSystemAlerts.swift */; };
 		219CD58B2A0B7AA40061B04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */; };
 		219CD58E2A0B7B610061B04E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 219CD58D2A0B7B610061B04E /* FirebaseAuth */; };
@@ -24,7 +27,6 @@
 		219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CD5952A0B7D8F0061B04E /* CoreScreen.swift */; };
 		219CD5982A0B7EDD0061B04E /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */; };
 		219CD59A2A0B80170061B04E /* RegisterScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CD5992A0B80170061B04E /* RegisterScreenVM.swift */; };
-		219CD59C2A0B81900061B04E /* RECAuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CD59B2A0B81900061B04E /* RECAuthButton.swift */; };
 		219CD59E2A0B83C80061B04E /* RECHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CD59D2A0B83C80061B04E /* RECHeader.swift */; };
 		21A765462A0A060900761219 /* MenuScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A765452A0A060900761219 /* MenuScreenVM.swift */; };
 		21A765482A0A06AB00761219 /* RECMenuListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A765472A0A06AB00761219 /* RECMenuListRow.swift */; };
@@ -43,12 +45,14 @@
 		2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListRowView.swift; sourceTree = "<group>"; };
 		2123643E2A08FB55005827D2 /* RECUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECUser.swift; sourceTree = "<group>"; };
 		212364402A090087005827D2 /* RECListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListRowItem.swift; sourceTree = "<group>"; };
+		213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationVM.swift; sourceTree = "<group>"; };
+		213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationScreen.swift; sourceTree = "<group>"; };
+		213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListButtonLabel.swift; sourceTree = "<group>"; };
 		21735D5E2A0C8EF900086A49 /* RECSystemAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECSystemAlerts.swift; sourceTree = "<group>"; };
 		219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		219CD5952A0B7D8F0061B04E /* CoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreScreen.swift; sourceTree = "<group>"; };
 		219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		219CD5992A0B80170061B04E /* RegisterScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenVM.swift; sourceTree = "<group>"; };
-		219CD59B2A0B81900061B04E /* RECAuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECAuthButton.swift; sourceTree = "<group>"; };
 		219CD59D2A0B83C80061B04E /* RECHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECHeader.swift; sourceTree = "<group>"; };
 		21A765452A0A060900761219 /* MenuScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenVM.swift; sourceTree = "<group>"; };
 		21A765472A0A06AB00761219 /* RECMenuListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECMenuListRow.swift; sourceTree = "<group>"; };
@@ -117,8 +121,8 @@
 				2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */,
 				21A765472A0A06AB00761219 /* RECMenuListRow.swift */,
 				21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */,
-				219CD59B2A0B81900061B04E /* RECAuthButton.swift */,
 				219CD59D2A0B83C80061B04E /* RECHeader.swift */,
+				213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -131,6 +135,7 @@
 				21A765492A0A0A3900761219 /* LoginScreen.swift */,
 				219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */,
 				219CD5952A0B7D8F0061B04E /* CoreScreen.swift */,
+				213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */,
 			);
 			path = "Main Views";
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				21A765452A0A060900761219 /* MenuScreenVM.swift */,
 				21A7654B2A0A0A4D00761219 /* LoginScreenVM.swift */,
 				219CD5992A0B80170061B04E /* RegisterScreenVM.swift */,
+				213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				212364412A090087005827D2 /* RECListRowItem.swift in Sources */,
+				213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */,
 				21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */,
 				212364382A08FA97005827D2 /* MenuScreen.swift in Sources */,
 				21A7654A2A0A0A3900761219 /* LoginScreen.swift in Sources */,
@@ -243,10 +250,11 @@
 				2123643F2A08FB55005827D2 /* RECUser.swift in Sources */,
 				21A765462A0A060900761219 /* MenuScreenVM.swift in Sources */,
 				219CD59A2A0B80170061B04E /* RegisterScreenVM.swift in Sources */,
+				213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */,
 				2123642C2A08F948005827D2 /* ContentView.swift in Sources */,
 				219CD5982A0B7EDD0061B04E /* RegisterScreen.swift in Sources */,
-				219CD59C2A0B81900061B04E /* RECAuthButton.swift in Sources */,
 				21735D5F2A0C8EF900086A49 /* RECSystemAlerts.swift in Sources */,
+				213DAE1B2A0DE0E400C52165 /* DetailedRegistrationScreen.swift in Sources */,
 				219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,
 				219CD59E2A0B83C80061B04E /* RECHeader.swift in Sources */,

@@ -8,7 +8,12 @@
 import SwiftUI
 
 class LoginScreenVM: ObservableObject {
+    
+    // MARK: - CLASS PROPERTIES
+    
     static let viewModel = LoginScreenVM()
+    
+    // MARK: - SWIFTUI VIEWS PROPERTIES
     
     /// A boolean that checks for if there is a user cached on the device and choose to present the login screen or core screen.
     @AppStorage("isSignedIn") var isSignedIn = false

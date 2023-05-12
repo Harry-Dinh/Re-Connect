@@ -23,14 +23,9 @@ struct RECAuthTextField: View {
             }
         } icon: {
             Image(systemName: iconStr)
-                .foregroundColor(.secondary)
+                .foregroundColor(.primary)
         }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(Color(.systemGray5))
-        )
-        .padding(.horizontal)
+        .padding(.vertical, 10)
     }
 }
 
