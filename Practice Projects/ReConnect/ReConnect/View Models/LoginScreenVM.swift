@@ -19,7 +19,7 @@ class LoginScreenVM: ObservableObject {
     @AppStorage("isSignedIn") var isSignedIn = false
     
     /// The current logged in user that is cached on this device.
-    @Published var loggedInUser: RECUser = RECUser()
+    @Published var loggedInUser: RECUser?
     
     /// The email field
     @Published var emailField: String = ""

@@ -11,6 +11,8 @@ struct RECUser {
     /// The identifier that is unique to this user. This cannot be changed once initialized.
     private let uid: String
     
+    private let firebaseUID: String
+    
     /// The name that will be displayed on posts and to other user.
     var displayName: String
     
@@ -32,6 +34,7 @@ struct RECUser {
     /// Create a generic Re:Connect user
     init() {
         self.uid = UUID().uuidString
+        self.firebaseUID = ""
         self.displayName = "Generic User"
         self.username = "@generic_user"
         self.emailAddress = "no_email"
@@ -41,8 +44,9 @@ struct RECUser {
     }
     
     /// Create a Re:Connect user (for setting up basic information and other info filled out later)
-    init(displayName: String, emailAddress: String) {
+    init(displayName: String, emailAddress: String, firebaseUID: String) {
         self.uid = UUID().uuidString
+        self.firebaseUID = firebaseUID
         self.displayName = displayName
         self.username = ""
         self.emailAddress = emailAddress
@@ -52,8 +56,9 @@ struct RECUser {
     }
     
     /// Create a Re:Connect user (include all information beside the unique identifier)
-    init(displayName: String, username: String, emailAddress: String, pfpURL: String?, age: Int, isProtectedAccount: Bool) {
+    init(firebaseUID: String, displayName: String, username: String, emailAddress: String, pfpURL: String?, age: Int, isProtectedAccount: Bool) {
         self.uid = UUID().uuidString
+        self.firebaseUID = firebaseUID
         self.displayName = displayName
         self.username = username
         self.emailAddress = emailAddress
@@ -68,8 +73,14 @@ struct RECUser {
         return self.uid
     }
     
+    /// Securely return the Firebase UID of this user without having to call `user.firebaseUID` directly.
+    /// - Returns: The Firebase UID of this user.
+    public func getFirebaseUID() -> String {
+        return self.firebaseUID
+    }
+    
     /// The generic placeholder user for displaying in previews when there are no data to work with.
-    public static let placeholderUser = RECUser(displayName: "Harry Dinh",
+    public static let placeholderUser = RECUser(firebaseUID: "00000000000000", displayName: "Harry Dinh",
                                                 username: "@HarryTDA",
                                                 emailAddress: "harrydinh@gmail.com",
                                                 pfpURL: nil,

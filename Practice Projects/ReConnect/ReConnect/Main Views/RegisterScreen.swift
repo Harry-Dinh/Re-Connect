@@ -10,6 +10,7 @@ import SwiftUI
 struct RegisterScreen: View {
     
     @ObservedObject var viewModel = RegisterScreenVM.viewModel
+    @ObservedObject var loginVM = LoginScreenVM.viewModel
     @Environment(\.dismiss) var dismissView
     
     var body: some View {
@@ -40,12 +41,18 @@ struct RegisterScreen: View {
                                      isSecureTextEntry: true)
                 }
                 
-                Button(action: {
-                    viewModel.createAccount(with: viewModel.emailField, and: viewModel.passwordField)
-                }) {
+                NavigationLink(destination: DetailedRegistrationScreen()) {
                     RECListButtonLabel(title: "Continue", style: .backgroundProminant)
                 }
                 .listRowBackground(Color.accentColor)
+                .simultaneousGesture(
+                    TapGesture()
+                        .onEnded {
+                            viewModel.createAccount(with: viewModel.emailField,
+                                                    and: viewModel.passwordField)
+                            viewModel.writeToDatabase(with: loginVM.loggedInUser ?? RECUser())
+                        }
+                )
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -55,9 +62,6 @@ struct RegisterScreen: View {
                     }
                 }
             }
-            .background(
-                NavigationLink(value: viewModel.pushToDetailedRegistration, label: EmptyView.init)
-            )
             .alert("Email Not Valid", isPresented: $viewModel.showEmailNotValidAlert) {
                 Button(role: .cancel, action: {}) {
                     Text("Dismiss")

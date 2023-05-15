@@ -32,10 +32,24 @@ struct DetailedRegistrationScreen: View {
                 }
             }
             
-            Button(action: {}) {
+            Button(action: {
+                viewModel.updateFinalUserInfo(ageStr: viewModel.ageField,
+                                              username: viewModel.usernameField,
+                                              isProtectedAccount: viewModel.protectedAccountToggle)
+            }) {
                 RECListButtonLabel(title: "Create Re:Connect Account", style: .backgroundProminant)
             }
             .listRowBackground(Color.accentColor)
+        }
+        .alert("Failed to convert age to integer", isPresented: $viewModel.failedToConvertAgeStr) {
+            Button(role: .cancel, action: {}) {
+                Text("Dismiss")
+            }
+        }
+        .alert("Failed to write data to database", isPresented: $viewModel.failedToWriteToDatabase) {
+            Button(role: .cancel, action: {}) {
+                Text("Dismiss")
+            }
         }
     }
 }

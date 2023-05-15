@@ -36,12 +36,6 @@ class RegisterScreenVM: ObservableObject {
     
     // MARK: - STATES FOR SWIFTUI VIEWS
     
-    /// This will replace the "Continue" text view in the button with a loading indicator. Showing that it's processing the information.
-    @Published var showButtonLoadingIndicator = false
-    
-    /// This boolean will trigger the push navigation sequence to the next registration view to finish filling out any information
-    @Published var pushToDetailedRegistration = false
-    
     // MARK: - ERROR ALERTS
     
     /// This boolean becomes `true` when the `signIn()` function exit early without getting to the authentication sequence.
@@ -65,36 +59,29 @@ class RegisterScreenVM: ObservableObject {
             return
         }
         
+        let displayName = "\(firstNameField) \(lastNameField)"
+        
+        print("Email verification passed")
+        
+        // Email verification passed
+        
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             guard let result = authResult, error == nil else {
                 self?.firebaseAccountCreationFailed = true
                 return
             }
             
-            // Successfully create user account
+            print("Successfully create user account")
             
-            /*
-             1. Write the user's name and email address to Firebase Database
-             2. Unwrap the user's email address and display name to cache on the device for faster performance
-             3. Perform segue to the next registration screen.
-             */
-            
-            guard let emailAddress = result.user.email,
-                  let displayName = result.user.displayName else {
+            guard let emailAddress = result.user.email else {
                 self?.failedToUnwrapUserInfo = true
                 return
             }
             
-            self?.showButtonLoadingIndicator = true
-            
-            let tempUser = RECUser(displayName: displayName, emailAddress: emailAddress)
-            self?.writeToDatabase(with: tempUser)
+            let tempUser = RECUser(displayName: displayName, emailAddress: emailAddress, firebaseUID: result.user.uid)
             self?.loginVM.loggedInUser = tempUser
-            
-            self?.showButtonLoadingIndicator = false
-            
-            // Perform segue to the next registration screen. Do this using programmatic push navigation instead of NavigationLink.
-            self?.pushToDetailedRegistration.toggle()
+            print("loggedInUser assigned")
+            self?.writeToDatabase(with: self?.loginVM.loggedInUser ?? tempUser)
         }
     }
     
