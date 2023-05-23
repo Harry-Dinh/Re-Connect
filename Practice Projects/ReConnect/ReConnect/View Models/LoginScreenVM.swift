@@ -54,7 +54,7 @@ class LoginScreenVM: ObservableObject {
             
             UserDefaults.standard.set(userData, forKey: LoginScreenVM.loggedInUserUDID)
         } catch {
-            print("Unable to encode logged in user")
+            self.failedToEncodeUser.toggle()
         }
     }
     
