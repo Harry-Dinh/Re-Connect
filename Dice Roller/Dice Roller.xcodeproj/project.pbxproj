@@ -7,27 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21094A882A1B2E29003A4FC7 /* Dice_RollerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094A872A1B2E29003A4FC7 /* Dice_RollerApp.swift */; };
-		21094A8A2A1B2E29003A4FC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094A892A1B2E29003A4FC7 /* ContentView.swift */; };
-		21094A8C2A1B2E2B003A4FC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21094A8B2A1B2E2B003A4FC7 /* Assets.xcassets */; };
-		21094A8F2A1B2E2B003A4FC7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21094A8E2A1B2E2B003A4FC7 /* Preview Assets.xcassets */; };
-		21094A972A1B2EC5003A4FC7 /* DRNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094A962A1B2EC5003A4FC7 /* DRNumberView.swift */; };
-		21094A9B2A1B3381003A4FC7 /* ContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21094A9A2A1B3381003A4FC7 /* ContentVM.swift */; };
+		21682F012A1C57E500866864 /* Dice_RollerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F002A1C57E500866864 /* Dice_RollerApp.swift */; };
+		21682F032A1C57E500866864 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F022A1C57E500866864 /* ContentView.swift */; };
+		21682F052A1C57E700866864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21682F042A1C57E700866864 /* Assets.xcassets */; };
+		21682F082A1C57E700866864 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21682F072A1C57E700866864 /* Preview Assets.xcassets */; };
+		21682F0F2A1C593800866864 /* DRNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F0E2A1C593800866864 /* DRNumberView.swift */; };
+		21682F112A1C5A1E00866864 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F102A1C5A1E00866864 /* CustomEmptyView.swift */; };
+		21682F132A1C5CD800866864 /* ContentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F122A1C5CD800866864 /* ContentVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		21094A842A1B2E29003A4FC7 /* Dice Roller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dice Roller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21094A872A1B2E29003A4FC7 /* Dice_RollerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice_RollerApp.swift; sourceTree = "<group>"; };
-		21094A892A1B2E29003A4FC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		21094A8B2A1B2E2B003A4FC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		21094A8E2A1B2E2B003A4FC7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		21094A902A1B2E2B003A4FC7 /* Dice_Roller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dice_Roller.entitlements; sourceTree = "<group>"; };
-		21094A962A1B2EC5003A4FC7 /* DRNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRNumberView.swift; sourceTree = "<group>"; };
-		21094A9A2A1B3381003A4FC7 /* ContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentVM.swift; sourceTree = "<group>"; };
+		21682EFD2A1C57E500866864 /* Dice Roller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dice Roller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21682F002A1C57E500866864 /* Dice_RollerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice_RollerApp.swift; sourceTree = "<group>"; };
+		21682F022A1C57E500866864 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		21682F042A1C57E700866864 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		21682F072A1C57E700866864 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		21682F0E2A1C593800866864 /* DRNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRNumberView.swift; sourceTree = "<group>"; };
+		21682F102A1C5A1E00866864 /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
+		21682F122A1C5CD800866864 /* ContentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		21094A812A1B2E29003A4FC7 /* Frameworks */ = {
+		21682EFA2A1C57E500866864 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,40 +38,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21094A7B2A1B2E29003A4FC7 = {
+		21682EF42A1C57E500866864 = {
 			isa = PBXGroup;
 			children = (
-				21094A862A1B2E29003A4FC7 /* Dice Roller */,
-				21094A852A1B2E29003A4FC7 /* Products */,
+				21682EFF2A1C57E500866864 /* Dice Roller */,
+				21682EFE2A1C57E500866864 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		21094A852A1B2E29003A4FC7 /* Products */ = {
+		21682EFE2A1C57E500866864 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21094A842A1B2E29003A4FC7 /* Dice Roller.app */,
+				21682EFD2A1C57E500866864 /* Dice Roller.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		21094A862A1B2E29003A4FC7 /* Dice Roller */ = {
+		21682EFF2A1C57E500866864 /* Dice Roller */ = {
 			isa = PBXGroup;
 			children = (
-				21094A872A1B2E29003A4FC7 /* Dice_RollerApp.swift */,
-				21094A9A2A1B3381003A4FC7 /* ContentVM.swift */,
-				21094A892A1B2E29003A4FC7 /* ContentView.swift */,
-				21094A962A1B2EC5003A4FC7 /* DRNumberView.swift */,
-				21094A8B2A1B2E2B003A4FC7 /* Assets.xcassets */,
-				21094A902A1B2E2B003A4FC7 /* Dice_Roller.entitlements */,
-				21094A8D2A1B2E2B003A4FC7 /* Preview Content */,
+				21682F002A1C57E500866864 /* Dice_RollerApp.swift */,
+				21682F022A1C57E500866864 /* ContentView.swift */,
+				21682F122A1C5CD800866864 /* ContentVM.swift */,
+				21682F102A1C5A1E00866864 /* CustomEmptyView.swift */,
+				21682F0E2A1C593800866864 /* DRNumberView.swift */,
+				21682F042A1C57E700866864 /* Assets.xcassets */,
+				21682F062A1C57E700866864 /* Preview Content */,
 			);
 			path = "Dice Roller";
 			sourceTree = "<group>";
 		};
-		21094A8D2A1B2E2B003A4FC7 /* Preview Content */ = {
+		21682F062A1C57E700866864 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				21094A8E2A1B2E2B003A4FC7 /* Preview Assets.xcassets */,
+				21682F072A1C57E700866864 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -78,13 +79,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		21094A832A1B2E29003A4FC7 /* Dice Roller */ = {
+		21682EFC2A1C57E500866864 /* Dice Roller */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 21094A932A1B2E2B003A4FC7 /* Build configuration list for PBXNativeTarget "Dice Roller" */;
+			buildConfigurationList = 21682F0B2A1C57E700866864 /* Build configuration list for PBXNativeTarget "Dice Roller" */;
 			buildPhases = (
-				21094A802A1B2E29003A4FC7 /* Sources */,
-				21094A812A1B2E29003A4FC7 /* Frameworks */,
-				21094A822A1B2E29003A4FC7 /* Resources */,
+				21682EF92A1C57E500866864 /* Sources */,
+				21682EFA2A1C57E500866864 /* Frameworks */,
+				21682EFB2A1C57E500866864 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -92,25 +93,25 @@
 			);
 			name = "Dice Roller";
 			productName = "Dice Roller";
-			productReference = 21094A842A1B2E29003A4FC7 /* Dice Roller.app */;
+			productReference = 21682EFD2A1C57E500866864 /* Dice Roller.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		21094A7C2A1B2E29003A4FC7 /* Project object */ = {
+		21682EF52A1C57E500866864 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					21094A832A1B2E29003A4FC7 = {
+					21682EFC2A1C57E500866864 = {
 						CreatedOnToolsVersion = 14.3;
 					};
 				};
 			};
-			buildConfigurationList = 21094A7F2A1B2E29003A4FC7 /* Build configuration list for PBXProject "Dice Roller" */;
+			buildConfigurationList = 21682EF82A1C57E500866864 /* Build configuration list for PBXProject "Dice Roller" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,44 +119,45 @@
 				en,
 				Base,
 			);
-			mainGroup = 21094A7B2A1B2E29003A4FC7;
-			productRefGroup = 21094A852A1B2E29003A4FC7 /* Products */;
+			mainGroup = 21682EF42A1C57E500866864;
+			productRefGroup = 21682EFE2A1C57E500866864 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				21094A832A1B2E29003A4FC7 /* Dice Roller */,
+				21682EFC2A1C57E500866864 /* Dice Roller */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		21094A822A1B2E29003A4FC7 /* Resources */ = {
+		21682EFB2A1C57E500866864 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21094A8F2A1B2E2B003A4FC7 /* Preview Assets.xcassets in Resources */,
-				21094A8C2A1B2E2B003A4FC7 /* Assets.xcassets in Resources */,
+				21682F082A1C57E700866864 /* Preview Assets.xcassets in Resources */,
+				21682F052A1C57E700866864 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		21094A802A1B2E29003A4FC7 /* Sources */ = {
+		21682EF92A1C57E500866864 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21094A972A1B2EC5003A4FC7 /* DRNumberView.swift in Sources */,
-				21094A8A2A1B2E29003A4FC7 /* ContentView.swift in Sources */,
-				21094A9B2A1B3381003A4FC7 /* ContentVM.swift in Sources */,
-				21094A882A1B2E29003A4FC7 /* Dice_RollerApp.swift in Sources */,
+				21682F0F2A1C593800866864 /* DRNumberView.swift in Sources */,
+				21682F112A1C5A1E00866864 /* CustomEmptyView.swift in Sources */,
+				21682F132A1C5CD800866864 /* ContentVM.swift in Sources */,
+				21682F032A1C57E500866864 /* ContentView.swift in Sources */,
+				21682F012A1C57E500866864 /* Dice_RollerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		21094A912A1B2E2B003A4FC7 /* Debug */ = {
+		21682F092A1C57E700866864 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -205,17 +207,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		21094A922A1B2E2B003A4FC7 /* Release */ = {
+		21682F0A2A1C57E700866864 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -259,91 +261,96 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		21094A942A1B2E2B003A4FC7 /* Debug */ = {
+		21682F0C2A1C57E700866864 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Dice Roller/Dice_Roller.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dice Roller/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ReConnect.Dice-Roller";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		21094A952A1B2E2B003A4FC7 /* Release */ = {
+		21682F0D2A1C57E700866864 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Dice Roller/Dice_Roller.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dice Roller/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ReConnect.Dice-Roller";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		21094A7F2A1B2E29003A4FC7 /* Build configuration list for PBXProject "Dice Roller" */ = {
+		21682EF82A1C57E500866864 /* Build configuration list for PBXProject "Dice Roller" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21094A912A1B2E2B003A4FC7 /* Debug */,
-				21094A922A1B2E2B003A4FC7 /* Release */,
+				21682F092A1C57E700866864 /* Debug */,
+				21682F0A2A1C57E700866864 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		21094A932A1B2E2B003A4FC7 /* Build configuration list for PBXNativeTarget "Dice Roller" */ = {
+		21682F0B2A1C57E700866864 /* Build configuration list for PBXNativeTarget "Dice Roller" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				21094A942A1B2E2B003A4FC7 /* Debug */,
-				21094A952A1B2E2B003A4FC7 /* Release */,
+				21682F0C2A1C57E700866864 /* Debug */,
+				21682F0D2A1C57E700866864 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 21094A7C2A1B2E29003A4FC7 /* Project object */;
+	rootObject = 21682EF52A1C57E500866864 /* Project object */;
 }

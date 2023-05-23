@@ -14,6 +14,9 @@ struct ContentView: View {
     var body: some View {
         if viewModel.isSignedIn {
             CoreScreen()
+                .onAppear {
+                    viewModel.readLoggedInUser()
+                }
         } else {
             LoginScreen()
         }

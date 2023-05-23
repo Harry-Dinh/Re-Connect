@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RECUser {
+struct RECUser: Codable {
     /// The identifier that is unique to this user. This cannot be changed once initialized.
     private let uid: String
     
@@ -80,9 +80,9 @@ struct RECUser {
     }
     
     /// The generic placeholder user for displaying in previews when there are no data to work with.
-    public static let placeholderUser = RECUser(firebaseUID: "00000000000000", displayName: "Harry Dinh",
-                                                username: "@HarryTDA",
-                                                emailAddress: "harrydinh@gmail.com",
+    public static let placeholderUser = RECUser(firebaseUID: "00000000000000", displayName: "Generic User",
+                                                username: "@GenericUser",
+                                                emailAddress: "genericEmail@genericDomain.com",
                                                 pfpURL: nil,
                                                 age: 18,
                                                 isProtectedAccount: true)

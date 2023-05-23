@@ -69,6 +69,7 @@ class DetailedRegistrationVM: ObservableObject {
                 return
             }
             
+            self?.loginVM.cacheLoggedInUser()
             self?.loginVM.isSignedIn = true
         }
     }

@@ -46,7 +46,7 @@ struct LoginScreen: View {
                     .listRowBackground(Color.accentColor.opacity(0.25))
                 }
             }
-            .fullScreenCover(isPresented: $viewModel.presentRegisterScreen, content: RegisterScreen.init)
+            .fullScreenCover(isPresented: $viewModel.presentRegisterScreen, content: InitialRegisterView.init)
         }
     }
 }

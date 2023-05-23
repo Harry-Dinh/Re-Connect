@@ -18,6 +18,7 @@
 		213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */; };
 		213DAE1B2A0DE0E400C52165 /* DetailedRegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */; };
 		213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */; };
+		21682F152A1C642100866864 /* InitialRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F142A1C642100866864 /* InitialRegisterView.swift */; };
 		21735D5F2A0C8EF900086A49 /* RECSystemAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21735D5E2A0C8EF900086A49 /* RECSystemAlerts.swift */; };
 		219CD58B2A0B7AA40061B04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */; };
 		219CD58E2A0B7B610061B04E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 219CD58D2A0B7B610061B04E /* FirebaseAuth */; };
@@ -48,6 +49,7 @@
 		213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationVM.swift; sourceTree = "<group>"; };
 		213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationScreen.swift; sourceTree = "<group>"; };
 		213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListButtonLabel.swift; sourceTree = "<group>"; };
+		21682F142A1C642100866864 /* InitialRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRegisterView.swift; sourceTree = "<group>"; };
 		21735D5E2A0C8EF900086A49 /* RECSystemAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECSystemAlerts.swift; sourceTree = "<group>"; };
 		219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		219CD5952A0B7D8F0061B04E /* CoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreScreen.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				2123642B2A08F948005827D2 /* ContentView.swift */,
 				212364372A08FA97005827D2 /* MenuScreen.swift */,
 				21A765492A0A0A3900761219 /* LoginScreen.swift */,
+				21682F142A1C642100866864 /* InitialRegisterView.swift */,
 				219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */,
 				219CD5952A0B7D8F0061B04E /* CoreScreen.swift */,
 				213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */,
@@ -255,6 +258,7 @@
 				219CD5982A0B7EDD0061B04E /* RegisterScreen.swift in Sources */,
 				21735D5F2A0C8EF900086A49 /* RECSystemAlerts.swift in Sources */,
 				213DAE1B2A0DE0E400C52165 /* DetailedRegistrationScreen.swift in Sources */,
+				21682F152A1C642100866864 /* InitialRegisterView.swift in Sources */,
 				219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,
 				219CD59E2A0B83C80061B04E /* RECHeader.swift in Sources */,

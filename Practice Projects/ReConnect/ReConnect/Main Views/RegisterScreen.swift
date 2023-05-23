@@ -41,18 +41,16 @@ struct RegisterScreen: View {
                                      isSecureTextEntry: true)
                 }
                 
-                NavigationLink(destination: DetailedRegistrationScreen()) {
+                Button(action: {
+                    viewModel.createAccount(with: viewModel.emailField, and: viewModel.passwordField)
+                    
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        viewModel.pushToDetailedRegistration.toggle()
+                    }
+                }) {
                     RECListButtonLabel(title: "Continue", style: .backgroundProminant)
                 }
                 .listRowBackground(Color.accentColor)
-                .simultaneousGesture(
-                    TapGesture()
-                        .onEnded {
-                            viewModel.createAccount(with: viewModel.emailField,
-                                                    and: viewModel.passwordField)
-                            viewModel.writeToDatabase(with: loginVM.loggedInUser ?? RECUser())
-                        }
-                )
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

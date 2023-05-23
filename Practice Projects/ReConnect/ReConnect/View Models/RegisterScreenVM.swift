@@ -36,6 +36,9 @@ class RegisterScreenVM: ObservableObject {
     
     // MARK: - STATES FOR SWIFTUI VIEWS
     
+    /// A toggle to push and pop to the detailed registration view. **Trigger this after the registration function is called.**
+    @Published var pushToDetailedRegistration = false
+    
     // MARK: - ERROR ALERTS
     
     /// This boolean becomes `true` when the `signIn()` function exit early without getting to the authentication sequence.
@@ -91,7 +94,8 @@ class RegisterScreenVM: ObservableObject {
         let userData: [String: Any] = [
             "uid": user.getUID(),
             "displayName": user.displayName,
-            "emailAddress": user.emailAddress
+            "emailAddress": user.emailAddress,
+            "firebaseUID": user.getFirebaseUID()
         ]
         
         // This line means write data above in the path: RECUsers/user.uid/
@@ -108,7 +112,8 @@ class RegisterScreenVM: ObservableObject {
             "emailAddress": user.emailAddress,
             "pfpURL": user.pfpURL ?? "",
             "age": user.age,
-            "isProtectedAccount": user.isProtectedAccount
+            "isProtectedAccount": user.isProtectedAccount,
+            "firebaseUID": user.getFirebaseUID()
         ]
         
         // This line means update data above in the path: RECUsers/user.uid/

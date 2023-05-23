@@ -13,6 +13,9 @@ class LoginScreenVM: ObservableObject {
     
     static let viewModel = LoginScreenVM()
     
+    /// The `UserDefaults` (UD) ID to decode the data of the logged in user from `UserDefaults`.
+    public static let loggedInUserUDID = "loggedInUser"
+    
     // MARK: - SWIFTUI VIEWS PROPERTIES
     
     /// A boolean that checks for if there is a user cached on the device and choose to present the login screen or core screen.
@@ -29,4 +32,45 @@ class LoginScreenVM: ObservableObject {
     
     /// A binding boolean to present the registration screen.
     @Published var presentRegisterScreen = false
+    
+    // MARK: - ERROR ALERTS
+    
+    /// This triggers an alert when the `readLoggedInUser()` method failed to read the values from the logged in user from `UserDefaults`.
+    @Published var failedToUnwrapUserInfo = false
+    
+    /// This triggers an alert when the `cacheLoggedInUser()` method failed to encode the user data to `UserDefaults`.
+    @Published var failedToEncodeUser = false
+    
+    /// This triggers an alert when the `readLoggedInUser()` method failed to decode the user from the data unwrapped beforehand.
+    @Published var failedToDecodeUser = false
+    
+    // MARK: - FUNCTIONS
+    
+    /// Convert the data of the `loggedInUser` variable into binary data and store locally on the device using `UserDefaults`.
+    public func cacheLoggedInUser() {
+        do {
+            let encoder = JSONEncoder()
+            let userData = try encoder.encode(loggedInUser)
+            
+            UserDefaults.standard.set(userData, forKey: LoginScreenVM.loggedInUserUDID)
+        } catch {
+            print("Unable to encode logged in user")
+        }
+    }
+    
+    /// Read the data saved by `cacheLoggedInUser()` and convert it back to a `RECUser` object and assign it back to `loggedInUser`.
+    public func readLoggedInUser() {
+        guard let userData = UserDefaults.standard.value(forKey: LoginScreenVM.loggedInUserUDID) as? Data else {
+            self.failedToUnwrapUserInfo.toggle()
+            return
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            let user = try decoder.decode(RECUser.self, from: userData)
+            self.loggedInUser = user
+        } catch {
+            self.failedToDecodeUser.toggle()
+        }
+    }
 }
