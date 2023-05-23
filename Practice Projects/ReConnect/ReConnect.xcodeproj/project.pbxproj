@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2122D7172A1CBB3700005122 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D7162A1CBB3700005122 /* ProfileScreen.swift */; };
+		2122D71B2A1CC13500005122 /* AppSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */; };
+		2122D71D2A1CC26800005122 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D71C2A1CC26800005122 /* CustomEmptyView.swift */; };
+		2122D71F2A1CC29700005122 /* AppSettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D71E2A1CC29700005122 /* AppSettingsVM.swift */; };
+		2122D7232A1CC6CD00005122 /* AccountSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D7222A1CC6CD00005122 /* AccountSettingsScreen.swift */; };
+		2122D7252A1CC73600005122 /* RECDisplayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D7242A1CC73600005122 /* RECDisplayLabel.swift */; };
 		2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212364292A08F948005827D2 /* ReConnectApp.swift */; };
 		2123642C2A08F948005827D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123642B2A08F948005827D2 /* ContentView.swift */; };
 		2123642E2A08F949005827D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2123642D2A08F949005827D2 /* Assets.xcassets */; };
@@ -37,6 +43,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2122D7162A1CBB3700005122 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsScreen.swift; sourceTree = "<group>"; };
+		2122D71C2A1CC26800005122 /* CustomEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomEmptyView.swift; path = "../../../../../Dice Roller/Dice Roller/CustomEmptyView.swift"; sourceTree = "<group>"; };
+		2122D71E2A1CC29700005122 /* AppSettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsVM.swift; sourceTree = "<group>"; };
+		2122D7222A1CC6CD00005122 /* AccountSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsScreen.swift; sourceTree = "<group>"; };
+		2122D7242A1CC73600005122 /* RECDisplayLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECDisplayLabel.swift; sourceTree = "<group>"; };
 		212364262A08F948005827D2 /* ReConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		212364292A08F948005827D2 /* ReConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConnectApp.swift; sourceTree = "<group>"; };
 		2123642B2A08F948005827D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +90,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2122D7182A1CC0EE00005122 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2122D7192A1CC12200005122 /* Settings Views */,
+				212364392A08FAFF005827D2 /* Custom Views */,
+				2123643C2A08FB29005827D2 /* Main Views */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2122D7192A1CC12200005122 /* Settings Views */ = {
+			isa = PBXGroup;
+			children = (
+				2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */,
+				2122D7222A1CC6CD00005122 /* AccountSettingsScreen.swift */,
+			);
+			path = "Settings Views";
+			sourceTree = "<group>";
+		};
 		2123641D2A08F948005827D2 = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +132,7 @@
 				212364292A08F948005827D2 /* ReConnectApp.swift */,
 				21A765442A0A05F500761219 /* View Models */,
 				2123643D2A08FB32005827D2 /* Models */,
-				2123643C2A08FB29005827D2 /* Main Views */,
-				212364392A08FAFF005827D2 /* Custom Views */,
+				2122D7182A1CC0EE00005122 /* Views */,
 				2123642D2A08F949005827D2 /* Assets.xcassets */,
 				2123642F2A08F949005827D2 /* Preview Content */,
 			);
@@ -120,11 +150,13 @@
 		212364392A08FAFF005827D2 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				2122D71C2A1CC26800005122 /* CustomEmptyView.swift */,
 				2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */,
 				21A765472A0A06AB00761219 /* RECMenuListRow.swift */,
 				21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */,
 				219CD59D2A0B83C80061B04E /* RECHeader.swift */,
 				213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */,
+				2122D7242A1CC73600005122 /* RECDisplayLabel.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -138,6 +170,7 @@
 				21682F142A1C642100866864 /* InitialRegisterView.swift */,
 				219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */,
 				219CD5952A0B7D8F0061B04E /* CoreScreen.swift */,
+				2122D7162A1CBB3700005122 /* ProfileScreen.swift */,
 				213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */,
 			);
 			path = "Main Views";
@@ -160,6 +193,7 @@
 				21A7654B2A0A0A4D00761219 /* LoginScreenVM.swift */,
 				219CD5992A0B80170061B04E /* RegisterScreenVM.swift */,
 				213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */,
+				2122D71E2A1CC29700005122 /* AppSettingsVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -245,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				212364412A090087005827D2 /* RECListRowItem.swift in Sources */,
+				2122D7172A1CBB3700005122 /* ProfileScreen.swift in Sources */,
 				213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */,
 				21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */,
 				212364382A08FA97005827D2 /* MenuScreen.swift in Sources */,
@@ -252,13 +287,18 @@
 				21A765482A0A06AB00761219 /* RECMenuListRow.swift in Sources */,
 				2123643F2A08FB55005827D2 /* RECUser.swift in Sources */,
 				21A765462A0A060900761219 /* MenuScreenVM.swift in Sources */,
+				2122D71D2A1CC26800005122 /* CustomEmptyView.swift in Sources */,
+				2122D7252A1CC73600005122 /* RECDisplayLabel.swift in Sources */,
 				219CD59A2A0B80170061B04E /* RegisterScreenVM.swift in Sources */,
+				2122D71F2A1CC29700005122 /* AppSettingsVM.swift in Sources */,
 				213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */,
 				2123642C2A08F948005827D2 /* ContentView.swift in Sources */,
 				219CD5982A0B7EDD0061B04E /* RegisterScreen.swift in Sources */,
 				21735D5F2A0C8EF900086A49 /* RECSystemAlerts.swift in Sources */,
 				213DAE1B2A0DE0E400C52165 /* DetailedRegistrationScreen.swift in Sources */,
 				21682F152A1C642100866864 /* InitialRegisterView.swift in Sources */,
+				2122D71B2A1CC13500005122 /* AppSettingsScreen.swift in Sources */,
+				2122D7232A1CC6CD00005122 /* AccountSettingsScreen.swift in Sources */,
 				219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,
 				219CD59E2A0B83C80061B04E /* RECHeader.swift in Sources */,

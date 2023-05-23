@@ -67,6 +67,18 @@ struct RECUser: Codable {
         self.isProtectedAccount = isProtectedAccount
     }
     
+    /// Create a Re:Connect user (only use this initializer for accounts that were created already)
+    init(uid: String, firebaseUID: String, displayName: String, username: String, emailAddress: String, pfpURL: String?, age: Int, isProtectedAccount: Bool) {
+        self.uid = uid
+        self.firebaseUID = firebaseUID
+        self.displayName = displayName
+        self.username = username
+        self.emailAddress = emailAddress
+        self.pfpURL = pfpURL
+        self.age = age
+        self.isProtectedAccount = isProtectedAccount
+    }
+    
     /// Securely return the unique identifier of this user without having to call `user.uid` directly.
     /// - Returns: The unique identifier of this user.
     public func getUID() -> String {

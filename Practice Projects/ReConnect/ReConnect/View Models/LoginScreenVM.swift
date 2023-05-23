@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 class LoginScreenVM: ObservableObject {
     
@@ -44,6 +45,9 @@ class LoginScreenVM: ObservableObject {
     /// This triggers an alert when the `readLoggedInUser()` method failed to decode the user from the data unwrapped beforehand.
     @Published var failedToDecodeUser = false
     
+    /// This triggers an alert when the `signOutUser()` method failed to sign out the current logged in user.
+    @Published var failedToSignOut = false
+    
     // MARK: - FUNCTIONS
     
     /// Convert the data of the `loggedInUser` variable into binary data and store locally on the device using `UserDefaults`.
@@ -71,6 +75,16 @@ class LoginScreenVM: ObservableObject {
             self.loggedInUser = user
         } catch {
             self.failedToDecodeUser.toggle()
+        }
+    }
+    
+    public func signOutUser() {
+        do {
+            UserDefaults.standard.removeObject(forKey: LoginScreenVM.loggedInUserUDID)
+            try Auth.auth().signOut()
+            self.isSignedIn = false
+        } catch {
+            self.failedToSignOut.toggle()
         }
     }
 }

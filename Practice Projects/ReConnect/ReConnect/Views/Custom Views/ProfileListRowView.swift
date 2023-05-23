@@ -13,10 +13,12 @@ struct ProfileListRowView: View {
     
     var body: some View {
         HStack {
-            if user.pfpURL == nil {
+            if user.pfpURL == nil || user.pfpURL == "" {
                 Image(systemName: "person.crop.circle")
                     .font(.system(size: 50))
                     .foregroundColor(.accentColor)
+            } else {
+                // Display an image here...
             }
             
             VStack(alignment: .leading, spacing: 5) {

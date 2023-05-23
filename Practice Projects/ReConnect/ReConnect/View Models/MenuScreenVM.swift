@@ -22,5 +22,11 @@ class MenuScreenVM: ObservableObject {
         RECListRowItem(label: "Bookmarks", iconStr: "book.closed", tintColor: .orange)
     ]
     
+    public let applicationSectionItems: [RECListRowItem] = [
+        RECListRowItem(label: "Settings", iconStr: "gear", tintColor: .gray),
+        RECListRowItem(label: "Feedback & Support", iconStr: "questionmark.bubble", tintColor: .gray),
+        RECListRowItem(label: "About Re:Connect", iconStr: "info.circle", tintColor: .gray)
+    ]
+    
     public var userCollectionFolders: [RECListRowItem] = []
 }

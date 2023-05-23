@@ -14,6 +14,8 @@ struct RECListButtonLabel: View {
         case labelProminant
         /// Make the background of the button stands out
         case backgroundProminant
+        /// Give the button label a red tint (indicating dangerous actions)
+        case destructive
     }
     
     var title: String
@@ -28,12 +30,20 @@ struct RECListButtonLabel: View {
                     .foregroundColor(.white)
                 Spacer()
             }
-        } else {
+        } else if style == .labelProminant {
             HStack {
                 Spacer()
                 Text(title)
                     .fontWeight(.semibold)
                     .foregroundColor(.accentColor)
+                Spacer()
+            }
+        } else {
+            HStack {
+                Spacer()
+                Text(title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.red)
                 Spacer()
             }
         }

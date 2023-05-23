@@ -16,12 +16,15 @@ struct CoreScreen: View {
             Text("Home")
                 .tabItem{ Label("Home", systemImage: "house") }
                 .tag(0)
+            ProfileScreen()
+                .tabItem { Label("My Profile", systemImage: "person.crop.circle.fill") }
+                .tag(1)
             Text("Search")
                 .tabItem{ Label("Search", systemImage: "magnifyingglass") }
-                .tag(1)
+                .tag(2)
             MenuScreen()
                 .tabItem{ Label("Menu", systemImage: "list.bullet") }
-                .tag(2)
+                .tag(3)
         }
     }
 }

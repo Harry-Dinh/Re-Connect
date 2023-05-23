@@ -10,15 +10,22 @@ import SwiftUI
 struct MenuScreen: View {
     
     @ObservedObject var viewModel = MenuScreenVM.viewModel
+    @ObservedObject var loginVM = LoginScreenVM.viewModel
     
     var body: some View {
         NavigationView {
             List {
-                ProfileListRowView(user: RECUser.placeholderUser)
+                ProfileListRowView(user: loginVM.loggedInUser ?? RECUser.placeholderUser)
                 
                 Section {
                     ForEach(viewModel.contentSectionItems) { content in
                         RECMenuListRow(rowItem: content)
+                    }
+                }
+                
+                Section {
+                    NavigationLink(destination: AppSettingsScreen.init) {
+                        RECMenuListRow(rowItem: viewModel.applicationSectionItems[0])
                     }
                 }
             }
