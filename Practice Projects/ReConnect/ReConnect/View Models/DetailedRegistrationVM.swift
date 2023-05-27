@@ -58,7 +58,7 @@ class DetailedRegistrationVM: ObservableObject {
             "isProtectedAccount": isProtectedAccount
         ]
         
-        guard let currentUserUID = loginVM.loggedInUser?.getUID() else {
+        guard let currentUserUID = loginVM.loggedInUser?.getFirebaseUID() else {
             self.failedToUnwrapUID.toggle()
             return
         }

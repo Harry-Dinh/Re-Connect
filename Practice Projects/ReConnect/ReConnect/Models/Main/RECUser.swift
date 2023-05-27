@@ -9,6 +9,21 @@ import Foundation
 
 struct RECUser: Codable {
     
+    // MARK: - ENUMS
+    
+    public class Property {
+        static let uid = "uid"
+        static let displayName = "displayName"
+        static let emailAddress = "emailAddress"
+        static let pfpURL = "pfpURL"
+        static let age = "age"
+        static let isProtectedAccount = "isProtectedAccount"
+        static let followerCount = "followerCount"
+        static let followingCount = "followingCount"
+        static let firebaseUID = "firebaseUID"
+        static let username = "username"
+    }
+    
     // MARK: - FIELDS
     
     /// The identifier that is unique to this user. This cannot be changed once initialized.

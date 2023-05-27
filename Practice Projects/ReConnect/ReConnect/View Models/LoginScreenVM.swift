@@ -57,24 +57,6 @@ class LoginScreenVM: ObservableObject {
     
     // MARK: - FUNCTIONS
     
-    public func logInUser(with email: String, and password: String) {
-        if !email.contains("@") {
-            self.emailNotValidAlert.toggle()
-            return
-        }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let result = authResult, error == nil else {
-                self?.failedToSignInUser.toggle()
-                return
-            }
-            
-            
-        }
-    }
-    
-    public func fetchUserDataFromDatabase(with firebaseUID: String) {}
-    
     /// Convert the data of the `loggedInUser` variable into binary data and store locally on the device using `UserDefaults`.
     public func cacheLoggedInUser() {
         do {

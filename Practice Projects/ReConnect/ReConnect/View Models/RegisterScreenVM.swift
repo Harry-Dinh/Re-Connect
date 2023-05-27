@@ -103,7 +103,7 @@ class RegisterScreenVM: ObservableObject {
         ]
         
         // This line means write data above in the path: RECUsers/user.uid/
-        databaseReference.child("RECUsers").child(user.getUID()).setValue(userData)
+        databaseReference.child("RECUsers").child(user.getFirebaseUID()).setValue(userData)
     }
     
     /// Update instead of overwriting the user's data with the latest information
@@ -121,6 +121,6 @@ class RegisterScreenVM: ObservableObject {
         ]
         
         // This line means update data above in the path: RECUsers/user.uid/
-        databaseReference.child("RECUsers").child(user.getUID()).updateChildValues(userData)
+        databaseReference.child("RECUsers").child(user.getFirebaseUID()).updateChildValues(userData)
     }
 }
