@@ -13,39 +13,42 @@ struct ProfileScreen: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Section {
-                    RECDisplayLabel(displayMode: .trailing,
-                                    label: "Name",
-                                    value: loginVM.loggedInUser?.displayName ?? RECUser.placeholderUser.displayName)
-                    RECDisplayLabel(displayMode: .trailing,
-                                    label: "Username",
-                                    value: loginVM.loggedInUser?.username ?? RECUser.placeholderUser.username)
-                } header: {
-                    Text("Display Profile Info")
+            ScrollView {
+                HStack {
+                    RECProfileHeader()
+                        .padding(.leading, 25)
+                    Spacer()
                 }
                 
-                Section {
-                    RECDisplayLabel(displayMode: .trailing,
-                                    label: "REC UID",
-                                    value: loginVM.loggedInUser?.getUID() ?? RECUser.placeholderUser.getUID())
-                    RECDisplayLabel(displayMode: .trailing,
-                                    label: "Firebase UID",
-                                    value: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
-                    RECDisplayLabel(displayMode: .trailing,
-                                    label: "Email",
-                                    value: loginVM.loggedInUser?.emailAddress ?? RECUser.placeholderUser.emailAddress)
-                    RECDisplayLabel(displayMode: .trailing,
-                                    label: "Age",
-                                    value: "\(loginVM.loggedInUser?.age ?? RECUser.placeholderUser.age)")
-                    RECDisplayLabel(displayMode: .trailing,
-                                    label: "PFP URL",
-                                    value: loginVM.loggedInUser?.pfpURL ?? "pfpURL")
-                } header: {
-                    Text("Hidden User Info")
+                HStack {
+                    RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount,
+                                           subscriberType: .follower)
+                    
+                    RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followingCount ?? RECUser.placeholderUser.followingCount,
+                                           subscriberType: .following)
+                }
+                .padding(.horizontal)
+                
+                RECProfileInfoSheet()
+                    .padding(.horizontal)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {}) {
+                        Image(systemName: "qrcode")
+                    }
+                }
+                
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(action: {}) {
+                        Image(systemName: "pencil")
+                    }
+                    
+                    Button(action: {}) {
+                        Image(systemName: "plus")
+                    }
                 }
             }
-            .navigationTitle("My Profile")
         }
     }
 }

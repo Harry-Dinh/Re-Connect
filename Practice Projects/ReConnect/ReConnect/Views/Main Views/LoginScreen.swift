@@ -14,7 +14,7 @@ struct LoginScreen: View {
     var body: some View {
         NavigationView {
             List {
-                RECHeader(icon: "message.fill", label: "Welcome to Re:Connect", isListHeader: true)
+                RECListHeader(icon: "message.fill", label: "Welcome to Re:Connect", isListHeader: true)
                     .listRowBackground(Color.clear)
                 
                 Section {

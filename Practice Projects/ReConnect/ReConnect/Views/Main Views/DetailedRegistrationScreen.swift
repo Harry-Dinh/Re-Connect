@@ -13,7 +13,7 @@ struct DetailedRegistrationScreen: View {
     
     var body: some View {
         List {
-            RECHeader(icon: "info.circle", label: "Finish Setting Up Your Account", isListHeader: true)
+            RECListHeader(icon: "info.circle", label: "Finish Setting Up Your Account", isListHeader: true)
                 .listRowBackground(Color.clear)
             
             Text("Just a few more preferences to select and you can start using your new Re:Connect account.")

@@ -95,7 +95,11 @@ class RegisterScreenVM: ObservableObject {
             "uid": user.getUID(),
             "displayName": user.displayName,
             "emailAddress": user.emailAddress,
-            "firebaseUID": user.getFirebaseUID()
+            "firebaseUID": user.getFirebaseUID(),
+            "followersUIDs": user.followersUIDs,
+            "followingsUIDs": user.followingsUIDs,
+            "followerCount": user.followerCount,
+            "followingCount": user.followingCount
         ]
         
         // This line means write data above in the path: RECUsers/user.uid/
@@ -113,7 +117,7 @@ class RegisterScreenVM: ObservableObject {
             "pfpURL": user.pfpURL ?? "",
             "age": user.age,
             "isProtectedAccount": user.isProtectedAccount,
-            "firebaseUID": user.getFirebaseUID()
+            "firebaseUID": user.getFirebaseUID(),
         ]
         
         // This line means update data above in the path: RECUsers/user.uid/

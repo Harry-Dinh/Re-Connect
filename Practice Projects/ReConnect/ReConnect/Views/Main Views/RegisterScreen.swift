@@ -16,7 +16,7 @@ struct RegisterScreen: View {
     var body: some View {
         NavigationView {
             List {
-                RECHeader(icon: "person.crop.circle.badge.plus", label: "Create New Account", isListHeader: true)
+                RECListHeader(icon: "person.crop.circle.badge.plus", label: "Create New Account", isListHeader: true)
                     .listRowBackground(Color.clear)
                 
                 Section {

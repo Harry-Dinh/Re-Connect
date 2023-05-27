@@ -30,6 +30,13 @@ struct MenuScreen: View {
                 }
             }
             .navigationTitle("Menu")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {}) {
+                        Image(systemName: "folder.badge.plus")
+                    }
+                }
+            }
         }
     }
 }

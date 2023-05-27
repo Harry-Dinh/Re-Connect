@@ -8,6 +8,9 @@
 import Foundation
 
 struct RECUser: Codable {
+    
+    // MARK: - FIELDS
+    
     /// The identifier that is unique to this user. This cannot be changed once initialized.
     private let uid: String
     
@@ -31,6 +34,20 @@ struct RECUser: Codable {
     /// A boolean that identifies whether this is a protected account or not.
     var isProtectedAccount: Bool
     
+    /// The Re:Connect UID of the people who followed this user.
+    var followersUIDs: [String]
+    
+    /// The Re:Connect UID of the people this user follow.
+    var followingsUIDs: [String]
+    
+    /// The number of people who followed this user.
+    var followerCount: Int
+    
+    /// The number of people this user is following.
+    var followingCount: Int
+    
+    // MARK: - INITIALIZERS (CONSTRUCTORS)
+    
     /// Create a generic Re:Connect user
     init() {
         self.uid = UUID().uuidString
@@ -41,6 +58,10 @@ struct RECUser: Codable {
         self.pfpURL = ""
         self.age = -1
         self.isProtectedAccount = true
+        self.followersUIDs = []
+        self.followingsUIDs = []
+        self.followerCount = 0
+        self.followingCount = 0
     }
     
     /// Create a Re:Connect user (for setting up basic information and other info filled out later)
@@ -53,6 +74,10 @@ struct RECUser: Codable {
         self.pfpURL = ""
         self.age = -1
         self.isProtectedAccount = true
+        self.followersUIDs = []
+        self.followingsUIDs = []
+        self.followerCount = 0
+        self.followingCount = 0
     }
     
     /// Create a Re:Connect user (include all information beside the unique identifier)
@@ -65,6 +90,10 @@ struct RECUser: Codable {
         self.pfpURL = pfpURL
         self.age = age
         self.isProtectedAccount = isProtectedAccount
+        self.followersUIDs = []
+        self.followingsUIDs = []
+        self.followerCount = 0
+        self.followingCount = 0
     }
     
     /// Create a Re:Connect user (only use this initializer for accounts that were created already)
@@ -77,7 +106,13 @@ struct RECUser: Codable {
         self.pfpURL = pfpURL
         self.age = age
         self.isProtectedAccount = isProtectedAccount
+        self.followersUIDs = []
+        self.followingsUIDs = []
+        self.followerCount = 0
+        self.followingCount = 0
     }
+    
+    // MARK: - GETTERS
     
     /// Securely return the unique identifier of this user without having to call `user.uid` directly.
     /// - Returns: The unique identifier of this user.
@@ -90,6 +125,18 @@ struct RECUser: Codable {
     public func getFirebaseUID() -> String {
         return self.firebaseUID
     }
+    
+    // MARK: - SETTERS
+    
+    public mutating func appendFollower(_ user: RECUser) {
+        self.followersUIDs.append(user.getUID())
+    }
+    
+    public mutating func appendFollowing(_ user: RECUser) {
+        self.followersUIDs.append(user.getUID())
+    }
+    
+    // MARK: - GENERIC OBJECT
     
     /// The generic placeholder user for displaying in previews when there are no data to work with.
     public static let placeholderUser = RECUser(firebaseUID: "00000000000000", displayName: "Generic User",

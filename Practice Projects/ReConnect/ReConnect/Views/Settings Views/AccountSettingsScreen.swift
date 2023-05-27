@@ -13,6 +13,12 @@ struct AccountSettingsScreen: View {
     
     var body: some View {
         List {
+            Button(action: {
+                loginVM.signOutUser()
+            }) {
+                RECListButtonLabel(title: "Log Out", style: .destructive)
+            }
+            
             Section {
                 RECDisplayLabel(displayMode: .trailing,
                                 label: "Name",
@@ -31,15 +37,6 @@ struct AccountSettingsScreen: View {
                 RECDisplayLabel(displayMode: .trailing,
                                 label: "Firebase UID",
                                 value: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
-            }
-            
-            Section {
-                Button(action: {
-                    loginVM.signOutUser()
-                }) {
-                    RECListButtonLabel(title: "Log Out", style: .destructive)
-                }
-                .listRowBackground(Color.red.opacity(0.25))
             }
         }
         .navigationTitle("Account")

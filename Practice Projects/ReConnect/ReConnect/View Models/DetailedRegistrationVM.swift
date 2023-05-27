@@ -44,7 +44,7 @@ class DetailedRegistrationVM: ObservableObject {
     ///   - isProtectedAccount: The user's preference for their account to be private or public
     public func updateFinalUserInfo(ageStr: String, username: String, isProtectedAccount: Bool) {
         guard let age = Int(ageStr) else {
-            self.failedToConvertAgeStr = true
+            self.failedToConvertAgeStr.toggle()
             return
         }
         
@@ -59,13 +59,13 @@ class DetailedRegistrationVM: ObservableObject {
         ]
         
         guard let currentUserUID = loginVM.loggedInUser?.getUID() else {
-            self.failedToUnwrapUID = true
+            self.failedToUnwrapUID.toggle()
             return
         }
         
         databaseReference.child("RECUsers").child(currentUserUID).updateChildValues(updatedData) { [weak self] error, _ in
             guard error == nil else {
-                self?.failedToWriteToDatabase = true
+                self?.failedToWriteToDatabase.toggle()
                 return
             }
             

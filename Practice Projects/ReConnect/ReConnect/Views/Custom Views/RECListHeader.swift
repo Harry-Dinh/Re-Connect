@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RECHeader: View {
+struct RECListHeader: View {
     
     var icon: String?
     var label: String
@@ -40,6 +40,6 @@ struct RECHeader: View {
 
 struct RECHeader_Previews: PreviewProvider {
     static var previews: some View {
-        RECHeader(icon: "message.fill", label: "Welcome to Re:Connect", isListHeader: true)
+        RECListHeader(icon: "message.fill", label: "Welcome to Re:Connect", isListHeader: true)
     }
 }
