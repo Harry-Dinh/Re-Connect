@@ -24,6 +24,7 @@
 		2123643B2A08FB0F005827D2 /* ProfileListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */; };
 		2123643F2A08FB55005827D2 /* RECUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123643E2A08FB55005827D2 /* RECUser.swift */; };
 		212364412A090087005827D2 /* RECListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212364402A090087005827D2 /* RECListRowItem.swift */; };
+		213AB8352A22124700DFEF2F /* CUPSystemIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213AB8342A22124700DFEF2F /* CUPSystemIcon.swift */; };
 		213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */; };
 		213DAE1B2A0DE0E400C52165 /* DetailedRegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */; };
 		213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */; };
@@ -63,6 +64,7 @@
 		2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListRowView.swift; sourceTree = "<group>"; };
 		2123643E2A08FB55005827D2 /* RECUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECUser.swift; sourceTree = "<group>"; };
 		212364402A090087005827D2 /* RECListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListRowItem.swift; sourceTree = "<group>"; };
+		213AB8342A22124700DFEF2F /* CUPSystemIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUPSystemIcon.swift; sourceTree = "<group>"; };
 		213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationVM.swift; sourceTree = "<group>"; };
 		213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationScreen.swift; sourceTree = "<group>"; };
 		213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListButtonLabel.swift; sourceTree = "<group>"; };
@@ -186,10 +188,35 @@
 		2123643D2A08FB32005827D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2123643E2A08FB55005827D2 /* RECUser.swift */,
-				212364402A090087005827D2 /* RECListRowItem.swift */,
+				213AB8332A22122600DFEF2F /* System */,
+				213AB8322A22121800DFEF2F /* Views */,
+				213AB8312A22120800DFEF2F /* Main */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		213AB8312A22120800DFEF2F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2123643E2A08FB55005827D2 /* RECUser.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		213AB8322A22121800DFEF2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				212364402A090087005827D2 /* RECListRowItem.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		213AB8332A22122600DFEF2F /* System */ = {
+			isa = PBXGroup;
+			children = (
+				213AB8342A22124700DFEF2F /* CUPSystemIcon.swift */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 		21A765442A0A05F500761219 /* View Models */ = {
@@ -308,6 +335,7 @@
 				211463F12A21C0BA0092751F /* RECSubscriberIndicator.swift in Sources */,
 				219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,
+				213AB8352A22124700DFEF2F /* CUPSystemIcon.swift in Sources */,
 				211463F32A21C2B00092751F /* RECProfileHeader.swift in Sources */,
 				219CD59E2A0B83C80061B04E /* RECListHeader.swift in Sources */,
 				21A7654C2A0A0A4D00761219 /* LoginScreenVM.swift in Sources */,

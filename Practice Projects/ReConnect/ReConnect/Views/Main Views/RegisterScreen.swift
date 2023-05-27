@@ -16,28 +16,28 @@ struct RegisterScreen: View {
     var body: some View {
         NavigationView {
             List {
-                RECListHeader(icon: "person.crop.circle.badge.plus", label: "Create New Account", isListHeader: true)
+                RECListHeader(icon: CUPSystemIcon.newProfile, label: "Create New Account", isListHeader: true)
                     .listRowBackground(Color.clear)
                 
                 Section {
                     RECAuthTextField(text: $viewModel.firstNameField,
                                      placeholderText: "First name",
-                                     iconStr: "person",
+                                     iconStr: CUPSystemIcon.person,
                                      isSecureTextEntry: false)
                     
                     RECAuthTextField(text: $viewModel.lastNameField,
                                      placeholderText: "Last name",
-                                     iconStr: "person",
+                                     iconStr: CUPSystemIcon.person,
                                      isSecureTextEntry: false)
                     
                     RECAuthTextField(text: $viewModel.emailField,
                                      placeholderText: "Email address",
-                                     iconStr: "envelope",
+                                     iconStr: CUPSystemIcon.emailEnvelope,
                                      isSecureTextEntry: false)
                     
                     RECAuthTextField(text: $viewModel.passwordField,
                                      placeholderText: "Password",
-                                     iconStr: "lock",
+                                     iconStr: CUPSystemIcon.passwordLock,
                                      isSecureTextEntry: true)
                 }
                 

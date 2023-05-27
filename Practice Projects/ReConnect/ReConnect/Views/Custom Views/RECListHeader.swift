@@ -20,7 +20,7 @@ struct RECListHeader: View {
             }
             
             VStack(spacing: 10) {
-                Image(systemName: icon ?? "gear")
+                Image(systemName: icon ?? CUPSystemIcon.settings)
                     .font(.system(size: 100))
                     .foregroundColor(.accentColor)
                 

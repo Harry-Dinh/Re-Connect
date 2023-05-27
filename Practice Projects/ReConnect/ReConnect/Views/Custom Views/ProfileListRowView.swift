@@ -14,7 +14,7 @@ struct ProfileListRowView: View {
     var body: some View {
         HStack {
             if user.pfpURL == nil || user.pfpURL == "" {
-                Image(systemName: "person.crop.circle")
+                Image(systemName: CUPSystemIcon.profile)
                     .font(.system(size: 50))
                     .foregroundColor(.accentColor)
             } else {

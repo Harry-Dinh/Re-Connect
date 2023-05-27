@@ -35,17 +35,17 @@ struct ProfileScreen: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {}) {
-                        Image(systemName: "qrcode")
+                        Image(systemName: CUPSystemIcon.qrcode)
                     }
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {}) {
-                        Image(systemName: "pencil")
+                        Image(systemName: CUPSystemIcon.edit)
                     }
                     
                     Button(action: {}) {
-                        Image(systemName: "plus")
+                        Image(systemName: CUPSystemIcon.add)
                     }
                 }
             }

@@ -33,7 +33,7 @@ struct MenuScreen: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {}) {
-                        Image(systemName: "folder.badge.plus")
+                        Image(systemName: CUPSystemIcon.newFolder)
                     }
                 }
             }

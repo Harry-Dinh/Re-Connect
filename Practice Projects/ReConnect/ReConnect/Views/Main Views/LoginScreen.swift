@@ -14,24 +14,26 @@ struct LoginScreen: View {
     var body: some View {
         NavigationView {
             List {
-                RECListHeader(icon: "message.fill", label: "Welcome to Re:Connect", isListHeader: true)
+                RECListHeader(icon: "\(CUPSystemIcon.message).fill", label: "Welcome to Re:Connect", isListHeader: true)
                     .listRowBackground(Color.clear)
                 
                 Section {
                     RECAuthTextField(text: $viewModel.emailField,
                                      placeholderText: "Email address",
-                                     iconStr: "envelope",
+                                     iconStr: CUPSystemIcon.emailEnvelope,
                                      isSecureTextEntry: false)
                     .keyboardType(.emailAddress)
                     
                     RECAuthTextField(text: $viewModel.passwordField,
                                      placeholderText: "Password",
-                                     iconStr: "lock",
+                                     iconStr: CUPSystemIcon.passwordLock,
                                      isSecureTextEntry: true)
                 }
                 
                 Section {
-                    Button(action: {}) {
+                    Button(action: {
+                        
+                    }) {
                         RECListButtonLabel(title: "Sign In", style: .backgroundProminant)
                     }
                     .listRowBackground(Color.accentColor)

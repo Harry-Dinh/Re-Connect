@@ -7,12 +7,15 @@
 
 import SwiftUI
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginScreenVM: ObservableObject {
     
     // MARK: - CLASS PROPERTIES
     
     static let viewModel = LoginScreenVM()
+    
+    private let databaseReference = Database.database().reference()
     
     /// The `UserDefaults` (UD) ID to decode the data of the logged in user from `UserDefaults`.
     public static let loggedInUserUDID = "loggedInUser"
@@ -36,6 +39,10 @@ class LoginScreenVM: ObservableObject {
     
     // MARK: - ERROR ALERTS
     
+    @Published var emailNotValidAlert = false
+    
+    @Published var failedToSignInUser = false
+    
     /// This triggers an alert when the `readLoggedInUser()` method failed to read the values from the logged in user from `UserDefaults`.
     @Published var failedToUnwrapUserInfo = false
     
@@ -49,6 +56,24 @@ class LoginScreenVM: ObservableObject {
     @Published var failedToSignOut = false
     
     // MARK: - FUNCTIONS
+    
+    public func logInUser(with email: String, and password: String) {
+        if !email.contains("@") {
+            self.emailNotValidAlert.toggle()
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let result = authResult, error == nil else {
+                self?.failedToSignInUser.toggle()
+                return
+            }
+            
+            
+        }
+    }
+    
+    public func fetchUserDataFromDatabase(with firebaseUID: String) {}
     
     /// Convert the data of the `loggedInUser` variable into binary data and store locally on the device using `UserDefaults`.
     public func cacheLoggedInUser() {

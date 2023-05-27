@@ -15,9 +15,10 @@ struct RECProfileInfoSheet: View {
         GroupBox {
             HStack {
                 VStack(alignment: .leading, spacing: 7) {
-                    Label(loginVM.loggedInUser?.emailAddress ?? RECUser.placeholderUser.emailAddress, systemImage: "envelope")
+                    Label(loginVM.loggedInUser?.emailAddress ?? RECUser.placeholderUser.emailAddress,
+                          systemImage: CUPSystemIcon.emailEnvelope)
                     Label("\(loginVM.loggedInUser?.age ?? RECUser.placeholderUser.age) years old",
-                          systemImage: "gift")
+                          systemImage: CUPSystemIcon.gift)
                 }
                 Spacer()
             }

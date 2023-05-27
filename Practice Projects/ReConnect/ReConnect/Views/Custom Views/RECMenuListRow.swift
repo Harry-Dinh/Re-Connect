@@ -15,7 +15,7 @@ struct RECMenuListRow: View {
         Label {
             Text(rowItem.label)
         } icon: {
-            Image(systemName: rowItem.iconStr ?? "gear")
+            Image(systemName: rowItem.iconStr ?? CUPSystemIcon.settings)
                 .foregroundColor(rowItem.tintColor ?? .accentColor)
         }
     }

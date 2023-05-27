@@ -15,7 +15,7 @@ struct RECProfileHeader: View {
         HStack(spacing: 10) {
             
             if loginVM.loggedInUser?.pfpURL == nil || loginVM.loggedInUser?.pfpURL == "" {
-                Image(systemName: "person.crop.circle")
+                Image(systemName: CUPSystemIcon.profile)
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundColor(.accentColor)
