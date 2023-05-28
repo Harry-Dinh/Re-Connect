@@ -13,17 +13,17 @@ struct CoreScreen: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("Home")
-                .tabItem{ Label("Home", systemImage: "house") }
+            FeedScreen()
+                .tabItem{ Label("Feed", systemImage: CUPSystemIcon.newspaper) }
                 .tag(0)
             ProfileScreen()
-                .tabItem { Label("My Profile", systemImage: "person.crop.circle.fill") }
+                .tabItem { Label("My Profile", systemImage: CUPSystemIcon.profile) }
                 .tag(1)
             Text("Search")
-                .tabItem{ Label("Search", systemImage: "magnifyingglass") }
+                .tabItem{ Label("Search", systemImage: CUPSystemIcon.magnifyingglass) }
                 .tag(2)
             MenuScreen()
-                .tabItem{ Label("Menu", systemImage: "list.bullet") }
+                .tabItem{ Label("Menu", systemImage: CUPSystemIcon.menuList) }
                 .tag(3)
         }
     }

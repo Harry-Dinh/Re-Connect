@@ -9,12 +9,12 @@ import SwiftUI
 
 struct RECDisplayLabel: View {
     
-    enum LabelDisplayMode {
-        case leading
-        case trailing
+    enum ValueDisplayMode {
+        case small
+        case standard
     }
     
-    var displayMode: LabelDisplayMode
+    var valueDisplayMode: ValueDisplayMode?
     var label: String
     var value: String
     
@@ -22,16 +22,17 @@ struct RECDisplayLabel: View {
         HStack(spacing: 15) {
             Text(label)
             
-            if displayMode == .leading {
-                Text(value)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.leading)
-            } else {
-                Spacer()
-                
+            Spacer()
+            
+            if valueDisplayMode == nil || valueDisplayMode == .standard {
                 Text(value)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.trailing)
+            } else {
+                Text(value)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.trailing)
+                    .font(.footnote)
             }
         }
     }
@@ -39,6 +40,6 @@ struct RECDisplayLabel: View {
 
 struct RECDisplayLabel_Previews: PreviewProvider {
     static var previews: some View {
-        RECDisplayLabel(displayMode: .trailing, label: "Label", value: "Value")
+        RECDisplayLabel(label: "Label", value: "Value")
     }
 }

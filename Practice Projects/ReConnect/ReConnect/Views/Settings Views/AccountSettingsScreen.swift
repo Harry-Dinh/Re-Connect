@@ -14,27 +14,32 @@ struct AccountSettingsScreen: View {
     var body: some View {
         List {
             Section {
-                RECDisplayLabel(displayMode: .trailing,
-                                label: "Name",
+                RECDisplayLabel(label: "Name",
                                 value: loginVM.loggedInUser?.displayName ?? RECUser.placeholderUser.displayName)
                 
-                RECDisplayLabel(displayMode: .trailing,
+                RECDisplayLabel(valueDisplayMode: .small,
                                 label: "Email",
                                 value: loginVM.loggedInUser?.emailAddress ?? RECUser.placeholderUser.emailAddress)
             }
             
             Section {
-                RECDisplayLabel(displayMode: .trailing,
-                                label: "REC UID",
-                                value: loginVM.loggedInUser?.getUID() ?? RECUser.placeholderUser.getUID())
-                
-                RECDisplayLabel(displayMode: .trailing,
-                                label: "Firebase UID",
-                                value: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+                Text(loginVM.loggedInUser?.getUID() ?? RECUser.placeholderUser.getUID())
+                    .font(.system(.footnote, design: .monospaced, weight: .regular))
+                    .foregroundColor(.secondary)
+            } header: {
+                Text("Re:Connect Unique Indentifier")
+            }
+            
+            Section {
+                Text(loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+                    .font(.system(.footnote, design: .monospaced, weight: .regular))
+                    .foregroundColor(.secondary)
+            } header: {
+                Text("Firebase Unique Identifier")
             }
             
             Button(action: {
-                loginVM.signOutUser()
+                loginVM.logOutUserAlert.toggle()
             }) {
                 Label("Log Out", systemImage: CUPSystemIcon.exit)
                     .foregroundColor(.red)
@@ -42,6 +47,16 @@ struct AccountSettingsScreen: View {
         }
         .navigationTitle("Account")
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Confirm Log Out?",
+               isPresented: $loginVM.logOutUserAlert) {
+            Button("Cancel", role: .cancel, action: {})
+            Button("Log Out", role: .destructive) {
+                loginVM.signOutUser()
+            }
+        } message: {
+            Text("Are you sure you want to log out? You will have to enter your email and password to log in again.")
+        }
+
     }
 }
 

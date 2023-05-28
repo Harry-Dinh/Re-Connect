@@ -43,4 +43,14 @@ class CUPSystemIcon {
     public static let add = "plus"
     
     public static let infoCircle = "info.circle"
+    
+    public static let newspaper = "newspaper"
+    
+    public static let magnifyingglass = "magnifyingglass"
+    
+    public static let menuList = "list.bullet"
+    
+    public static let filter = "line.3.horizontal.decrease.circle"
+    
+    public static let notification = "bell"
 }

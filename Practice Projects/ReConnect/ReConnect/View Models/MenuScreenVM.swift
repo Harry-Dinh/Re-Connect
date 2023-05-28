@@ -18,8 +18,8 @@ class MenuScreenVM: ObservableObject {
     /// The default section of menus
     public let contentSectionItems: [RECListRowItem] = [
         RECListRowItem(label: "Followers", iconStr: "person.2", tintColor: .accentColor),
-        RECListRowItem(label: "Following", iconStr: "person.3", tintColor: .accentColor),
-        RECListRowItem(label: "Bookmarks", iconStr: "book.closed", tintColor: .orange)
+        RECListRowItem(label: "Following", iconStr: "person.2", tintColor: .accentColor),
+        RECListRowItem(label: "Bookmarks", iconStr: "bookmark", tintColor: .orange)
     ]
     
     public let applicationSectionItems: [RECListRowItem] = [

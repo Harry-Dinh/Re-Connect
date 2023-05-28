@@ -11,6 +11,8 @@ struct RECProfileInfoSheet: View {
     
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
+    @State private var showInfoSheetInfo = false
+    
     var body: some View {
         GroupBox {
             HStack {
@@ -24,11 +26,24 @@ struct RECProfileInfoSheet: View {
             }
             .padding(7)
         } label: {
-            Text("other info".uppercased())
-                .font(.subheadline)
-                .foregroundColor(.secondary)
+            HStack {
+                Text("other info".uppercased())
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Spacer()
+                
+                Button(action: {
+                    showInfoSheetInfo.toggle()
+                }) {
+                    Image(systemName: CUPSystemIcon.infoCircle)
+                }
+            }
         }
         .cornerRadius(15)
+        .alert(Text("The information in this box will not be shown to the public, even with a public account."),
+               isPresented: $showInfoSheetInfo) {
+            Button("Done", role: .cancel, action: {})
+        }
     }
 }
 

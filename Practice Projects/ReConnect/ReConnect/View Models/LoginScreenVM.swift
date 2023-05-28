@@ -37,11 +37,19 @@ class LoginScreenVM: ObservableObject {
     /// A binding boolean to present the registration screen.
     @Published var presentRegisterScreen = false
     
+    /// This alert is shown when the user tapped the log out button.
+    @Published var logOutUserAlert = false
+    
     // MARK: - ERROR ALERTS
     
+    /// This triggers an alert when the `signIn()` method detects no "@" sign in the email parameter provided.
     @Published var emailNotValidAlert = false
     
+    /// This triggers an alert when the `signIn()` method failed to sign in the user using Firebase Auth API.
     @Published var failedToSignInUser = false
+    
+    /// This triggers an alert when the `fetchUserDataFromFirebase()` method failed to fetch the data with the given uid path.
+    @Published var failedToFetchUserData = false
     
     /// This triggers an alert when the `readLoggedInUser()` method failed to read the values from the logged in user from `UserDefaults`.
     @Published var failedToUnwrapUserInfo = false
@@ -56,6 +64,62 @@ class LoginScreenVM: ObservableObject {
     @Published var failedToSignOut = false
     
     // MARK: - FUNCTIONS
+    
+    /// Log in using Firebase Auth API with the given `email` and `password` parameters.
+    /// - Parameters:
+    ///   - email: The email to sign in with (has to be verified before used to log in.
+    ///   - password: The protected password for the user's account for further verification.
+    public func login(with email: String, and password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let result = authResult, error == nil else {
+                self?.failedToSignInUser.toggle()
+                return
+            }
+            
+            let firebaseUID = result.user.uid
+            self?.fetchUserDataFromDatabase(with: firebaseUID)
+        }
+    }
+    
+    /// Fetch the user's data from the given Firebase Auth UID (unique identifier) and assign those values to `loggedInUser`.
+    /// - Parameter uid: The user's UID to look for in the database.
+    public func fetchUserDataFromDatabase(with uid: String) {
+        databaseReference.child(RECDatabaseParentPath.users).child(uid).getData { [weak self] error, snapshot in
+            guard let value = snapshot?.value as? NSDictionary, error == nil else {
+                self?.failedToFetchUserData.toggle()
+                return
+            }
+            
+            // Assign values to loggedInUser
+            
+            let age = value[RECUser.Property.age] as? Int ?? RECUser.placeholderUser.age
+            let displayName = value[RECUser.Property.displayName] as? String ?? RECUser.placeholderUser.displayName
+            let email = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
+            let followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
+            let followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount
+            let isProtectedAccount = value[RECUser.Property.isProtectedAccount] as? Bool ?? RECUser.placeholderUser.isProtectedAccount
+            let reconnectUID = value[RECUser.Property.uid] as? String ?? RECUser.placeholderUser.getUID()
+            let username = value[RECUser.Property.username] as? String ?? RECUser.placeholderUser.username
+            let pfpURL = value[RECUser.Property.pfpURL] as? String ?? RECUser.placeholderUser.pfpURL
+            
+            self?.loggedInUser = RECUser(uid: reconnectUID,
+                                         firebaseUID: uid,
+                                         displayName: displayName,
+                                         username: username,
+                                         emailAddress: email,
+                                         pfpURL: pfpURL,
+                                         age: age,
+                                         isProtectedAccount: isProtectedAccount)
+            
+            self?.loggedInUser?.followerCount = followerCount
+            self?.loggedInUser?.followingCount = followingCount
+            
+            // Cache loggedInUser
+            
+            self?.cacheLoggedInUser()
+            self?.isSignedIn = true
+        }
+    }
     
     /// Convert the data of the `loggedInUser` variable into binary data and store locally on the device using `UserDefaults`.
     public func cacheLoggedInUser() {

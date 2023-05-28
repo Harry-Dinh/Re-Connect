@@ -32,7 +32,7 @@ struct LoginScreen: View {
                 
                 Section {
                     Button(action: {
-                        
+                        viewModel.login(with: viewModel.emailField, and: viewModel.passwordField)
                     }) {
                         RECListButtonLabel(title: "Sign In", style: .backgroundProminant)
                     }

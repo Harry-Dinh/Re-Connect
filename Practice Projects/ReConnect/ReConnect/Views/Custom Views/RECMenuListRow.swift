@@ -15,8 +15,14 @@ struct RECMenuListRow: View {
         Label {
             Text(rowItem.label)
         } icon: {
-            Image(systemName: rowItem.iconStr ?? CUPSystemIcon.settings)
-                .foregroundColor(rowItem.tintColor ?? .accentColor)
+            ZStack {
+                RoundedRectangle(cornerRadius: 7)
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(rowItem.tintColor?.opacity(0.25) ?? RECListRowItem.placeholderItem.tintColor?.opacity(0.25))
+                
+                Image(systemName: rowItem.iconStr ?? CUPSystemIcon.settings)
+                    .foregroundColor(rowItem.tintColor ?? RECListRowItem.placeholderItem.tintColor)
+            }
         }
     }
 }
