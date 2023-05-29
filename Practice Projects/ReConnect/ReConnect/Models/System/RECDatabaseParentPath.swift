@@ -9,4 +9,5 @@ import Foundation
 
 class RECDatabaseParentPath {
     static let users = "RECUsers"
+    static let profileCustomizations = "profileCustomizations"
 }

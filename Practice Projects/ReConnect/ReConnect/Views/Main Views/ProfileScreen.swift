@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ProfileScreen: View {
     
-    @ObservedObject var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var viewModel = ProfileScreenVM.viewModel
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
     
     var body: some View {
         NavigationView {
@@ -40,7 +42,10 @@ struct ProfileScreen: View {
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {}) {
+                    Button(action: {
+                        editProfileVM.tempUser = loginVM.loggedInUser ?? RECUser.placeholderUser
+                        viewModel.showEditProfileScreen.toggle()
+                    }) {
                         Image(systemName: CUPSystemIcon.edit)
                     }
                     
@@ -49,6 +54,7 @@ struct ProfileScreen: View {
                     }
                 }
             }
+            .fullScreenCover(isPresented: $viewModel.showEditProfileScreen, content: EditProfileScreen.init)
         }
     }
 }

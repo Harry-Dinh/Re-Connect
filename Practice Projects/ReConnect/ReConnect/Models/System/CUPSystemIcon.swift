@@ -53,4 +53,8 @@ class CUPSystemIcon {
     public static let filter = "line.3.horizontal.decrease.circle"
     
     public static let notification = "bell"
+    
+    public static let camera = "camera"
+    
+    public static let photo = "photo"
 }

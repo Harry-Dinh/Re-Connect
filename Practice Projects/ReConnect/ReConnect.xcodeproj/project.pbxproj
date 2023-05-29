@@ -32,6 +32,12 @@
 		213DAE1B2A0DE0E400C52165 /* DetailedRegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */; };
 		213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */; };
 		21682F152A1C642100866864 /* InitialRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F142A1C642100866864 /* InitialRegisterView.swift */; };
+		2178F9EF2A24615200F5EE96 /* EditProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9EE2A24615200F5EE96 /* EditProfileScreenVM.swift */; };
+		2178F9F22A2464D800F5EE96 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2178F9F12A2464D800F5EE96 /* SDWebImageSwiftUI */; };
+		2178F9F52A24658100F5EE96 /* EditProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */; };
+		2178F9F72A24676B00F5EE96 /* RECEditProfilePFPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F62A24676B00F5EE96 /* RECEditProfilePFPHeader.swift */; };
+		2178F9F92A24698400F5EE96 /* RECGradientBackgroundPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F82A24698400F5EE96 /* RECGradientBackgroundPreview.swift */; };
+		2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */; };
 		219CD58B2A0B7AA40061B04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */; };
 		219CD58E2A0B7B610061B04E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 219CD58D2A0B7B610061B04E /* FirebaseAuth */; };
 		219CD5902A0B7B610061B04E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 219CD58F2A0B7B610061B04E /* FirebaseDatabase */; };
@@ -75,6 +81,11 @@
 		213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationScreen.swift; sourceTree = "<group>"; };
 		213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListButtonLabel.swift; sourceTree = "<group>"; };
 		21682F142A1C642100866864 /* InitialRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRegisterView.swift; sourceTree = "<group>"; };
+		2178F9EE2A24615200F5EE96 /* EditProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreenVM.swift; sourceTree = "<group>"; };
+		2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreen.swift; sourceTree = "<group>"; };
+		2178F9F62A24676B00F5EE96 /* RECEditProfilePFPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECEditProfilePFPHeader.swift; sourceTree = "<group>"; };
+		2178F9F82A24698400F5EE96 /* RECGradientBackgroundPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECGradientBackgroundPreview.swift; sourceTree = "<group>"; };
+		2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenVM.swift; sourceTree = "<group>"; };
 		219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		219CD5952A0B7D8F0061B04E /* CoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreScreen.swift; sourceTree = "<group>"; };
 		219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
@@ -92,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2178F9F22A2464D800F5EE96 /* SDWebImageSwiftUI in Frameworks */,
 				219CD5902A0B7B610061B04E /* FirebaseDatabase in Frameworks */,
 				219CD5942A0B7B610061B04E /* FirebaseStorage in Frameworks */,
 				219CD58E2A0B7B610061B04E /* FirebaseAuth in Frameworks */,
@@ -105,6 +117,7 @@
 		2122D7182A1CC0EE00005122 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2178F9F32A24657000F5EE96 /* Secondary Views */,
 				2122D7192A1CC12200005122 /* Settings Views */,
 				212364392A08FAFF005827D2 /* Custom Views */,
 				2123643C2A08FB29005827D2 /* Main Views */,
@@ -172,6 +185,8 @@
 				211463F02A21C0BA0092751F /* RECSubscriberIndicator.swift */,
 				211463F42A21C35F0092751F /* RECProfileInfoSheet.swift */,
 				211463F22A21C2B00092751F /* RECProfileHeader.swift */,
+				2178F9F62A24676B00F5EE96 /* RECEditProfilePFPHeader.swift */,
+				2178F9F82A24698400F5EE96 /* RECGradientBackgroundPreview.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -227,6 +242,14 @@
 			path = System;
 			sourceTree = "<group>";
 		};
+		2178F9F32A24657000F5EE96 /* Secondary Views */ = {
+			isa = PBXGroup;
+			children = (
+				2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */,
+			);
+			path = "Secondary Views";
+			sourceTree = "<group>";
+		};
 		21A765442A0A05F500761219 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +259,8 @@
 				213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */,
 				2122D71E2A1CC29700005122 /* AppSettingsVM.swift */,
 				21386CA02A23065000CA9AC6 /* FeedScreenVM.swift */,
+				2178F9EE2A24615200F5EE96 /* EditProfileScreenVM.swift */,
+				2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -261,6 +286,7 @@
 				219CD58F2A0B7B610061B04E /* FirebaseDatabase */,
 				219CD5912A0B7B610061B04E /* FirebaseFirestore */,
 				219CD5932A0B7B610061B04E /* FirebaseStorage */,
+				2178F9F12A2464D800F5EE96 /* SDWebImageSwiftUI */,
 			);
 			productName = ReConnect;
 			productReference = 212364262A08F948005827D2 /* ReConnect.app */;
@@ -292,6 +318,7 @@
 			mainGroup = 2123641D2A08F948005827D2;
 			packageReferences = (
 				219CD58C2A0B7B610061B04E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2178F9F02A2464D800F5EE96 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 212364272A08F948005827D2 /* Products */;
 			projectDirPath = "";
@@ -325,6 +352,7 @@
 				213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */,
 				21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */,
 				211463F52A21C35F0092751F /* RECProfileInfoSheet.swift in Sources */,
+				2178F9F52A24658100F5EE96 /* EditProfileScreen.swift in Sources */,
 				212364382A08FA97005827D2 /* MenuScreen.swift in Sources */,
 				21A7654A2A0A0A3900761219 /* LoginScreen.swift in Sources */,
 				21A765482A0A06AB00761219 /* RECMenuListRow.swift in Sources */,
@@ -346,12 +374,16 @@
 				219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,
 				213AB8352A22124700DFEF2F /* CUPSystemIcon.swift in Sources */,
+				2178F9F72A24676B00F5EE96 /* RECEditProfilePFPHeader.swift in Sources */,
 				211463F32A21C2B00092751F /* RECProfileHeader.swift in Sources */,
 				21386CA12A23065000CA9AC6 /* FeedScreenVM.swift in Sources */,
+				2178F9EF2A24615200F5EE96 /* EditProfileScreenVM.swift in Sources */,
+				2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */,
 				21386CA32A230BE100CA9AC6 /* RECDatabaseParentPath.swift in Sources */,
 				219CD59E2A0B83C80061B04E /* RECListHeader.swift in Sources */,
 				21A7654C2A0A0A4D00761219 /* LoginScreenVM.swift in Sources */,
 				2123643B2A08FB0F005827D2 /* ProfileListRowView.swift in Sources */,
+				2178F9F92A24698400F5EE96 /* RECGradientBackgroundPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +588,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2178F9F02A2464D800F5EE96 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		219CD58C2A0B7B610061B04E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -567,6 +607,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2178F9F12A2464D800F5EE96 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2178F9F02A2464D800F5EE96 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		219CD58D2A0B7B610061B04E /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 219CD58C2A0B7B610061B04E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

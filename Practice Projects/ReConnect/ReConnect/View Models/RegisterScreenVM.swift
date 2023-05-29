@@ -99,7 +99,8 @@ class RegisterScreenVM: ObservableObject {
             "followersUIDs": user.followersUIDs,
             "followingsUIDs": user.followingsUIDs,
             "followerCount": user.followerCount,
-            "followingCount": user.followingCount
+            "followingCount": user.followingCount,
+            "pfpURL": user.pfpURL ?? ""
         ]
         
         // This line means write data above in the path: RECUsers/user.uid/
