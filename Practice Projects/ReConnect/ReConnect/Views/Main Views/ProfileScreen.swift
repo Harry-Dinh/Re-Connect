@@ -14,13 +14,9 @@ struct ProfileScreen: View {
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
-                HStack {
-                    RECProfileHeader()
-                        .padding(.leading, 25)
-                    Spacer()
-                }
+                RECProfileHeader()
                 
                 HStack {
                     RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount,

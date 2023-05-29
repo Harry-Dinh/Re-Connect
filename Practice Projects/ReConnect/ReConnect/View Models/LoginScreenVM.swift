@@ -117,6 +117,10 @@ class LoginScreenVM: ObservableObject {
             // Cache loggedInUser
             
             self?.cacheLoggedInUser()
+            EditProfileScreenVM.viewModel.fetchProfileCustomizationData(from: self?.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID(),
+                                                                        option: .startingColor)
+            EditProfileScreenVM.viewModel.fetchProfileCustomizationData(from: self?.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID(),
+                                                                        option: .endingColor)
             self?.isSignedIn = true
         }
     }

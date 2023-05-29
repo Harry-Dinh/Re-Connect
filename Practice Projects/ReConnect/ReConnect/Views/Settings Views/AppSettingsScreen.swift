@@ -26,6 +26,12 @@ struct AppSettingsScreen: View {
                     Text(content.label)
                 }
             }
+            
+            Section {
+                NavigationLink(destination: DeveloperSettingsScreen.init) {
+                    Text("Developer")
+                }
+            }
         }
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)

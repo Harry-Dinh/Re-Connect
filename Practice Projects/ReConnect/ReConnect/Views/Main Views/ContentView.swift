@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var viewModel = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
     
     var body: some View {
-        if viewModel.isSignedIn {
+        if loginVM.isSignedIn {
             CoreScreen()
                 .onAppear {
-                    viewModel.readLoggedInUser()
+                    loginVM.readLoggedInUser()
+                    editProfileVM.fetchProfileCustomizationData(from: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID(), option: .startingColor)
+                    editProfileVM.fetchProfileCustomizationData(from: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID(), option: .endingColor)
                 }
         } else {
             LoginScreen()

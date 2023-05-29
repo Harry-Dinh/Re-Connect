@@ -20,12 +20,9 @@ struct EditProfileScreen: View {
                         Section {
                             RECEditProfilePFPHeader(pfpURL: viewModel.tempUser.pfpURL)
                                 .padding(.vertical, 7)
-                        } header: {
-                            Text("Profile Picture")
-                        }
-                        .listRowBackground(Color.clear)
-                        
-                        Menu {
+                                .listRowBackground(Color.clear)
+                                .listRowSeparator(.hidden)
+                            
                             Button(action: {}) {
                                 Label("Take Photo", systemImage: CUPSystemIcon.camera)
                             }
@@ -33,19 +30,22 @@ struct EditProfileScreen: View {
                             Button(action: {}) {
                                 Label("Choose Photo", systemImage: CUPSystemIcon.photo)
                             }
-                        } label: {
-                            Text("Select New Profile Picture")
+                        } header: {
+                            Text("Profile Picture")
                         }
                         
                         Section {
                             RECGradientBackgroundPreview(colorSet: [viewModel.startingColor, viewModel.endingColor],
-                                                         userInfo: viewModel.tempUser)
+                                                         userInfo: viewModel.tempUser,
+                                                         infoVisible: true)
+                            .listRowSeparator(.hidden)
+                            
                             ColorPicker(selection: $viewModel.startingColor, supportsOpacity: false) {
                                 Text("Starting Color")
                             }
                             
                             ColorPicker(selection: $viewModel.endingColor, supportsOpacity: false) {
-                                Text("EndingColor")
+                                Text("Ending Color")
                             }
                             
                         } header: {
@@ -83,6 +83,7 @@ struct EditProfileScreen: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        viewModel.writeCustomizationDataToDatabase(with: viewModel.tempUser.getFirebaseUID())
                         dismiss.callAsFunction()
                     }) {
                         Text("Save")

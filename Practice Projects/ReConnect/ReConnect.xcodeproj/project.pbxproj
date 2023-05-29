@@ -38,6 +38,7 @@
 		2178F9F72A24676B00F5EE96 /* RECEditProfilePFPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F62A24676B00F5EE96 /* RECEditProfilePFPHeader.swift */; };
 		2178F9F92A24698400F5EE96 /* RECGradientBackgroundPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F82A24698400F5EE96 /* RECGradientBackgroundPreview.swift */; };
 		2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */; };
+		2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */; };
 		219CD58B2A0B7AA40061B04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */; };
 		219CD58E2A0B7B610061B04E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 219CD58D2A0B7B610061B04E /* FirebaseAuth */; };
 		219CD5902A0B7B610061B04E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 219CD58F2A0B7B610061B04E /* FirebaseDatabase */; };
@@ -86,6 +87,7 @@
 		2178F9F62A24676B00F5EE96 /* RECEditProfilePFPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECEditProfilePFPHeader.swift; sourceTree = "<group>"; };
 		2178F9F82A24698400F5EE96 /* RECGradientBackgroundPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECGradientBackgroundPreview.swift; sourceTree = "<group>"; };
 		2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenVM.swift; sourceTree = "<group>"; };
+		2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsScreen.swift; sourceTree = "<group>"; };
 		219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		219CD5952A0B7D8F0061B04E /* CoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreScreen.swift; sourceTree = "<group>"; };
 		219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			children = (
 				2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */,
 				2122D7222A1CC6CD00005122 /* AccountSettingsScreen.swift */,
+				2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */,
 			);
 			path = "Settings Views";
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				212364412A090087005827D2 /* RECListRowItem.swift in Sources */,
 				2122D7172A1CBB3700005122 /* ProfileScreen.swift in Sources */,
 				213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */,
+				2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */,
 				21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */,
 				211463F52A21C35F0092751F /* RECProfileInfoSheet.swift in Sources */,
 				2178F9F52A24658100F5EE96 /* EditProfileScreen.swift in Sources */,
