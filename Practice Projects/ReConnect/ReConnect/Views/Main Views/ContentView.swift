@@ -17,8 +17,7 @@ struct ContentView: View {
             CoreScreen()
                 .onAppear {
                     loginVM.readLoggedInUser()
-                    editProfileVM.fetchProfileCustomizationData(from: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID(), option: .startingColor)
-                    editProfileVM.fetchProfileCustomizationData(from: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID(), option: .endingColor)
+                    editProfileVM.fetchProfileCustomizationData(from: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                 }
         } else {
             LoginScreen()

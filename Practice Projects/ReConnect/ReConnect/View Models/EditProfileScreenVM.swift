@@ -10,11 +10,6 @@ import FirebaseDatabase
 
 class EditProfileScreenVM: ObservableObject {
     
-    enum FetchOption {
-        case startingColor
-        case endingColor
-    }
-    
     static let viewModel = EditProfileScreenVM()
     
     private let databaseReference = Database.database().reference()
@@ -59,29 +54,29 @@ class EditProfileScreenVM: ObservableObject {
     /// - Parameters:
     ///   - firebaseUID: The Firebase UID to look for the values.
     ///   - option: The color option to fetch the data for which color (starting or ending colors.)
-    public func fetchProfileCustomizationData(from firebaseUID: String, option: FetchOption) {
-        let colorPath: String
-        
-        if option == .startingColor {
-            colorPath = "startingColor"
-        } else {
-            colorPath = "endingColor"
-        }
-        
-        databaseReference.child(RECDatabaseParentPath.profileCustomizations).child(loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID()).child(colorPath).getData { [weak self] error, snapshot in
-            guard let value = snapshot?.value as? NSDictionary, error == nil else {
+    public func fetchProfileCustomizationData(from firebaseUID: String) {
+        // Fetching starting color
+        databaseReference.child(RECDatabaseParentPath.profileCustomizations).child(firebaseUID).child("startingColor").observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let value = snapshot.value as? NSDictionary else {
                 return
             }
             
             let red = value["red"] as? Double ?? 0
             let green = value["green"] as? Double ?? 0
             let blue = value["blue"] as? Double ?? 0
-            
-            if option == .startingColor {
-                self?.startingColor = Color(red: red, green: green, blue: blue)
-            } else {
-                self?.endingColor = Color(red: red, green: green, blue: blue)
+            self?.startingColor = Color(red: red, green: green, blue: blue)
+        }
+        
+        // Fetching ending color
+        databaseReference.child(RECDatabaseParentPath.profileCustomizations).child(firebaseUID).child("endingColor").observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let value = snapshot.value as? NSDictionary else {
+                return
             }
+            
+            let red = value["red"] as? Double ?? 0
+            let green = value["green"] as? Double ?? 0
+            let blue = value["blue"] as? Double ?? 0
+            self?.endingColor = Color(red: red, green: green, blue: blue)
         }
     }
     
@@ -97,9 +92,9 @@ class EditProfileScreenVM: ObservableObject {
         
         uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         
-        let rgbRed = red * 255
-        let rgbGreen = green * 255
-        let rgbBlue = blue * 255
+        let rgbRed = round(red * 255)
+        let rgbGreen = round(green * 255)
+        let rgbBlue = round(blue * 255)
         return [rgbRed, rgbGreen, rgbBlue]
     }
 }
