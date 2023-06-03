@@ -13,6 +13,7 @@ class LoginScreenVM: ObservableObject {
     @AppStorage("isSignedIn") var isSignedIn = false
     
     @Published var presentRegisterScreen = false
+    @Published var presentActionSheet = false
     
     @Published var emailField = ""
     @Published var passwordField = ""

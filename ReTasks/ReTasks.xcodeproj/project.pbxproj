@@ -19,6 +19,13 @@
 		21386C972A22FD8C00CA9AC6 /* LoginScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386C962A22FD8C00CA9AC6 /* LoginScreenVM.swift */; };
 		21386C9B2A22FE3900CA9AC6 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386C9A2A22FE3900CA9AC6 /* RegisterView.swift */; };
 		21386C9D2A22FF4B00CA9AC6 /* RegisterScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386C9C2A22FF4B00CA9AC6 /* RegisterScreenVM.swift */; };
+		21A405752A2B324F009844B1 /* RTAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A405742A2B324F009844B1 /* RTAccount.swift */; };
+		21A405772A2B332D009844B1 /* RTListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A405762A2B332D009844B1 /* RTListItem.swift */; };
+		21A405792A2B363E009844B1 /* CUPSystemIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A405782A2B363E009844B1 /* CUPSystemIcon.swift */; };
+		21A4057B2A2B385F009844B1 /* RTCustomButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4057A2A2B385F009844B1 /* RTCustomButtonLabel.swift */; };
+		21A4057D2A2B3B27009844B1 /* HomeScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4057C2A2B3B27009844B1 /* HomeScreenVM.swift */; };
+		21A4057F2A2B3CF4009844B1 /* RTNoListAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A4057E2A2B3CF4009844B1 /* RTNoListAlert.swift */; };
+		21C4BDA92A2709080000CCBF /* RTTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4BDA82A2709080000CCBF /* RTTaskItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +40,13 @@
 		21386C962A22FD8C00CA9AC6 /* LoginScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenVM.swift; sourceTree = "<group>"; };
 		21386C9A2A22FE3900CA9AC6 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		21386C9C2A22FF4B00CA9AC6 /* RegisterScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenVM.swift; sourceTree = "<group>"; };
+		21A405742A2B324F009844B1 /* RTAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTAccount.swift; sourceTree = "<group>"; };
+		21A405762A2B332D009844B1 /* RTListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTListItem.swift; sourceTree = "<group>"; };
+		21A405782A2B363E009844B1 /* CUPSystemIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUPSystemIcon.swift; sourceTree = "<group>"; };
+		21A4057A2A2B385F009844B1 /* RTCustomButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTCustomButtonLabel.swift; sourceTree = "<group>"; };
+		21A4057C2A2B3B27009844B1 /* HomeScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenVM.swift; sourceTree = "<group>"; };
+		21A4057E2A2B3CF4009844B1 /* RTNoListAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTNoListAlert.swift; sourceTree = "<group>"; };
+		21C4BDA82A2709080000CCBF /* RTTaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTTaskItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +83,7 @@
 			children = (
 				21386C8B2A22F97300CA9AC6 /* GoogleService-Info.plist */,
 				21386C7D2A22F8BF00CA9AC6 /* ReTasksApp.swift */,
+				21C4BDA72A2708E90000CCBF /* Models */,
 				21386C982A22FD9000CA9AC6 /* View Models */,
 				21386C992A22FD9C00CA9AC6 /* Views */,
 				21386C812A22F8C100CA9AC6 /* Assets.xcassets */,
@@ -90,6 +105,7 @@
 			children = (
 				21386C962A22FD8C00CA9AC6 /* LoginScreenVM.swift */,
 				21386C9C2A22FF4B00CA9AC6 /* RegisterScreenVM.swift */,
+				21A4057C2A2B3B27009844B1 /* HomeScreenVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -97,12 +113,49 @@
 		21386C992A22FD9C00CA9AC6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				21C4BDA62A2708DA0000CCBF /* Secondary Views */,
+				21C4BDA52A2708CE0000CCBF /* Custom Views */,
+				21C4BDA42A2708C70000CCBF /* Main Views */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		21C4BDA42A2708C70000CCBF /* Main Views */ = {
+			isa = PBXGroup;
+			children = (
 				21386C7F2A22F8BF00CA9AC6 /* ContentView.swift */,
 				21386C922A22FC8100CA9AC6 /* LoginScreen.swift */,
 				21386C9A2A22FE3900CA9AC6 /* RegisterView.swift */,
 				21386C942A22FC8700CA9AC6 /* HomeScreen.swift */,
 			);
-			path = Views;
+			path = "Main Views";
+			sourceTree = "<group>";
+		};
+		21C4BDA52A2708CE0000CCBF /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				21A4057A2A2B385F009844B1 /* RTCustomButtonLabel.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		21C4BDA62A2708DA0000CCBF /* Secondary Views */ = {
+			isa = PBXGroup;
+			children = (
+				21A4057E2A2B3CF4009844B1 /* RTNoListAlert.swift */,
+			);
+			path = "Secondary Views";
+			sourceTree = "<group>";
+		};
+		21C4BDA72A2708E90000CCBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21C4BDA82A2709080000CCBF /* RTTaskItem.swift */,
+				21A405762A2B332D009844B1 /* RTListItem.swift */,
+				21A405742A2B324F009844B1 /* RTAccount.swift */,
+				21A405782A2B363E009844B1 /* CUPSystemIcon.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,10 +239,17 @@
 				21386C9D2A22FF4B00CA9AC6 /* RegisterScreenVM.swift in Sources */,
 				21386C952A22FC8700CA9AC6 /* HomeScreen.swift in Sources */,
 				21386C802A22F8BF00CA9AC6 /* ContentView.swift in Sources */,
+				21C4BDA92A2709080000CCBF /* RTTaskItem.swift in Sources */,
+				21A405772A2B332D009844B1 /* RTListItem.swift in Sources */,
+				21A4057D2A2B3B27009844B1 /* HomeScreenVM.swift in Sources */,
 				21386C7E2A22F8BF00CA9AC6 /* ReTasksApp.swift in Sources */,
 				21386C9B2A22FE3900CA9AC6 /* RegisterView.swift in Sources */,
 				21386C972A22FD8C00CA9AC6 /* LoginScreenVM.swift in Sources */,
+				21A4057F2A2B3CF4009844B1 /* RTNoListAlert.swift in Sources */,
 				21386C932A22FC8100CA9AC6 /* LoginScreen.swift in Sources */,
+				21A4057B2A2B385F009844B1 /* RTCustomButtonLabel.swift in Sources */,
+				21A405752A2B324F009844B1 /* RTAccount.swift in Sources */,
+				21A405792A2B363E009844B1 /* CUPSystemIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
