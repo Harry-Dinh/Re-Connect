@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditProfileScreen: View {
     
     @ObservedObject private var viewModel = EditProfileScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -18,24 +20,39 @@ struct EditProfileScreen: View {
                 if viewModel.selectedView == 0 {
                     List {
                         Section {
-                            RECEditProfilePFPHeader(pfpURL: viewModel.tempUser.pfpURL)
-                                .padding(.vertical, 7)
-                                .listRowBackground(Color.clear)
-                                .listRowSeparator(.hidden)
-                            
-                            Button(action: {}) {
-                                Label("Take Photo", systemImage: CUPSystemIcon.camera)
-                            }
-                            
-                            Button(action: {}) {
-                                Label("Choose Photo", systemImage: CUPSystemIcon.photo)
+                            HStack {
+                                Spacer()
+                                if loginVM.loggedInUser?.pfpURL == nil || loginVM.loggedInUser?.pfpURL == "" {
+                                    Image(systemName: CUPSystemIcon.profile)
+                                        .resizable()
+                                        .symbolVariant(.fill)
+                                        .foregroundColor(.secondary)
+                                        .frame(width: 100, height: 100)
+                                } else {
+//                                    viewModel.displayImage?
+//                                        .resizable()
+//                                        .foregroundColor(.secondary)
+//                                        .frame(width: 100, height: 100)
+                                }
+                                Spacer()
                             }
                         } header: {
                             Text("Profile Picture")
                         }
+                        .listRowBackground(Color.clear)
+                        
+                        Button(action: {}) {
+                            Label("Take Photo", systemImage: CUPSystemIcon.camera)
+                        }
+                        
+                        Button(action: {
+                            viewModel.presentImagePicker.toggle()
+                        }) {
+                            Label("Choose Photo", systemImage: CUPSystemIcon.photo)
+                        }
                         
                         Section {
-                            RECGradientBackgroundPreview(colorSet: [viewModel.startingColor, viewModel.endingColor],
+                            RECGradientBackground(colorSet: [viewModel.startingColor, viewModel.endingColor],
                                                          userInfo: viewModel.tempUser,
                                                          infoVisible: true)
                             .listRowSeparator(.hidden)
@@ -69,10 +86,10 @@ struct EditProfileScreen: View {
                 ToolbarItem(placement: .principal) {
                     Picker("", selection: $viewModel.selectedView) {
                         Text("Profile").tag(0)
-                        Text("Email").tag(1)
+                        Text("Account").tag(1)
                     }
                     .pickerStyle(.segmented)
-                    .frame(width: 170)
+                    .frame(width: 190)
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {

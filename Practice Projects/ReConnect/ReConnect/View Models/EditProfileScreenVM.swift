@@ -7,17 +7,27 @@
 
 import SwiftUI
 import FirebaseDatabase
+import FirebaseStorage
+import PhotosUI
 
 class EditProfileScreenVM: ObservableObject {
     
+    // MARK: - CLASS PROPERTIES
+    
     static let viewModel = EditProfileScreenVM()
     
+    /// A local reference to Firebase Database.
     private let databaseReference = Database.database().reference()
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    /// A local reference to Firebase Storage bucket.
+    private let storageReference = Storage.storage().reference()
     
     /// A `RECUser` object temporarily created for editing and is deleted of all values when changes are saved to the database.
     public var tempUser: RECUser = RECUser()
+    
+    // MARK: - SWIFTUI VIEWS PROPERTIES
+    
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
     @Published var selectedView = 0
     
@@ -29,6 +39,13 @@ class EditProfileScreenVM: ObservableObject {
     
     /// A temporary string containing the new email address for the user. It will be cleared once the Save button is tapped.
     @Published var tempEmailAddress = ""
+    
+    // MARK: - SWIFTUI VIEWS STATES
+    
+    @Published var presentImagePicker = false
+    
+    /// This triggers an alert when the `loadTransferable()` method fails to load the image data into an `Image` object.
+    @Published var transferableMethodFailed = false
     
     // MARK: - FUNCTIONS
     

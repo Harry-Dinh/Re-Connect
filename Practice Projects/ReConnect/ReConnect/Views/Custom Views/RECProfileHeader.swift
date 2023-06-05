@@ -14,7 +14,7 @@ struct RECProfileHeader: View {
     
     var body: some View {
         ZStack {
-            RECGradientBackgroundPreview(colorSet: [editProfileVM.startingColor, editProfileVM.endingColor],
+            RECGradientBackground(colorSet: [editProfileVM.startingColor, editProfileVM.endingColor],
                                          userInfo: loginVM.loggedInUser ?? RECUser.placeholderUser,
                                          infoVisible: false)
             
