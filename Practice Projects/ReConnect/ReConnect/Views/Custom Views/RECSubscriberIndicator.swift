@@ -20,16 +20,16 @@ struct RECSubscriberIndicator: View {
     var body: some View {
         GroupBox {
             Text("\(subscriberCount)")
-                .font(.system(.largeTitle, design: .rounded, weight: .bold))
-                .padding(7)
+                .font(.system(.title, design: .rounded, weight: .bold))
+                .padding(2)
         } label: {
             if subscriberType == .follower {
                 Text("followers".uppercased())
-                    .font(.subheadline)
+                    .font(.footnote)
                     .foregroundColor(.secondary)
             } else {
                 Text("following".uppercased())
-                    .font(.subheadline)
+                    .font(.footnote)
                     .foregroundColor(.secondary)
             }
         }
@@ -40,5 +40,6 @@ struct RECSubscriberIndicator: View {
 struct RECSubscriberIndicator_Previews: PreviewProvider {
     static var previews: some View {
         RECSubscriberIndicator(subscriberCount: 0, subscriberType: .follower)
+            .frame(width: 200)
     }
 }

@@ -10,4 +10,5 @@ import Foundation
 class CUPSystemIcon {
     public static let genericList = "list.bullet"
     public static let shoppingCart = "cart.fill"
+    public static let settings = "gear"
 }

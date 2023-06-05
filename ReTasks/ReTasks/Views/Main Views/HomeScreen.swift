@@ -31,7 +31,13 @@ struct HomeScreen: View {
             .headerProminence(.increased)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button(action: {
+                        viewModel.presentSettingsScreen.toggle()
+                    }) {
+                        Image(systemName: CUPSystemIcon.settings)
+                    }
+                    
                     EditButton()
                 }
                 
@@ -50,6 +56,7 @@ struct HomeScreen: View {
                 }
             }
             .searchable(text: .constant(""))
+            .sheet(isPresented: $viewModel.presentSettingsScreen, content: SettingsScreen.init)
         }
     }
 }

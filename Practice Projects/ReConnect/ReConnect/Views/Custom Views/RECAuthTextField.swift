@@ -25,7 +25,7 @@ struct RECAuthTextField: View {
             Image(systemName: iconStr)
                 .foregroundColor(.primary)
         }
-        .padding(.vertical, 10)
+        .padding(.vertical, 7)
     }
 }
 

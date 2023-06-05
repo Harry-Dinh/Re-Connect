@@ -8,25 +8,18 @@
 import SwiftUI
 
 struct DeveloperSettingsScreen: View {
+    
+    @State private var showColor = false
+    @ObservedObject private var editprofileVM = EditProfileScreenVM.viewModel
+    
     var body: some View {
         List {
-            Button("Test RGB color function") {
-                let sampleColor = EditProfileScreenVM.viewModel.startingColor
-                let components = EditProfileScreenVM.viewModel.getRGBComponents(from: sampleColor)
-                print(components ?? "No components")
-            }
-            
-            Button("Test writing color to database") {
-                EditProfileScreenVM.viewModel.startingColor = .red
-                EditProfileScreenVM.viewModel.endingColor = .blue
+            Button("Fetch color") {
                 
-                EditProfileScreenVM.viewModel.writeCustomizationDataToDatabase(with: RECUser.placeholderUser.getFirebaseUID())
             }
             
-            Button("Fetch color test") {
-                let sampleColor = EditProfileScreenVM.viewModel.startingColor
-                let convertedValues = EditProfileScreenVM.viewModel.getRGBComponents(from: sampleColor)
-                print(convertedValues ?? "No components")
+            Button("Present color") {
+                showColor.toggle()
             }
         }
         .navigationTitle("Developer")

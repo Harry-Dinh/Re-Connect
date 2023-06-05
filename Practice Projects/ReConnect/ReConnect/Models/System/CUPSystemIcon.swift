@@ -57,4 +57,8 @@ class CUPSystemIcon {
     public static let camera = "camera"
     
     public static let photo = "photo"
+    
+    public static let rightChevronCircle = "chevron.right.circle"
+    
+    public static let downChevronCircle = "chevron.down.circle"
 }

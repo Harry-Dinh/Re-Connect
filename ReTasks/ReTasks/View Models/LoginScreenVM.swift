@@ -11,6 +11,7 @@ class LoginScreenVM: ObservableObject {
     static let viewModel = LoginScreenVM()
     
     @AppStorage("isSignedIn") var isSignedIn = false
+    @AppStorage("hasAccount") var hasAccount = false
     
     @Published var presentRegisterScreen = false
     @Published var presentActionSheet = false

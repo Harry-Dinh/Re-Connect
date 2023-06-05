@@ -17,7 +17,7 @@ struct AccountSettingsScreen: View {
                 RECDisplayLabel(label: "Name",
                                 value: loginVM.loggedInUser?.displayName ?? RECUser.placeholderUser.displayName)
                 
-                RECDisplayLabel(valueDisplayMode: .small,
+                RECDisplayLabel(valueDisplayMode: .standard,
                                 label: "Email",
                                 value: loginVM.loggedInUser?.emailAddress ?? RECUser.placeholderUser.emailAddress)
             }
@@ -32,7 +32,7 @@ struct AccountSettingsScreen: View {
             
             Section {
                 Text(loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
-                    .font(.system(.footnote, design: .monospaced, weight: .regular))
+                    .font(.system(.body, design: .monospaced, weight: .regular))
                     .foregroundColor(.secondary)
             } header: {
                 Text("Firebase Unique Identifier")

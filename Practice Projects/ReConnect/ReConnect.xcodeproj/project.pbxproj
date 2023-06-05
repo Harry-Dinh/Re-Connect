@@ -24,6 +24,7 @@
 		2123643B2A08FB0F005827D2 /* ProfileListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */; };
 		2123643F2A08FB55005827D2 /* RECUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2123643E2A08FB55005827D2 /* RECUser.swift */; };
 		212364412A090087005827D2 /* RECListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212364402A090087005827D2 /* RECListRowItem.swift */; };
+		212801512A2DA85600CA0747 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212801502A2DA85600CA0747 /* Extensions.swift */; };
 		21386C9F2A23064400CA9AC6 /* FeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386C9E2A23064400CA9AC6 /* FeedScreen.swift */; };
 		21386CA12A23065000CA9AC6 /* FeedScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386CA02A23065000CA9AC6 /* FeedScreenVM.swift */; };
 		21386CA32A230BE100CA9AC6 /* RECDatabaseParentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386CA22A230BE100CA9AC6 /* RECDatabaseParentPath.swift */; };
@@ -74,6 +75,7 @@
 		2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListRowView.swift; sourceTree = "<group>"; };
 		2123643E2A08FB55005827D2 /* RECUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECUser.swift; sourceTree = "<group>"; };
 		212364402A090087005827D2 /* RECListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListRowItem.swift; sourceTree = "<group>"; };
+		212801502A2DA85600CA0747 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		21386C9E2A23064400CA9AC6 /* FeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreen.swift; sourceTree = "<group>"; };
 		21386CA02A23065000CA9AC6 /* FeedScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreenVM.swift; sourceTree = "<group>"; };
 		21386CA22A230BE100CA9AC6 /* RECDatabaseParentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECDatabaseParentPath.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				21386CA02A23065000CA9AC6 /* FeedScreenVM.swift */,
 				2178F9EE2A24615200F5EE96 /* EditProfileScreenVM.swift */,
 				2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */,
+				212801502A2DA85600CA0747 /* Extensions.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				2178F9EF2A24615200F5EE96 /* EditProfileScreenVM.swift in Sources */,
 				2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */,
 				21386CA32A230BE100CA9AC6 /* RECDatabaseParentPath.swift in Sources */,
+				212801512A2DA85600CA0747 /* Extensions.swift in Sources */,
 				219CD59E2A0B83C80061B04E /* RECListHeader.swift in Sources */,
 				21A7654C2A0A0A4D00761219 /* LoginScreenVM.swift in Sources */,
 				2123643B2A08FB0F005827D2 /* ProfileListRowView.swift in Sources */,

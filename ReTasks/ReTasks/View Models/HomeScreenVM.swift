@@ -10,5 +10,7 @@ import Foundation
 class HomeScreenVM: ObservableObject {
     static let viewModel = HomeScreenVM()
     
+    @Published var presentSettingsScreen = false
+    
     @Published var myLists: [RTListItem] = []
 }
