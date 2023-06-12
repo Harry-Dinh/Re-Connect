@@ -6,9 +6,21 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ProfileScreenVM: ObservableObject {
     static let viewModel = ProfileScreenVM()
     
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    
     @Published var showEditProfileScreen = false
+    
+    /// Observe the change in the number of followers to update the user's verification level.
+    public func observeChangeInFollowersCount() {
+        if loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount >= 1000 {
+            loginVM.loggedInUser?.isVerifiedUser = true
+        } else {
+            loginVM.loggedInUser?.isVerifiedUser = false
+        }
+    }
 }

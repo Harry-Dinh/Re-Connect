@@ -19,7 +19,7 @@ struct CoreScreen: View {
             ProfileScreen()
                 .tabItem { Label("My Profile", systemImage: CUPSystemIcon.profile) }
                 .tag(1)
-            Text("Search")
+            SearchScreen()
                 .tabItem{ Label("Search", systemImage: CUPSystemIcon.magnifyingglass) }
                 .tag(2)
             MenuScreen()

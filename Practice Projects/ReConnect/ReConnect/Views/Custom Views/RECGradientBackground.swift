@@ -27,11 +27,24 @@ struct RECGradientBackground: View {
                 VStack(spacing: 3) {
                     Text(userInfo.displayName)
                         .foregroundColor(.white)
-                        .font(.system(.title, design: .default, weight: .bold))
-                    
-                    Text(userInfo.username)
-                        .foregroundColor(.white)
-                        .font(.system(.body, design: .monospaced, weight: .regular))
+                        .font(.system(.largeTitle, design: .default, weight: .bold))
+                        .shadow(color: .black, radius: 8, x: 0, y: 5)
+                }
+                
+                Text(userInfo.username)
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(.white)
+                    .font(.system(.subheadline, design: .monospaced, weight: .regular))
+                    .italic()
+                    .offset(x: -110, y: -37)
+                    .shadow(color: .black, radius: 8, x: 0, y: 5)
+                
+                if userInfo.isVerifiedUser {
+                    Image(systemName: CUPSystemIcon.verificationSeal)
+                        .symbolVariant(.fill)
+                        .foregroundStyle(Color.green.gradient)
+                        .offset(x: 155, y: 37)
+                        .shadow(color: .black, radius: 5, x: 0, y: 3)
                 }
             }
         }
@@ -40,7 +53,7 @@ struct RECGradientBackground: View {
 
 struct RECGradientBackgroundPreview_Previews: PreviewProvider {
     static var previews: some View {
-        RECGradientBackground(colorSet: [.green, .yellow], userInfo: RECUser.placeholderUser, infoVisible: true)
+        RECGradientBackground(colorSet: [.cyan, .purple], userInfo: RECUser.placeholderUser, infoVisible: true)
             .padding()
     }
 }

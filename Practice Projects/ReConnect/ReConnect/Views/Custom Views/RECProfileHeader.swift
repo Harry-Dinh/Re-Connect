@@ -14,45 +14,26 @@ struct RECProfileHeader: View {
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
     
     var body: some View {
-        ZStack {
-            RECGradientBackground(colorSet: [editProfileVM.startingColor, editProfileVM.endingColor],
-                                         userInfo: loginVM.loggedInUser ?? RECUser.placeholderUser,
-                                         infoVisible: false)
-            
-            HStack(alignment: .center,spacing: 30) {
-                if loginVM.loggedInUser?.pfpURL == nil || loginVM.loggedInUser?.pfpURL == "" {
-                    Image(systemName: CUPSystemIcon.profile)
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .foregroundColor(.white)
-                        .shadow(color: .secondary, radius: 10, x: 0, y: 5)
-                } else {
-                    WebImage(url: URL(string: (loginVM.loggedInUser?.pfpURL)!))
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .clipShape(Circle())
-                }
-                
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(loginVM.loggedInUser?.displayName ?? RECUser.placeholderUser.displayName)
-                        .font(.system(.title, design: .default, weight: .bold))
-                        .foregroundColor(.white)
-                        .shadow(color: .black, radius: 10, x: 0, y: 5)
-                    
-                    if loginVM.loggedInUser?.isProtectedAccount ?? RECUser.placeholderUser.isProtectedAccount {
-                        Label(loginVM.loggedInUser?.username ?? RECUser.placeholderUser.username,
-                              systemImage: "\(CUPSystemIcon.passwordLock).fill")
-                        .font(.system(.subheadline, design: .monospaced, weight: .regular))
-                        .foregroundColor(.white)
-                        .shadow(color: .black, radius: 10, x: 0, y: 5)
-                    }
-                }
-                
-                Spacer()
+        VStack(spacing: 5) {
+            if loginVM.loggedInUser?.pfpURL == nil || loginVM.loggedInUser?.pfpURL == "" {
+                Image(systemName: CUPSystemIcon.profile)
+                    .resizable()
+                    .symbolVariant(.fill)
+                    .frame(width: 100, height: 100)
+            } else {
+                WebImage(url: URL(string: (loginVM.loggedInUser?.pfpURL)!))
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                    .clipShape(Circle())
             }
-            .padding(.horizontal, 20)
+            
+            ZStack {
+                RECGradientBackground(colorSet: [editProfileVM.startingColor, editProfileVM.endingColor],
+                                             userInfo: loginVM.loggedInUser ?? RECUser.placeholderUser,
+                                             infoVisible: true)
+            }
+            .padding()
         }
-        .padding()
     }
 }
 

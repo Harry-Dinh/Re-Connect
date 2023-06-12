@@ -18,6 +18,13 @@ class RegisterScreenVM: ObservableObject {
     /// The reference to Firebase Database.
     private let databaseReference = Database.database().reference()
     
+    enum FocusFields: Hashable {
+        case firstName
+        case lastName
+        case email
+        case password
+    }
+    
     // MARK: - SWIFTUI VIEWS PROPERTIES
     
     @ObservedObject var loginVM = LoginScreenVM.viewModel
@@ -100,7 +107,8 @@ class RegisterScreenVM: ObservableObject {
             "followingsUIDs": user.followingsUIDs,
             "followerCount": user.followerCount,
             "followingCount": user.followingCount,
-            "pfpURL": user.pfpURL ?? ""
+            "pfpURL": user.pfpURL ?? "",
+            "isVerified": user.isVerifiedUser
         ]
         
         // This line means write data above in the path: RECUsers/user.uid/
@@ -119,6 +127,7 @@ class RegisterScreenVM: ObservableObject {
             "age": user.age,
             "isProtectedAccount": user.isProtectedAccount,
             "firebaseUID": user.getFirebaseUID(),
+            "isVerified": user.isVerifiedUser
         ]
         
         // This line means update data above in the path: RECUsers/user.uid/

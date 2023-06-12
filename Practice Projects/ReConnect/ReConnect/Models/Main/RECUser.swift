@@ -29,6 +29,7 @@ struct RECUser: Codable {
     /// The identifier that is unique to this user. This cannot be changed once initialized.
     private let uid: String
     
+    /// The Firebase Auth unique identifer, created when the user account is created using Firebase Auth API.
     private let firebaseUID: String
     
     /// The name that will be displayed on posts and to other user.
@@ -61,6 +62,9 @@ struct RECUser: Codable {
     /// The number of people this user is following.
     var followingCount: Int
     
+    /// A boolean that tells the server that this user is verified. A user is verified when they have 1000 followers or more.
+    var isVerifiedUser: Bool
+    
     // MARK: - INITIALIZERS (CONSTRUCTORS)
     
     /// Create a generic Re:Connect user
@@ -77,6 +81,7 @@ struct RECUser: Codable {
         self.followingsUIDs = []
         self.followerCount = 0
         self.followingCount = 0
+        self.isVerifiedUser = false
     }
     
     /// Create a Re:Connect user (for setting up basic information and other info filled out later)
@@ -93,6 +98,7 @@ struct RECUser: Codable {
         self.followingsUIDs = []
         self.followerCount = 0
         self.followingCount = 0
+        self.isVerifiedUser = false
     }
     
     /// Create a Re:Connect user (include all information beside the unique identifier)
@@ -109,6 +115,7 @@ struct RECUser: Codable {
         self.followingsUIDs = []
         self.followerCount = 0
         self.followingCount = 0
+        self.isVerifiedUser = false
     }
     
     /// Create a Re:Connect user (only use this initializer for accounts that were created already)
@@ -125,6 +132,7 @@ struct RECUser: Codable {
         self.followingsUIDs = []
         self.followerCount = 0
         self.followingCount = 0
+        self.isVerifiedUser = false
     }
     
     // MARK: - GETTERS
@@ -149,6 +157,10 @@ struct RECUser: Codable {
     
     public mutating func appendFollowing(_ user: RECUser) {
         self.followersUIDs.append(user.getUID())
+    }
+    
+    public mutating func setVerification(_ isVerified: Bool) {
+        self.isVerifiedUser = isVerified
     }
     
     // MARK: - GENERIC OBJECT

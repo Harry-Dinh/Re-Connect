@@ -20,6 +20,11 @@ class LoginScreenVM: ObservableObject {
     /// The `UserDefaults` (UD) ID to decode the data of the logged in user from `UserDefaults`.
     public static let loggedInUserUDID = "loggedInUser"
     
+    enum FocusField: Hashable {
+        case email
+        case password
+    }
+    
     // MARK: - SWIFTUI VIEWS PROPERTIES
     
     /// A boolean that checks for if there is a user cached on the device and choose to present the login screen or core screen.

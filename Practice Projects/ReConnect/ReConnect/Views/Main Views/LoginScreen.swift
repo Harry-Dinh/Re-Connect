@@ -9,7 +9,8 @@ import SwiftUI
 
 struct LoginScreen: View {
     
-    @ObservedObject var viewModel = LoginScreenVM.viewModel
+    @ObservedObject private var viewModel = LoginScreenVM.viewModel
+    @FocusState private var focusedField: LoginScreenVM.FocusField?
     
     var body: some View {
         NavigationView {
@@ -23,11 +24,26 @@ struct LoginScreen: View {
                                      iconStr: CUPSystemIcon.emailEnvelope,
                                      isSecureTextEntry: false)
                     .keyboardType(.emailAddress)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+                    .focused($focusedField, equals: .email)
+                    .submitLabel(.next)
+                    .onSubmit {
+                        focusedField = .password
+                    }
                     
                     RECAuthTextField(text: $viewModel.passwordField,
                                      placeholderText: "Password",
                                      iconStr: CUPSystemIcon.passwordLock,
                                      isSecureTextEntry: true)
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+                    .focused($focusedField, equals: .password)
+                    .submitLabel(.done)
+                    .onSubmit {
+                        focusedField = nil
+                        viewModel.login(with: viewModel.emailField, and: viewModel.passwordField)
+                    }
                 }
                 
                 Section {
@@ -37,6 +53,7 @@ struct LoginScreen: View {
                         RECListButtonLabel(title: "Sign In", style: .backgroundProminant)
                     }
                     .listRowBackground(Color.accentColor)
+                    .disabled(viewModel.emailField.isEmpty && viewModel.passwordField.isEmpty)
                 }
                 
                 Section {
@@ -49,6 +66,14 @@ struct LoginScreen: View {
                 }
             }
             .fullScreenCover(isPresented: $viewModel.presentRegisterScreen, content: InitialRegisterView.init)
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    HStack {
+                        Spacer()
+                        Button("Done") { focusedField = nil }
+                    }
+                }
+            }
         }
     }
 }

@@ -61,4 +61,6 @@ class CUPSystemIcon {
     public static let rightChevronCircle = "chevron.right.circle"
     
     public static let downChevronCircle = "chevron.down.circle"
+    
+    public static let verificationSeal = "checkmark.seal"
 }
