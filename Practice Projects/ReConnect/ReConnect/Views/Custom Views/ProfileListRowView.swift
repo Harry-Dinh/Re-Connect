@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfileListRowView: View {
+    
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
     var user: RECUser
     
@@ -15,10 +18,14 @@ struct ProfileListRowView: View {
         HStack {
             if user.pfpURL == nil || user.pfpURL == "" {
                 Image(systemName: CUPSystemIcon.profile)
-                    .font(.system(size: 50))
+                    .resizable()
+                    .frame(width: 50, height: 50)
                     .foregroundColor(.accentColor)
             } else {
-                // Display an image here...
+                WebImage(url: URL(string: (loginVM.loggedInUser?.pfpURL)!))
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .clipShape(Circle())
             }
             
             VStack(alignment: .leading, spacing: 5) {

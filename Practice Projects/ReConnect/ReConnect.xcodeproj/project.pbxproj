@@ -53,6 +53,7 @@
 		21A7654A2A0A0A3900761219 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A765492A0A0A3900761219 /* LoginScreen.swift */; };
 		21A7654C2A0A0A4D00761219 /* LoginScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7654B2A0A0A4D00761219 /* LoginScreenVM.swift */; };
 		21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */; };
+		21E3A16F2A36C99E00FBAD6A /* RECStorageParentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E3A16E2A36C99E00FBAD6A /* RECStorageParentPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		21A765492A0A0A3900761219 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		21A7654B2A0A0A4D00761219 /* LoginScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenVM.swift; sourceTree = "<group>"; };
 		21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECAuthTextField.swift; sourceTree = "<group>"; };
+		21E3A16E2A36C99E00FBAD6A /* RECStorageParentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECStorageParentPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 			children = (
 				213AB8342A22124700DFEF2F /* CUPSystemIcon.swift */,
 				21386CA22A230BE100CA9AC6 /* RECDatabaseParentPath.swift */,
+				21E3A16E2A36C99E00FBAD6A /* RECStorageParentPath.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */,
 				211463F52A21C35F0092751F /* RECProfileInfoSheet.swift in Sources */,
 				2178F9F52A24658100F5EE96 /* EditProfileScreen.swift in Sources */,
+				21E3A16F2A36C99E00FBAD6A /* RECStorageParentPath.swift in Sources */,
 				212364382A08FA97005827D2 /* MenuScreen.swift in Sources */,
 				21A7654A2A0A0A3900761219 /* LoginScreen.swift in Sources */,
 				21A765482A0A06AB00761219 /* RECMenuListRow.swift in Sources */,

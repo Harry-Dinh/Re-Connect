@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct RECProfileHeader: View {
     
@@ -26,7 +27,10 @@ struct RECProfileHeader: View {
                         .foregroundColor(.white)
                         .shadow(color: .secondary, radius: 10, x: 0, y: 5)
                 } else {
-                    // Load image here...
+                    WebImage(url: URL(string: (loginVM.loggedInUser?.pfpURL)!))
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
                 }
                 
                 VStack(alignment: .leading, spacing: 3) {

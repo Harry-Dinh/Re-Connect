@@ -22,17 +22,17 @@ struct EditProfileScreen: View {
                         Section {
                             HStack {
                                 Spacer()
-                                if loginVM.loggedInUser?.pfpURL == nil || loginVM.loggedInUser?.pfpURL == "" {
+                                if let previewImage = viewModel.previewImage {
+                                    previewImage
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .clipShape(Circle())
+                                } else {
                                     Image(systemName: CUPSystemIcon.profile)
                                         .resizable()
                                         .symbolVariant(.fill)
                                         .foregroundColor(.secondary)
                                         .frame(width: 100, height: 100)
-                                } else {
-//                                    viewModel.displayImage?
-//                                        .resizable()
-//                                        .foregroundColor(.secondary)
-//                                        .frame(width: 100, height: 100)
                                 }
                                 Spacer()
                             }
@@ -45,10 +45,20 @@ struct EditProfileScreen: View {
                             Label("Take Photo", systemImage: CUPSystemIcon.camera)
                         }
                         
-                        Button(action: {
-                            viewModel.presentImagePicker.toggle()
-                        }) {
+                        PhotosPicker(selection: $viewModel.selectedImages, maxSelectionCount: 1, matching: .images) {
                             Label("Choose Photo", systemImage: CUPSystemIcon.photo)
+                        }
+                        .onChange(of: viewModel.selectedImages) { _ in
+                            Task {
+                                if let data = try? await viewModel.selectedImages.first?.loadTransferable(type: Data.self) {
+                                    if let uiImage = UIImage(data: data) {
+                                        viewModel.previewImage = Image(uiImage: uiImage)
+                                        viewModel.imageData = data
+                                        return
+                                    }
+                                }
+                                print("Failed")
+                            }
                         }
                         
                         Section {
@@ -101,6 +111,7 @@ struct EditProfileScreen: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         viewModel.writeCustomizationDataToDatabase(with: viewModel.tempUser.getFirebaseUID())
+                        loginVM.readLoggedInUser()
                         dismiss.callAsFunction()
                     }) {
                         Text("Save")

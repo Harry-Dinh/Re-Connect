@@ -23,6 +23,13 @@ struct AccountSettingsScreen: View {
             }
             
             Section {
+                Text(loginVM.loggedInUser?.pfpURL ?? "No URL")
+                    .foregroundColor(.secondary)
+            } header: {
+                Text("Profile Picture URL")
+            }
+            
+            Section {
                 Text(loginVM.loggedInUser?.getUID() ?? RECUser.placeholderUser.getUID())
                     .font(.system(.footnote, design: .monospaced, weight: .regular))
                     .foregroundColor(.secondary)

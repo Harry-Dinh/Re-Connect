@@ -14,12 +14,8 @@ struct DeveloperSettingsScreen: View {
     
     var body: some View {
         List {
-            Button("Fetch color") {
-                
-            }
-            
-            Button("Present color") {
-                showColor.toggle()
+            Button("Print pfp url") {
+                print("URL: \(LoginScreenVM.viewModel.loggedInUser?.pfpURL ?? "No URL")")
             }
         }
         .navigationTitle("Developer")

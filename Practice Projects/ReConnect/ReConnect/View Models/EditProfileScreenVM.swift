@@ -40,12 +40,16 @@ class EditProfileScreenVM: ObservableObject {
     /// A temporary string containing the new email address for the user. It will be cleared once the Save button is tapped.
     @Published var tempEmailAddress = ""
     
+    /// An array of `PhotosPickerItem` that will be use to store the selected profile picture.
+    @Published var selectedImages: [PhotosPickerItem] = []
+    
+    @Published var previewImage: Image?
+    
+    @Published var imageData: Data?
+    
     // MARK: - SWIFTUI VIEWS STATES
     
     @Published var presentImagePicker = false
-    
-    /// This triggers an alert when the `loadTransferable()` method fails to load the image data into an `Image` object.
-    @Published var transferableMethodFailed = false
     
     // MARK: - FUNCTIONS
     
@@ -63,6 +67,7 @@ class EditProfileScreenVM: ObservableObject {
         ]
         
         databaseReference.child(RECDatabaseParentPath.profileCustomizations).child(firebaseUID).setValue(customizationData)
+        self.writeProfilePicDataToStorage(with: firebaseUID)
     }
     
     /// Fetch the color customizations from the database based on the given path and option
@@ -81,6 +86,33 @@ class EditProfileScreenVM: ObservableObject {
             
             self?.startingColor = Color(hex: startingHex) ?? Color.red
             self?.endingColor = Color(hex: endingHex) ?? Color.blue
+        }
+    }
+    
+    public func writeProfilePicDataToStorage(with firebaseUID: String) {
+        guard let imageData = self.imageData else {
+            return
+        }
+        
+        let storagePath = storageReference.child(RECStorageParentPath.profilePictures).child(firebaseUID)
+        storagePath.putData(imageData) { [weak self] _, error in
+            guard error == nil else {
+                return
+            }
+            
+            storagePath.downloadURL { url, error in
+                guard let pfpURL = url, error == nil else {
+                    return
+                }
+                
+                self?.loginVM.loggedInUser?.pfpURL = pfpURL.absoluteString
+                print("pfp URL: \(self?.loginVM.loggedInUser?.pfpURL ?? "No URL")")
+                let updatedUserData: [String: Any] = [
+                    "pfpURL": pfpURL.absoluteString
+                ]
+                self?.databaseReference.child(RECDatabaseParentPath.users).child(firebaseUID).updateChildValues(updatedUserData)
+                self?.loginVM.cacheLoggedInUser()
+            }
         }
     }
 }
