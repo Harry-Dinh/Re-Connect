@@ -32,11 +32,13 @@
 		213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */; };
 		213DAE1B2A0DE0E400C52165 /* DetailedRegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */; };
 		213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */; };
+		214BC0A32A39A29700058B0E /* RECProfileBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BC0A22A39A29700058B0E /* RECProfileBackground.swift */; };
+		214BC0A52A39B39900058B0E /* RECSearchResultUserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214BC0A42A39B39900058B0E /* RECSearchResultUserRow.swift */; };
 		21682F152A1C642100866864 /* InitialRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F142A1C642100866864 /* InitialRegisterView.swift */; };
 		2178F9EF2A24615200F5EE96 /* EditProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9EE2A24615200F5EE96 /* EditProfileScreenVM.swift */; };
 		2178F9F22A2464D800F5EE96 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2178F9F12A2464D800F5EE96 /* SDWebImageSwiftUI */; };
 		2178F9F52A24658100F5EE96 /* EditProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */; };
-		2178F9F92A24698400F5EE96 /* RECGradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F82A24698400F5EE96 /* RECGradientBackground.swift */; };
+		2178F9F92A24698400F5EE96 /* RECProfileGradientPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */; };
 		2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */; };
 		2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */; };
 		219CD58B2A0B7AA40061B04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */; };
@@ -85,10 +87,12 @@
 		213DAE182A0DDF1A00C52165 /* DetailedRegistrationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationVM.swift; sourceTree = "<group>"; };
 		213DAE1A2A0DE0E400C52165 /* DetailedRegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRegistrationScreen.swift; sourceTree = "<group>"; };
 		213DAE1E2A0E46FF00C52165 /* RECListButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListButtonLabel.swift; sourceTree = "<group>"; };
+		214BC0A22A39A29700058B0E /* RECProfileBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileBackground.swift; sourceTree = "<group>"; };
+		214BC0A42A39B39900058B0E /* RECSearchResultUserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECSearchResultUserRow.swift; sourceTree = "<group>"; };
 		21682F142A1C642100866864 /* InitialRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRegisterView.swift; sourceTree = "<group>"; };
 		2178F9EE2A24615200F5EE96 /* EditProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreenVM.swift; sourceTree = "<group>"; };
 		2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreen.swift; sourceTree = "<group>"; };
-		2178F9F82A24698400F5EE96 /* RECGradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECGradientBackground.swift; sourceTree = "<group>"; };
+		2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileGradientPreview.swift; sourceTree = "<group>"; };
 		2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenVM.swift; sourceTree = "<group>"; };
 		2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsScreen.swift; sourceTree = "<group>"; };
 		219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -195,7 +199,9 @@
 				211463F02A21C0BA0092751F /* RECSubscriberIndicator.swift */,
 				211463F42A21C35F0092751F /* RECProfileInfoSheet.swift */,
 				211463F22A21C2B00092751F /* RECProfileHeader.swift */,
-				2178F9F82A24698400F5EE96 /* RECGradientBackground.swift */,
+				214BC0A22A39A29700058B0E /* RECProfileBackground.swift */,
+				2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */,
+				214BC0A42A39B39900058B0E /* RECSearchResultUserRow.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 				2122D7252A1CC73600005122 /* RECDisplayLabel.swift in Sources */,
 				219CD59A2A0B80170061B04E /* RegisterScreenVM.swift in Sources */,
 				2122D71F2A1CC29700005122 /* AppSettingsVM.swift in Sources */,
+				214BC0A32A39A29700058B0E /* RECProfileBackground.swift in Sources */,
 				213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */,
 				2123642C2A08F948005827D2 /* ContentView.swift in Sources */,
 				219CD5982A0B7EDD0061B04E /* RegisterScreen.swift in Sources */,
@@ -386,6 +393,7 @@
 				2122D71B2A1CC13500005122 /* AppSettingsScreen.swift in Sources */,
 				2122D7232A1CC6CD00005122 /* AccountSettingsScreen.swift in Sources */,
 				211463F12A21C0BA0092751F /* RECSubscriberIndicator.swift in Sources */,
+				214BC0A52A39B39900058B0E /* RECSearchResultUserRow.swift in Sources */,
 				219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,
 				213AB8352A22124700DFEF2F /* CUPSystemIcon.swift in Sources */,
@@ -399,7 +407,7 @@
 				21A7654C2A0A0A4D00761219 /* LoginScreenVM.swift in Sources */,
 				21B960792A370B4B00A91678 /* SearchScreenVM.swift in Sources */,
 				2123643B2A08FB0F005827D2 /* ProfileListRowView.swift in Sources */,
-				2178F9F92A24698400F5EE96 /* RECGradientBackground.swift in Sources */,
+				2178F9F92A24698400F5EE96 /* RECProfileGradientPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

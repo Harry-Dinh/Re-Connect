@@ -1,0 +1,43 @@
+//
+//  RECProfileBackground.swift
+//  ReConnect
+//
+//  Created by Harry Dinh on 2023-06-14.
+//
+
+import SwiftUI
+
+struct RECProfileBackground: View {
+    
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    
+    var body: some View {
+        ZStack {
+            
+            LinearGradient(colors: [editProfileVM.startingColor, editProfileVM.endingColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .frame(height: 115)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.white.opacity(0.25), lineWidth: 8)
+                )
+                .cornerRadius(10)
+            
+            VStack(spacing: 3) {
+                Text(loginVM.loggedInUser?.displayName ?? RECUser.placeholderUser.displayName)
+                    .font(.system(.title, design: .default, weight: .bold))
+                Text(loginVM.loggedInUser?.username ?? RECUser.placeholderUser.username)
+                    .font(.system(.body, design: .monospaced, weight: .regular))
+            }
+            .foregroundColor(.white)
+            .shadow(color: .black, radius: 10, x: 0, y: 5)
+        }
+    }
+}
+
+struct RECProfileBackground_Previews: PreviewProvider {
+    static var previews: some View {
+        RECProfileBackground()
+            .padding()
+    }
+}

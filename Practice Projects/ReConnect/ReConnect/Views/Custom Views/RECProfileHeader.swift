@@ -14,26 +14,30 @@ struct RECProfileHeader: View {
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
     
     var body: some View {
-        VStack(spacing: 5) {
+        HStack {
             if loginVM.loggedInUser?.pfpURL == nil || loginVM.loggedInUser?.pfpURL == "" {
                 Image(systemName: CUPSystemIcon.profile)
                     .resizable()
                     .symbolVariant(.fill)
-                    .frame(width: 100, height: 100)
+                    .frame(width: 80, height: 80)
+                    .overlay(
+                        Circle()
+                            .stroke(Color.secondary, lineWidth: 3)
+                    )
             } else {
                 WebImage(url: URL(string: (loginVM.loggedInUser?.pfpURL)!))
                     .resizable()
-                    .frame(width: 100, height: 100)
+                    .frame(width: 80, height: 80)
                     .clipShape(Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(Color.secondary, lineWidth: 3)
+                    )
             }
             
-            ZStack {
-                RECGradientBackground(colorSet: [editProfileVM.startingColor, editProfileVM.endingColor],
-                                             userInfo: loginVM.loggedInUser ?? RECUser.placeholderUser,
-                                             infoVisible: true)
-            }
-            .padding()
+            RECProfileBackground()
         }
+        .padding()
     }
 }
 

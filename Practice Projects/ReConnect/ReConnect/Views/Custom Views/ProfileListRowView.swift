@@ -28,7 +28,7 @@ struct ProfileListRowView: View {
                     .clipShape(Circle())
             }
             
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 3) {
                 Text(user.displayName)
                     .font(.title2)
                 

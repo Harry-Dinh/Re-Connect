@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RECGradientBackground: View {
+struct RECProfileGradientPreview: View {
     
     var colorSet: [Color]
     var userInfo: RECUser
@@ -53,7 +53,7 @@ struct RECGradientBackground: View {
 
 struct RECGradientBackgroundPreview_Previews: PreviewProvider {
     static var previews: some View {
-        RECGradientBackground(colorSet: [.cyan, .purple], userInfo: RECUser.placeholderUser, infoVisible: true)
+        RECProfileGradientPreview(colorSet: [.cyan, .purple], userInfo: RECUser.placeholderUser, infoVisible: true)
             .padding()
     }
 }

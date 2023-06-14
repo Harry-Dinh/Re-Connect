@@ -14,12 +14,21 @@ struct SearchScreen: View {
     var body: some View {
         NavigationStack {
             List {
-                
+                if !viewModel.searchQuery.isEmpty {
+                    Section {
+                        ForEach(viewModel.listOfUsers, id: \.firebaseUID) { user in
+                            RECSearchResultUserRow(user: user)
+                        }
+                    } header: {
+                        Text("Users")
+                    }
+                }
             }
             .navigationTitle("Search")
             .searchable(text: $viewModel.searchQuery,
                         placement: .navigationBarDrawer(displayMode: .always),
                         prompt: Text("Search for posts, people and more..."))
+            .headerProminence(.increased)
         }
     }
 }

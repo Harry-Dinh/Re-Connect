@@ -62,7 +62,7 @@ struct EditProfileScreen: View {
                         }
                         
                         Section {
-                            RECGradientBackground(colorSet: [viewModel.startingColor, viewModel.endingColor],
+                            RECProfileGradientPreview(colorSet: [viewModel.startingColor, viewModel.endingColor],
                                                          userInfo: viewModel.tempUser,
                                                          infoVisible: true)
                             .listRowSeparator(.hidden)

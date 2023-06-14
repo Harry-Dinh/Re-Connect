@@ -27,10 +27,10 @@ struct RECUser: Codable {
     // MARK: - FIELDS
     
     /// The identifier that is unique to this user. This cannot be changed once initialized.
-    private let uid: String
+    let uid: String
     
     /// The Firebase Auth unique identifer, created when the user account is created using Firebase Auth API.
-    private let firebaseUID: String
+    let firebaseUID: String
     
     /// The name that will be displayed on posts and to other user.
     var displayName: String
