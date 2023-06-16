@@ -57,6 +57,7 @@
 		21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */; };
 		21B960772A370B4100A91678 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B960762A370B4100A91678 /* SearchScreen.swift */; };
 		21B960792A370B4B00A91678 /* SearchScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B960782A370B4B00A91678 /* SearchScreenVM.swift */; };
+		21D331152A3C12F400E6F786 /* SearchResultUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D331142A3C12F400E6F786 /* SearchResultUserScreen.swift */; };
 		21E3A16F2A36C99E00FBAD6A /* RECStorageParentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E3A16E2A36C99E00FBAD6A /* RECStorageParentPath.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECAuthTextField.swift; sourceTree = "<group>"; };
 		21B960762A370B4100A91678 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
 		21B960782A370B4B00A91678 /* SearchScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenVM.swift; sourceTree = "<group>"; };
+		21D331142A3C12F400E6F786 /* SearchResultUserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultUserScreen.swift; sourceTree = "<group>"; };
 		21E3A16E2A36C99E00FBAD6A /* RECStorageParentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECStorageParentPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */,
+				21D331142A3C12F400E6F786 /* SearchResultUserScreen.swift */,
 			);
 			path = "Secondary Views";
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				214BC0A52A39B39900058B0E /* RECSearchResultUserRow.swift in Sources */,
 				219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,
+				21D331152A3C12F400E6F786 /* SearchResultUserScreen.swift in Sources */,
 				213AB8352A22124700DFEF2F /* CUPSystemIcon.swift in Sources */,
 				211463F32A21C2B00092751F /* RECProfileHeader.swift in Sources */,
 				21386CA12A23065000CA9AC6 /* FeedScreenVM.swift in Sources */,
