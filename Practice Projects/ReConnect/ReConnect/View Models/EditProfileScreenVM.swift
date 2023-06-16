@@ -40,6 +40,8 @@ class EditProfileScreenVM: ObservableObject {
     /// A temporary string containing the new email address for the user. It will be cleared once the Save button is tapped.
     @Published var tempEmailAddress = ""
     
+    @Published var tempAgeField = ""
+    
     /// An array of `PhotosPickerItem` that will be use to store the selected profile picture.
     @Published var selectedImages: [PhotosPickerItem] = []
     

@@ -20,11 +20,14 @@ class SearchScreenVM: ObservableObject {
     
     @Published var usersSearchResult: [RECUser] = []
     
-    public func fetchUsers() {
+    public func fetchUsers(with searchQuery: String) {
+        print("Fetching user method called")
+        // Clear the previous fetch request before starting a new one
         self.usersSearchResult = []
         
         databaseUsersPath.observeSingleEvent(of: .value) { [weak self] snapshot in
             guard snapshot.hasChildren() else {
+                print("\(RECDatabaseParentPath.users) node has no children")
                 return
             }
             
@@ -35,10 +38,11 @@ class SearchScreenVM: ObservableObject {
                 }
                 
                 let firebaseUID = value[RECUser.Property.firebaseUID] as? String ?? RECUser.placeholderUser.getFirebaseUID()
+                let displayName = value[RECUser.Property.displayName] as? String ?? RECUser.placeholderUser.displayName
                 
-                if firebaseUID != self?.loginVM.loggedInUser?.getFirebaseUID() {
+                // `displayName.lowercased() == searchQuery` is the part of the code that only fetch the users whose display names match the search query
+                if firebaseUID != self?.loginVM.loggedInUser?.getFirebaseUID() || displayName.lowercased() == searchQuery {
                     let age = value[RECUser.Property.age] as? Int ?? RECUser.placeholderUser.age
-                    let displayName = value[RECUser.Property.displayName] as? String ?? RECUser.placeholderUser.displayName
                     let emailAddress = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
                     let followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
                     let followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount

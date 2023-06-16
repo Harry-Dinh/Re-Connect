@@ -20,51 +20,58 @@ struct EditProfileScreen: View {
                 if viewModel.selectedView == 0 {
                     List {
                         Section {
-                            HStack {
-                                Spacer()
+                            HStack(spacing: 12) {
                                 if let previewImage = viewModel.previewImage {
                                     previewImage
                                         .resizable()
-                                        .frame(width: 100, height: 100)
+                                        .frame(width: 70, height: 70)
                                         .clipShape(Circle())
                                 } else {
                                     Image(systemName: CUPSystemIcon.profile)
                                         .resizable()
                                         .symbolVariant(.fill)
                                         .foregroundColor(.secondary)
-                                        .frame(width: 100, height: 100)
+                                        .frame(width: 70, height: 70)
                                 }
-                                Spacer()
+                                
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text(viewModel.tempUser.displayName)
+                                        .font(.title2)
+                                        .bold()
+                                    Text(viewModel.tempUser.username)
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
                             }
-                        } header: {
-                            Text("Profile Picture")
-                        }
-                        .listRowBackground(Color.clear)
-                        
-                        Button(action: {}) {
-                            Label("Take Photo", systemImage: CUPSystemIcon.camera)
-                        }
-                        
-                        PhotosPicker(selection: $viewModel.selectedImages, maxSelectionCount: 1, matching: .images) {
-                            Label("Choose Photo", systemImage: CUPSystemIcon.photo)
-                        }
-                        .onChange(of: viewModel.selectedImages) { _ in
-                            Task {
-                                if let data = try? await viewModel.selectedImages.first?.loadTransferable(type: Data.self) {
-                                    if let uiImage = UIImage(data: data) {
-                                        viewModel.previewImage = Image(uiImage: uiImage)
-                                        viewModel.imageData = data
-                                        return
+                            .listRowSeparator(.hidden)
+                            
+                            Button(action: {}) {
+                                Label("Take Photo", systemImage: CUPSystemIcon.camera)
+                            }
+                            
+                            PhotosPicker(selection: $viewModel.selectedImages, maxSelectionCount: 1, matching: .images) {
+                                Label("Choose Photo", systemImage: CUPSystemIcon.photo)
+                            }
+                            .onChange(of: viewModel.selectedImages) { _ in
+                                Task {
+                                    if let data = try? await viewModel.selectedImages.first?.loadTransferable(type: Data.self) {
+                                        if let uiImage = UIImage(data: data) {
+                                            viewModel.previewImage = Image(uiImage: uiImage)
+                                            viewModel.imageData = data
+                                            return
+                                        }
                                     }
+                                    print("Failed")
                                 }
-                                print("Failed")
                             }
+                        } footer: {
+                            Text("Tap on your name and username to edit them.")
                         }
                         
                         Section {
                             RECProfileGradientPreview(colorSet: [viewModel.startingColor, viewModel.endingColor],
                                                          userInfo: viewModel.tempUser,
-                                                         infoVisible: true)
+                                                         infoVisible: false)
                             .listRowSeparator(.hidden)
                             
                             ColorPicker(selection: $viewModel.startingColor, supportsOpacity: false) {
@@ -84,8 +91,17 @@ struct EditProfileScreen: View {
                     Form {
                         Section {
                             TextField("Email address", text: $viewModel.tempEmailAddress)
+                                .padding(.vertical, 8)
                         } header: {
-                            Text("Edit your email address")
+                            Text("Update your email address")
+                        }
+                        
+                        Section {
+                            TextField("Age", text: $viewModel.tempAgeField)
+                                .padding(.vertical, 8)
+                                .keyboardType(.numberPad)
+                        } header: {
+                            Text("Update your age")
                         }
                     }
                     .headerProminence(.increased)

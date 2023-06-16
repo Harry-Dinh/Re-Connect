@@ -38,12 +38,22 @@ struct ProfileScreen: View {
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        editProfileVM.tempUser = loginVM.loggedInUser ?? RECUser.placeholderUser
-                        viewModel.showEditProfileScreen.toggle()
-                    }) {
-                        Image(systemName: CUPSystemIcon.edit)
+                    Menu {
+                        Button(action: {
+                            editProfileVM.tempUser = loginVM.loggedInUser ?? RECUser.placeholderUser
+                            viewModel.showEditProfileScreen.toggle()
+                        }) {
+                            Label("Edit Profile", systemImage: CUPSystemIcon.edit)
+                        }
+                        
+                        Button(action: {}) {
+                            Label("Filter and Search Posts", systemImage: CUPSystemIcon.filter)
+                        }
+                    } label: {
+                        Image(systemName: CUPSystemIcon.moreMenu)
+                            .symbolVariant(.circle)
                     }
+
                     
                     Button(action: {}) {
                         Image(systemName: CUPSystemIcon.add)
