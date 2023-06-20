@@ -11,31 +11,34 @@ struct AccountSettingsScreen: View {
     
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
+    @State private var showOtherActionsActionSheet = false
+    
     var body: some View {
         List {
-            Section {
+            Section("Account Info") {
                 RECDisplayLabel(label: "Name",
                                 value: loginVM.loggedInUser?.displayName ?? RECUser.placeholderUser.displayName)
                 
                 RECDisplayLabel(valueDisplayMode: .standard,
                                 label: "Email",
                                 value: loginVM.loggedInUser?.emailAddress ?? RECUser.placeholderUser.emailAddress)
+                RECDisplayLabel(label: "Age", value: "\(loginVM.loggedInUser?.age ?? RECUser.placeholderUser.age)")
             }
             
-            Section {
+            Section("Profile Info") {
+                RECDisplayLabel(label: "Username", value: loginVM.loggedInUser?.username ?? RECUser.placeholderUser.username)
+            }
+            
+            Section("Re:Connect Unique Indentifier") {
                 Text(loginVM.loggedInUser?.getUID() ?? RECUser.placeholderUser.getUID())
                     .font(.system(.footnote, design: .monospaced, weight: .regular))
                     .foregroundColor(.secondary)
-            } header: {
-                Text("Re:Connect Unique Indentifier")
             }
             
-            Section {
+            Section("Firebase Unique Identifier") {
                 Text(loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     .font(.system(.body, design: .monospaced, weight: .regular))
                     .foregroundColor(.secondary)
-            } header: {
-                Text("Firebase Unique Identifier")
             }
             
             Button(action: {
@@ -43,6 +46,22 @@ struct AccountSettingsScreen: View {
             }) {
                 Label("Log Out", systemImage: CUPSystemIcon.exit)
                     .foregroundColor(.red)
+            }
+            
+            Section {
+                Button(action: {}) {
+                    Label("Suspend Account", systemImage: CUPSystemIcon.suspendProfile)
+                        .foregroundColor(.red)
+                }
+                
+                Button(action: {}) {
+                    Label("Delete Account", systemImage: CUPSystemIcon.deleteProfile)
+                        .foregroundColor(.red)
+                }
+            } header: {
+                Text("Other Actions")
+            } footer: {
+                Text("Suspend account stops your account from being active for a provided period of time. Delete account completely wipe all contents in your account immediately with no time given to recover your data.")
             }
         }
         .navigationTitle("Account")
@@ -56,7 +75,6 @@ struct AccountSettingsScreen: View {
         } message: {
             Text("Are you sure you want to log out? You will have to enter your email and password to log in again.")
         }
-
     }
 }
 

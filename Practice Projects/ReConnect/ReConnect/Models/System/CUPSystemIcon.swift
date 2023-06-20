@@ -65,4 +65,16 @@ class CUPSystemIcon {
     public static let verificationSeal = "checkmark.seal"
     
     public static let moreMenu = "ellipsis"
+    
+    public static let deleteProfile = "person.crop.circle.badge.xmark"
+    
+    public static let suspendProfile = "person.crop.circle.badge.clock"
+    
+    public static let userRequestAction = "person.fill.questionmark"
+    
+    public static let blockAction = "nosign"
+    
+    public static let reportAction = "exclamationmark.bubble"
+    
+    public static let scanQRCodeAction = "qrcode.viewfinder"
 }

@@ -12,6 +12,8 @@ struct RECProfileBackground: View {
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
+    var userInfo: RECUser
+    
     var body: some View {
         ZStack {
             
@@ -24,9 +26,9 @@ struct RECProfileBackground: View {
                 .cornerRadius(10)
             
             VStack(spacing: 3) {
-                Text(loginVM.loggedInUser?.displayName ?? RECUser.placeholderUser.displayName)
+                Text(userInfo.displayName)
                     .font(.system(.title, design: .default, weight: .bold))
-                Text(loginVM.loggedInUser?.username ?? RECUser.placeholderUser.username)
+                Text(userInfo.username)
                     .font(.system(.body, design: .monospaced, weight: .regular))
             }
             .foregroundColor(.white)
@@ -37,7 +39,7 @@ struct RECProfileBackground: View {
 
 struct RECProfileBackground_Previews: PreviewProvider {
     static var previews: some View {
-        RECProfileBackground()
+        RECProfileBackground(userInfo: RECUser.placeholderUser)
             .padding()
     }
 }

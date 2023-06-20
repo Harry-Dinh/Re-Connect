@@ -12,6 +12,7 @@ struct EditProfileScreen: View {
     
     @ObservedObject private var viewModel = EditProfileScreenVM.viewModel
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var registerVM = RegisterScreenVM.viewModel
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -35,12 +36,13 @@ struct EditProfileScreen: View {
                                 }
                                 
                                 VStack(alignment: .leading, spacing: 3) {
-                                    Text(viewModel.tempUser.displayName)
+                                    TextField("Display name", text: $viewModel.tempUser.displayName)
                                         .font(.title2)
                                         .bold()
-                                    Text(viewModel.tempUser.username)
+                                    TextField("Username", text: $viewModel.tempUser.username)
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
+                                        .keyboardType(.emailAddress)
                                 }
                             }
                             .listRowSeparator(.hidden)
@@ -90,22 +92,14 @@ struct EditProfileScreen: View {
                 } else {
                     Form {
                         Section {
-                            TextField("Email address", text: $viewModel.tempEmailAddress)
+                            TextField("Email address", text: $viewModel.tempUser.emailAddress)
                                 .padding(.vertical, 8)
+                                .keyboardType(.emailAddress)
                         } header: {
                             Text("Update your email address")
                         }
-                        
-                        Section {
-                            TextField("Age", text: $viewModel.tempAgeField)
-                                .padding(.vertical, 8)
-                                .keyboardType(.numberPad)
-                        } header: {
-                            Text("Update your age")
-                        }
                     }
                     .headerProminence(.increased)
-                    .onAppear { viewModel.tempEmailAddress = viewModel.tempUser.emailAddress }
                 }
             }
             .toolbar {
@@ -121,14 +115,19 @@ struct EditProfileScreen: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
                         dismiss.callAsFunction()
+                        viewModel.tempUser = RECUser.placeholderUser
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         viewModel.writeCustomizationDataToDatabase(with: viewModel.tempUser.getFirebaseUID())
+                        registerVM.writeUpdatedUserInfo(with: viewModel.tempUser)
+                        loginVM.loggedInUser = viewModel.tempUser
+                        loginVM.cacheLoggedInUser()
                         loginVM.readLoggedInUser()
                         dismiss.callAsFunction()
+                        viewModel.tempUser = RECUser.placeholderUser
                     }) {
                         Text("Save")
                             .fontWeight(.semibold)

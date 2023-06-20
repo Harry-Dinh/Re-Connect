@@ -16,7 +16,7 @@ struct ProfileScreen: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                RECProfileHeader()
+                RECProfileHeader(userInfo: loginVM.loggedInUser ?? RECUser.placeholderUser)
                 
                 HStack {
                     RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount,
@@ -38,6 +38,10 @@ struct ProfileScreen: View {
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button(action: {}) {
+                        Image(systemName: CUPSystemIcon.add)
+                    }
+                    
                     Menu {
                         Button(action: {
                             editProfileVM.tempUser = loginVM.loggedInUser ?? RECUser.placeholderUser
@@ -52,11 +56,6 @@ struct ProfileScreen: View {
                     } label: {
                         Image(systemName: CUPSystemIcon.moreMenu)
                             .symbolVariant(.circle)
-                    }
-
-                    
-                    Button(action: {}) {
-                        Image(systemName: CUPSystemIcon.add)
                     }
                 }
             }

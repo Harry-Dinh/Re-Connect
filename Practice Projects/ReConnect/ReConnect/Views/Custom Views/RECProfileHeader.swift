@@ -10,12 +10,13 @@ import SDWebImageSwiftUI
 
 struct RECProfileHeader: View {
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
+    
+    var userInfo: RECUser
     
     var body: some View {
         HStack {
-            if loginVM.loggedInUser?.pfpURL == nil || loginVM.loggedInUser?.pfpURL == "" {
+            if userInfo.pfpURL == nil || userInfo.pfpURL == "" {
                 Image(systemName: CUPSystemIcon.profile)
                     .resizable()
                     .symbolVariant(.fill)
@@ -25,7 +26,7 @@ struct RECProfileHeader: View {
                             .stroke(Color.secondary, lineWidth: 3)
                     )
             } else {
-                WebImage(url: URL(string: (loginVM.loggedInUser?.pfpURL)!))
+                WebImage(url: URL(string: (userInfo.pfpURL)!))
                     .resizable()
                     .frame(width: 80, height: 80)
                     .clipShape(Circle())
@@ -35,7 +36,7 @@ struct RECProfileHeader: View {
                     )
             }
             
-            RECProfileBackground()
+            RECProfileBackground(userInfo: userInfo)
         }
         .padding()
     }
@@ -43,6 +44,6 @@ struct RECProfileHeader: View {
 
 struct RECProfileHeader_Previews: PreviewProvider {
     static var previews: some View {
-        RECProfileHeader()
+        RECProfileHeader(userInfo: RECUser.placeholderUser)
     }
 }

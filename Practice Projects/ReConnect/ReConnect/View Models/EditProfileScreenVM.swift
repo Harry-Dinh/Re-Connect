@@ -31,26 +31,24 @@ class EditProfileScreenVM: ObservableObject {
     
     @Published var selectedView = 0
     
-    /// The starting color for the gradient.
+    /// The starting color for the gradient background.
     @Published var startingColor = Color.red
     
-    /// The ending color for the gradient
+    /// The ending color for the gradient background.
     @Published var endingColor = Color.blue
-    
-    /// A temporary string containing the new email address for the user. It will be cleared once the Save button is tapped.
-    @Published var tempEmailAddress = ""
-    
-    @Published var tempAgeField = ""
     
     /// An array of `PhotosPickerItem` that will be use to store the selected profile picture.
     @Published var selectedImages: [PhotosPickerItem] = []
     
+    /// The placeholder image to preview the selected profile picture.
     @Published var previewImage: Image?
     
+    /// The data of the profile picture that will be fed to `previewImage`.
     @Published var imageData: Data?
     
     // MARK: - SWIFTUI VIEWS STATES
     
+    /// Tell SwiftUI to present the system image picker.
     @Published var presentImagePicker = false
     
     // MARK: - FUNCTIONS
