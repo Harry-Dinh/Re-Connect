@@ -31,9 +31,13 @@ struct SearchScreen: View {
             .searchable(text: $viewModel.searchQuery,
                         placement: .navigationBarDrawer(displayMode: .always),
                         prompt: Text("Search for posts, users and more..."))
+            .onChange(of: viewModel.searchQuery, perform: { _ in
+                viewModel.fetchUsers2(with: viewModel.searchQuery)
+            })
             .onSubmit(of: .search) {
-                viewModel.fetchUsers(with: viewModel.searchQuery)
+                viewModel.fetchUsers2(with: viewModel.searchQuery)
             }
+            .submitLabel(.search)
         }
     }
 }

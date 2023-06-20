@@ -19,13 +19,15 @@ struct RECSearchResultUserRow: View {
                     .frame(width: 40, height: 40)
                     .foregroundColor(.accentColor)
             } else {
-                if let data = try? Data(contentsOf: URL(string: user.pfpURL!)!) {
-                    if let uiImage = UIImage(data: data) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
-                    }
+                if let pfpURL = self.user.pfpURL,
+                   let url = URL(string: pfpURL) {
+                    AsyncImage(url: url, content: { image in
+                        image.resizable()
+                    }, placeholder: {
+                        ProgressView()
+                    })
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
                 }
             }
             

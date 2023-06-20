@@ -26,7 +26,7 @@ struct FeedScreen: View {
                 }
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {}) {
+                    NavigationLink(destination: NotificationsScreen.init) {
                         Image(systemName: CUPSystemIcon.notification)
                     }
                     

@@ -36,6 +36,8 @@ class CUPSystemIcon {
     
     public static let passwordLock = "lock"
     
+    public static let passwordLockUnlocked = "lock.open"
+    
     public static let gift = "gift"
     
     public static let person = "person"

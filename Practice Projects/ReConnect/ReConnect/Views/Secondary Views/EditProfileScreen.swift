@@ -91,12 +91,21 @@ struct EditProfileScreen: View {
                     .listStyle(.insetGrouped)
                 } else {
                     Form {
-                        Section {
+                        Section("Update your email address") {
                             TextField("Email address", text: $viewModel.tempUser.emailAddress)
                                 .padding(.vertical, 8)
                                 .keyboardType(.emailAddress)
-                        } header: {
-                            Text("Update your email address")
+                        }
+                        
+                        Section("Change your account security") {
+                            Toggle(isOn: $viewModel.tempUser.isProtectedAccount) {
+                                if viewModel.tempUser.isProtectedAccount {
+                                    Label("Use Private Account", systemImage: CUPSystemIcon.passwordLock)
+                                } else {
+                                    Label("Use Private Account", systemImage: CUPSystemIcon.passwordLockUnlocked)
+                                }
+                            }
+                            .padding(.vertical, 8)
                         }
                     }
                     .headerProminence(.increased)
