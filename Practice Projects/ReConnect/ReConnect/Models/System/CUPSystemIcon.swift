@@ -79,4 +79,6 @@ class CUPSystemIcon {
     public static let reportAction = "exclamationmark.bubble"
     
     public static let scanQRCodeAction = "qrcode.viewfinder"
+    
+    public static let archive = "archivebox"
 }
