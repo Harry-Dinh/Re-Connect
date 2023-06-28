@@ -20,10 +20,10 @@ struct RECProfileBackground: View {
             LinearGradient(colors: [editProfileVM.startingColor, editProfileVM.endingColor], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .frame(height: 115)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: 15)
                         .stroke(Color.white.opacity(0.25), lineWidth: 8)
                 )
-                .cornerRadius(10)
+                .cornerRadius(15)
             
             VStack(spacing: 3) {
                 Text(userInfo.displayName)
@@ -38,7 +38,24 @@ struct RECProfileBackground: View {
                 }
             }
             .foregroundColor(.white)
-            .shadow(color: .black, radius: 10, x: 0, y: 5)
+            .shadow(color: .black, radius: 15, x: 0, y: 3)
+            
+            if userInfo.isVerifiedUser {
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Image(systemName: CUPSystemIcon.verificationSeal)
+                            .symbolVariant(.fill)
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(Color.white, Color.green)
+                            .imageScale(.large)
+                            .shadow(color: Color.black.opacity(0.25), radius: 5, x: 0, y: 3)
+                    }
+                }
+                .padding(8)
+                .frame(height: 115)
+            }
         }
     }
 }

@@ -18,17 +18,17 @@ struct RECProfileGradientPreview: View {
             LinearGradient(colors: colorSet, startPoint: .topLeading, endPoint: .bottomTrailing)
                 .frame(height: 115)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 7)
+                    RoundedRectangle(cornerRadius: 15)
                         .stroke(Color.white.opacity(0.25), lineWidth: 8)
                 )
-                .cornerRadius(7)
+                .cornerRadius(15)
             
             if infoVisible {
                 VStack(spacing: 3) {
                     Text(userInfo.displayName)
                         .foregroundColor(.white)
                         .font(.system(.largeTitle, design: .default, weight: .bold))
-                        .shadow(color: .black, radius: 8, x: 0, y: 5)
+                        .shadow(color: .black, radius: 15, x: 0, y: 3)
                 }
                 
                 Text(userInfo.username)
@@ -37,14 +37,14 @@ struct RECProfileGradientPreview: View {
                     .font(.system(.subheadline, design: .monospaced, weight: .regular))
                     .italic()
                     .offset(x: -110, y: -37)
-                    .shadow(color: .black, radius: 8, x: 0, y: 5)
+                    .shadow(color: .black, radius: 15, x: 0, y: 3)
                 
                 if userInfo.isVerifiedUser {
                     Image(systemName: CUPSystemIcon.verificationSeal)
                         .symbolVariant(.fill)
                         .foregroundStyle(Color.green.gradient)
                         .offset(x: 155, y: 37)
-                        .shadow(color: .black, radius: 5, x: 0, y: 3)
+                        .shadow(color: .black, radius: 15, x: 0, y: 3)
                 }
             }
         }

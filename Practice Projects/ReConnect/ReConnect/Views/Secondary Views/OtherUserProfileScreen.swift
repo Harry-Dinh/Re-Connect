@@ -17,6 +17,21 @@ struct OtherUserProfileScreen: View {
                 RECProfileHeader(userInfo: userInfo)
                 
                 HStack {
+                    Button(action: {}) {
+                        Label("Follow", systemImage: userInfo.isProtectedAccount ? CUPSystemIcon.add : CUPSystemIcon.userRequestAction)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    
+                    Button(action: {}) {
+                        Label("QR Code", systemImage: CUPSystemIcon.qrcode)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
+                }
+                .padding(.horizontal)
+                
+                HStack {
                     RECSubscriberIndicator(subscriberCount: userInfo.followerCount,
                                            subscriberType: .follower)
                     
@@ -24,12 +39,10 @@ struct OtherUserProfileScreen: View {
                                            subscriberType: .following)
                 }
                 .padding(.horizontal)
-                
-//                RECProfileInfoSheet()
-//                    .padding(.horizontal)
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    
                     Menu {
                         if userInfo.isProtectedAccount {
                             Button(action: {}) {

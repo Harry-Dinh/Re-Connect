@@ -12,6 +12,7 @@ struct AccountSettingsScreen: View {
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
     @State private var showOtherActionsActionSheet = false
+    @State private var revealIdentifiers = false
     
     var body: some View {
         List {
@@ -33,12 +34,20 @@ struct AccountSettingsScreen: View {
                 Text(loginVM.loggedInUser?.getUID() ?? RECUser.placeholderUser.getUID())
                     .font(.system(.footnote, design: .monospaced, weight: .regular))
                     .foregroundColor(.secondary)
+                    .redacted(reason: revealIdentifiers == true ? .privacy : .placeholder)
+                    .onTapGesture {
+                        revealIdentifiers.toggle()
+                    }
             }
             
             Section("Firebase Unique Identifier") {
                 Text(loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     .font(.system(.body, design: .monospaced, weight: .regular))
                     .foregroundColor(.secondary)
+                    .redacted(reason: revealIdentifiers == true ? .privacy : .placeholder)
+                    .onTapGesture {
+                        revealIdentifiers.toggle()
+                    }
             }
             
             Button(action: {
@@ -59,7 +68,7 @@ struct AccountSettingsScreen: View {
                         .foregroundColor(.red)
                 }
             } header: {
-                Text("Other Actions")
+                Text("Other Account Actions")
             } footer: {
                 Text("Suspend account stops your account from being active for a provided period of time. Delete account completely wipe all contents in your account immediately with no time given to recover your data.")
             }

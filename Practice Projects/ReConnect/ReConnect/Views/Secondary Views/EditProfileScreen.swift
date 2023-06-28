@@ -77,11 +77,11 @@ struct EditProfileScreen: View {
                             .listRowSeparator(.hidden)
                             
                             ColorPicker(selection: $viewModel.startingColor, supportsOpacity: false) {
-                                Text("Starting Color")
+                                Text("Left Color")
                             }
                             
                             ColorPicker(selection: $viewModel.endingColor, supportsOpacity: false) {
-                                Text("Ending Color")
+                                Text("Right Color")
                             }
                             
                         } header: {

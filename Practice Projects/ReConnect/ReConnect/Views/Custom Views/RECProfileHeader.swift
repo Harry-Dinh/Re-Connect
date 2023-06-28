@@ -16,24 +16,26 @@ struct RECProfileHeader: View {
     
     var body: some View {
         HStack {
-            if userInfo.pfpURL == nil || userInfo.pfpURL == "" {
-                Image(systemName: CUPSystemIcon.profile)
-                    .resizable()
-                    .symbolVariant(.fill)
-                    .frame(width: 80, height: 80)
-                    .overlay(
-                        Circle()
-                            .stroke(Color.secondary, lineWidth: 3)
-                    )
-            } else {
-                WebImage(url: URL(string: (userInfo.pfpURL)!))
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .clipShape(Circle())
-                    .overlay(
-                        Circle()
-                            .stroke(Color.secondary, lineWidth: 3)
-                    )
+            ZStack {
+                if userInfo.pfpURL == nil || userInfo.pfpURL == "" {
+                    Image(systemName: CUPSystemIcon.profile)
+                        .resizable()
+                        .symbolVariant(.fill)
+                        .frame(width: 80, height: 80)
+                        .overlay(
+                            Circle()
+                                .stroke(Color.secondary, lineWidth: 3)
+                        )
+                } else {
+                    WebImage(url: URL(string: (userInfo.pfpURL)!))
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle()
+                                .stroke(Color.secondary, lineWidth: 3)
+                        )
+                }
             }
             
             RECProfileBackground(userInfo: userInfo)

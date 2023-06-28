@@ -39,7 +39,7 @@ struct RECSubscriberIndicator: View {
 
 struct RECSubscriberIndicator_Previews: PreviewProvider {
     static var previews: some View {
-        RECSubscriberIndicator(subscriberCount: 0, subscriberType: .follower)
+        RECSubscriberIndicator(subscriberCount: 1000, subscriberType: .follower)
             .frame(width: 200)
     }
 }

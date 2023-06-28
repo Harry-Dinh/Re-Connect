@@ -14,18 +14,20 @@ struct RECProfileActionButton: View {
     var buttonAction: () -> Void
     
     var body: some View {
-        Button(action: buttonAction) {
-            VStack(spacing: 5) {
-                Image(systemName: icon)
-                Text(label)
-                    .font(.footnote)
+        GroupBox {
+            Button(action: buttonAction) {
+                VStack(spacing: 5) {
+                    Image(systemName: icon)
+                        .imageScale(.large)
+                    Text(label)
+                        .font(.footnote)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.center)
+                }
             }
+            .frame(maxWidth: .infinity)
         }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.secondary)
-        )
+        .cornerRadius(15)
     }
 }
 
