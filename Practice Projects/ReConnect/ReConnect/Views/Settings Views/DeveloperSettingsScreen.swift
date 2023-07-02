@@ -14,8 +14,9 @@ struct DeveloperSettingsScreen: View {
     
     var body: some View {
         List {
-            Button("Print pfp url") {
-                print("URL: \(LoginScreenVM.viewModel.loggedInUser?.pfpURL ?? "No URL")")
+            Button("Print Profile Customizations") {
+                let colors = editprofileVM.returnProfileCustomizationData(from: "IX1xmsPXEvdpvd1EnCm7ECJ4S3m2")
+                print(colors.description)
             }
         }
         .navigationTitle("Developer")

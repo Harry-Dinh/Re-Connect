@@ -8,7 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct RECProfileHeader: View {
+struct RECOtherUserHeader: View {
     
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
     @ObservedObject var userInfo: RECUserWrapper
@@ -26,24 +26,28 @@ struct RECProfileHeader: View {
                                 .stroke(Color.secondary, lineWidth: 3)
                         )
                 } else {
-                    WebImage(url: URL(string: (userInfo.user.pfpURL)!))
-                        .resizable()
-                        .frame(width: 80, height: 80)
-                        .clipShape(Circle())
-                        .overlay(
-                            Circle()
-                                .stroke(Color.secondary, lineWidth: 3)
-                        )
+                    AsyncImage(url: URL(string: userInfo.user.pfpURL!)) { image in
+                        image.resizable()
+                            .frame(width: 80, height: 80)
+                            .clipShape(Circle())
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.secondary, lineWidth: 3)
+                            )
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 80, height: 80)
                 }
             }
             
-            RECProfileBackground(userInfo: userInfo)
+            RECOtherUserBackground(userInfo: userInfo)
         }
         .padding()
     }
 }
 
-struct RECProfileHeader_Previews: PreviewProvider {
+struct RECOtherUserHeader_Previews: PreviewProvider {
     static var previews: some View {
         RECProfileHeader(userInfo: RECUserWrapper(RECUser.placeholderUser))
     }

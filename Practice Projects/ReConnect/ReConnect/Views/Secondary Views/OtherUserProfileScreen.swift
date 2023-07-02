@@ -9,67 +9,66 @@ import SwiftUI
 
 struct OtherUserProfileScreen: View {
     
-    var userInfo: RECUser
+    @ObservedObject var userInfo: RECUserWrapper
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                RECProfileHeader(userInfo: userInfo)
-                
-                HStack {
-                    Button(action: {}) {
-                        Label("Follow", systemImage: userInfo.isProtectedAccount ? CUPSystemIcon.add : CUPSystemIcon.userRequestAction)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    
-                    Button(action: {}) {
-                        Label("QR Code", systemImage: CUPSystemIcon.qrcode)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.bordered)
+        ScrollView {
+            RECOtherUserHeader(userInfo: userInfo)
+            
+            HStack {
+                Button(action: {}) {
+                    Label("Follow", systemImage: userInfo.user.isProtectedAccount ? CUPSystemIcon.add : CUPSystemIcon.userRequestAction)
+                        .frame(maxWidth: .infinity)
                 }
-                .padding(.horizontal)
+                .buttonStyle(.borderedProminent)
                 
-                HStack {
-                    RECSubscriberIndicator(subscriberCount: userInfo.followerCount,
-                                           subscriberType: .follower)
-                    
-                    RECSubscriberIndicator(subscriberCount: userInfo.followingCount,
-                                           subscriberType: .following)
+                Button(action: {}) {
+                    Label("QR Code", systemImage: CUPSystemIcon.qrcode)
+                        .frame(maxWidth: .infinity)
                 }
-                .padding(.horizontal)
+                .buttonStyle(.bordered)
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    
-                    Menu {
-                        if userInfo.isProtectedAccount {
-                            Button(action: {}) {
-                                Label("Request to Follow", systemImage: CUPSystemIcon.userRequestAction)
-                            }
-                        } else {
-                            Button(action: {}) {
-                                Label("Follow User", systemImage: CUPSystemIcon.person)
-                            }
-                        }
+            .padding(.horizontal)
+            
+            HStack {
+                RECSubscriberIndicator(subscriberCount: userInfo.user.followerCount,
+                                       subscriberType: .follower)
+                
+                RECSubscriberIndicator(subscriberCount: userInfo.user.followingCount,
+                                       subscriberType: .following)
+            }
+            .padding(.horizontal)
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                
+                Menu {
+                    if userInfo.user.isProtectedAccount {
                         Button(action: {}) {
-                            Label("Scan QR Code", systemImage: CUPSystemIcon.scanQRCodeAction)
+                            Label("Request to Follow", systemImage: CUPSystemIcon.userRequestAction)
+                        }
+                    } else {
+                        Button(action: {}) {
+                            Label("Follow User", systemImage: CUPSystemIcon.person)
+                        }
+                    }
+                    Button(action: {}) {
+                        Label("Scan QR Code", systemImage: CUPSystemIcon.scanQRCodeAction)
+                    }
+                    
+                    Section {
+                        Button(role: .destructive, action: {}) {
+                            Label("Block User", systemImage: CUPSystemIcon.blockAction)
                         }
                         
-                        Section {
-                            Button(role: .destructive, action: {}) {
-                                Label("Block User", systemImage: CUPSystemIcon.blockAction)
-                            }
-                            
-                            Button(role: .destructive, action: {}) {
-                                Label("Report User", systemImage: CUPSystemIcon.reportAction)
-                            }
+                        Button(role: .destructive, action: {}) {
+                            Label("Report User", systemImage: CUPSystemIcon.reportAction)
                         }
-                    } label: {
-                        Image(systemName: CUPSystemIcon.moreMenu)
-                            .symbolVariant(.circle)
                     }
+                } label: {
+                    Image(systemName: CUPSystemIcon.moreMenu)
+                        .symbolVariant(.circle)
                 }
             }
         }
@@ -78,6 +77,6 @@ struct OtherUserProfileScreen: View {
 
 struct OtherUserProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
-        OtherUserProfileScreen(userInfo: RECUser.placeholderUser)
+        OtherUserProfileScreen(userInfo: RECUserWrapper(RECUser.placeholderUser))
     }
 }

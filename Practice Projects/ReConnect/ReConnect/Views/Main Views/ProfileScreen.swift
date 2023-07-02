@@ -16,7 +16,7 @@ struct ProfileScreen: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                RECProfileHeader(userInfo: loginVM.loggedInUser ?? RECUser.placeholderUser)
+                RECProfileHeader(userInfo: RECUserWrapper(loginVM.loggedInUser ?? RECUser.placeholderUser))
                 
                 HStack {
                     RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount,

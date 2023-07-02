@@ -17,8 +17,8 @@ struct SearchScreen: View {
                 if !viewModel.searchQuery.isEmpty {
                     Section {
                         ForEach(viewModel.usersSearchResult, id: \.firebaseUID) { user in
-                            NavigationLink(destination: SearchResultUserScreen(user: user)) {
-                                RECSearchResultUserRow(user: user)
+                            NavigationLink(destination: OtherUserProfileScreen(userInfo: RECUserWrapper(user))) {
+                                RECSearchResultUserRow(user: RECUserWrapper(user))
                             }
                         }
                     } header: {

@@ -71,9 +71,7 @@ struct EditProfileScreen: View {
                         }
                         
                         Section {
-                            RECProfileGradientPreview(colorSet: [viewModel.startingColor, viewModel.endingColor],
-                                                         userInfo: viewModel.tempUser,
-                                                         infoVisible: false)
+                            RECProfileGradientPreview(colorSet: [viewModel.startingColor, viewModel.endingColor])
                             .listRowSeparator(.hidden)
                             
                             ColorPicker(selection: $viewModel.startingColor, supportsOpacity: false) {
@@ -93,7 +91,6 @@ struct EditProfileScreen: View {
                     Form {
                         Section("Update your email address") {
                             TextField("Email address", text: $viewModel.tempUser.emailAddress)
-                                .padding(.vertical, 8)
                                 .keyboardType(.emailAddress)
                         }
                         
@@ -105,7 +102,6 @@ struct EditProfileScreen: View {
                                     Label("Use Private Account", systemImage: CUPSystemIcon.passwordLockUnlocked)
                                 }
                             }
-                            .padding(.vertical, 8)
                         }
                     }
                     .headerProminence(.increased)

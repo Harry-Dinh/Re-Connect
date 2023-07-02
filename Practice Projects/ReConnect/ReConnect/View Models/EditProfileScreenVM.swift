@@ -73,11 +73,11 @@ class EditProfileScreenVM: ObservableObject {
     /// Fetch the color customizations from the database based on the given path and option
     /// - Parameters:
     ///   - firebaseUID: The Firebase UID to look for the values.
-    ///   - option: The color option to fetch the data for which color (starting or ending colors.)
     public func fetchProfileCustomizationData(from firebaseUID: String) {
         databaseReference.child(RECDatabaseParentPath.profileCustomizations).child(firebaseUID).getData { [weak self] error, snapshot in
             guard let value = snapshot?.value as? NSDictionary,
                   error == nil else {
+                print("Failed to fetch \(firebaseUID) colors")
                 return
             }
             
@@ -87,6 +87,30 @@ class EditProfileScreenVM: ObservableObject {
             self?.startingColor = Color(hex: startingHex) ?? Color.red
             self?.endingColor = Color(hex: endingHex) ?? Color.blue
         }
+    }
+    
+    /// Does the same operation as `fetchProfileCustomizationData()` but it returns the colors as an array of `Color` instead.
+    /// - Parameter firebaseUID: The Firebase UID to look for the values.
+    /// - Returns: An array of `Color` that holds the left color and right color of the user's banner.
+    public func returnProfileCustomizationData(from firebaseUID: String) -> [Color] {
+        var fetchedColors: [Color] = []
+        
+        databaseReference.child(RECDatabaseParentPath.profileCustomizations).child(firebaseUID).getData { error, snapshot in
+            guard let value = snapshot?.value as? NSDictionary,
+                  error == nil else {
+                print("Failed to fetch \(firebaseUID) colors")
+                return
+            }
+            
+            let startingHex = value["startingColor"] as! String
+            let endingHex = value["endingColor"] as! String
+            
+            print("\(startingHex), \(endingHex)")
+            
+            fetchedColors.append(Color(hex: startingHex) ?? .red)
+            fetchedColors.append(Color(hex: endingHex) ?? .blue)
+        }
+        return fetchedColors
     }
     
     public func writeProfilePicDataToStorage(with firebaseUID: String) {

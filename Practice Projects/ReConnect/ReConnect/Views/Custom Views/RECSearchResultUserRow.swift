@@ -9,17 +9,17 @@ import SwiftUI
 
 struct RECSearchResultUserRow: View {
     
-    var user: RECUser
+    @ObservedObject var user: RECUserWrapper
     
     var body: some View {
         HStack {
-            if user.pfpURL?.isEmpty ?? ((RECUser.placeholderUser.pfpURL?.isEmpty) != nil) || user.pfpURL == nil {
+            if user.user.pfpURL?.isEmpty ?? ((RECUser.placeholderUser.pfpURL?.isEmpty) != nil) || user.user.pfpURL == nil {
                 Image(systemName: CUPSystemIcon.profile)
                     .resizable()
                     .frame(width: 40, height: 40)
                     .foregroundColor(.accentColor)
             } else {
-                if let pfpURL = self.user.pfpURL,
+                if let pfpURL = self.user.user.pfpURL,
                    let url = URL(string: pfpURL) {
                     AsyncImage(url: url, content: { image in
                         image.resizable()
@@ -32,9 +32,9 @@ struct RECSearchResultUserRow: View {
             }
             
             VStack(alignment: .leading, spacing: 3) {
-                Text(user.displayName)
+                Text(user.user.displayName)
                     .font(.headline)
-                Text(user.username)
+                Text(user.user.username)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -44,6 +44,6 @@ struct RECSearchResultUserRow: View {
 
 struct RECSearchResultUserRow_Previews: PreviewProvider {
     static var previews: some View {
-        RECSearchResultUserRow(user: RECUser.placeholderUser)
+        RECSearchResultUserRow(user: RECUserWrapper(RECUser.placeholderUser))
     }
 }

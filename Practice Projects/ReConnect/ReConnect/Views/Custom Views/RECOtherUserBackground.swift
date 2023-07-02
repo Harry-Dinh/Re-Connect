@@ -7,16 +7,18 @@
 
 import SwiftUI
 
-struct RECProfileBackground: View {
+struct RECOtherUserBackground: View {
     
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
     @ObservedObject var userInfo: RECUserWrapper
+    
+    @State private var leftColor = Color.red
+    @State private var rightColor = Color.blue
     
     var body: some View {
         ZStack {
             
-            LinearGradient(colors: [editProfileVM.startingColor, editProfileVM.endingColor], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [leftColor, rightColor], startPoint: .topLeading, endPoint: .bottomTrailing)
                 .frame(height: 115)
                 .overlay(
                     RoundedRectangle(cornerRadius: 15)
@@ -56,10 +58,15 @@ struct RECProfileBackground: View {
                 .frame(height: 115)
             }
         }
+        .onAppear {
+            let colors = editProfileVM.returnProfileCustomizationData(from: userInfo.user.getFirebaseUID())
+            leftColor = colors.first ?? .red
+            rightColor = colors.last ?? .blue
+        }
     }
 }
 
-struct RECProfileBackground_Previews: PreviewProvider {
+struct RECOtherUserBackground_Previews: PreviewProvider {
     static var previews: some View {
         RECProfileBackground(userInfo: RECUserWrapper(RECUser.placeholderUser))
             .padding()
