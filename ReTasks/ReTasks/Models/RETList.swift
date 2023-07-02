@@ -8,18 +8,40 @@
 import Foundation
 import SwiftUI
 
-class RETList: Identifiable {
+struct RETList: Identifiable {
     var id: String
     var name: String
     var icon: String
     var hexColor: String
+    var items: [RETItem]
     
     init() {
         self.id = UUID().uuidString
         self.name = "Untitled List"
         self.icon = CUPSystemIcon.menuList
-        
-        guard let hexColor = Color.accentColor.toHex() else { return }
-        self.hexColor = hexColor
+        self.hexColor = Color.accentColor.toHex()!
+        self.items = []
     }
+    
+    init(name: String, icon: String) {
+        self.id = UUID().uuidString
+        self.name = name
+        self.icon = icon
+        self.hexColor = Color.accentColor.toHex()!
+        self.items = []
+    }
+    
+    init(id: String, name: String, icon: String, hexColor: String, items: [RETItem]) {
+        self.id = id
+        self.name = name
+        self.icon = icon
+        self.hexColor = hexColor
+        self.items = items
+    }
+    
+    public static let placeholder = RETList(id: "00000000000000",
+                                            name: "Grocery List",
+                                            icon: CUPSystemIcon.shoppingCart,
+                                            hexColor: "007AFF",
+                                            items: [RETItem.placeholder])
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RETUser: ObservableObject {
+struct RETUser {
     
     public static let user = RETUser()
     
@@ -52,17 +52,17 @@ class RETUser: ObservableObject {
         return pfpURL
     }
     
-    public func setName(_ displayName: String) {
+    public mutating func setName(_ displayName: String) {
         self.displayName = displayName
     }
     
-    public func setUID(_ firebaseUID: String) {
+    public mutating func setUID(_ firebaseUID: String) {
         self.firebaseUID = firebaseUID
     }
     
-    public func setPfpURL(_ pfpURL: String) {
+    public mutating func setPfpURL(_ pfpURL: String) {
         self.pfpURL = pfpURL
     }
     
-    public static let placeholderUser = RETUser(displayName: "Generic User", firebaseUID: "000000000000", pfpURL: "")
+    public static let placeholder = RETUser(displayName: "Generic User", firebaseUID: "000000000000", pfpURL: "")
 }

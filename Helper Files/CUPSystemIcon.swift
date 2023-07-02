@@ -81,4 +81,8 @@ class CUPSystemIcon {
     public static let scanQRCodeAction = "qrcode.viewfinder"
     
     public static let archive = "archivebox"
+    
+    public static let inboxTray = "tray"
+    
+    public static let shoppingCart = "cart"
 }
