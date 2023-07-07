@@ -32,10 +32,14 @@ struct SearchScreen: View {
                         placement: .navigationBarDrawer(displayMode: .always),
                         prompt: Text("Search for posts, users and more..."))
             .onChange(of: viewModel.searchQuery, perform: { _ in
-                viewModel.fetchUsers2(with: viewModel.searchQuery)
+                if !viewModel.searchQuery.isEmpty {
+                    viewModel.fetchUsers2(with: viewModel.searchQuery)
+                }
             })
             .onSubmit(of: .search) {
-                viewModel.fetchUsers2(with: viewModel.searchQuery)
+                if !viewModel.searchQuery.isEmpty {
+                    viewModel.fetchUsers2(with: viewModel.searchQuery)
+                }
             }
             .submitLabel(.search)
         }

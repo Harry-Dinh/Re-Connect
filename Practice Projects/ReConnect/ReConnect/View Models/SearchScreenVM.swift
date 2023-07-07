@@ -71,7 +71,7 @@ class SearchScreenVM: ObservableObject {
     public func fetchUsers2(with searchQuery: String) {
         self.usersSearchResult.removeAll()
         
-        databaseUsersPath.queryOrdered(byChild: "displayName").queryStarting(atValue: searchQuery).queryEnding(atValue: "\(searchQuery)\\uf8ff").observeSingleEvent(of: .value) { [weak self] snapshot in
+        databaseUsersPath.queryOrdered(byChild: RECUser.Property.displayName).queryStarting(atValue: searchQuery).queryEnding(atValue: "\(searchQuery)\\uf8ff").observe(.value) { [weak self] snapshot in
             guard snapshot.hasChildren() else {
                 // The current path has no children
                 return

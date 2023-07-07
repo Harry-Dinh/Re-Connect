@@ -81,4 +81,6 @@ class CUPSystemIcon {
     public static let scanQRCodeAction = "qrcode.viewfinder"
     
     public static let archive = "archivebox"
+    
+    public static let appNotificationBadge = "app.badge"
 }
