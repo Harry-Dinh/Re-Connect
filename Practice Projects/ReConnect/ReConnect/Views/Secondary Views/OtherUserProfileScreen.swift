@@ -10,6 +10,7 @@ import SwiftUI
 struct OtherUserProfileScreen: View {
     
     @ObservedObject var userInfo: RECUserWrapper
+    @ObservedObject private var followingManager = FollowingManager.shared
     
     var body: some View {
         ScrollView {
@@ -44,12 +45,16 @@ struct OtherUserProfileScreen: View {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 
                 Menu {
-                    if userInfo.user.isProtectedAccount {
-                        Button(action: {}) {
-                            Label("Request to Follow", systemImage: CUPSystemIcon.userRequestAction)
+                    Button(action: {
+                        if userInfo.user.isProtectedAccount {
+                            followingManager.requestToFollow(userInfo.user)
+                        } else {
+                            followingManager.follow(userInfo.user)
                         }
-                    } else {
-                        Button(action: {}) {
+                    }) {
+                        if userInfo.user.isProtectedAccount {
+                            Label("Request to Follow", systemImage: CUPSystemIcon.userRequestAction)
+                        } else {
                             Label("Follow User", systemImage: CUPSystemIcon.person)
                         }
                     }

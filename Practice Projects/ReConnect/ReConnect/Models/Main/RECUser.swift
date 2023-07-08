@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// An object that represents a Re:Connect user
 struct RECUser: Codable {
     
     // MARK: - ENUMS
