@@ -131,6 +131,7 @@ struct EditProfileScreen: View {
                         loginVM.loggedInUser = viewModel.tempUser
                         loginVM.cacheLoggedInUser()
                         loginVM.readLoggedInUser()
+                        viewModel.fetchProfileCustomizationData(from: viewModel.tempUser.getFirebaseUID())
                         dismiss.callAsFunction()
                         viewModel.tempUser = RECUser.placeholderUser
                     }) {

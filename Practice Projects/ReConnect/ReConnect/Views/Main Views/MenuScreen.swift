@@ -37,6 +37,9 @@ struct MenuScreen: View {
                     }
                 }
             }
+            .background(
+                RECBackgroundTheme(showBottomColor: false)
+            )
         }
     }
 }

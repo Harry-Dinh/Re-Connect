@@ -42,6 +42,9 @@ struct SearchScreen: View {
                 }
             }
             .submitLabel(.search)
+            .background(
+                RECBackgroundTheme(showBottomColor: false)
+            )
         }
     }
 }

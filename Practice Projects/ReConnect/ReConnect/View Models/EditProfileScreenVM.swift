@@ -37,6 +37,12 @@ class EditProfileScreenVM: ObservableObject {
     /// The ending color for the gradient background.
     @Published var endingColor = Color.blue
     
+    /// The starting color of the theme gradient background.
+    @Published var themeStartingColor = Color(.systemBackground)
+    
+    /// The ending color of the theme gradient background.
+    @Published var themeEndingColor = Color(.systemBackground)
+    
     /// An array of `PhotosPickerItem` that will be use to store the selected profile picture.
     @Published var selectedImages: [PhotosPickerItem] = []
     
@@ -86,6 +92,8 @@ class EditProfileScreenVM: ObservableObject {
             
             self?.startingColor = Color(hex: startingHex) ?? Color.red
             self?.endingColor = Color(hex: endingHex) ?? Color.blue
+            self?.themeStartingColor = Color(hex: startingHex) ?? Color(.systemBackground)
+            self?.themeEndingColor = Color(hex: endingHex) ?? Color(.systemBackground)
         }
     }
     

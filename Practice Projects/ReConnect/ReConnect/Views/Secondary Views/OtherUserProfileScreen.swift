@@ -17,8 +17,14 @@ struct OtherUserProfileScreen: View {
             RECOtherUserHeader(userInfo: userInfo)
             
             HStack {
-                Button(action: {}) {
-                    Label("Follow", systemImage: userInfo.user.isProtectedAccount ? CUPSystemIcon.add : CUPSystemIcon.userRequestAction)
+                Button(action: {
+                    if userInfo.user.isProtectedAccount {
+                        followingManager.requestToFollow(userInfo.user)
+                    } else {
+                        followingManager.follow(userInfo.user)
+                    }
+                }) {
+                    Label("Follow", systemImage: userInfo.user.isProtectedAccount ? CUPSystemIcon.userRequestAction : CUPSystemIcon.add)
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
@@ -55,7 +61,7 @@ struct OtherUserProfileScreen: View {
                         if userInfo.user.isProtectedAccount {
                             Label("Request to Follow", systemImage: CUPSystemIcon.userRequestAction)
                         } else {
-                            Label("Follow User", systemImage: CUPSystemIcon.person)
+                            Label("Follow User", systemImage: CUPSystemIcon.add)
                         }
                     }
                     Button(action: {}) {

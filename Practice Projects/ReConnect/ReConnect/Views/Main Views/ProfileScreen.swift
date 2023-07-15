@@ -60,6 +60,9 @@ struct ProfileScreen: View {
                 }
             }
             .fullScreenCover(isPresented: $viewModel.showEditProfileScreen, content: EditProfileScreen.init)
+            .background(
+                RECBackgroundTheme(showBottomColor: true)
+            )
         }
     }
 }

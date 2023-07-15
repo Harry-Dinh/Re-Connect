@@ -35,6 +35,9 @@ struct FeedScreen: View {
                     }
                 }
             }
+            .background(
+                RECBackgroundTheme(showBottomColor: false)
+            )
         }
     }
 }
