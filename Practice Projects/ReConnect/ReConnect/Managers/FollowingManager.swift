@@ -50,8 +50,8 @@ class FollowingManager: ObservableObject {
         addUserToFollowingList(otherUser)
         addUserToFollowerList(currentUser, to: otherUser)
         
-        let notification = RECNotification(title: "\(currentUser.displayName) has started following you",
-                                           notificationDescription: "",
+        let notification = RECNotification(title: "New Follower",
+                                           notificationDescription: "\(currentUser.displayName) has started following you",
                                            iconURL: "",
                                            notificationType: RECNotificationTypes.newFollower,
                                            actions: [],
@@ -64,8 +64,8 @@ class FollowingManager: ObservableObject {
             return
         }
         
-        let followRequestNotification = RECNotification(title: "\(currentUser.displayName) has requested to follow you",
-                                                        notificationDescription: "",
+        let followRequestNotification = RECNotification(title: "New Follower Request",
+                                                        notificationDescription: "\(currentUser.displayName) has requested to follow you",
                                                         iconURL: CUPSystemIcon.userRequestAction,
                                                         notificationType: RECNotificationTypes.followerRequest,
                                                         actions: [RECNotificationActions.respondFollowerRequest, RECNotificationActions.rejectFollowerRequest],

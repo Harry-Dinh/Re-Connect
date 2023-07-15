@@ -9,6 +9,17 @@ import Foundation
 
 /// An object that represents a users notification in Re:Connect. This is the model that is used for notification screen as well as the ones in iOS Notification Center.
 struct RECNotification: Identifiable {
+    
+    public class Property {
+        static let id = "id"
+        static let title = "title"
+        static let notificationDescription = "description"
+        static let iconURL = "iconURL"
+        static let notificationType = "notificationType"
+        static let actions = "actions"
+        static let datePosted = "datePosted"
+    }
+    
     var id: String
     var title: String
     var notificationDescription: String

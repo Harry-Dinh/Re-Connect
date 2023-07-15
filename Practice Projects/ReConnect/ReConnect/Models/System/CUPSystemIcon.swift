@@ -83,4 +83,8 @@ class CUPSystemIcon {
     public static let archive = "archivebox"
     
     public static let appNotificationBadge = "app.badge"
+    
+    public static let paintbrush = "paintbrush"
+    
+    public static let refresh = "arrow.clockwise"
 }

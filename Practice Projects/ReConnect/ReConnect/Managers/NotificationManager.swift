@@ -30,17 +30,29 @@ class NotificationManager: ObservableObject {
     }
     
     public func fetchNotifications(for user: RECUser) {
-        notificationDatabasePath.child(user.getFirebaseUID()).observeSingleEvent(of: .value) { snapshot in
+        self.currentUserNotifications.removeAll()
+        
+        notificationDatabasePath.child(user.getFirebaseUID()).observeSingleEvent(of: .value) { [weak self] snapshot in
             guard snapshot.hasChildren() else {
                 return
             }
             
             for child in snapshot.children {
-                guard let childValue = child as? NSDictionary else {
+                guard let childSnapshot = child as? DataSnapshot,
+                      let value = childSnapshot.value as? [String: Any] else {
                     return
                 }
                 
                 var notification = RECNotification()
+                notification.id = value[RECNotification.Property.id] as? String ?? RECNotification.placeholder.id
+                notification.title = value[RECNotification.Property.title] as? String ?? RECNotification.placeholder.title
+                notification.notificationDescription = value[RECNotification.Property.notificationDescription] as? String ?? RECNotification.placeholder.notificationDescription
+                notification.iconURL = value[RECNotification.Property.iconURL] as? String ?? RECNotification.placeholder.iconURL
+                notification.datePosted = value[RECNotification.Property.datePosted] as? String ?? RECNotification.placeholder.datePosted
+                notification.notificationType = value[RECNotification.Property.notificationType] as? String ?? RECNotification.placeholder.notificationType
+                notification.actions = value[RECNotification.Property.actions] as? [String] ?? RECNotification.placeholder.actions
+                
+                self?.currentUserNotifications.append(notification)
             }
         }
     }

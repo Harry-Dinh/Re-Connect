@@ -16,14 +16,14 @@ struct AppSettingsScreen: View {
             Section {
                 ForEach(viewModel.accountSettingsSection) { content in
                     NavigationLink(destination: AccountSettingsScreen.init) {
-                        Text(content.label)
+                        Label(content.label, systemImage: CUPSystemIcon.settings)
                     }
                 }
             }
             
             Section {
-                ForEach(viewModel.appSettingsSection) { content in
-                    Text(content.label)
+                NavigationLink(destination: GeneralSettingsScreen()) {
+                    Label("General", systemImage: CUPSystemIcon.settings)
                 }
             }
             

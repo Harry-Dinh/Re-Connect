@@ -29,6 +29,9 @@ struct MenuScreen: View {
                     }
                 }
             }
+            .background(
+                RECBackgroundTheme(showBottomColor: false)
+            )
             .navigationTitle("Menu")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -37,9 +40,6 @@ struct MenuScreen: View {
                     }
                 }
             }
-            .background(
-                RECBackgroundTheme(showBottomColor: false)
-            )
         }
     }
 }
