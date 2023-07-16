@@ -11,17 +11,17 @@ struct RECProfileInfoSheet: View {
     
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
-    @AppStorage("showInfoSheetInfo") private var showInfoSheetInfo = false
-    @State private var revealInfo = false
+    @State private var showInfoSheetInfo = false
+    @AppStorage("revealInfo") private var revealInfo = true
     
     var body: some View {
         GroupBox {
             if revealInfo {
                 HStack {
                     VStack(alignment: .leading, spacing: 7) {
-                        Label(loginVM.loggedInUser?.emailAddress ?? RECUser.placeholderUser.emailAddress,
+                        Label(loginVM.currentUser?.emailAddress ?? RECUser.placeholderUser.emailAddress,
                               systemImage: CUPSystemIcon.emailEnvelope)
-                        Label("\(loginVM.loggedInUser?.age ?? RECUser.placeholderUser.age) years old",
+                        Label("\(loginVM.currentUser?.age ?? RECUser.placeholderUser.age) years old",
                               systemImage: CUPSystemIcon.gift)
                     }
                     Spacer()

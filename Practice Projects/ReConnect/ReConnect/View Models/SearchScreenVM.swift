@@ -41,7 +41,7 @@ class SearchScreenVM: ObservableObject {
                 let displayName = value[RECUser.Property.displayName] as? String ?? RECUser.placeholderUser.displayName
                 
                 // `displayName.lowercased() == searchQuery` is the part of the code that only fetch the users whose display names match the search query
-                if firebaseUID != self?.loginVM.loggedInUser?.getFirebaseUID() || displayName.lowercased() == searchQuery {
+                if firebaseUID != self?.loginVM.currentUser?.getFirebaseUID() || displayName.lowercased() == searchQuery {
                     let age = value[RECUser.Property.age] as? Int ?? RECUser.placeholderUser.age
                     let emailAddress = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
                     let followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
@@ -86,7 +86,7 @@ class SearchScreenVM: ObservableObject {
                 
                 let firebaseUID = value[RECUser.Property.firebaseUID] as? String ?? RECUser.placeholderUser.getFirebaseUID()
                 
-                if firebaseUID != self?.loginVM.loggedInUser?.getFirebaseUID() {
+                if firebaseUID != self?.loginVM.currentUser?.getFirebaseUID() {
                     let displayName = value[RECUser.Property.displayName] as? String ?? RECUser.placeholderUser.displayName
 
                     let age = value[RECUser.Property.age] as? Int ?? RECUser.placeholderUser.age

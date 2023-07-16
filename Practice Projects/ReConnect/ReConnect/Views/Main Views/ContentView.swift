@@ -21,11 +21,11 @@ struct ContentView: View {
                     loginVM.readLoggedInUser()
                     
                     // Read to update profile
-                    loginVM.fetchUserDataFromDatabase(with: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+                    loginVM.fetchUserDataFromDatabase(with: loginVM.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     
-                    editProfileVM.fetchProfileCustomizationData(from: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+                    editProfileVM.fetchProfileCustomizationData(from: loginVM.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     
-                    notificationManager.fetchNotifications(for: loginVM.loggedInUser ?? RECUser.placeholderUser)
+                    notificationManager.fetchNotifications(for: loginVM.currentUser ?? RECUser.placeholderUser)
                 }
         } else {
             LoginScreen()

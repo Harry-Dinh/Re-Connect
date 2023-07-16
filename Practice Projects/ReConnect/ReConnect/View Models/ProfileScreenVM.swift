@@ -19,10 +19,10 @@ class ProfileScreenVM: ObservableObject {
     
     /// Observe the change in the number of followers to update the user's verification level.
     public func observeChangeInFollowersCount() {
-        if loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount >= 1000 {
-            loginVM.loggedInUser?.isVerifiedUser = true
+        if loginVM.currentUser?.followerCount ?? RECUser.placeholderUser.followerCount >= 1000 {
+            loginVM.currentUser?.isVerifiedUser = true
         } else {
-            loginVM.loggedInUser?.isVerifiedUser = false
+            loginVM.currentUser?.isVerifiedUser = false
         }
         // Update verification level here??
     }

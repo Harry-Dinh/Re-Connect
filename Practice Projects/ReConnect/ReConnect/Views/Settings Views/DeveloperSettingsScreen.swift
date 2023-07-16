@@ -10,18 +10,20 @@ import SwiftUI
 struct DeveloperSettingsScreen: View {
     
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var registerVM = RegisterScreenVM.viewModel
     
     var body: some View {
         List {
             Button("Reset Current User's Following and Follower Counts") {
-                guard var currentUser = loginVM.loggedInUser else {
+                guard var currentUser = loginVM.currentUser else {
                     return
                 }
                 currentUser.followingsUIDs.removeAll()
                 currentUser.followersUIDs.removeAll()
                 currentUser.followingCount = currentUser.followingsUIDs.count
                 currentUser.followerCount = currentUser.followersUIDs.count
-                loginVM.loggedInUser = currentUser
+                loginVM.currentUser = currentUser
+                registerVM.writeUpdatedUserInfo(with: currentUser)
                 loginVM.cacheLoggedInUser()
                 loginVM.readLoggedInUser()
             }

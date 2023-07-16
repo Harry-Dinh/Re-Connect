@@ -15,7 +15,7 @@ struct MenuScreen: View {
     var body: some View {
         NavigationView {
             List {
-                ProfileListRowView(user: loginVM.loggedInUser ?? RECUser.placeholderUser)
+                ProfileListRowView(user: loginVM.currentUser ?? RECUser.placeholderUser)
                 
                 Section {
                     ForEach(viewModel.contentSectionItems) { content in

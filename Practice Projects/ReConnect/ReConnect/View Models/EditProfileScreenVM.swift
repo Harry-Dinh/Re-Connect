@@ -137,8 +137,8 @@ class EditProfileScreenVM: ObservableObject {
                     return
                 }
                 
-                self?.loginVM.loggedInUser?.pfpURL = pfpURL.absoluteString
-                print("pfp URL: \(self?.loginVM.loggedInUser?.pfpURL ?? "No URL")")
+                self?.loginVM.currentUser?.pfpURL = pfpURL.absoluteString
+                print("pfp URL: \(self?.loginVM.currentUser?.pfpURL ?? "No URL")")
                 let updatedUserData: [String: Any] = [
                     "pfpURL": pfpURL.absoluteString
                 ]

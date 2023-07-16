@@ -135,7 +135,7 @@ struct EditProfileScreen: View {
                     Button(action: {
                         viewModel.writeCustomizationDataToDatabase(with: viewModel.tempUser.getFirebaseUID())
                         registerVM.writeUpdatedUserInfo(with: viewModel.tempUser)
-                        loginVM.loggedInUser = viewModel.tempUser
+                        loginVM.currentUser = viewModel.tempUser
                         loginVM.cacheLoggedInUser()
                         loginVM.readLoggedInUser()
                         viewModel.fetchProfileCustomizationData(from: viewModel.tempUser.getFirebaseUID())

@@ -18,20 +18,20 @@ struct AccountSettingsScreen: View {
         List {
             Section("Account Info") {
                 RECDisplayLabel(label: "Name",
-                                value: loginVM.loggedInUser?.displayName ?? RECUser.placeholderUser.displayName)
+                                value: loginVM.currentUser?.displayName ?? RECUser.placeholderUser.displayName)
                 
                 RECDisplayLabel(valueDisplayMode: .standard,
                                 label: "Email",
-                                value: loginVM.loggedInUser?.emailAddress ?? RECUser.placeholderUser.emailAddress)
-                RECDisplayLabel(label: "Age", value: "\(loginVM.loggedInUser?.age ?? RECUser.placeholderUser.age)")
+                                value: loginVM.currentUser?.emailAddress ?? RECUser.placeholderUser.emailAddress)
+                RECDisplayLabel(label: "Age", value: "\(loginVM.currentUser?.age ?? RECUser.placeholderUser.age)")
             }
             
             Section("Profile Info") {
-                RECDisplayLabel(label: "Username", value: loginVM.loggedInUser?.username ?? RECUser.placeholderUser.username)
+                RECDisplayLabel(label: "Username", value: loginVM.currentUser?.username ?? RECUser.placeholderUser.username)
             }
             
             Section("Re:Connect Unique Indentifier") {
-                Text(loginVM.loggedInUser?.getUID() ?? RECUser.placeholderUser.getUID())
+                Text(loginVM.currentUser?.getUID() ?? RECUser.placeholderUser.getUID())
                     .font(.system(.footnote, design: .monospaced, weight: .regular))
                     .foregroundColor(.secondary)
                     .redacted(reason: revealIdentifiers == true ? .privacy : .placeholder)
@@ -41,7 +41,7 @@ struct AccountSettingsScreen: View {
             }
             
             Section("Firebase Unique Identifier") {
-                Text(loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+                Text(loginVM.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     .font(.system(.body, design: .monospaced, weight: .regular))
                     .foregroundColor(.secondary)
                     .redacted(reason: revealIdentifiers == true ? .privacy : .placeholder)

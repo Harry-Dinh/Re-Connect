@@ -48,9 +48,9 @@ class DetailedRegistrationVM: ObservableObject {
             return
         }
         
-        loginVM.loggedInUser?.age = age
-        loginVM.loggedInUser?.username = username
-        loginVM.loggedInUser?.isProtectedAccount = isProtectedAccount
+        loginVM.currentUser?.age = age
+        loginVM.currentUser?.username = username
+        loginVM.currentUser?.isProtectedAccount = isProtectedAccount
         
         let updatedData: [String: Any] = [
             "age": age,
@@ -58,7 +58,7 @@ class DetailedRegistrationVM: ObservableObject {
             "isProtectedAccount": isProtectedAccount
         ]
         
-        guard let currentUserUID = loginVM.loggedInUser?.getFirebaseUID() else {
+        guard let currentUserUID = loginVM.currentUser?.getFirebaseUID() else {
             self.failedToUnwrapUID.toggle()
             return
         }

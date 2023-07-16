@@ -22,16 +22,16 @@ struct ProfileScreen: View {
                 }
                 
                 ScrollView {
-                    RECProfileHeader(userInfo: RECUserWrapper(loginVM.loggedInUser ?? RECUser.placeholderUser))
+                    RECProfileHeader(userInfo: RECUserWrapper(loginVM.currentUser ?? RECUser.placeholderUser))
                     
                     HStack {
-                        RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount,
+                        RECSubscriberIndicator(subscriberCount: loginVM.currentUser?.followerCount ?? RECUser.placeholderUser.followerCount,
                                                subscriberType: .follower)
                         .onTapGesture {
                             viewModel.showFollowerScreen.toggle()
                         }
                         
-                        RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followingCount ?? RECUser.placeholderUser.followingCount,
+                        RECSubscriberIndicator(subscriberCount: loginVM.currentUser?.followingCount ?? RECUser.placeholderUser.followingCount,
                                                subscriberType: .following)
                         .onTapGesture {
                             viewModel.showFollowingScreen.toggle()
@@ -56,7 +56,7 @@ struct ProfileScreen: View {
                         
                         Menu {
                             Button(action: {
-                                editProfileVM.tempUser = loginVM.loggedInUser ?? RECUser.placeholderUser
+                                editProfileVM.tempUser = loginVM.currentUser ?? RECUser.placeholderUser
                                 viewModel.showEditProfileScreen.toggle()
                             }) {
                                 Label("Edit Profile", systemImage: CUPSystemIcon.edit)
@@ -73,13 +73,13 @@ struct ProfileScreen: View {
                 }
                 .fullScreenCover(isPresented: $viewModel.showEditProfileScreen, content: EditProfileScreen.init)
                 .sheet(isPresented: $viewModel.showFollowerScreen) {
-                    FollowerScreen(userInfo: RECUserWrapper(loginVM.loggedInUser ?? RECUser.placeholderUser))
+                    FollowerScreen(userInfo: RECUserWrapper(loginVM.currentUser ?? RECUser.placeholderUser))
                 }
                 .sheet(isPresented: $viewModel.showFollowingScreen) {
-                    FollowingScreen(userInfo: RECUserWrapper(loginVM.loggedInUser ?? RECUser.placeholderUser))
+                    FollowingScreen(userInfo: RECUserWrapper(loginVM.currentUser ?? RECUser.placeholderUser))
                 }
                 .refreshable {
-                    loginVM.fetchUserDataFromDatabase(with: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+                    loginVM.fetchUserDataFromDatabase(with: loginVM.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     loginVM.readLoggedInUser()
                 }
             }

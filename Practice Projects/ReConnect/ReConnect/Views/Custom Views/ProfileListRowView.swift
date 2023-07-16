@@ -22,7 +22,7 @@ struct ProfileListRowView: View {
                     .frame(width: 50, height: 50)
                     .foregroundColor(.accentColor)
             } else {
-                WebImage(url: URL(string: (loginVM.loggedInUser?.pfpURL)!))
+                WebImage(url: URL(string: (loginVM.currentUser?.pfpURL)!))
                     .resizable()
                     .frame(width: 50, height: 50)
                     .clipShape(Circle())

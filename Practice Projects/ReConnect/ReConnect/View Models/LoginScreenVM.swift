@@ -31,7 +31,7 @@ class LoginScreenVM: ObservableObject {
     @AppStorage("isSignedIn") var isSignedIn = false
     
     /// The current logged in user that is cached on this device.
-    @Published var loggedInUser: RECUser?
+    @Published var currentUser: RECUser?
     
     /// The email field
     @Published var emailField: String = ""
@@ -109,7 +109,7 @@ class LoginScreenVM: ObservableObject {
             let username = value[RECUser.Property.username] as? String ?? RECUser.placeholderUser.username
             let pfpURL = value[RECUser.Property.pfpURL] as? String ?? RECUser.placeholderUser.pfpURL
             
-            self?.loggedInUser = RECUser(uid: reconnectUID,
+            self?.currentUser = RECUser(uid: reconnectUID,
                                          firebaseUID: uid,
                                          displayName: displayName,
                                          username: username,
@@ -118,15 +118,15 @@ class LoginScreenVM: ObservableObject {
                                          age: age,
                                          isProtectedAccount: isProtectedAccount)
             
-            self?.loggedInUser?.followerCount = followerCount
-            self?.loggedInUser?.followingCount = followingCount
-            self?.loggedInUser?.followingsUIDs = followingsUIDs
-            self?.loggedInUser?.followersUIDs = followersUIDs
+            self?.currentUser?.followerCount = followerCount
+            self?.currentUser?.followingCount = followingCount
+            self?.currentUser?.followingsUIDs = followingsUIDs
+            self?.currentUser?.followersUIDs = followersUIDs
             
             // Cache loggedInUser
             
             self?.cacheLoggedInUser()
-            EditProfileScreenVM.viewModel.fetchProfileCustomizationData(from: self?.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+            EditProfileScreenVM.viewModel.fetchProfileCustomizationData(from: self?.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
             self?.isSignedIn = true
         }
     }
@@ -135,7 +135,7 @@ class LoginScreenVM: ObservableObject {
     public func cacheLoggedInUser() {
         do {
             let encoder = JSONEncoder()
-            let userData = try encoder.encode(loggedInUser)
+            let userData = try encoder.encode(currentUser)
             
             UserDefaults.standard.set(userData, forKey: LoginScreenVM.loggedInUserUDID)
         } catch {
@@ -153,7 +153,7 @@ class LoginScreenVM: ObservableObject {
         do {
             let decoder = JSONDecoder()
             let user = try decoder.decode(RECUser.self, from: userData)
-            self.loggedInUser = user
+            self.currentUser = user
         } catch {
             self.failedToDecodeUser.toggle()
         }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NotificationView: View {
+struct NotificationRowView: View {
     
     @ObservedObject var notificationInfo: RECNotificationWrapper
     
@@ -29,7 +29,7 @@ struct NotificationView: View {
 
 struct RECNotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationView(notificationInfo: RECNotificationWrapper(RECNotification.placeholder))
+        NotificationRowView(notificationInfo: RECNotificationWrapper(RECNotification.placeholder))
             .padding()
     }
 }

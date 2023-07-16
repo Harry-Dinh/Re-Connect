@@ -89,9 +89,9 @@ class RegisterScreenVM: ObservableObject {
             }
             
             let tempUser = RECUser(displayName: displayName, emailAddress: emailAddress, firebaseUID: result.user.uid)
-            self?.loginVM.loggedInUser = tempUser
+            self?.loginVM.currentUser = tempUser
             print("loggedInUser assigned")
-            self?.writeToDatabase(with: self?.loginVM.loggedInUser ?? tempUser)
+            self?.writeToDatabase(with: self?.loginVM.currentUser ?? tempUser)
         }
     }
     

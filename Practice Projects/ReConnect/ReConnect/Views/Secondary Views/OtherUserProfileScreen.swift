@@ -18,7 +18,7 @@ struct OtherUserProfileScreen: View {
             RECOtherUserHeader(userInfo: userInfo)
             
             HStack {
-                if !loginVM.loggedInUser!.followingsUIDs.contains(userInfo.user.getFirebaseUID()) {
+                if !loginVM.currentUser!.followingsUIDs.contains(userInfo.user.getFirebaseUID()) {
                     Button(action: {
                         if userInfo.user.isProtectedAccount {
                             followingManager.requestToFollow(userInfo.user)

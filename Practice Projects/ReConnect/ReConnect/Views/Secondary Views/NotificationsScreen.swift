@@ -17,13 +17,13 @@ struct NotificationsScreen: View {
             if !notificationManager.currentUserNotifications.isEmpty {
                 List {
                     ForEach(notificationManager.currentUserNotifications) { notification in
-                        NotificationView(notificationInfo: RECNotificationWrapper(notification))
+                        NotificationRowView(notificationInfo: RECNotificationWrapper(notification))
                     }
                 }
                 .listStyle(.grouped)
             } else {
                 VStack {
-                    Text("You have no unread notifications")
+                    Text("You have no new notifications")
                         .font(.title2)
                         .foregroundColor(.secondary)
                 }
@@ -40,12 +40,16 @@ struct NotificationsScreen: View {
                 Menu {
                     Button(action: {
                         notificationManager.currentUserNotifications.removeAll()
+                        guard let currentUser = loginVM.currentUser else {
+                            return
+                        }
+                        notificationManager.clearAllNotifications(for: currentUser)
                     }) {
                         Label("Clear All Notifications", systemImage: CUPSystemIcon.delete)
                     }
                     
                     Button(action: {
-                        notificationManager.fetchNotifications(for: loginVM.loggedInUser ?? RECUser.placeholderUser)
+                        notificationManager.fetchNotifications(for: loginVM.currentUser ?? RECUser.placeholderUser)
                     }) {
                         Label("Refresh", systemImage: CUPSystemIcon.refresh)
                     }
@@ -56,7 +60,7 @@ struct NotificationsScreen: View {
             }
         }
         .refreshable {
-            notificationManager.fetchNotifications(for: loginVM.loggedInUser ?? RECUser.placeholderUser)
+            notificationManager.fetchNotifications(for: loginVM.currentUser ?? RECUser.placeholderUser)
         }
     }
 }

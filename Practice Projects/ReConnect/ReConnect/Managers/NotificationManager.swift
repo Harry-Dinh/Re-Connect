@@ -56,4 +56,8 @@ class NotificationManager: ObservableObject {
             }
         }
     }
+    
+    public func clearAllNotifications(for user: RECUser) {
+        notificationDatabasePath.child(user.getFirebaseUID()).removeValue()
+    }
 }
