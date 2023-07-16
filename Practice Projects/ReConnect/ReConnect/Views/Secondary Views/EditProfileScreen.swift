@@ -19,6 +19,7 @@ struct EditProfileScreen: View {
         NavigationView {
             VStack {
                 if viewModel.selectedView == 0 {
+                    // MARK: Edit Profile View
                     List {
                         Section {
                             HStack(spacing: 12) {
@@ -87,6 +88,8 @@ struct EditProfileScreen: View {
                         }
                     }
                     .listStyle(.insetGrouped)
+                    
+                    // MARK: Edit Account View
                 } else {
                     Form {
                         Section("Update your email address") {
@@ -94,14 +97,18 @@ struct EditProfileScreen: View {
                                 .keyboardType(.emailAddress)
                         }
                         
-                        Section("Change your account security") {
+                        Section {
                             Toggle(isOn: $viewModel.tempUser.isProtectedAccount) {
                                 if viewModel.tempUser.isProtectedAccount {
-                                    Label("Use Private Account", systemImage: CUPSystemIcon.passwordLock)
+                                    Label("Use Protected Account", systemImage: CUPSystemIcon.passwordLock)
                                 } else {
-                                    Label("Use Private Account", systemImage: CUPSystemIcon.passwordLockUnlocked)
+                                    Label("Use Protected Account", systemImage: CUPSystemIcon.passwordLockUnlocked)
                                 }
                             }
+                        } header: {
+                            Text("Change your account security")
+                        } footer: {
+                            Text("When using a protected account, other users must get your approval before following you on Re:Connect. Otherwise, they can follow you immediately.")
                         }
                     }
                     .headerProminence(.increased)

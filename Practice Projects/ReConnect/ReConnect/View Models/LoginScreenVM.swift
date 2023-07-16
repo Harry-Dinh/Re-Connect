@@ -102,6 +102,8 @@ class LoginScreenVM: ObservableObject {
             let email = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
             let followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
             let followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount
+            let followersUIDs = value[RECUser.Property.followersUIDs] as? [String] ?? RECUser.placeholderUser.followersUIDs
+            let followingsUIDs = value[RECUser.Property.followingsUIDs] as? [String] ?? RECUser.placeholderUser.followingsUIDs
             let isProtectedAccount = value[RECUser.Property.isProtectedAccount] as? Bool ?? RECUser.placeholderUser.isProtectedAccount
             let reconnectUID = value[RECUser.Property.uid] as? String ?? RECUser.placeholderUser.getUID()
             let username = value[RECUser.Property.username] as? String ?? RECUser.placeholderUser.username
@@ -118,6 +120,8 @@ class LoginScreenVM: ObservableObject {
             
             self?.loggedInUser?.followerCount = followerCount
             self?.loggedInUser?.followingCount = followingCount
+            self?.loggedInUser?.followingsUIDs = followingsUIDs
+            self?.loggedInUser?.followersUIDs = followersUIDs
             
             // Cache loggedInUser
             

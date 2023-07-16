@@ -9,14 +9,21 @@ import SwiftUI
 
 struct DeveloperSettingsScreen: View {
     
-    @State private var showColor = false
-    @ObservedObject private var editprofileVM = EditProfileScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
     var body: some View {
         List {
-            Button("Print Profile Customizations") {
-                let colors = editprofileVM.returnProfileCustomizationData(from: "IX1xmsPXEvdpvd1EnCm7ECJ4S3m2")
-                print(colors.description)
+            Button("Reset Current User's Following and Follower Counts") {
+                guard var currentUser = loginVM.loggedInUser else {
+                    return
+                }
+                currentUser.followingsUIDs.removeAll()
+                currentUser.followersUIDs.removeAll()
+                currentUser.followingCount = currentUser.followingsUIDs.count
+                currentUser.followerCount = currentUser.followersUIDs.count
+                loginVM.loggedInUser = currentUser
+                loginVM.cacheLoggedInUser()
+                loginVM.readLoggedInUser()
             }
         }
         .navigationTitle("Developer")

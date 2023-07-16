@@ -23,6 +23,8 @@ struct RECUser: Codable {
         static let followingCount = "followingCount"
         static let firebaseUID = "firebaseUID"
         static let username = "username"
+        static let followingsUIDs = "followingsUIDs"
+        static let followersUIDs = "followersUIDs"
     }
     
     // MARK: - FIELDS

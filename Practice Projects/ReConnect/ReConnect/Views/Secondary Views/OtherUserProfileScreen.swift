@@ -11,23 +11,32 @@ struct OtherUserProfileScreen: View {
     
     @ObservedObject var userInfo: RECUserWrapper
     @ObservedObject private var followingManager = FollowingManager.shared
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
     var body: some View {
         ScrollView {
             RECOtherUserHeader(userInfo: userInfo)
             
             HStack {
-                Button(action: {
-                    if userInfo.user.isProtectedAccount {
-                        followingManager.requestToFollow(userInfo.user)
-                    } else {
-                        followingManager.follow(userInfo.user)
+                if !loginVM.loggedInUser!.followingsUIDs.contains(userInfo.user.getFirebaseUID()) {
+                    Button(action: {
+                        if userInfo.user.isProtectedAccount {
+                            followingManager.requestToFollow(userInfo.user)
+                        } else {
+                            followingManager.follow(userInfo.user)
+                        }
+                    }) {
+                        Label("Follow", systemImage: userInfo.user.isProtectedAccount ? CUPSystemIcon.userRequestAction : CUPSystemIcon.add)
+                            .frame(maxWidth: .infinity)
                     }
-                }) {
-                    Label("Follow", systemImage: userInfo.user.isProtectedAccount ? CUPSystemIcon.userRequestAction : CUPSystemIcon.add)
-                        .frame(maxWidth: .infinity)
+                    .buttonStyle(.borderedProminent)
+                } else {
+                    Button(action: {}) {
+                        Text("Unfollow")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
                 }
-                .buttonStyle(.borderedProminent)
                 
                 Button(action: {}) {
                     Label("QR Code", systemImage: CUPSystemIcon.qrcode)

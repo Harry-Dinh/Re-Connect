@@ -87,4 +87,8 @@ class CUPSystemIcon {
     public static let paintbrush = "paintbrush"
     
     public static let refresh = "arrow.clockwise"
+    
+    public static let hammer = "hammer"
+    
+    public static let privacySecurityIcon = "hand.raised"
 }

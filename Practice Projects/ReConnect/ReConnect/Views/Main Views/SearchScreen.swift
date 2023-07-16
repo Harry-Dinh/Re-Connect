@@ -26,9 +26,6 @@ struct SearchScreen: View {
                     }
                 }
             }
-            .background(
-                RECBackgroundTheme(showBottomColor: false)
-            )
             .navigationTitle("Search")
             .headerProminence(.increased)
             .searchable(text: $viewModel.searchQuery,

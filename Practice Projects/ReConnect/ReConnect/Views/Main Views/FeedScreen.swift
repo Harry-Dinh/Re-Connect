@@ -10,34 +10,38 @@ import SwiftUI
 struct FeedScreen: View {
     
     @ObservedObject private var viewModel = FeedScreenVM.viewModel
+    @ObservedObject private var appearanceSettingsVM = AppearanceSettingsVM.viewModel
     
     var body: some View {
         NavigationView {
-            List {
-                
-            }
-            .navigationTitle("Re:Connect Feed")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {}) {
-                        Image(systemName: CUPSystemIcon.filter)
-                    }
+            ZStack {
+                if appearanceSettingsVM.useThemeBackground {
+                    RECThemeBackground(showBottomColor: false)
                 }
                 
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: NotificationsScreen.init) {
-                        Image(systemName: CUPSystemIcon.notification)
+                List {
+                    
+                }
+                .navigationTitle("Re:Connect Feed")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {}) {
+                            Image(systemName: CUPSystemIcon.filter)
+                        }
                     }
                     
-                    Button(action: {}) {
-                        Image(systemName: CUPSystemIcon.add)
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: NotificationsScreen.init) {
+                            Image(systemName: CUPSystemIcon.notification)
+                        }
+                        
+                        Button(action: {}) {
+                            Image(systemName: CUPSystemIcon.add)
+                        }
                     }
-                }
             }
-            .background(
-                RECBackgroundTheme(showBottomColor: false)
-            )
+            }
         }
     }
 }

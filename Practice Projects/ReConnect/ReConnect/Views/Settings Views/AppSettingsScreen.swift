@@ -14,10 +14,8 @@ struct AppSettingsScreen: View {
     var body: some View {
         List {
             Section {
-                ForEach(viewModel.accountSettingsSection) { content in
-                    NavigationLink(destination: AccountSettingsScreen.init) {
-                        Label(content.label, systemImage: CUPSystemIcon.settings)
-                    }
+                NavigationLink(destination: AccountSettingsScreen()) {
+                    Label("Re:Connect Account", systemImage: CUPSystemIcon.profile)
                 }
             }
             
@@ -25,11 +23,19 @@ struct AppSettingsScreen: View {
                 NavigationLink(destination: GeneralSettingsScreen()) {
                     Label("General", systemImage: CUPSystemIcon.settings)
                 }
+                
+                NavigationLink(destination: EmptyView()) {
+                    Label("Notifications", systemImage: CUPSystemIcon.notification)
+                }
+                
+                NavigationLink(destination: EmptyView()) {
+                    Label("Privacy & Security", systemImage: CUPSystemIcon.privacySecurityIcon)
+                }
             }
             
             Section {
                 NavigationLink(destination: DeveloperSettingsScreen.init) {
-                    Text("Developer")
+                    Label("Developer", systemImage: CUPSystemIcon.hammer)
                 }
             }
         }

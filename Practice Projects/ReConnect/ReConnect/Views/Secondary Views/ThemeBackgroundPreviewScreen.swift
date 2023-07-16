@@ -13,7 +13,7 @@ struct ThemeBackgroundPreviewScreen: View {
     
     var body: some View {
         NavigationStack {
-            RECBackgroundTheme(showBottomColor: true)
+            RECThemeBackground(showBottomColor: true)
                 .navigationTitle("Theme Background Preview")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {

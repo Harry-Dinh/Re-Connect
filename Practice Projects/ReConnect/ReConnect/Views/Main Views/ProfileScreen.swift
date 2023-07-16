@@ -12,57 +12,77 @@ struct ProfileScreen: View {
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     @ObservedObject private var viewModel = ProfileScreenVM.viewModel
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
+    @ObservedObject private var appearanceSettingsVM = AppearanceSettingsVM.viewModel
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                RECProfileHeader(userInfo: RECUserWrapper(loginVM.loggedInUser ?? RECUser.placeholderUser))
-                
-                HStack {
-                    RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount,
-                                           subscriberType: .follower)
-                    
-                    RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followingCount ?? RECUser.placeholderUser.followingCount,
-                                           subscriberType: .following)
-                }
-                .padding(.horizontal)
-                
-                RECProfileInfoSheet()
-                    .padding(.horizontal)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {}) {
-                        Image(systemName: CUPSystemIcon.qrcode)
-                    }
+            ZStack {
+                if appearanceSettingsVM.useThemeBackground {
+                    RECThemeBackground(showBottomColor: true)
                 }
                 
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button(action: {}) {
-                        Image(systemName: CUPSystemIcon.add)
-                    }
+                ScrollView {
+                    RECProfileHeader(userInfo: RECUserWrapper(loginVM.loggedInUser ?? RECUser.placeholderUser))
                     
-                    Menu {
-                        Button(action: {
-                            editProfileVM.tempUser = loginVM.loggedInUser ?? RECUser.placeholderUser
-                            viewModel.showEditProfileScreen.toggle()
-                        }) {
-                            Label("Edit Profile", systemImage: CUPSystemIcon.edit)
+                    HStack {
+                        RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followerCount ?? RECUser.placeholderUser.followerCount,
+                                               subscriberType: .follower)
+                        .onTapGesture {
+                            viewModel.showFollowerScreen.toggle()
                         }
                         
-                        Button(action: {}) {
-                            Label("Filter and Search Posts", systemImage: CUPSystemIcon.filter)
+                        RECSubscriberIndicator(subscriberCount: loginVM.loggedInUser?.followingCount ?? RECUser.placeholderUser.followingCount,
+                                               subscriberType: .following)
+                        .onTapGesture {
+                            viewModel.showFollowingScreen.toggle()
                         }
-                    } label: {
-                        Image(systemName: CUPSystemIcon.moreMenu)
-                            .symbolVariant(.circle)
+                    }
+                    .padding(.horizontal)
+                    
+                    RECProfileInfoSheet()
+                        .padding(.horizontal)
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {}) {
+                            Image(systemName: CUPSystemIcon.qrcode)
+                        }
+                    }
+                    
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button(action: {}) {
+                            Image(systemName: CUPSystemIcon.add)
+                        }
+                        
+                        Menu {
+                            Button(action: {
+                                editProfileVM.tempUser = loginVM.loggedInUser ?? RECUser.placeholderUser
+                                viewModel.showEditProfileScreen.toggle()
+                            }) {
+                                Label("Edit Profile", systemImage: CUPSystemIcon.edit)
+                            }
+                            
+                            Button(action: {}) {
+                                Label("Filter and Search Posts", systemImage: CUPSystemIcon.filter)
+                            }
+                        } label: {
+                            Image(systemName: CUPSystemIcon.moreMenu)
+                                .symbolVariant(.circle)
+                        }
                     }
                 }
+                .fullScreenCover(isPresented: $viewModel.showEditProfileScreen, content: EditProfileScreen.init)
+                .sheet(isPresented: $viewModel.showFollowerScreen) {
+                    FollowerScreen(userInfo: RECUserWrapper(loginVM.loggedInUser ?? RECUser.placeholderUser))
+                }
+                .sheet(isPresented: $viewModel.showFollowingScreen) {
+                    FollowingScreen(userInfo: RECUserWrapper(loginVM.loggedInUser ?? RECUser.placeholderUser))
+                }
+                .refreshable {
+                    loginVM.fetchUserDataFromDatabase(with: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+                    loginVM.readLoggedInUser()
+                }
             }
-            .fullScreenCover(isPresented: $viewModel.showEditProfileScreen, content: EditProfileScreen.init)
-            .background(
-                RECBackgroundTheme(showBottomColor: true)
-            )
         }
     }
 }

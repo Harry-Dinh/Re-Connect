@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RECBackgroundTheme: View {
+struct RECThemeBackground: View {
     
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
     var showBottomColor: Bool
@@ -25,6 +25,6 @@ struct RECBackgroundTheme: View {
 
 struct RECBackgroundTheme_Previews: PreviewProvider {
     static var previews: some View {
-        RECBackgroundTheme(showBottomColor: true)
+        RECThemeBackground(showBottomColor: true)
     }
 }

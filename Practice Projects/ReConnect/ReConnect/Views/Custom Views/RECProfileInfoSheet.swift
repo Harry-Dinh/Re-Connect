@@ -11,7 +11,7 @@ struct RECProfileInfoSheet: View {
     
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
-    @State private var showInfoSheetInfo = false
+    @AppStorage("showInfoSheetInfo") private var showInfoSheetInfo = false
     @State private var revealInfo = false
     
     var body: some View {

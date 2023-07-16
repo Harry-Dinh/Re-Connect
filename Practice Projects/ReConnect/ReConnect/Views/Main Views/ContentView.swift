@@ -17,7 +17,11 @@ struct ContentView: View {
         if loginVM.isSignedIn {
             CoreScreen()
                 .onAppear {
+                    // Initial read
                     loginVM.readLoggedInUser()
+                    
+                    // Read to update profile
+                    loginVM.fetchUserDataFromDatabase(with: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     
                     editProfileVM.fetchProfileCustomizationData(from: loginVM.loggedInUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     

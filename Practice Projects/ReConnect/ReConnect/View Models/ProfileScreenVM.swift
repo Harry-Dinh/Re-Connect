@@ -14,6 +14,8 @@ class ProfileScreenVM: ObservableObject {
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
     @Published var showEditProfileScreen = false
+    @Published var showFollowerScreen = false
+    @Published var showFollowingScreen = false
     
     /// Observe the change in the number of followers to update the user's verification level.
     public func observeChangeInFollowersCount() {
@@ -22,5 +24,6 @@ class ProfileScreenVM: ObservableObject {
         } else {
             loginVM.loggedInUser?.isVerifiedUser = false
         }
+        // Update verification level here??
     }
 }

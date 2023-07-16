@@ -73,7 +73,7 @@ struct AccountSettingsScreen: View {
                 Text("Suspend account stops your account from being active for a provided period of time. Delete account completely wipe all contents in your account immediately with no time given to recover your data.")
             }
         }
-        .navigationTitle("Account")
+        .navigationTitle("Re:Connect Account")
         .navigationBarTitleDisplayMode(.inline)
         .alert("Confirm Log Out?",
                isPresented: $loginVM.logOutUserAlert) {

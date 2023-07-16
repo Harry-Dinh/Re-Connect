@@ -18,6 +18,8 @@ class FollowingManager: ObservableObject {
     @ObservedObject private var registerVM = RegisterScreenVM.viewModel
     @ObservedObject private var notificationManager = NotificationManager.shared
     
+    // MARK: - UPDATE FOLLOWING & FOLLOWER LISTS
+    
     public func addUserToFollowingList(_ user: RECUser) {
         guard var currentUser = loginVM.loggedInUser else {
             // The current user does not exist
@@ -28,19 +30,41 @@ class FollowingManager: ObservableObject {
         currentUser.followingsUIDs.append(user.getFirebaseUID())
         currentUser.followingCount = currentUser.followingsUIDs.count
         loginVM.loggedInUser = currentUser
+        loginVM.cacheLoggedInUser()
+        loginVM.readLoggedInUser()
         
         // Update the current and other user nodes on Firebase Database
-        registerVM.writeUpdatedUserInfo(with: currentUser)
+        updateFollowingsData(for: currentUser)
     }
     
-    public func addUserToFollowerList(_ currentUser: RECUser, to otherUser: RECUser) {
+    public func addToFollowerList(of currentUser: RECUser, with otherUser: RECUser) {
         var mutableOtherUser = otherUser
         
         mutableOtherUser.followersUIDs.append(currentUser.getFirebaseUID())
         mutableOtherUser.followerCount = mutableOtherUser.followersUIDs.count
         
-        registerVM.writeUpdatedUserInfo(with: mutableOtherUser)
+        updateFollowersData(for: mutableOtherUser)
     }
+    
+    public func updateFollowersData(for user: RECUser) {
+        let updatedFollowerData: [String: Any] = [
+            "followerCount": user.followerCount,
+            "followersUIDs": user.followersUIDs
+        ]
+        
+        databaseRef.child(RECDatabaseParentPath.users).child(user.getFirebaseUID()).updateChildValues(updatedFollowerData)
+    }
+    
+    public func updateFollowingsData(for user: RECUser) {
+        let updatedFollowingData: [String: Any] = [
+            "followingCount": user.followingCount,
+            "followingsUIDs": user.followingsUIDs
+        ]
+        
+        databaseRef.child(RECDatabaseParentPath.users).child(user.getFirebaseUID()).updateChildValues(updatedFollowingData)
+    }
+    
+    // MARK: - FOLLOW & REQUEST FOLLOW ACTIONS
     
     public func follow(_ otherUser: RECUser) {
         guard let currentUser = loginVM.loggedInUser else {
@@ -48,7 +72,7 @@ class FollowingManager: ObservableObject {
         }
         
         addUserToFollowingList(otherUser)
-        addUserToFollowerList(currentUser, to: otherUser)
+        addToFollowerList(of: currentUser, with: otherUser)
         
         let notification = RECNotification(title: "New Follower",
                                            notificationDescription: "\(currentUser.displayName) has started following you",
@@ -71,5 +95,9 @@ class FollowingManager: ObservableObject {
                                                         actions: [RECNotificationActions.respondFollowerRequest, RECNotificationActions.rejectFollowerRequest],
                                                         datePosted: DateFormatter().string(from: Date()))
         notificationManager.send(followRequestNotification, to: user)
+    }
+    
+    public func approveFollowerRequest(for user: RECUser) {
+        
     }
 }
