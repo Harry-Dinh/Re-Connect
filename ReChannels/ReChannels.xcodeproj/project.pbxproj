@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2184C7162A711BD4001559C9 /* ReChannelsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7152A711BD4001559C9 /* ReChannelsApp.swift */; };
+		2184C7182A711BD4001559C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7172A711BD4001559C9 /* ContentView.swift */; };
+		2184C71A2A711BD8001559C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2184C7192A711BD8001559C9 /* Assets.xcassets */; };
+		2184C71E2A711BD8001559C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2184C71D2A711BD8001559C9 /* Preview Assets.xcassets */; };
+		2184C7252A711CB0001559C9 /* RECDatabaseParentsPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7242A711CB0001559C9 /* RECDatabaseParentsPath.swift */; };
+		2184C72C2A711D67001559C9 /* RECMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C72B2A711D66001559C9 /* RECMessage.swift */; };
+		2184C72E2A711D7F001559C9 /* RECUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C72D2A711D7F001559C9 /* RECUser.swift */; };
+		2184C7302A711E79001559C9 /* RECTextChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C72F2A711E79001559C9 /* RECTextChannel.swift */; };
+		2184C7322A711EB0001559C9 /* RECServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7312A711EB0001559C9 /* RECServer.swift */; };
+		2184C7352A711F16001559C9 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7342A711F16001559C9 /* LoginScreen.swift */; };
+		2184C7382A712059001559C9 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7372A712059001559C9 /* LoginVM.swift */; };
+		2184C73A2A7120C2001559C9 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7392A7120C2001559C9 /* AuthenticationManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2184C7122A711BD3001559C9 /* ReChannels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReChannels.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2184C7152A711BD4001559C9 /* ReChannelsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReChannelsApp.swift; sourceTree = "<group>"; };
+		2184C7172A711BD4001559C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2184C7192A711BD8001559C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2184C71B2A711BD8001559C9 /* ReChannels.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ReChannels.entitlements; sourceTree = "<group>"; };
+		2184C71D2A711BD8001559C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2184C7242A711CB0001559C9 /* RECDatabaseParentsPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECDatabaseParentsPath.swift; sourceTree = "<group>"; };
+		2184C72B2A711D66001559C9 /* RECMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECMessage.swift; sourceTree = "<group>"; };
+		2184C72D2A711D7F001559C9 /* RECUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECUser.swift; sourceTree = "<group>"; };
+		2184C72F2A711E79001559C9 /* RECTextChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECTextChannel.swift; sourceTree = "<group>"; };
+		2184C7312A711EB0001559C9 /* RECServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECServer.swift; sourceTree = "<group>"; };
+		2184C7342A711F16001559C9 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		2184C7372A712059001559C9 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		2184C7392A7120C2001559C9 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2184C70F2A711BD3001559C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2184C7092A711BD3001559C9 = {
+			isa = PBXGroup;
+			children = (
+				2184C7142A711BD4001559C9 /* ReChannels */,
+				2184C7132A711BD3001559C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2184C7132A711BD3001559C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2184C7122A711BD3001559C9 /* ReChannels.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2184C7142A711BD4001559C9 /* ReChannels */ = {
+			isa = PBXGroup;
+			children = (
+				2184C72A2A711CFB001559C9 /* Resources */,
+				2184C7282A711CED001559C9 /* Managers */,
+				2184C7272A711CE7001559C9 /* View Models */,
+				2184C7262A711CDF001559C9 /* Models */,
+				2184C7292A711CF3001559C9 /* Views */,
+				2184C7192A711BD8001559C9 /* Assets.xcassets */,
+				2184C71B2A711BD8001559C9 /* ReChannels.entitlements */,
+				2184C71C2A711BD8001559C9 /* Preview Content */,
+			);
+			path = ReChannels;
+			sourceTree = "<group>";
+		};
+		2184C71C2A711BD8001559C9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2184C71D2A711BD8001559C9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2184C7262A711CDF001559C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2184C7242A711CB0001559C9 /* RECDatabaseParentsPath.swift */,
+				2184C72B2A711D66001559C9 /* RECMessage.swift */,
+				2184C72F2A711E79001559C9 /* RECTextChannel.swift */,
+				2184C7312A711EB0001559C9 /* RECServer.swift */,
+				2184C72D2A711D7F001559C9 /* RECUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2184C7272A711CE7001559C9 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				2184C7362A712050001559C9 /* Login Screens */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		2184C7282A711CED001559C9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2184C7392A7120C2001559C9 /* AuthenticationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2184C7292A711CF3001559C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2184C7172A711BD4001559C9 /* ContentView.swift */,
+				2184C7332A711EF2001559C9 /* Login Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2184C72A2A711CFB001559C9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2184C7152A711BD4001559C9 /* ReChannelsApp.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2184C7332A711EF2001559C9 /* Login Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2184C7342A711F16001559C9 /* LoginScreen.swift */,
+			);
+			path = "Login Screens";
+			sourceTree = "<group>";
+		};
+		2184C7362A712050001559C9 /* Login Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2184C7372A712059001559C9 /* LoginVM.swift */,
+			);
+			path = "Login Screens";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2184C7112A711BD3001559C9 /* ReChannels */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2184C7212A711BD8001559C9 /* Build configuration list for PBXNativeTarget "ReChannels" */;
+			buildPhases = (
+				2184C70E2A711BD3001559C9 /* Sources */,
+				2184C70F2A711BD3001559C9 /* Frameworks */,
+				2184C7102A711BD3001559C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReChannels;
+			productName = ReChannels;
+			productReference = 2184C7122A711BD3001559C9 /* ReChannels.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2184C70A2A711BD3001559C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2184C7112A711BD3001559C9 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 2184C70D2A711BD3001559C9 /* Build configuration list for PBXProject "ReChannels" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2184C7092A711BD3001559C9;
+			productRefGroup = 2184C7132A711BD3001559C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2184C7112A711BD3001559C9 /* ReChannels */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2184C7102A711BD3001559C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2184C71E2A711BD8001559C9 /* Preview Assets.xcassets in Resources */,
+				2184C71A2A711BD8001559C9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2184C70E2A711BD3001559C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2184C7322A711EB0001559C9 /* RECServer.swift in Sources */,
+				2184C7252A711CB0001559C9 /* RECDatabaseParentsPath.swift in Sources */,
+				2184C7302A711E79001559C9 /* RECTextChannel.swift in Sources */,
+				2184C72E2A711D7F001559C9 /* RECUser.swift in Sources */,
+				2184C7182A711BD4001559C9 /* ContentView.swift in Sources */,
+				2184C7382A712059001559C9 /* LoginVM.swift in Sources */,
+				2184C7352A711F16001559C9 /* LoginScreen.swift in Sources */,
+				2184C72C2A711D67001559C9 /* RECMessage.swift in Sources */,
+				2184C7162A711BD4001559C9 /* ReChannelsApp.swift in Sources */,
+				2184C73A2A7120C2001559C9 /* AuthenticationManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2184C71F2A711BD8001559C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2184C7202A711BD8001559C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		2184C7222A711BD8001559C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ReChannels/ReChannels.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ReChannels/Preview Content\"";
+				DEVELOPMENT_TEAM = W29Q2GKBT5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReConnect.ReChannels;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2184C7232A711BD8001559C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ReChannels/ReChannels.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ReChannels/Preview Content\"";
+				DEVELOPMENT_TEAM = W29Q2GKBT5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReConnect.ReChannels;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2184C70D2A711BD3001559C9 /* Build configuration list for PBXProject "ReChannels" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2184C71F2A711BD8001559C9 /* Debug */,
+				2184C7202A711BD8001559C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2184C7212A711BD8001559C9 /* Build configuration list for PBXNativeTarget "ReChannels" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2184C7222A711BD8001559C9 /* Debug */,
+				2184C7232A711BD8001559C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2184C70A2A711BD3001559C9 /* Project object */;
+}

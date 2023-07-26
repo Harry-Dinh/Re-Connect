@@ -44,7 +44,15 @@ struct ProfileScreen: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {}) {
+                        Menu {
+                            Button(action: {}) {
+                                Label("Present QR Code", systemImage: CUPSystemIcon.qrcode)
+                            }
+                            
+                            Button(action: {}) {
+                                Label("Scan QR Code", systemImage: CUPSystemIcon.scanQRCodeAction)
+                            }
+                        } label: {
                             Image(systemName: CUPSystemIcon.qrcode)
                         }
                     }
@@ -59,15 +67,14 @@ struct ProfileScreen: View {
                                 editProfileVM.tempUser = loginVM.currentUser ?? RECUser.placeholderUser
                                 viewModel.showEditProfileScreen.toggle()
                             }) {
-                                Label("Edit Profile", systemImage: CUPSystemIcon.edit)
+                                Label("Edit Profile", systemImage: CUPSystemIcon.profile)
                             }
                             
                             Button(action: {}) {
-                                Label("Filter and Search Posts", systemImage: CUPSystemIcon.filter)
+                                Label("Customize QR Code", systemImage: CUPSystemIcon.qrcode)
                             }
                         } label: {
-                            Image(systemName: CUPSystemIcon.moreMenu)
-                                .symbolVariant(.circle)
+                            Image(systemName: CUPSystemIcon.edit)
                         }
                     }
                 }

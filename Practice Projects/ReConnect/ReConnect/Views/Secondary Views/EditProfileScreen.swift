@@ -19,8 +19,9 @@ struct EditProfileScreen: View {
         NavigationView {
             VStack {
                 if viewModel.selectedView == 0 {
-                    // MARK: Edit Profile View
+                    // MARK: - EDIT PROFILE VIEW
                     List {
+                        // MARK: Display Info
                         Section {
                             HStack(spacing: 12) {
                                 if let previewImage = viewModel.previewImage {
@@ -71,6 +72,7 @@ struct EditProfileScreen: View {
                             Text("Tap on your name and username to edit them.")
                         }
                         
+                        // MARK: Background Gradient
                         Section {
                             RECProfileGradientPreview(colorSet: [viewModel.startingColor, viewModel.endingColor])
                             .listRowSeparator(.hidden)
@@ -86,17 +88,8 @@ struct EditProfileScreen: View {
                         } header: {
                             Text("Background Gradient")
                         }
-                    }
-                    .listStyle(.insetGrouped)
-                    
-                    // MARK: Edit Account View
-                } else {
-                    Form {
-                        Section("Update your email address") {
-                            TextField("Email address", text: $viewModel.tempUser.emailAddress)
-                                .keyboardType(.emailAddress)
-                        }
                         
+                        // MARK: Account Security
                         Section {
                             Toggle(isOn: $viewModel.tempUser.isProtectedAccount) {
                                 if viewModel.tempUser.isProtectedAccount {
@@ -106,9 +99,20 @@ struct EditProfileScreen: View {
                                 }
                             }
                         } header: {
-                            Text("Change your account security")
+                            Text("Account Security")
                         } footer: {
                             Text("When using a protected account, other users must get your approval before following you on Re:Connect. Otherwise, they can follow you immediately.")
+                        }
+                    }
+                    .listStyle(.insetGrouped)
+                    
+                    // MARK: - EDIT ACCOUNT VIEW
+                } else {
+                    // MARK: Update Email Address
+                    Form {
+                        Section("Update your email address") {
+                            TextField("Email address", text: $viewModel.tempUser.emailAddress)
+                                .keyboardType(.emailAddress)
                         }
                     }
                     .headerProminence(.increased)
