@@ -15,8 +15,8 @@ struct FollowerScreen: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(userInfo.user.followersUIDs, id: \.self) { userID in
-                    Text(userID)
+                ForEach(userInfo.user.followers, id: \.firebaseUID) { user in
+                    Text(user.firebaseUID)
                 }
             }
             .navigationTitle("Followers")

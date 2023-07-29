@@ -8,7 +8,7 @@
 import Foundation
 
 /// An object that represents a Re:Connect user
-struct RECUser: Codable {
+struct RECUser: Codable, Equatable {
     
     // MARK: - ENUMS
     
@@ -23,8 +23,9 @@ struct RECUser: Codable {
         static let followingCount = "followingCount"
         static let firebaseUID = "firebaseUID"
         static let username = "username"
-        static let followingsUIDs = "followingsUIDs"
-        static let followersUIDs = "followersUIDs"
+        static let followings = "followings"
+        static let followers = "followers"
+        static let isVerified = "isVerified"
     }
     
     // MARK: - FIELDS
@@ -53,11 +54,11 @@ struct RECUser: Codable {
     /// A boolean that identifies whether this is a protected account or not.
     var isProtectedAccount: Bool
     
-    /// The Re:Connect UID of the people who followed this user.
-    var followersUIDs: [String]
+    /// The people who followed this user.
+    var followers: [RECUser]
     
-    /// The Re:Connect UID of the people this user follow.
-    var followingsUIDs: [String]
+    /// The people this user follow.
+    var followings: [RECUser]
     
     /// The number of people who followed this user.
     var followerCount: Int
@@ -80,8 +81,8 @@ struct RECUser: Codable {
         self.pfpURL = ""
         self.age = -1
         self.isProtectedAccount = true
-        self.followersUIDs = []
-        self.followingsUIDs = []
+        self.followers = []
+        self.followings = []
         self.followerCount = 0
         self.followingCount = 0
         self.isVerifiedUser = false
@@ -97,8 +98,8 @@ struct RECUser: Codable {
         self.pfpURL = ""
         self.age = -1
         self.isProtectedAccount = true
-        self.followersUIDs = []
-        self.followingsUIDs = []
+        self.followers = []
+        self.followings = []
         self.followerCount = 0
         self.followingCount = 0
         self.isVerifiedUser = false
@@ -114,8 +115,8 @@ struct RECUser: Codable {
         self.pfpURL = pfpURL
         self.age = age
         self.isProtectedAccount = isProtectedAccount
-        self.followersUIDs = []
-        self.followingsUIDs = []
+        self.followers = []
+        self.followings = []
         self.followerCount = 0
         self.followingCount = 0
         self.isVerifiedUser = false
@@ -131,8 +132,8 @@ struct RECUser: Codable {
         self.pfpURL = pfpURL
         self.age = age
         self.isProtectedAccount = isProtectedAccount
-        self.followersUIDs = []
-        self.followingsUIDs = []
+        self.followers = []
+        self.followings = []
         self.followerCount = 0
         self.followingCount = 0
         self.isVerifiedUser = false
@@ -155,15 +156,42 @@ struct RECUser: Codable {
     // MARK: - SETTERS
     
     public mutating func appendFollower(_ user: RECUser) {
-        self.followersUIDs.append(user.getUID())
+        self.followers.append(user)
     }
     
     public mutating func appendFollowing(_ user: RECUser) {
-        self.followersUIDs.append(user.getUID())
+        self.followers.append(user)
     }
     
     public mutating func setVerification(_ isVerified: Bool) {
         self.isVerifiedUser = isVerified
+    }
+    
+    // MARK: - EQUATABLE PROTOCOL
+    
+    static func ==(lhs: RECUser, rhs: RECUser) -> Bool {
+        return lhs.firebaseUID == rhs.firebaseUID && lhs.uid == rhs.uid
+    }
+    
+    // MARK: - OTHER OBJECT METHODS
+    
+    /// Convert the user's data to a dictionary (JSON) format to store in Firebase Database.
+    public func toDictionary() -> [String: Any] {
+        let dictionaryData: [String: Any] = [
+            RECUser.Property.uid: self.uid,
+            RECUser.Property.displayName: self.displayName,
+            RECUser.Property.username: self.username,
+            RECUser.Property.pfpURL: self.pfpURL ?? "",
+            RECUser.Property.age: self.age,
+            RECUser.Property.isProtectedAccount: self.isProtectedAccount,
+            RECUser.Property.firebaseUID: self.firebaseUID,
+            RECUser.Property.isVerified: self.isVerifiedUser,
+            RECUser.Property.followingCount: self.followingCount,
+            RECUser.Property.followerCount: self.followerCount,
+            RECUser.Property.followers: self.followers,
+            RECUser.Property.followings: self.followings
+        ]
+        return dictionaryData
     }
     
     // MARK: - GENERIC OBJECT

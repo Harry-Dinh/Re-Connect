@@ -18,7 +18,7 @@ struct OtherUserProfileScreen: View {
             RECOtherUserHeader(userInfo: userInfo)
             
             HStack {
-                if !loginVM.currentUser!.followingsUIDs.contains(userInfo.user.getFirebaseUID()) {
+                if !loginVM.currentUser!.followings.contains(userInfo.user) {
                     Button(action: {
                         if userInfo.user.isProtectedAccount {
                             followingManager.requestToFollow(userInfo.user)
@@ -47,10 +47,10 @@ struct OtherUserProfileScreen: View {
             .padding(.horizontal)
             
             HStack {
-                RECSubscriberIndicator(subscriberCount: userInfo.user.followerCount,
+                RECSubscriberIndicator(subscriberCount: userInfo.user.followers.count,
                                        subscriberType: .follower)
                 
-                RECSubscriberIndicator(subscriberCount: userInfo.user.followingCount,
+                RECSubscriberIndicator(subscriberCount: userInfo.user.followings.count,
                                        subscriberType: .following)
             }
             .padding(.horizontal)

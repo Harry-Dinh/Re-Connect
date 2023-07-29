@@ -15,8 +15,14 @@ struct FollowingScreen: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(userInfo.user.followingsUIDs, id: \.self) { userID in
-                    Text(userID)
+                ForEach(userInfo.user.followings, id: \.firebaseUID) { user in
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(user.displayName)
+                            .font(.headline)
+                        Text(user.username)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
             .navigationTitle("People You Followed")
@@ -34,7 +40,7 @@ struct FollowingScreen: View {
                     }
                 }
             }
-        .searchable(text: .constant(""), placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Search"))
+            .searchable(text: .constant(""), placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Search"))
         }
     }
 }

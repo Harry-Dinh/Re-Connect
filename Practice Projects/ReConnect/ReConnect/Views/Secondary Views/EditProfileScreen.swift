@@ -88,6 +88,17 @@ struct EditProfileScreen: View {
                         } header: {
                             Text("Background Gradient")
                         }
+                    }
+                    .listStyle(.insetGrouped)
+                    
+                    // MARK: - EDIT ACCOUNT VIEW
+                } else {
+                    // MARK: Update Email Address
+                    Form {
+                        Section("Update your email address") {
+                            TextField("Email address", text: $viewModel.tempUser.emailAddress)
+                                .keyboardType(.emailAddress)
+                        }
                         
                         // MARK: Account Security
                         Section {
@@ -102,17 +113,6 @@ struct EditProfileScreen: View {
                             Text("Account Security")
                         } footer: {
                             Text("When using a protected account, other users must get your approval before following you on Re:Connect. Otherwise, they can follow you immediately.")
-                        }
-                    }
-                    .listStyle(.insetGrouped)
-                    
-                    // MARK: - EDIT ACCOUNT VIEW
-                } else {
-                    // MARK: Update Email Address
-                    Form {
-                        Section("Update your email address") {
-                            TextField("Email address", text: $viewModel.tempUser.emailAddress)
-                                .keyboardType(.emailAddress)
                         }
                     }
                     .headerProminence(.increased)

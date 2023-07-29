@@ -103,8 +103,8 @@ class RegisterScreenVM: ObservableObject {
             "displayName": user.displayName,
             "emailAddress": user.emailAddress,
             "firebaseUID": user.getFirebaseUID(),
-            "followersUIDs": user.followersUIDs,
-            "followingsUIDs": user.followingsUIDs,
+            "followersUIDs": user.followers,
+            "followingsUIDs": user.followings,
             "followerCount": user.followerCount,
             "followingCount": user.followingCount,
             "pfpURL": user.pfpURL ?? "",
@@ -130,8 +130,8 @@ class RegisterScreenVM: ObservableObject {
             "isVerified": user.isVerifiedUser,
             "followingCount": user.followingCount,
             "followerCount": user.followerCount,
-            "followersUIDs": user.followersUIDs,
-            "followingsUIDs": user.followingsUIDs
+            "followersUIDs": user.followers,
+            "followingsUIDs": user.followings
         ]
         
         // This line means update data above in the path: RECUsers/user.uid/

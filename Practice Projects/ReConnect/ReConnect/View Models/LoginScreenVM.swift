@@ -86,7 +86,7 @@ class LoginScreenVM: ObservableObject {
         }
     }
     
-    /// Fetch the user's data from the given Firebase Auth UID (unique identifier) and assign those values to `loggedInUser`.
+    /// Fetch the user's data from the given Firebase Auth UID (unique identifier) and assign those values to `currentUser`.
     /// - Parameter uid: The user's UID to look for in the database.
     public func fetchUserDataFromDatabase(with uid: String) {
         databaseReference.child(RECDatabaseParentPath.users).child(uid).getData { [weak self] error, snapshot in
@@ -102,8 +102,8 @@ class LoginScreenVM: ObservableObject {
             let email = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
             let followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
             let followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount
-            let followersUIDs = value[RECUser.Property.followersUIDs] as? [String] ?? RECUser.placeholderUser.followersUIDs
-            let followingsUIDs = value[RECUser.Property.followingsUIDs] as? [String] ?? RECUser.placeholderUser.followingsUIDs
+            let followersUIDs = value[RECUser.Property.followers] as? [RECUser] ?? RECUser.placeholderUser.followers
+            let followingsUIDs = value[RECUser.Property.followings] as? [RECUser] ?? RECUser.placeholderUser.followings
             let isProtectedAccount = value[RECUser.Property.isProtectedAccount] as? Bool ?? RECUser.placeholderUser.isProtectedAccount
             let reconnectUID = value[RECUser.Property.uid] as? String ?? RECUser.placeholderUser.getUID()
             let username = value[RECUser.Property.username] as? String ?? RECUser.placeholderUser.username
@@ -120,8 +120,8 @@ class LoginScreenVM: ObservableObject {
             
             self?.currentUser?.followerCount = followerCount
             self?.currentUser?.followingCount = followingCount
-            self?.currentUser?.followingsUIDs = followingsUIDs
-            self?.currentUser?.followersUIDs = followersUIDs
+            self?.currentUser?.followings = followingsUIDs
+            self?.currentUser?.followers = followersUIDs
             
             // Cache loggedInUser
             
