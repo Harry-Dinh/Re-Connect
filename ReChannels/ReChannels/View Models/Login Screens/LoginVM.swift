@@ -12,4 +12,6 @@ class LoginVM: ObservableObject {
     
     @Published var emailField = ""
     @Published var passwordField = ""
+    
+    @Published var presentRegisterScreen = false
 }

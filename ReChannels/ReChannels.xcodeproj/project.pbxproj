@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212CAD292A7A031E00A89A21 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 212CAD282A7A031E00A89A21 /* FirebaseAuth */; };
+		212CAD2B2A7A031E00A89A21 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 212CAD2A2A7A031E00A89A21 /* FirebaseDatabase */; };
+		212CAD2D2A7A031E00A89A21 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 212CAD2C2A7A031E00A89A21 /* FirebaseDatabaseSwift */; };
+		212CAD2F2A7A031E00A89A21 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 212CAD2E2A7A031E00A89A21 /* FirebaseFirestore */; };
+		212CAD312A7A031E00A89A21 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 212CAD302A7A031E00A89A21 /* FirebaseFirestoreSwift */; };
 		2184C7162A711BD4001559C9 /* ReChannelsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7152A711BD4001559C9 /* ReChannelsApp.swift */; };
 		2184C7182A711BD4001559C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7172A711BD4001559C9 /* ContentView.swift */; };
 		2184C71A2A711BD8001559C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2184C7192A711BD8001559C9 /* Assets.xcassets */; };
@@ -19,6 +24,9 @@
 		2184C7352A711F16001559C9 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7342A711F16001559C9 /* LoginScreen.swift */; };
 		2184C7382A712059001559C9 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7372A712059001559C9 /* LoginVM.swift */; };
 		2184C73A2A7120C2001559C9 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7392A7120C2001559C9 /* AuthenticationManager.swift */; };
+		218AC9582A7A2F8B00755E32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 218AC9572A7A2F8B00755E32 /* GoogleService-Info.plist */; };
+		218AC95A2A7A34DF00755E32 /* RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AC9592A7A34DF00755E32 /* RegisterVM.swift */; };
+		218AC95C2A7A350300755E32 /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218AC95B2A7A350300755E32 /* RegisterScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +44,9 @@
 		2184C7342A711F16001559C9 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		2184C7372A712059001559C9 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		2184C7392A7120C2001559C9 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		218AC9572A7A2F8B00755E32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		218AC9592A7A34DF00755E32 /* RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVM.swift; sourceTree = "<group>"; };
+		218AC95B2A7A350300755E32 /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +54,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212CAD312A7A031E00A89A21 /* FirebaseFirestoreSwift in Frameworks */,
+				212CAD2D2A7A031E00A89A21 /* FirebaseDatabaseSwift in Frameworks */,
+				212CAD2F2A7A031E00A89A21 /* FirebaseFirestore in Frameworks */,
+				212CAD2B2A7A031E00A89A21 /* FirebaseDatabase in Frameworks */,
+				212CAD292A7A031E00A89A21 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 		2184C7142A711BD4001559C9 /* ReChannels */ = {
 			isa = PBXGroup;
 			children = (
+				218AC9572A7A2F8B00755E32 /* GoogleService-Info.plist */,
 				2184C72A2A711CFB001559C9 /* Resources */,
 				2184C7282A711CED001559C9 /* Managers */,
 				2184C7272A711CE7001559C9 /* View Models */,
@@ -137,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				2184C7342A711F16001559C9 /* LoginScreen.swift */,
+				218AC95B2A7A350300755E32 /* RegisterScreen.swift */,
 			);
 			path = "Login Screens";
 			sourceTree = "<group>";
@@ -145,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				2184C7372A712059001559C9 /* LoginVM.swift */,
+				218AC9592A7A34DF00755E32 /* RegisterVM.swift */,
 			);
 			path = "Login Screens";
 			sourceTree = "<group>";
@@ -165,6 +184,13 @@
 			dependencies = (
 			);
 			name = ReChannels;
+			packageProductDependencies = (
+				212CAD282A7A031E00A89A21 /* FirebaseAuth */,
+				212CAD2A2A7A031E00A89A21 /* FirebaseDatabase */,
+				212CAD2C2A7A031E00A89A21 /* FirebaseDatabaseSwift */,
+				212CAD2E2A7A031E00A89A21 /* FirebaseFirestore */,
+				212CAD302A7A031E00A89A21 /* FirebaseFirestoreSwift */,
+			);
 			productName = ReChannels;
 			productReference = 2184C7122A711BD3001559C9 /* ReChannels.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +219,9 @@
 				Base,
 			);
 			mainGroup = 2184C7092A711BD3001559C9;
+			packageReferences = (
+				212CAD272A7A031E00A89A21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2184C7132A711BD3001559C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -209,6 +238,7 @@
 			files = (
 				2184C71E2A711BD8001559C9 /* Preview Assets.xcassets in Resources */,
 				2184C71A2A711BD8001559C9 /* Assets.xcassets in Resources */,
+				218AC9582A7A2F8B00755E32 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218AC95C2A7A350300755E32 /* RegisterScreen.swift in Sources */,
 				2184C7322A711EB0001559C9 /* RECServer.swift in Sources */,
 				2184C7252A711CB0001559C9 /* RECDatabaseParentsPath.swift in Sources */,
 				2184C7302A711E79001559C9 /* RECTextChannel.swift in Sources */,
@@ -226,6 +257,7 @@
 				2184C7182A711BD4001559C9 /* ContentView.swift in Sources */,
 				2184C7382A712059001559C9 /* LoginVM.swift in Sources */,
 				2184C7352A711F16001559C9 /* LoginScreen.swift in Sources */,
+				218AC95A2A7A34DF00755E32 /* RegisterVM.swift in Sources */,
 				2184C72C2A711D67001559C9 /* RECMessage.swift in Sources */,
 				2184C7162A711BD4001559C9 /* ReChannelsApp.swift in Sources */,
 				2184C73A2A7120C2001559C9 /* AuthenticationManager.swift in Sources */,
@@ -357,6 +389,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re:Channels";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -365,8 +399,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -395,6 +429,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Re:Channels";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -403,8 +439,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -442,6 +478,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		212CAD272A7A031E00A89A21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		212CAD282A7A031E00A89A21 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 212CAD272A7A031E00A89A21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		212CAD2A2A7A031E00A89A21 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 212CAD272A7A031E00A89A21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		212CAD2C2A7A031E00A89A21 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 212CAD272A7A031E00A89A21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		212CAD2E2A7A031E00A89A21 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 212CAD272A7A031E00A89A21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		212CAD302A7A031E00A89A21 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 212CAD272A7A031E00A89A21 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2184C70A2A711BD3001559C9 /* Project object */;
 }

@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject private var authManager = AuthenticationManager.shared
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        if !authManager.isSignedIn {
+            LoginScreen()
+        } else {
+            // Core screen
         }
-        .padding()
     }
 }
 

@@ -25,11 +25,14 @@ class DatabaseManager: ObservableObject {
                 return
             }
             
-            var fetchedUser = RECUser()
+            let displayName = value[RECUser.Property.displayName] as? String ?? RECUser.placeholderUser.displayName
+            let emailAddress = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
+            let firebaseUID = value[RECUser.Property.firebaseUID] as? String ?? RECUser.placeholderUser.firebaseUID
+            
+            var fetchedUser = RECUser(displayName: displayName,
+                                      emailAddress: emailAddress,
+                                      firebaseUID: firebaseUID)
             fetchedUser.age = value[RECUser.Property.age] as? Int ?? RECUser.placeholderUser.age
-            fetchedUser.displayName = value[RECUser.Property.displayName] as? String ?? RECUser.placeholderUser.displayName
-            fetchedUser.emailAddress = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
-            fetchedUser.firebaseUID = value[RECUser.Property.firebaseUID] as? String ?? RECUser.placeholderUser.firebaseUID
             fetchedUser.followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
             fetchedUser.followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount
         }

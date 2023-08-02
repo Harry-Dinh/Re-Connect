@@ -1,34 +1,39 @@
 //
-//  LoginScreen.swift
+//  RegisterScreen.swift
 //  ReChannels
 //
-//  Created by Harry Dinh on 2023-07-26.
+//  Created by Harry Dinh on 2023-08-02.
 //
 
 import SwiftUI
 
-struct LoginScreen: View {
+struct RegisterScreen: View {
     
-    @ObservedObject private var viewModel = LoginVM.viewModel
+    @ObservedObject private var viewModel = RegisterVM.viewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 60) {
                 VStack(spacing: 5) {
-                    Image(systemName: "number.square.fill")
+                    Image(systemName: "person.crop.circle.badge.plus")
                         .foregroundColor(.accentColor)
                         .font(.system(size: 100))
                         .padding(.vertical)
-                    Text("Welcome to Re:Channels")
+                    Text("Create New Account")
                         .font(.title)
                         .bold()
                     
-                    Text("Powerful channel-based messaging made easy.")
+                    Text("Fill in a few basic information and we can get your new account up and running!")
                         .multilineTextAlignment(.center)
                 }
                 .padding(.horizontal, 10)
                 
                 VStack(spacing: 20) {
+                    TextField("Display name", text: $viewModel.displayNameField)
+                        .textFieldStyle(.roundedBorder)
+                        .padding(.horizontal)
+                    
                     TextField("Email", text: $viewModel.emailField)
                         .textFieldStyle(.roundedBorder)
                         .padding(.horizontal)
@@ -38,7 +43,7 @@ struct LoginScreen: View {
                         .padding(.horizontal)
                     
                     Button(action: {}) {
-                        Text("Login")
+                        Text("Create Account")
                             .fontWeight(.semibold)
                             .frame(width: 170)
                     }
@@ -51,19 +56,19 @@ struct LoginScreen: View {
             .background(
                 LinearGradient(colors: [Color(.systemBackground), Color(.systemBackground), .accentColor], startPoint: .topLeading, endPoint: .bottomTrailing)
             )
-        }
-        .safeAreaInset(edge: .bottom) {
-            Button("Create New Account") {
-                viewModel.presentRegisterScreen.toggle()
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Cancel") {
+                        dismiss.callAsFunction()
+                    }
+                }
             }
-            .foregroundColor(.white)
         }
-        .fullScreenCover(isPresented: $viewModel.presentRegisterScreen, content: RegisterScreen.init)
     }
 }
 
-struct LoginScreen_Previews: PreviewProvider {
+struct RegisterScreen_Previews: PreviewProvider {
     static var previews: some View {
-        LoginScreen()
+        RegisterScreen()
     }
 }
