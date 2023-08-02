@@ -1,0 +1,37 @@
+//
+//  DatabaseManager.swift
+//  ReConnect
+//
+//  Created by Harry Dinh on 2023-07-30.
+//
+
+import Foundation
+import SwiftUI
+import FirebaseDatabase
+
+class DatabaseManager: ObservableObject {
+    
+    public static let shared = DatabaseManager()
+    private let userDatabasePath = Database.database().reference().child(RECDatabaseParentPath.users)
+    
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    
+    // MARK: - RECUSER FETCHING
+    
+    public func fetchData(of user: RECUser) {
+        userDatabasePath.child(user.firebaseUID).getData { error, snapshot in
+            guard let value = snapshot?.value as? [String: Any] else {
+                // Node has no value
+                return
+            }
+            
+            var fetchedUser = RECUser()
+            fetchedUser.age = value[RECUser.Property.age] as? Int ?? RECUser.placeholderUser.age
+            fetchedUser.displayName = value[RECUser.Property.displayName] as? String ?? RECUser.placeholderUser.displayName
+            fetchedUser.emailAddress = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
+            fetchedUser.firebaseUID = value[RECUser.Property.firebaseUID] as? String ?? RECUser.placeholderUser.firebaseUID
+            fetchedUser.followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
+            fetchedUser.followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount
+        }
+    }
+}

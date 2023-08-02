@@ -16,7 +16,7 @@ struct FeedScreen: View {
         NavigationView {
             ZStack {
                 if appearanceSettingsVM.useThemeBackground {
-                    RECThemeBackground(showBottomColor: false)
+                    RECThemeBackground()
                 }
                 
                 List {
@@ -27,20 +27,20 @@ struct FeedScreen: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button(action: {}) {
-                            Image(systemName: CUPSystemIcon.filter)
+                            RECNavButtonLabel(iconName: CUPSystemIcon.filter)
                         }
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         NavigationLink(destination: NotificationsScreen.init) {
-                            Image(systemName: CUPSystemIcon.notification)
+                            RECNavButtonLabel(iconName: CUPSystemIcon.notification)
                         }
                         
                         Button(action: {}) {
-                            Image(systemName: CUPSystemIcon.add)
+                            RECNavButtonLabel(iconName: CUPSystemIcon.add)
                         }
                     }
-            }
+                }
             }
         }
     }

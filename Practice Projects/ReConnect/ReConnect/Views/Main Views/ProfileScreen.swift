@@ -18,7 +18,7 @@ struct ProfileScreen: View {
         NavigationStack {
             ZStack {
                 if appearanceSettingsVM.useThemeBackground {
-                    RECThemeBackground(showBottomColor: true)
+                    RECThemeBackground()
                 }
                 
                 ScrollView {
@@ -53,13 +53,13 @@ struct ProfileScreen: View {
                                 Label("Scan QR Code", systemImage: CUPSystemIcon.scanQRCodeAction)
                             }
                         } label: {
-                            Image(systemName: CUPSystemIcon.qrcode)
+                            RECNavButtonLabel(iconName: CUPSystemIcon.qrcode)
                         }
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         Button(action: {}) {
-                            Image(systemName: CUPSystemIcon.add)
+                            RECNavButtonLabel(iconName: CUPSystemIcon.add)
                         }
                         
                         Menu {
@@ -74,7 +74,7 @@ struct ProfileScreen: View {
                                 Label("Customize QR Code", systemImage: CUPSystemIcon.qrcode)
                             }
                         } label: {
-                            Image(systemName: CUPSystemIcon.edit)
+                            RECNavButtonLabel(iconName: CUPSystemIcon.edit)
                         }
                     }
                 }

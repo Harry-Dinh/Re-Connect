@@ -69,7 +69,7 @@ struct RECUser: Codable, Equatable {
     /// A boolean that tells the server that this user is verified. A user is verified when they have 1000 followers or more.
     var isVerifiedUser: Bool
     
-    // MARK: - INITIALIZERS (CONSTRUCTORS)
+    // MARK: - INITIALIZERS
     
     /// Create a generic Re:Connect user
     init() {
@@ -139,7 +139,7 @@ struct RECUser: Codable, Equatable {
         self.isVerifiedUser = false
     }
     
-    // MARK: - GETTERS
+    // MARK: - FUNCTIONS
     
     /// Securely return the unique identifier of this user without having to call `user.uid` directly.
     /// - Returns: The unique identifier of this user.
@@ -153,8 +153,6 @@ struct RECUser: Codable, Equatable {
         return self.firebaseUID
     }
     
-    // MARK: - SETTERS
-    
     public mutating func appendFollower(_ user: RECUser) {
         self.followers.append(user)
     }
@@ -167,8 +165,7 @@ struct RECUser: Codable, Equatable {
         self.isVerifiedUser = isVerified
     }
     
-    // MARK: - EQUATABLE PROTOCOL
-    
+    /// A required function to conform to the Equatable protocol. This allows RECUser objects to be compared to each other.
     static func ==(lhs: RECUser, rhs: RECUser) -> Bool {
         return lhs.firebaseUID == rhs.firebaseUID && lhs.uid == rhs.uid
     }

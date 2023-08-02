@@ -13,15 +13,19 @@ struct ThemeBackgroundPreviewScreen: View {
     
     var body: some View {
         NavigationStack {
-            RECThemeBackground(showBottomColor: true)
+            RECThemeBackground()
                 .navigationTitle("Theme Background Preview")
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Done") {
-                            dismiss.callAsFunction()
-                        }
+                .safeAreaInset(edge: .bottom) {
+                    Button {
+                        dismiss.callAsFunction()
+                    } label: {
+                        Text("Done")
+                            .fontWeight(.semibold)
+                            .frame(width: UIScreen.main.bounds.width - 200, height: 30)
                     }
+                    .buttonStyle(.borderedProminent)
+
                 }
         }
     }

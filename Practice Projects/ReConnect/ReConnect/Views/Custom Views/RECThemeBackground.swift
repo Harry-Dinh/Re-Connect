@@ -10,21 +10,21 @@ import SwiftUI
 struct RECThemeBackground: View {
     
     @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
-    var showBottomColor: Bool
     
     var body: some View {
-        if showBottomColor {
-            LinearGradient(colors: [editProfileVM.themeStartingColor, Color(.systemBackground), Color(.systemBackground), Color(.systemBackground), Color(.systemBackground), editProfileVM.themeEndingColor], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-        } else {
-            LinearGradient(colors: [editProfileVM.themeStartingColor, Color(.systemBackground), Color(.systemBackground), Color(.systemBackground), Color(.systemBackground), Color(.systemBackground)], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+        VStack {
+            LinearGradient(colors: [editProfileVM.themeStartingColor, editProfileVM.themeEndingColor], startPoint: .leading, endPoint: .trailing)
+                .blur(radius: 15)
+                .frame(height: 120)
+                .offset(y: -10)
+            Spacer()
         }
+        .ignoresSafeArea()
     }
 }
 
 struct RECBackgroundTheme_Previews: PreviewProvider {
     static var previews: some View {
-        RECThemeBackground(showBottomColor: true)
+        RECThemeBackground()
     }
 }
