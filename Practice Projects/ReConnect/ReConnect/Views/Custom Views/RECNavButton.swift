@@ -7,30 +7,31 @@
 
 import SwiftUI
 
-struct RECNavButtonLabel: View {
+struct RECNavButton: View {
     
     let iconName: String
+    var action: () -> Void
     
     @ObservedObject private var appearanceSettingsVM = AppearanceSettingsVM.viewModel
     
     var body: some View {
         if appearanceSettingsVM.useThemeBackground {
-            Image(systemName: iconName)
-                .foregroundColor(.accentColor)
-                .padding(7)
-                .background(
-                    Circle()
-                        .foregroundColor(Color(.systemGray5))
-                )
+            Button(action: action) {
+                Image(systemName: iconName)
+                    .foregroundColor(.white)
+            }
+            .buttonStyle(.bordered)
+            .clipShape(Circle())
         } else {
-            Image(systemName: iconName)
-                .foregroundColor(.accentColor)
+            Button(action: action) {
+                Image(systemName: iconName)
+            }
         }
     }
 }
 
 struct RECNavButton_Previews: PreviewProvider {
     static var previews: some View {
-        RECNavButtonLabel(iconName: CUPSystemIcon.archive)
+        RECNavButton(iconName: CUPSystemIcon.archive, action: {})
     }
 }

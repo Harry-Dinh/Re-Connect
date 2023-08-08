@@ -13,18 +13,64 @@ struct AppearanceSettingsScreen: View {
     
     var body: some View {
         List {
+            
+            // MARK: APP APPEARANCE
+            
+            Section {
+                Picker(selection: $viewModel.appAppearanceOption) {
+                    Text("Device Settings").tag(0)
+                    Text("Light Mode").tag(1)
+                    Text("Dark Mode").tag(2)
+                } label: {
+                    EmptyView()
+                }
+                .pickerStyle(.inline)
+            } header: {
+                Text("App Appearance")
+            }
+            
+            // MARK: ACCENT COLOUR
+            
+            Section {
+                Picker(selection: $viewModel.accentColorOption) {
+                    Text("Default").tag(0)
+                    Text("Custom Color").tag(1)
+                } label: {
+                    EmptyView()
+                }
+                .pickerStyle(.inline)
+
+            } header: {
+                Text("Accent Color")
+            }
+            
+            // MARK: CUSTOM ACCENT COLOR
+            
+            if viewModel.accentColorOption == 1 {
+                Section {
+                    ColorPicker("Custom Accent Color", selection: $viewModel.customAccentColor)
+                }
+            }
+            
+            // MARK: THEME BACKGROUND
+            
             Section {
                 Toggle(isOn: $viewModel.useThemeBackground) {
                     Text("Use Theme Background")
                 }
+                
+                if viewModel.useThemeBackground {
+                    Button("Preview Theme Background") {
+                        viewModel.showPreviewPage.toggle()
+                    }
+                }
+            } header: {
+                Text("Theme Background")
             } footer: {
-                Text("Turning on theme background will allow you to choose two colors for the bottom and top edges of your device.")
+                Text("Turning on theme background will allow you to choose two colors for the top edge of the device.")
             }
             
             if viewModel.useThemeBackground {
-                Button("Preview Theme Background") {
-                    viewModel.showPreviewPage.toggle()
-                }
                 
                 Section {
                     Picker(selection: $viewModel.themeBackgroundOption) {
@@ -43,18 +89,18 @@ struct AppearanceSettingsScreen: View {
             if viewModel.themeBackgroundOption == 1 {
                 Section {
                     ColorPicker(selection: $viewModel.customStartingColor, supportsOpacity: true) {
-                        Text("Top Color")
+                        Text("Color 1")
                     }
                     
                     ColorPicker(selection: $viewModel.customEndingColor, supportsOpacity: true) {
-                        Text("Bottom Color")
+                        Text("Color 2")
                     }
                 } header: {
                     Text("Choose Custom Colors")
                 }
             }
         }
-        .navigationTitle("Appearance")
+        .navigationTitle("Customizations")
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $viewModel.showPreviewPage) {
             ThemeBackgroundPreviewScreen()
@@ -66,6 +112,7 @@ struct AppearanceSettingsScreen_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             AppearanceSettingsScreen()
+                .preferredColorScheme(.dark)
         }
     }
 }

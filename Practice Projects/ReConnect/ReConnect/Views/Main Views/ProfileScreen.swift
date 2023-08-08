@@ -44,37 +44,15 @@ struct ProfileScreen: View {
                 }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Menu {
-                            Button(action: {}) {
-                                Label("Present QR Code", systemImage: CUPSystemIcon.qrcode)
-                            }
-                            
-                            Button(action: {}) {
-                                Label("Scan QR Code", systemImage: CUPSystemIcon.scanQRCodeAction)
-                            }
-                        } label: {
-                            RECNavButtonLabel(iconName: CUPSystemIcon.qrcode)
-                        }
+                        RECNavButton(iconName: CUPSystemIcon.qrcode, action: {})
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button(action: {}) {
-                            RECNavButtonLabel(iconName: CUPSystemIcon.add)
-                        }
+                        RECNavButton(iconName: CUPSystemIcon.add, action: {})
                         
-                        Menu {
-                            Button(action: {
-                                editProfileVM.tempUser = loginVM.currentUser ?? RECUser.placeholderUser
-                                viewModel.showEditProfileScreen.toggle()
-                            }) {
-                                Label("Edit Profile", systemImage: CUPSystemIcon.profile)
-                            }
-                            
-                            Button(action: {}) {
-                                Label("Customize QR Code", systemImage: CUPSystemIcon.qrcode)
-                            }
-                        } label: {
-                            RECNavButtonLabel(iconName: CUPSystemIcon.edit)
+                        RECNavButton(iconName: CUPSystemIcon.edit) {
+                            editProfileVM.tempUser = loginVM.currentUser ?? RECUser.placeholderUser
+                            viewModel.showEditProfileScreen.toggle()
                         }
                     }
                 }

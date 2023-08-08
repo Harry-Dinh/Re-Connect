@@ -17,9 +17,19 @@ struct MenuScreen: View {
             List {
                 ProfileListRowView(user: loginVM.currentUser ?? RECUser.placeholderUser)
                 
-                Section {
-                    ForEach(viewModel.contentSectionItems) { content in
-                        RECMenuListRow(rowItem: content)
+                Section("My Contents") {
+                    RECMenuListRow(rowItem: RECListRowItem(label: "Groups", iconStr: "\(CUPSystemIcon.person).2", tintColor: .accentColor))
+                    RECMenuListRow(rowItem: RECListRowItem(label: "Social Awards", iconStr: "medal", tintColor: .cyan))
+                    RECMenuListRow(rowItem: RECListRowItem(label: "Followers Donations", iconStr: "sparkles", tintColor: .purple))
+                }
+                
+                Section("My Collections") {
+                    HStack {
+                        Spacer()
+                        Text("You haven't created any collections.")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
+                        Spacer()
                     }
                 }
                 
@@ -27,8 +37,13 @@ struct MenuScreen: View {
                     NavigationLink(destination: AppSettingsScreen.init) {
                         RECMenuListRow(rowItem: viewModel.applicationSectionItems[0])
                     }
+                    
+                    RECMenuListRow(rowItem: RECListRowItem(label: "Feedback & Support", iconStr: "questionmark.bubble", tintColor: .secondary))
+                    
+                    RECMenuListRow(rowItem: RECListRowItem(label: "About Re:Connect", iconStr: "info.circle", tintColor: .secondary))
                 }
             }
+            .headerProminence(.increased)
             .navigationTitle("Menu")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

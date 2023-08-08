@@ -11,7 +11,7 @@ struct GeneralSettingsScreen: View {
     var body: some View {
         List {
             NavigationLink(destination: AppearanceSettingsScreen()) {
-                Label("Appearance", systemImage: CUPSystemIcon.paintbrush)
+                Label("Customizations", systemImage: CUPSystemIcon.paintbrush)
             }
         }
         .navigationTitle("General")

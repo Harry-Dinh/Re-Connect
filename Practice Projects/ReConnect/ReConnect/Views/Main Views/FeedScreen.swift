@@ -26,19 +26,12 @@ struct FeedScreen: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {}) {
-                            RECNavButtonLabel(iconName: CUPSystemIcon.filter)
-                        }
+                        RECNavButton(iconName: CUPSystemIcon.filter, action: {})
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: NotificationsScreen.init) {
-                            RECNavButtonLabel(iconName: CUPSystemIcon.notification)
-                        }
-                        
-                        Button(action: {}) {
-                            RECNavButtonLabel(iconName: CUPSystemIcon.add)
-                        }
+                        RECNavButton(iconName: CUPSystemIcon.notification, action: {})
+                        RECNavButton(iconName: CUPSystemIcon.add, action: {})
                     }
                 }
             }
