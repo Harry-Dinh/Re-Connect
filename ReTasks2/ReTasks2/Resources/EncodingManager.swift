@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// A manager that is responsible for encoding/decoding every `Codable` object in this app.
 class EncodingManager: ObservableObject {
@@ -17,6 +18,9 @@ class EncodingManager: ObservableObject {
     
     /// The system's built-in JSON decoder.
     private let decoder = JSONDecoder()
+    
+    /// An array of to-do lists IDs.
+    public var listsIDs: [String] = []
     
     enum UserDefaultsCode: String {
         case listsIDs = "listsIDs"
@@ -79,6 +83,46 @@ class EncodingManager: ObservableObject {
             print("Failed to get lists ids")
             return []
         }
+        
+        print("Successfully get lists ids")
         return ids
+    }
+    
+    public func decode(_ itemID: String) -> RETItem {
+        guard let itemData = UserDefaults.standard.value(forKey: itemID) as? Data else {
+            return RETItem()
+        }
+        
+        do {
+            let item = try decoder.decode(RETItem.self, from: itemData)
+            return item
+        } catch {
+            print("Cannot decode item")
+        }
+        
+        return RETItem()
+    }
+    
+    public func decode(_ listID: String) -> RETList {
+        guard let listData = UserDefaults.standard.value(forKey: listID) as? Data else {
+            return RETList()
+        }
+        
+        var savedList = RETList()
+        do {
+            savedList = try decoder.decode(RETList.self, from: listData)
+        } catch {
+            print("Cannot decode list")
+        }
+        
+        return savedList
+    }
+    
+    public func bulkDecode(_ listsIDs: [String]) -> [RETList] {
+        var lists: [RETList] = []
+        for id in listsIDs {
+            lists.append(decode(id))
+        }
+        return lists
     }
 }

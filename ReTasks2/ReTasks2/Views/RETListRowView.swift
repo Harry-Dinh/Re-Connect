@@ -16,24 +16,13 @@ struct RETListRowView: View {
             Text(list.list.name)
         } icon: {
             if list.list.icon == nil {
-                ZStack {
-                    Circle()
-                        .frame(width: 35, height: 35)
-                        .foregroundColor(Color(hex: list.list.color))
-                    
-                    Image(systemName: "list.dash")
-                        .foregroundColor(.white)
-                        .fontWeight(.bold)
-                }
+                Image(systemName: "list.dash")
+                    .foregroundColor(Color(hex: list.list.color))
+                    .fontWeight(.bold)
             } else {
-                ZStack {
-                    Circle()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(Color(hex: list.list.color))
-                    
-                    Text(list.list.icon!)
-                        .font(.system(size: 17))
-                }
+                Text(list.list.icon!)
+                    .font(.system(size: 17))
+                    .foregroundColor(Color(hex: list.list.color))
             }
         }
     }

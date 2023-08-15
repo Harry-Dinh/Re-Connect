@@ -9,8 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject private var encodingManager = EncodingManager.shared
+    @ObservedObject private var homeVM = HomeVM.viewModel
+    
     var body: some View {
         HomeView()
+            .onAppear {
+                encodingManager.listsIDs = encodingManager.readListsIDs()
+                homeVM.myLists = encodingManager.bulkDecode(encodingManager.listsIDs)
+            }
     }
 }
 

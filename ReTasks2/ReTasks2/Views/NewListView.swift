@@ -31,7 +31,7 @@ struct NewListView: View {
                         Spacer()
                     }
                     .listRowSeparator(.hidden)
-                    ColorPicker("List Color", selection: $viewModel.listColorPicker)
+                    ColorPicker("List's Color", selection: $viewModel.listColorPicker, supportsOpacity: false)
                 } footer: {
                     Text("Tap the big circle above to customize the list's icon using a single letter or emoji.")
                 }
@@ -48,6 +48,7 @@ struct NewListView: View {
                     }
                 }
             }
+            .interactiveDismissDisabled()
             .navigationTitle("New List")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -59,6 +60,8 @@ struct NewListView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        viewModel.create(viewModel.newList)
+                        viewModel.newList = RETList()
                         dismiss.callAsFunction()
                     }) {
                         Text("Create")

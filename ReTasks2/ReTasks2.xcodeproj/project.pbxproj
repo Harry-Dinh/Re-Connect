@@ -21,6 +21,8 @@
 		214E812A2A8B6A2000698E90 /* RETListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E81292A8B6A2000698E90 /* RETListRowView.swift */; };
 		214E812C2A8B6E5C00698E90 /* NewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E812B2A8B6E5C00698E90 /* NewListView.swift */; };
 		214E812E2A8B6F9600698E90 /* NewListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E812D2A8B6F9600698E90 /* NewListVM.swift */; };
+		2195547D2A8B8E1E00AE82F9 /* RETSmartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195547C2A8B8E1E00AE82F9 /* RETSmartList.swift */; };
+		2195547F2A8B8F5800AE82F9 /* SmartListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195547E2A8B8F5800AE82F9 /* SmartListRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		214E81292A8B6A2000698E90 /* RETListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETListRowView.swift; sourceTree = "<group>"; };
 		214E812B2A8B6E5C00698E90 /* NewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListView.swift; sourceTree = "<group>"; };
 		214E812D2A8B6F9600698E90 /* NewListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListVM.swift; sourceTree = "<group>"; };
+		2195547C2A8B8E1E00AE82F9 /* RETSmartList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETSmartList.swift; sourceTree = "<group>"; };
+		2195547E2A8B8F5800AE82F9 /* SmartListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				214E81182A8B59E500698E90 /* RETList.swift */,
 				214E811A2A8B59EC00698E90 /* RETItem.swift */,
 				214E81272A8B68F400698E90 /* RETListWrapper.swift */,
+				2195547C2A8B8E1E00AE82F9 /* RETSmartList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 			children = (
 				214E810B2A8B597100698E90 /* ContentView.swift */,
 				214E81232A8B67A200698E90 /* HomeView.swift */,
+				2195547E2A8B8F5800AE82F9 /* SmartListRowView.swift */,
 				214E812B2A8B6E5C00698E90 /* NewListView.swift */,
 				214E81292A8B6A2000698E90 /* RETListRowView.swift */,
 			);
@@ -205,6 +211,8 @@
 				214E81262A8B682900698E90 /* HomeVM.swift in Sources */,
 				214E810C2A8B597100698E90 /* ContentView.swift in Sources */,
 				214E812A2A8B6A2000698E90 /* RETListRowView.swift in Sources */,
+				2195547D2A8B8E1E00AE82F9 /* RETSmartList.swift in Sources */,
+				2195547F2A8B8F5800AE82F9 /* SmartListRowView.swift in Sources */,
 				214E81192A8B59E500698E90 /* RETList.swift in Sources */,
 				214E812E2A8B6F9600698E90 /* NewListVM.swift in Sources */,
 				214E811B2A8B59EC00698E90 /* RETItem.swift in Sources */,
