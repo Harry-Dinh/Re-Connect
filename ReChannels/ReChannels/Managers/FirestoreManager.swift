@@ -19,6 +19,6 @@ class FirestoreManager: ObservableObject {
     // MARK: - READ/WRITE USER
     
     public func writeToFirestore(with user: RECUser) {
-        ,
+        
     }
 }
