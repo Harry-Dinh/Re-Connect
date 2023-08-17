@@ -12,6 +12,8 @@
 		212CAD2D2A7A031E00A89A21 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 212CAD2C2A7A031E00A89A21 /* FirebaseDatabaseSwift */; };
 		212CAD2F2A7A031E00A89A21 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 212CAD2E2A7A031E00A89A21 /* FirebaseFirestore */; };
 		212CAD312A7A031E00A89A21 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 212CAD302A7A031E00A89A21 /* FirebaseFirestoreSwift */; };
+		216F3B2D2A8E2AE6004A0E06 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216F3B2C2A8E2AE6004A0E06 /* DatabaseManager.swift */; };
+		216F3B2F2A8E2F83004A0E06 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216F3B2E2A8E2F83004A0E06 /* FirestoreManager.swift */; };
 		2184C7162A711BD4001559C9 /* ReChannelsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7152A711BD4001559C9 /* ReChannelsApp.swift */; };
 		2184C7182A711BD4001559C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2184C7172A711BD4001559C9 /* ContentView.swift */; };
 		2184C71A2A711BD8001559C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2184C7192A711BD8001559C9 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		216F3B2C2A8E2AE6004A0E06 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		216F3B2E2A8E2F83004A0E06 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		2184C7122A711BD3001559C9 /* ReChannels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReChannels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2184C7152A711BD4001559C9 /* ReChannelsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReChannelsApp.swift; sourceTree = "<group>"; };
 		2184C7172A711BD4001559C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				2184C7392A7120C2001559C9 /* AuthenticationManager.swift */,
+				216F3B2C2A8E2AE6004A0E06 /* DatabaseManager.swift */,
+				216F3B2E2A8E2F83004A0E06 /* FirestoreManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -250,7 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				218AC95C2A7A350300755E32 /* RegisterScreen.swift in Sources */,
+				216F3B2F2A8E2F83004A0E06 /* FirestoreManager.swift in Sources */,
 				2184C7322A711EB0001559C9 /* RECServer.swift in Sources */,
+				216F3B2D2A8E2AE6004A0E06 /* DatabaseManager.swift in Sources */,
 				2184C7252A711CB0001559C9 /* RECDatabaseParentsPath.swift in Sources */,
 				2184C7302A711E79001559C9 /* RECTextChannel.swift in Sources */,
 				2184C72E2A711D7F001559C9 /* RECUser.swift in Sources */,
