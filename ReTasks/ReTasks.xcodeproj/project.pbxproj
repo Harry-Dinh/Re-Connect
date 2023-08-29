@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		218C6EAD2A9D967400F240D1 /* RETList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C6EAC2A9D967400F240D1 /* RETList.swift */; };
+		218C6EB12A9D9DD100F240D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C6EB02A9D9DD100F240D1 /* Extensions.swift */; };
+		218C6EB32A9D9E6E00F240D1 /* RETListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C6EB22A9D9E6E00F240D1 /* RETListWrapper.swift */; };
+		218C6EB52A9DA10000F240D1 /* RETTaskWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218C6EB42A9DA10000F240D1 /* RETTaskWrapper.swift */; };
 		21C1D8CB2A9C8A33004D1E64 /* ReTasksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1D8CA2A9C8A33004D1E64 /* ReTasksApp.swift */; };
 		21C1D8CD2A9C8A33004D1E64 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1D8CC2A9C8A33004D1E64 /* ContentView.swift */; };
 		21C1D8CF2A9C8A35004D1E64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C1D8CE2A9C8A35004D1E64 /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		218C6EAC2A9D967400F240D1 /* RETList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETList.swift; sourceTree = "<group>"; };
+		218C6EB02A9D9DD100F240D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		218C6EB22A9D9E6E00F240D1 /* RETListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETListWrapper.swift; sourceTree = "<group>"; };
+		218C6EB42A9DA10000F240D1 /* RETTaskWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETTaskWrapper.swift; sourceTree = "<group>"; };
 		21C1D8C72A9C8A33004D1E64 /* ReTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C1D8CA2A9C8A33004D1E64 /* ReTasksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReTasksApp.swift; sourceTree = "<group>"; };
 		21C1D8CC2A9C8A33004D1E64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,10 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				21C1D8DB2A9C8C16004D1E64 /* GoogleService-Info.plist */,
+				21C1D8DA2A9C8BDC004D1E64 /* Resources */,
 				21C1D8F02A9C9566004D1E64 /* Managers */,
 				21C1D8E52A9C8D98004D1E64 /* Models */,
 				21C1D8E42A9C8D8E004D1E64 /* View Models */,
-				21C1D8DA2A9C8BDC004D1E64 /* Resources */,
 				21C1D8D82A9C8BD2004D1E64 /* Views */,
 				21C1D8CE2A9C8A35004D1E64 /* Assets.xcassets */,
 				21C1D8D02A9C8A35004D1E64 /* Preview Content */,
@@ -112,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				21C1D8CA2A9C8A33004D1E64 /* ReTasksApp.swift */,
+				218C6EB02A9D9DD100F240D1 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -131,6 +140,9 @@
 			children = (
 				21C1D8F52A9C9B70004D1E64 /* RETUser.swift */,
 				21C1D8F92A9CA8A8004D1E64 /* RETTask.swift */,
+				218C6EAC2A9D967400F240D1 /* RETList.swift */,
+				218C6EB22A9D9E6E00F240D1 /* RETListWrapper.swift */,
+				218C6EB42A9DA10000F240D1 /* RETTaskWrapper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,15 +236,19 @@
 			files = (
 				21C1D8CD2A9C8A33004D1E64 /* ContentView.swift in Sources */,
 				21C1D8FA2A9CA8A8004D1E64 /* RETTask.swift in Sources */,
+				218C6EB32A9D9E6E00F240D1 /* RETListWrapper.swift in Sources */,
+				218C6EB52A9DA10000F240D1 /* RETTaskWrapper.swift in Sources */,
 				21C1D8F82A9CA77D004D1E64 /* HomeVM.swift in Sources */,
 				21C1D8F22A9C956E004D1E64 /* AuthManager.swift in Sources */,
 				21C1D8CB2A9C8A33004D1E64 /* ReTasksApp.swift in Sources */,
 				21C1D8E92A9C8E8B004D1E64 /* LoginView.swift in Sources */,
 				21C1D8EF2A9C9314004D1E64 /* RegisterView.swift in Sources */,
+				218C6EAD2A9D967400F240D1 /* RETList.swift in Sources */,
 				21C1D8F42A9C97A3004D1E64 /* HomeView.swift in Sources */,
 				21C1D8ED2A9C91C2004D1E64 /* RegisterVM.swift in Sources */,
 				21C1D8F62A9C9B70004D1E64 /* RETUser.swift in Sources */,
 				21C1D8E72A9C8DAB004D1E64 /* LoginVM.swift in Sources */,
+				218C6EB12A9D9DD100F240D1 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,11 +45,11 @@ struct RegisterView: View {
                 // Text Fields
                 
                 VStack(spacing: 10) {
-                    TextField("Email address", text: $viewModel.emailField)
+                    TextField(viewModel.EMAIL_PLACEHOLDER, text: $viewModel.emailField)
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.emailAddress)
                     
-                    SecureField("Password", text: $viewModel.passwordField)
+                    SecureField(viewModel.PASS_PLACEHOLDER, text: $viewModel.passwordField)
                         .textFieldStyle(.roundedBorder)
                     
                     Text(viewModel.ACCOUNT_CREATION_DESCRIPTION)
@@ -63,7 +63,7 @@ struct RegisterView: View {
                         viewModel.emailField = ""
                         viewModel.passwordField = ""
                     }) {
-                        Text("Create Account")
+                        Text(viewModel.CREATE_ACCOUNT_BUTTON_LABEL)
                             .fontWeight(.semibold)
                             .frame(width: 250)
                     }
@@ -77,7 +77,7 @@ struct RegisterView: View {
             .padding()
             .safeAreaInset(edge: .top) {
                 HStack {
-                    Button("Cancel") {
+                    Button(viewModel.DISMISS_BUTTON_LABEL) {
                         dismiss.callAsFunction()
                     }
                     Spacer()

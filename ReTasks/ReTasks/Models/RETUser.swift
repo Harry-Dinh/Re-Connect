@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// An object that represent a user account on Re:Tasks.
 struct RETUser: Codable {
     
     // MARK: - FIELDS

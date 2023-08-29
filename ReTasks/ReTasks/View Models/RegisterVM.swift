@@ -20,4 +20,8 @@ class RegisterVM: ObservableObject {
     
     public let HEADER_TITLE = "Create New Account"
     public let ACCOUNT_CREATION_DESCRIPTION = "Your account will be used for our fast syncing service so all of your tasks will be updated almost instantly across all of your Apple devices."
+    public let CREATE_ACCOUNT_BUTTON_LABEL = "Create Account"
+    public let EMAIL_PLACEHOLDER = "Email address"
+    public let PASS_PLACEHOLDER = "Password"
+    public let DISMISS_BUTTON_LABEL = "Cancel"
 }
