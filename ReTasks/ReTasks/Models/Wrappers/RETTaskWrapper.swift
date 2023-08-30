@@ -22,6 +22,10 @@ class RETTaskWrapper: ObservableObject {
     
     // MARK: - OBJECT HELPER PROPERTIES
     
+    @Published var remindDate = Date()
+    
+    @Published var dueDate = Date()
+    
     public static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
@@ -30,16 +34,16 @@ class RETTaskWrapper: ObservableObject {
     
     // MARK: - OBJECT HELPER FUNCTIONS
     
-//    public func encode() -> Data {
-//        let encoder = JSONEncoder()
-//        let taskData: Data
-//
-//        do {
-//            taskData = try encoder.encode(self.task)
-//            return taskData
-//        } catch {
-//            print("Cannot encode task item")
-//        }
-//        return Data()
-//    }
+    public func encode() -> [String: Any] {
+        let taskJSONData: [String: Any] = [
+            "title": self.task.title,
+            "notes": self.task.notes,
+            "isCompleted": self.task.isCompleted,
+            "flagged": self.task.flagged,
+            "dueDate": self.task.dueDate ?? RETTaskWrapper.dateFormatter.string(from: Date()),
+            "remindDate": self.task.remindDate ?? RETTaskWrapper.dateFormatter.string(from: Date())
+        ]
+        
+        return taskJSONData
+    }
 }

@@ -37,4 +37,24 @@ class RETListWrapper: ObservableObject {
         }
         return accentColor
     }
+    
+    public func encode() -> [String: Any] {
+        
+        var tasksData: [String: Any] = [:]
+        
+        for item in self.list.items {
+            tasksData.updateValue(RETTaskWrapper(item).encode(), forKey: item.id)
+        }
+        
+        let listJSONData: [String: Any] = [
+            self.list.id: [
+                "name": self.list.name,
+                "icon": self.list.icon,
+                "accentColor": self.list.accentColor,
+                "items": tasksData
+            ] as [String: Any]
+        ]
+        
+        return listJSONData
+    }
 }

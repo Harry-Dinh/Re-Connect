@@ -14,26 +14,60 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Actions") {
-                    Button("Create Sample List") {}
-                    Button("Create Sample Task") {}
-                    Button("Add Sample Task to List") {}
+                Section {
+                    ForEach(viewModel.systemLists) { systemList in
+                        NavigationLink(destination: SmartListDetailView(listWrapper: RETSystemListWrapper(systemList))) {
+                            HomeSystemListRowView(listWrapper: RETSystemListWrapper(systemList))
+                        }
+                    }
                 }
                 
-                Section("List JSON Preview") {
-                    
-                }
-                
-                Section("Task JSON Preview") {
-                    
-                }
-                
-                Section("List with Task JSON Preview") {
-                    
+                Section("My Lists") {
+                    if viewModel.userLists.isEmpty {
+                        HStack {
+                            Spacer()
+                            Text(viewModel.NO_LISTS_ALERT)
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.secondary)
+                                .fontWeight(.semibold)
+                            Spacer()
+                        }
+                        .listRowBackground(Color.clear)
+                    } else {
+                        ForEach(viewModel.userLists) { list in
+                            NavigationLink(destination: ListDetailView(listWrapper: RETListWrapper(list))) {
+                                HomeListRowView(listWrapper: RETListWrapper(list))
+                            }
+                        }
+                    }
                 }
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Re:Tasks UI Test")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(role: .destructive, action: {}) {
+                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                            .foregroundColor(.red)
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button(action: {}) {
+                        Label("New List", systemImage: "plus.square")
+                            .labelStyle(.titleAndIcon)
+                    }
+                    
+                    Button(action: {}) {
+                        Label("New Task", systemImage: "plus.circle")
+                            .labelStyle(.titleAndIcon)
+                            .fontWeight(.bold)
+                    }
+                }
+            }
         }
     }
 }

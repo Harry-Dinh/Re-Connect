@@ -2,10 +2,69 @@
   "colors" : [
     {
       "color" : {
-        "platform" : "osx",
+        "platform" : "ios",
         "reference" : "systemCyanColor"
       },
-      "idiom" : "universal"
+      "idiom" : "iphone"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "color" : {
+        "platform" : "ios",
+        "reference" : "systemCyanColor"
+      },
+      "idiom" : "iphone"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "platform" : "ios",
+        "reference" : "systemCyanColor"
+      },
+      "idiom" : "iphone"
+    },
+    {
+      "color" : {
+        "platform" : "ios",
+        "reference" : "systemCyanColor"
+      },
+      "idiom" : "ipad"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "color" : {
+        "platform" : "ios",
+        "reference" : "systemCyanColor"
+      },
+      "idiom" : "ipad"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "platform" : "ios",
+        "reference" : "systemCyanColor"
+      },
+      "idiom" : "ipad"
     }
   ],
   "info" : {

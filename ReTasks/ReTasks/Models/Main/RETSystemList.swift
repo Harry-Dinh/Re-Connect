@@ -1,15 +1,15 @@
 //
-//  RETList.swift
+//  RETSystemList.swift
 //  ReTasks
 //
-//  Created by Harry Dinh on 2023-08-29.
+//  Created by Harry Dinh on 2023-08-30.
 //
 
 import Foundation
 import SwiftUI
 
-/// An object that represents a to-do list.
-struct RETList: Identifiable, Codable {
+/// An object that represents a system list (such as Inbox and Today)
+struct RETSystemList: Identifiable {
     
     // MARK: - FIELDS
     
@@ -23,8 +23,8 @@ struct RETList: Identifiable, Codable {
     
     init() {
         self.id = UUID().uuidString
-        self.name = "Untitled List"
-        self.icon = "list.bullet"
+        self.name = "Generic System List"
+        self.icon = "tray"
         self.accentColor = Color.accentColor.toHex()!
         self.items = []
     }
@@ -36,4 +36,8 @@ struct RETList: Identifiable, Codable {
         self.accentColor = accentColor
         self.items = []
     }
+    
+    // MARK: - PLACEHOLDER OBJECT
+    
+    public static let placeholder = RETSystemList()
 }

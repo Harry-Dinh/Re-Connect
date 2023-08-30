@@ -28,6 +28,13 @@
 		21C1D8F62A9C9B70004D1E64 /* RETUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1D8F52A9C9B70004D1E64 /* RETUser.swift */; };
 		21C1D8F82A9CA77D004D1E64 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1D8F72A9CA77D004D1E64 /* HomeVM.swift */; };
 		21C1D8FA2A9CA8A8004D1E64 /* RETTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1D8F92A9CA8A8004D1E64 /* RETTask.swift */; };
+		21E7E1702A9EDAB100884CA9 /* RETSystemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7E16F2A9EDAB100884CA9 /* RETSystemList.swift */; };
+		21E7E1722A9EDC7900884CA9 /* RETSystemListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7E1712A9EDC7900884CA9 /* RETSystemListWrapper.swift */; };
+		21E7E1762A9EDD9D00884CA9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7E1752A9EDD9D00884CA9 /* DatabaseManager.swift */; };
+		21E7E1782A9EE31500884CA9 /* HomeSystemListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7E1772A9EE31500884CA9 /* HomeSystemListRowView.swift */; };
+		21E7E17A2A9EE66500884CA9 /* HomeListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7E1792A9EE66500884CA9 /* HomeListRowView.swift */; };
+		21E7E17C2A9EEB7200884CA9 /* SmartListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7E17B2A9EEB7200884CA9 /* SmartListDetailView.swift */; };
+		21E7E17E2A9EECAE00884CA9 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E7E17D2A9EECAE00884CA9 /* ListDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +57,13 @@
 		21C1D8F52A9C9B70004D1E64 /* RETUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETUser.swift; sourceTree = "<group>"; };
 		21C1D8F72A9CA77D004D1E64 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		21C1D8F92A9CA8A8004D1E64 /* RETTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETTask.swift; sourceTree = "<group>"; };
+		21E7E16F2A9EDAB100884CA9 /* RETSystemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETSystemList.swift; sourceTree = "<group>"; };
+		21E7E1712A9EDC7900884CA9 /* RETSystemListWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETSystemListWrapper.swift; sourceTree = "<group>"; };
+		21E7E1752A9EDD9D00884CA9 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		21E7E1772A9EE31500884CA9 /* HomeSystemListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSystemListRowView.swift; sourceTree = "<group>"; };
+		21E7E1792A9EE66500884CA9 /* HomeListRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListRowView.swift; sourceTree = "<group>"; };
+		21E7E17B2A9EEB7200884CA9 /* SmartListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartListDetailView.swift; sourceTree = "<group>"; };
+		21E7E17D2A9EECAE00884CA9 /* ListDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +124,12 @@
 			children = (
 				21C1D8CC2A9C8A33004D1E64 /* ContentView.swift */,
 				21C1D8F32A9C97A3004D1E64 /* HomeView.swift */,
+				21E7E17B2A9EEB7200884CA9 /* SmartListDetailView.swift */,
+				21E7E17D2A9EECAE00884CA9 /* ListDetailView.swift */,
 				21C1D8E82A9C8E8A004D1E64 /* LoginView.swift */,
 				21C1D8EE2A9C9314004D1E64 /* RegisterView.swift */,
+				21E7E1772A9EE31500884CA9 /* HomeSystemListRowView.swift */,
+				21E7E1792A9EE66500884CA9 /* HomeListRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,11 +156,8 @@
 		21C1D8E52A9C8D98004D1E64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				21C1D8F52A9C9B70004D1E64 /* RETUser.swift */,
-				21C1D8F92A9CA8A8004D1E64 /* RETTask.swift */,
-				218C6EAC2A9D967400F240D1 /* RETList.swift */,
-				218C6EB22A9D9E6E00F240D1 /* RETListWrapper.swift */,
-				218C6EB42A9DA10000F240D1 /* RETTaskWrapper.swift */,
+				21E7E1742A9EDCC600884CA9 /* Wrappers */,
+				21E7E1732A9EDCBB00884CA9 /* Main */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,8 +166,30 @@
 			isa = PBXGroup;
 			children = (
 				21C1D8F12A9C956E004D1E64 /* AuthManager.swift */,
+				21E7E1752A9EDD9D00884CA9 /* DatabaseManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		21E7E1732A9EDCBB00884CA9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				21E7E16F2A9EDAB100884CA9 /* RETSystemList.swift */,
+				21C1D8F52A9C9B70004D1E64 /* RETUser.swift */,
+				21C1D8F92A9CA8A8004D1E64 /* RETTask.swift */,
+				218C6EAC2A9D967400F240D1 /* RETList.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		21E7E1742A9EDCC600884CA9 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				218C6EB22A9D9E6E00F240D1 /* RETListWrapper.swift */,
+				218C6EB42A9DA10000F240D1 /* RETTaskWrapper.swift */,
+				21E7E1712A9EDC7900884CA9 /* RETSystemListWrapper.swift */,
+			);
+			path = Wrappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,15 +276,22 @@
 				218C6EB32A9D9E6E00F240D1 /* RETListWrapper.swift in Sources */,
 				218C6EB52A9DA10000F240D1 /* RETTaskWrapper.swift in Sources */,
 				21C1D8F82A9CA77D004D1E64 /* HomeVM.swift in Sources */,
+				21E7E17E2A9EECAE00884CA9 /* ListDetailView.swift in Sources */,
 				21C1D8F22A9C956E004D1E64 /* AuthManager.swift in Sources */,
+				21E7E17C2A9EEB7200884CA9 /* SmartListDetailView.swift in Sources */,
 				21C1D8CB2A9C8A33004D1E64 /* ReTasksApp.swift in Sources */,
 				21C1D8E92A9C8E8B004D1E64 /* LoginView.swift in Sources */,
+				21E7E17A2A9EE66500884CA9 /* HomeListRowView.swift in Sources */,
+				21E7E1762A9EDD9D00884CA9 /* DatabaseManager.swift in Sources */,
 				21C1D8EF2A9C9314004D1E64 /* RegisterView.swift in Sources */,
 				218C6EAD2A9D967400F240D1 /* RETList.swift in Sources */,
+				21E7E1702A9EDAB100884CA9 /* RETSystemList.swift in Sources */,
 				21C1D8F42A9C97A3004D1E64 /* HomeView.swift in Sources */,
+				21E7E1722A9EDC7900884CA9 /* RETSystemListWrapper.swift in Sources */,
 				21C1D8ED2A9C91C2004D1E64 /* RegisterVM.swift in Sources */,
 				21C1D8F62A9C9B70004D1E64 /* RETUser.swift in Sources */,
 				21C1D8E72A9C8DAB004D1E64 /* LoginVM.swift in Sources */,
+				21E7E1782A9EE31500884CA9 /* HomeSystemListRowView.swift in Sources */,
 				218C6EB12A9D9DD100F240D1 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
