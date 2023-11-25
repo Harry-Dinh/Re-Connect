@@ -69,6 +69,7 @@ class SearchScreenVM: ObservableObject {
     }
     
     public func fetchUsers2(with searchQuery: String) {
+        print("fetchUsers2() called")
         self.usersSearchResult.removeAll()
         
         databaseUsersPath.queryOrdered(byChild: RECUser.Property.displayName).queryStarting(atValue: searchQuery).queryEnding(atValue: "\(searchQuery)\\uf8ff").observe(.value) { [weak self] snapshot in
