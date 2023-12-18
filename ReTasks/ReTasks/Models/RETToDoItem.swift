@@ -47,4 +47,40 @@ struct RETToDoItem: Identifiable {
         self.dueDate = nil
         self.parentID = nil
     }
+    
+    
+    /// Initialize a standard to do item (use this to **quickly add a task** into the inbox or a specified list)
+    init(name: String, isFlagged: Bool, remindDate: Date?, dueDate: Date?, parentID: String?) {
+        self.id = UUID().uuidString
+        self.name = name
+        self.notes = ""
+        self.isFlagged = isFlagged
+        self.remindDate = remindDate
+        self.dueDate = dueDate
+        self.parentID = parentID
+    }
+    
+    
+    /// Fully initialize a to do item (use this to **initialize existing to do items** fetched from the database)
+    init(id: String, name: String, notes: String, isFlagged: Bool, remindDate: Date?, dueDate: Date?, parentID: String?) {
+        self.id = id
+        self.name = name
+        self.notes = notes
+        self.isFlagged = isFlagged
+        self.remindDate = remindDate
+        self.dueDate = dueDate
+        self.parentID = parentID
+    }
+    
+    
+    // MARK: - PLACEHOLDER ITEM
+    
+    
+    public static let placeholder = RETToDoItem(id: "00010011",
+                                                name: "Generic Task",
+                                                notes: "Some generic description of this item.",
+                                                isFlagged: true,
+                                                remindDate: Date(),
+                                                dueDate: Date(),
+                                                parentID: nil)
 }

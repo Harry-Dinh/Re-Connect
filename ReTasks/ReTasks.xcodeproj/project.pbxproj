@@ -12,6 +12,7 @@
 		2107CCAB2B2F5BC400808106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107CCAA2B2F5BC400808106 /* Assets.xcassets */; };
 		2107CCAE2B2F5BC400808106 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2107CCAD2B2F5BC400808106 /* Preview Assets.xcassets */; };
 		2107CCB72B2F655E00808106 /* RETToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2107CCB62B2F655E00808106 /* RETToDoItem.swift */; };
+		2115C9D12B30EC6F008CC6EB /* RETList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2115C9D02B30EC6F008CC6EB /* RETList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		2107CCAA2B2F5BC400808106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2107CCAD2B2F5BC400808106 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2107CCB62B2F655E00808106 /* RETToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETToDoItem.swift; sourceTree = "<group>"; };
+		2115C9D02B30EC6F008CC6EB /* RETList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RETList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				2107CCB62B2F655E00808106 /* RETToDoItem.swift */,
+				2115C9D02B30EC6F008CC6EB /* RETList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				2107CCB72B2F655E00808106 /* RETToDoItem.swift in Sources */,
 				2107CCA92B2F5BC200808106 /* ContentView.swift in Sources */,
 				2107CCA72B2F5BC200808106 /* ReTasksApp.swift in Sources */,
+				2115C9D12B30EC6F008CC6EB /* RETList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
