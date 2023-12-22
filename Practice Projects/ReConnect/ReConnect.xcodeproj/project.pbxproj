@@ -75,6 +75,7 @@
 		21C781C12A405EB20019752F /* OtherUserProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C781C02A405EB20019752F /* OtherUserProfileScreen.swift */; };
 		21C781C32A4061B60019752F /* RECProfileActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C781C22A4061B60019752F /* RECProfileActionButton.swift */; };
 		21C781C52A417E090019752F /* NotificationsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C781C42A417E090019752F /* NotificationsScreen.swift */; };
+		21CDE11B2B34E54E0021CBBA /* RECNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CDE11A2B34E54E0021CBBA /* RECNotificationResponse.swift */; };
 		21D331152A3C12F400E6F786 /* SearchResultUserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D331142A3C12F400E6F786 /* SearchResultUserScreen.swift */; };
 		21D721712A57C95200873C4F /* FollowingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D721702A57C95100873C4F /* FollowingManager.swift */; };
 		21D721732A57CEE100873C4F /* RECNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D721722A57CEE100873C4F /* RECNotification.swift */; };
@@ -149,6 +150,7 @@
 		21C781C02A405EB20019752F /* OtherUserProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OtherUserProfileScreen.swift; path = "ReConnect/Views/Secondary Views/OtherUserProfileScreen.swift"; sourceTree = SOURCE_ROOT; };
 		21C781C22A4061B60019752F /* RECProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileActionButton.swift; sourceTree = "<group>"; };
 		21C781C42A417E090019752F /* NotificationsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsScreen.swift; sourceTree = "<group>"; };
+		21CDE11A2B34E54E0021CBBA /* RECNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECNotificationResponse.swift; sourceTree = "<group>"; };
 		21D331142A3C12F400E6F786 /* SearchResultUserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultUserScreen.swift; sourceTree = "<group>"; };
 		21D721702A57C95100873C4F /* FollowingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingManager.swift; sourceTree = "<group>"; };
 		21D721722A57CEE100873C4F /* RECNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECNotification.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				216C9FCF2A51482B0058155B /* RECUsersOptions.swift */,
 				21D721762A57D10F00873C4F /* RECNotificationTypes.swift */,
 				21D721782A57D27C00873C4F /* RECNotificationActions.swift */,
+				21CDE11A2B34E54E0021CBBA /* RECNotificationResponse.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				2122D7232A1CC6CD00005122 /* AccountSettingsScreen.swift in Sources */,
 				211463F12A21C0BA0092751F /* RECSubscriberIndicator.swift in Sources */,
 				214BC0A52A39B39900058B0E /* RECSearchResultUserRow.swift in Sources */,
+				21CDE11B2B34E54E0021CBBA /* RECNotificationResponse.swift in Sources */,
 				21985D2F2A625DA5000CFD2E /* RECThemeBackground.swift in Sources */,
 				219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */,
 				2123642A2A08F948005827D2 /* ReConnectApp.swift in Sources */,

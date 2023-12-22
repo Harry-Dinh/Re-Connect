@@ -43,6 +43,9 @@ struct RECNotification: Identifiable {
     ///The date and time that the notification was posted. The string value is derived from a `Date` object in Swift.
     var datePosted: String
     
+    /// An object that holds all attributes related to the notification type (i.e. **the other user's ID** if the notification type is **a follower request**)
+    var attributes: [String: Any]
+    
     /// An instance of the `DateFormatter` object that formats the date and time correctly for notifications.
     public static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -62,6 +65,7 @@ struct RECNotification: Identifiable {
         self.notificationType = RECNotificationTypes.generic
         self.actions = []
         self.datePosted = RECNotification.dateFormatter.string(from: Date())
+        self.attributes = [:]
     }
     
     /// Creates a notification with all fields initialized except for the unique ID.
@@ -73,10 +77,11 @@ struct RECNotification: Identifiable {
         self.notificationType = notificationType
         self.actions = actions
         self.datePosted = datePosted
+        self.attributes = [:]
     }
     
     /// Creates a notification with all fields initialized.
-    init(id: String, title: String, notificationDescription: String, iconURL: String, notificationType: String, actions: [String], datePosted: String) {
+    init(id: String, title: String, notificationDescription: String, iconURL: String, notificationType: String, actions: [String], datePosted: String, attributes: [String: Any]) {
         self.id = id
         self.title = title
         self.notificationDescription = notificationDescription
@@ -84,6 +89,7 @@ struct RECNotification: Identifiable {
         self.notificationType = notificationType
         self.actions = actions
         self.datePosted = datePosted
+        self.attributes = attributes
     }
     
     // MARK: - GENERIC OBJECT
@@ -95,5 +101,6 @@ struct RECNotification: Identifiable {
                                                     iconURL: CUPSystemIcon.settings,
                                                     notificationType: RECNotificationTypes.generic,
                                                     actions: [],
-                                                    datePosted: RECNotification.dateFormatter.string(from: Date()))
+                                                    datePosted: RECNotification.dateFormatter.string(from: Date()),
+                                                    attributes: [:])
 }

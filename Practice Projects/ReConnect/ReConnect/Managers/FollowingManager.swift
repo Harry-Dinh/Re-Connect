@@ -93,13 +93,71 @@ class FollowingManager: ObservableObject {
             return
         }
         
-        // Create and send a notification to the passed in user
-        let followRequestNotification = RECNotification(title: "New Follower Request",
+        // Create a follower request notification
+        var followRequestNotification = RECNotification(title: "New Follower Request",
                                                         notificationDescription: "\(currentUser.displayName) has requested to follow you",
                                                         iconURL: CUPSystemIcon.userRequestAction,
                                                         notificationType: RECNotificationTypes.followerRequest,
                                                         actions: [RECNotificationActions.respondFollowerRequest, RECNotificationActions.rejectFollowerRequest],
                                                         datePosted: DateFormatter().string(from: Date()))
+        
+        // Adding the current user (now other user) ID into the notification's attributes
+        followRequestNotification.attributes = [
+            "otherUserID": loginVM.currentUser?.firebaseUID ?? RECUser.placeholderUser.firebaseUID
+        ]
+        
+        // Send the follower request notification to the other user
         notificationManager.send(followRequestNotification, to: user)
+    }
+    
+    
+    /// A function that sends a signal to the database that either accept or reject a following request. The decision is based on the `response` variable and the signal is sent to the user with the ID from `user`.
+    /// - Parameters:
+    ///   - otherUser: The user object whose ID will be used to send the signal to
+    ///   - response: The response that will be used to decide what type of signal to send (accept or decline)
+    public func respondToFollowRequest(otherUser: RECUser, response: RECNotificationResponse) {
+        // Decide which type of response should be sent
+        if response == .acceptFollowerRequest {
+            // Send a response that accept the follower request
+        } else {
+            // Send a response that reject the follower request
+            /*
+             1. Send a notification to the other user telling them that the sender has declined their request
+             2. Delete the old following request notification on the sender's end
+             */
+            
+            // Create a notification and send it to the other user's notification feed
+            // Note: In the future, find a way to convert a date object into String
+            let declineNotification = RECNotification(title: "Follower Request Declined",
+                                                      notificationDescription: "\(loginVM.currentUser?.displayName ?? RECUser.placeholderUser.displayName) has declined your follow request",
+                                                      iconURL: CUPSystemIcon.userRequestAction,
+                                                      notificationType: RECNotificationTypes.generic,
+                                                      actions: [],
+                                                      datePosted: DateFormatter().string(from: Date()))
+            notificationManager.send(declineNotification, to: otherUser)
+            
+            // Find a way to attach the other user ID to the notification (search through the entire notification list to find the one notification with the other user's ID?)
+        }
+    }
+    
+    
+    /// Check the database to see if there is a follower request notification already. If it does, then blur out the follow button. Don't blur otherwise.
+    /// - Parameter otherUser: The other user whose ID will be used as the path to find the request notification
+    /// - Returns: `true` if there's a notification, `false` otherwise
+    public func hasRequested(otherUser: RECUser) -> Bool {
+        // This path will take us inside the RECNotifications path, under the user ID but not inside any of the notification
+        databaseRef.child(RECDatabaseParentPath.usersNotifications).child(otherUser.firebaseUID).getData { error, snapshot in
+            // Upwrap the error and snapshot
+            // The notification snapshot will now contain the JSON structure of each notification node
+            guard let notificationSnapshot = snapshot?.value as? [String: Any], error == nil else {
+                return
+            }
+            
+            let notificationValues = notificationSnapshot.values
+            
+            
+        }
+        
+        return false
     }
 }

@@ -13,6 +13,8 @@ struct OtherUserProfileScreen: View {
     @ObservedObject private var followingManager = FollowingManager.shared
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     
+    @State private var hasRequested = false
+    
     var body: some View {
         ScrollView {
             RECOtherUserHeader(userInfo: userInfo)
@@ -91,6 +93,9 @@ struct OtherUserProfileScreen: View {
                         .symbolVariant(.circle)
                 }
             }
+        }
+        .onAppear {
+            hasRequested = followingManager.hasRequested(otherUser: userInfo.user)
         }
     }
 }

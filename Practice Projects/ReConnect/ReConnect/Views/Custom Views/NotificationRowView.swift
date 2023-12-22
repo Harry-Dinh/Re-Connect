@@ -22,6 +22,17 @@ struct NotificationRowView: View {
                 Text(notificationInfo.notification.notificationDescription)
                     .foregroundColor(.secondary)
                     .lineLimit(2)
+                
+                // Show the accept and decline follower request buttons if the notification type is a follower request
+                if notificationInfo.notification.notificationType == RECNotificationTypes.followerRequest {
+                    HStack {
+                        Button("Accept") {}
+                            .buttonStyle(.borderedProminent)
+                        
+                        Button("Decline") {}
+                            .buttonStyle(.bordered)
+                    }
+                }
             }
         }
     }

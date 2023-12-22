@@ -23,7 +23,8 @@ class NotificationManager: ObservableObject {
             "iconURL": notification.iconURL,
             "notificationType": notification.notificationType,
             "actions": notification.actions,
-            "datePosted": notification.datePosted
+            "datePosted": notification.datePosted,
+            "attributes": notification.attributes
         ]
         
         notificationDatabasePath.child(user.getFirebaseUID()).child(notification.id).setValue(notificationData)
