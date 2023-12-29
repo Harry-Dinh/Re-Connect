@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct ReTasksApp: App {
     
     @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
     @AppStorage("deviceID") private var deviceID: String = ""
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {

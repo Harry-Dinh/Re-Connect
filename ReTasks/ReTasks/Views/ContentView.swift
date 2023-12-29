@@ -8,23 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("isSignedIn") var isSignedIn = false
+    
     var body: some View {
-        NavigationStack {
-            List {
-                
-            }
-            .navigationTitle("Re:Tasks")
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Button("New List") {}
-                    Button("New Task") {}
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    EditButton()
-                        .fontWeight(.semibold)
-                }
-            }
+        if !isSignedIn {
+            LoginScreen()
         }
     }
 }
