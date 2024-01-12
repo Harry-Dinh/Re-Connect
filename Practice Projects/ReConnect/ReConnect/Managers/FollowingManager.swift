@@ -149,13 +149,13 @@ class FollowingManager: ObservableObject {
         databaseRef.child(RECDatabaseParentPath.usersNotifications).child(otherUser.firebaseUID).getData { error, snapshot in
             // Upwrap the error and snapshot
             // The notification snapshot will now contain the JSON structure of each notification node
-            guard let notificationSnapshot = snapshot?.value as? [String: Any], error == nil else {
+            guard let notifications = snapshot?.value as? NSDictionary, error == nil else {
                 return
             }
             
-            let notificationValues = notificationSnapshot.values
-            
-            
+            for notification in notifications {
+                print(notification)
+            }
         }
         
         return false

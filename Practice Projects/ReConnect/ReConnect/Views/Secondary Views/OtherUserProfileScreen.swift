@@ -20,7 +20,8 @@ struct OtherUserProfileScreen: View {
             RECOtherUserHeader(userInfo: userInfo)
             
             HStack {
-                if !loginVM.currentUser!.followings.contains(userInfo.user) {
+                if !hasRequested {
+                    // FOLLOW BUTTON
                     Button(action: {
                         if userInfo.user.isProtectedAccount {
                             followingManager.requestToFollow(userInfo.user)
@@ -33,6 +34,7 @@ struct OtherUserProfileScreen: View {
                     }
                     .buttonStyle(.borderedProminent)
                 } else {
+                    // UNFOLLOW BUTTON
                     Button(action: {}) {
                         Text("Unfollow")
                             .frame(maxWidth: .infinity)
