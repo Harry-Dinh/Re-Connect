@@ -9,10 +9,14 @@ This repository was previously home to many other projects besides Re:Connect. T
 Re:Connect (pronounced "reconnect") is a social media application similar to X (Twitter) but it focuses more on keeping users safe online. It has a native iOS user interface that feels right at home for Apple users and an incredible user experience that feels delightful to use.
 
 ### Re:Connect (iOS)
-This is the original version of Re:Connect written for iOS. It was built entirely using SwiftUI and with modification can be optimized for the iPad interface, as well as reusing the same code to port the app to macOS.
+- **Repository path:** `Practice Projects/ReConnect`
+- **Code name:** `Re:Connect (iOS)`
+This is the original version of Re:Connect written for iOS. It was built entirely using SwiftUI and with modification can be optimized for the iPad interface, as well as reusing the same code to port the app to macOS. *Note that this project maybe retired sometimes in the future to prioritize the cross-platform version.*
 
-### Re:Connect (Cross-platform)
-This version of Re:Connect is still being planned. The purpose and functionality of this app remains identical to its iOS counterpart. The only difference is that this app will be built with Flutter instead of SwiftUI, allowing it to be run on Android rather than exclusive to iOS.
+### Re:Connect (Mobile)
+- **Repository path:** `ReConnect_Uni`
+- **Code name:**: `Re:Connect (Uni_Mobile)`
+This version of Re:Connect is still being planned. The purpose and functionality of this app remains identical to its iOS counterpart. The only difference is that this app will be built with Flutter instead of SwiftUI, allowing it to be run both on Android and iOS rather than exclusive to iOS.
 
 ## 🛜 Backend Management
 Both the iOS and future cross platform app use Google Firebase for database and authentication support on the backend.
