@@ -16,9 +16,9 @@
 		211463F12A21C0BA0092751F /* RECSubscriberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211463F02A21C0BA0092751F /* RECSubscriberIndicator.swift */; };
 		211463F32A21C2B00092751F /* RECProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211463F22A21C2B00092751F /* RECProfileHeader.swift */; };
 		211463F52A21C35F0092751F /* RECProfileInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211463F42A21C35F0092751F /* RECProfileInfoSheet.swift */; };
+		211A07B42B9A6E4E002AC364 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A07B32B9A6E4E002AC364 /* CustomEmptyView.swift */; };
 		2122D7172A1CBB3700005122 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D7162A1CBB3700005122 /* ProfileScreen.swift */; };
 		2122D71B2A1CC13500005122 /* AppSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */; };
-		2122D71D2A1CC26800005122 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D71C2A1CC26800005122 /* CustomEmptyView.swift */; };
 		2122D71F2A1CC29700005122 /* AppSettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D71E2A1CC29700005122 /* AppSettingsVM.swift */; };
 		2122D7232A1CC6CD00005122 /* AccountSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D7222A1CC6CD00005122 /* AccountSettingsScreen.swift */; };
 		2122D7252A1CC73600005122 /* RECDisplayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D7242A1CC73600005122 /* RECDisplayLabel.swift */; };
@@ -95,9 +95,9 @@
 		211463F02A21C0BA0092751F /* RECSubscriberIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECSubscriberIndicator.swift; sourceTree = "<group>"; };
 		211463F22A21C2B00092751F /* RECProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileHeader.swift; sourceTree = "<group>"; };
 		211463F42A21C35F0092751F /* RECProfileInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileInfoSheet.swift; sourceTree = "<group>"; };
+		211A07B32B9A6E4E002AC364 /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
 		2122D7162A1CBB3700005122 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsScreen.swift; sourceTree = "<group>"; };
-		2122D71C2A1CC26800005122 /* CustomEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomEmptyView.swift; path = "../../../../../Dice Roller/Dice Roller/CustomEmptyView.swift"; sourceTree = "<group>"; };
 		2122D71E2A1CC29700005122 /* AppSettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsVM.swift; sourceTree = "<group>"; };
 		2122D7222A1CC6CD00005122 /* AccountSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsScreen.swift; sourceTree = "<group>"; };
 		2122D7242A1CC73600005122 /* RECDisplayLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECDisplayLabel.swift; sourceTree = "<group>"; };
@@ -241,7 +241,6 @@
 		212364392A08FAFF005827D2 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				2122D71C2A1CC26800005122 /* CustomEmptyView.swift */,
 				2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */,
 				21A765472A0A06AB00761219 /* RECMenuListRow.swift */,
 				21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */,
@@ -260,6 +259,7 @@
 				21985D2E2A625DA5000CFD2E /* RECThemeBackground.swift */,
 				210E732A2A62A4E700FB339D /* NotificationRowView.swift */,
 				21137C052A7528E40083C843 /* RECNavButton.swift */,
+				211A07B32B9A6E4E002AC364 /* CustomEmptyView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -481,13 +481,13 @@
 				21A765462A0A060900761219 /* MenuScreenVM.swift in Sources */,
 				21599B5A2A762A120076AEFF /* DatabaseManager.swift in Sources */,
 				210E73232A629E0500FB339D /* GeneralSettingsScreen.swift in Sources */,
-				2122D71D2A1CC26800005122 /* CustomEmptyView.swift in Sources */,
 				2122D7252A1CC73600005122 /* RECDisplayLabel.swift in Sources */,
 				210E73252A629E1200FB339D /* AppearanceSettingsVM.swift in Sources */,
 				219CD59A2A0B80170061B04E /* RegisterScreenVM.swift in Sources */,
 				2122D71F2A1CC29700005122 /* AppSettingsVM.swift in Sources */,
 				21585E522A639E200031CC60 /* FollowerScreen.swift in Sources */,
 				214BC0A32A39A29700058B0E /* RECProfileBackground.swift in Sources */,
+				211A07B42B9A6E4E002AC364 /* CustomEmptyView.swift in Sources */,
 				213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */,
 				2123642C2A08F948005827D2 /* ContentView.swift in Sources */,
 				219CD5982A0B7EDD0061B04E /* RegisterScreen.swift in Sources */,
