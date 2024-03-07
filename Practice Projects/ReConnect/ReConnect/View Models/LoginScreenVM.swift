@@ -77,12 +77,14 @@ class LoginScreenVM: ObservableObject {
     public func login(with email: String, and password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let result = authResult, error == nil else {
+                print("LoginScreenVM--Failed to sign in user (the alert should show up...)")
                 self?.failedToSignInUser.toggle()
                 return
             }
             
             let firebaseUID = result.user.uid
             self?.fetchUserDataFromDatabase(with: firebaseUID)
+            print("LoginScreenVM--Successfully signed in user")
         }
     }
     
@@ -91,6 +93,7 @@ class LoginScreenVM: ObservableObject {
     public func fetchUserDataFromDatabase(with uid: String) {
         databaseReference.child(RECDatabaseParentPath.users).child(uid).getData { [weak self] error, snapshot in
             guard let value = snapshot?.value as? NSDictionary, error == nil else {
+                print("LoginScreenVM--Failed to fetch user data")
                 self?.failedToFetchUserData.toggle()
                 return
             }
@@ -128,6 +131,7 @@ class LoginScreenVM: ObservableObject {
             self?.cacheLoggedInUser()
             EditProfileScreenVM.viewModel.fetchProfileCustomizationData(from: self?.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
             self?.isSignedIn = true
+            print("LoginScreenVM--Successfully fetched user data")
         }
     }
     
