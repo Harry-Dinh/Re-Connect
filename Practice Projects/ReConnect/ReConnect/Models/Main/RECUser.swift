@@ -172,21 +172,33 @@ struct RECUser: Codable, Equatable {
     
     // MARK: - OTHER OBJECT METHODS
     
-    /// Convert the user's data to a dictionary (JSON) format to store in Firebase Database.
+    /// Convert the user's data to a dictionary (JSON) format to store the full user object in Firebase Database.
     public func toDictionary() -> [String: Any] {
         let dictionaryData: [String: Any] = [
-            RECUser.Property.uid: self.uid,
-            RECUser.Property.displayName: self.displayName,
-            RECUser.Property.username: self.username,
-            RECUser.Property.pfpURL: self.pfpURL ?? "",
-            RECUser.Property.age: self.age,
-            RECUser.Property.isProtectedAccount: self.isProtectedAccount,
-            RECUser.Property.firebaseUID: self.firebaseUID,
-            RECUser.Property.isVerified: self.isVerifiedUser,
-            RECUser.Property.followingCount: self.followingCount,
-            RECUser.Property.followerCount: self.followerCount,
-            RECUser.Property.followers: self.followers,
-            RECUser.Property.followings: self.followings
+            "\(RECUser.Property.uid)": self.uid,
+            "\(RECUser.Property.displayName)": self.displayName,
+            "\(RECUser.Property.username)": self.username,
+            "\(RECUser.Property.pfpURL)": self.pfpURL ?? "",
+            "\(RECUser.Property.age)": self.age,
+            "\(RECUser.Property.isProtectedAccount)": self.isProtectedAccount,
+            "\(RECUser.Property.firebaseUID)": self.firebaseUID,
+            "\(RECUser.Property.isVerified)": self.isVerifiedUser,
+            "\(RECUser.Property.followingCount)": self.followingCount,
+            "\(RECUser.Property.followerCount)": self.followerCount,
+            "\(RECUser.Property.followers)": self.followers,
+            "\(RECUser.Property.followings)": self.followings
+        ]
+        return dictionaryData
+    }
+    
+    /// Convert some of the user's data into a dictionary (JSON) format to store under the followings/followers node in Firebase Database.
+    public func toOptimizedDict() -> [String: Any] {
+        let dictionaryData: [String: Any] = [
+            "\(RECUser.Property.firebaseUID)": self.firebaseUID,
+            "\(RECUser.Property.displayName)": self.displayName,
+            "\(RECUser.Property.username)": self.username,
+            "\(RECUser.Property.isVerified)": self.isVerifiedUser,
+            "\(RECUser.Property.pfpURL)": self.pfpURL ?? ""
         ]
         return dictionaryData
     }

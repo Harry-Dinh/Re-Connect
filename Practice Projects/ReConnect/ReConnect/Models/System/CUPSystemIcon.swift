@@ -91,4 +91,6 @@ class CUPSystemIcon {
     public static let hammer = "hammer"
     
     public static let privacySecurityIcon = "hand.raised"
+    
+    public static let home = "house"
 }

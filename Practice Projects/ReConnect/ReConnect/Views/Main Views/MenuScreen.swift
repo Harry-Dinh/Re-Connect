@@ -33,12 +33,12 @@ struct MenuScreen: View {
                     }
                 }
                 
-                Section {
+                Section("Application") {
                     NavigationLink(destination: AppSettingsScreen.init) {
                         RECMenuListRow(rowItem: viewModel.applicationSectionItems[0])
                     }
                     
-                    RECMenuListRow(rowItem: RECListRowItem(label: "Feedback & Support", iconStr: "questionmark.bubble", tintColor: .secondary))
+                    RECMenuListRow(rowItem: RECListRowItem(label: "Support & Feedback", iconStr: "questionmark.bubble", tintColor: .secondary))
                     
                     RECMenuListRow(rowItem: RECListRowItem(label: "About Re:Connect", iconStr: "info.circle", tintColor: .secondary))
                 }

@@ -28,15 +28,22 @@ class FollowingManager: ObservableObject {
     public func addUserToFollowingList(_ user: RECUser) {
         // Add the following user to the local followings array
         loginVM.currentUser?.followings.append(user)
+        loginVM.currentUser?.followingCount += 1
         
         // Get a reference to the current user? Not sure why I did this before, maybe to prevent some sort of Swift's optional unwrapping issue?
-        guard let currentUser = loginVM.currentUser else {
+        guard var currentUser = loginVM.currentUser else {
             return
         }
         
         // Turn the passed in user data into JSON and update the followings array on the database
-        let otherUserJSONData: [String: Any] = user.toDictionary()
+        let otherUserJSONData: [String: Any] = user.toOptimizedDict()
         databaseRef.child(RECDatabaseParentPath.users).child(currentUser.firebaseUID).child(RECUser.Property.followings).updateChildValues(otherUserJSONData)
+        
+        // Update the follow count
+        let updatedFollowCount: [String: Any] = [
+            "\(RECUser.Property.followingCount)": currentUser.followingCount
+        ]
+        databaseRef.child(RECDatabaseParentPath.users).child(currentUser.firebaseUID).updateChildValues(updatedFollowCount)
     }
     
     
@@ -52,10 +59,17 @@ class FollowingManager: ObservableObject {
         // Not sure if this step is necessary since you can reload the view afterward...
         var otherUser = user
         otherUser.followers.append(currentUser)
+        otherUser.followerCount += 1
         
-        // Turn the current user's data into JSON and update the other user's database entry
-        let currentUserJSONData: [String: Any] = currentUser.toDictionary()
+        // Turn the current user's data into JSON and update the other user's database entry (for followers)
+        let currentUserJSONData: [String: Any] = currentUser.toOptimizedDict()
         databaseRef.child(RECDatabaseParentPath.users).child(otherUser.firebaseUID).child(RECUser.Property.followers).updateChildValues(currentUserJSONData)
+        
+        // Second database update to update the follow count
+        let updatedFollowCount: [String: Any] = [
+            "\(RECUser.Property.followerCount)": otherUser.followerCount
+        ]
+        databaseRef.child(RECDatabaseParentPath.users).child(otherUser.firebaseUID).updateChildValues(updatedFollowCount)
     }
     
     

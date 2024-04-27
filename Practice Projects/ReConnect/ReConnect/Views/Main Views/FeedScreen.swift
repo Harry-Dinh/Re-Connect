@@ -15,14 +15,15 @@ struct FeedScreen: View {
     var body: some View {
         NavigationView {
             ZStack {
-                if appearanceSettingsVM.useThemeBackground {
-                    RECThemeBackground()
-                }
+                // Codes for the theme background (will be permanently removed in the future)
+//                if appearanceSettingsVM.useThemeBackground {
+//                    RECThemeBackground()
+//                }
                 
                 List {
-                    
+                    // Posts from followers goes here...
                 }
-                .navigationTitle("Re:Connect Feed")
+                .navigationTitle("Re:Connect")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -31,13 +32,11 @@ struct FeedScreen: View {
                         }
                     }
                     
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: NotificationsScreen.init) {
-                            Image(systemName: CUPSystemIcon.notification)
-                        }
-                        
+                    ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: {}) {
                             Image(systemName: CUPSystemIcon.add)
+                                .symbolVariant(.circle)
+                                .symbolVariant(.fill)
                         }
                     }
                 }

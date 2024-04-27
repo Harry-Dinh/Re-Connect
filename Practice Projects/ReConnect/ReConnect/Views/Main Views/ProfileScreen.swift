@@ -17,9 +17,10 @@ struct ProfileScreen: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                if appearanceSettingsVM.useThemeBackground {
-                    RECThemeBackground()
-                }
+                // Codes for the theme background (will be permanently removed in the future)
+//                if appearanceSettingsVM.useThemeBackground {
+//                    RECThemeBackground()
+//                }
                 
                 ScrollView {
                     RECProfileHeader(userInfo: RECUserWrapper(loginVM.currentUser ?? RECUser.placeholderUser))
@@ -43,8 +44,12 @@ struct ProfileScreen: View {
                         .padding(.horizontal)
                 }
                 .toolbar {
+                    // Note to self: Change all RECNavButtons back to standard push buttons following the removal of the theme background feature!
+                    
                     ToolbarItem(placement: .navigationBarLeading) {
                         RECNavButton(iconName: CUPSystemIcon.qrcode, action: {})
+                            .symbolVariant(.circle)
+                            .symbolVariant(.fill)
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
