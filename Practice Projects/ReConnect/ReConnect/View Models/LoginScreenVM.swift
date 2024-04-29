@@ -105,8 +105,8 @@ class LoginScreenVM: ObservableObject {
             let email = value[RECUser.Property.emailAddress] as? String ?? RECUser.placeholderUser.emailAddress
             let followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
             let followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount
-            let followersUIDs = value[RECUser.Property.followers] as? [RECUser] ?? RECUser.placeholderUser.followers
-            let followingsUIDs = value[RECUser.Property.followings] as? [RECUser] ?? RECUser.placeholderUser.followings
+            let followers = value[RECUser.Property.followers] as? [String: [String: Any]] ?? [:]
+            let followings = value[RECUser.Property.followings] as? [String: [String: Any]] ?? [:]
             let isProtectedAccount = value[RECUser.Property.isProtectedAccount] as? Bool ?? RECUser.placeholderUser.isProtectedAccount
             let reconnectUID = value[RECUser.Property.uid] as? String ?? RECUser.placeholderUser.getUID()
             let username = value[RECUser.Property.username] as? String ?? RECUser.placeholderUser.username
@@ -121,10 +121,63 @@ class LoginScreenVM: ObservableObject {
                                          age: age,
                                          isProtectedAccount: isProtectedAccount)
             
+            // Convert followings arrays into RECUsers array
+            if !followings.isEmpty {
+                for (_, userDict) in followings {
+                    var followingUser = RECOptimizedUser()
+                    for (key, value) in userDict {
+                        switch (key) {
+                        case RECUser.Property.displayName:
+                            followingUser.displayName = value as? String ?? RECUser.placeholderUser.displayName
+                        case RECUser.Property.firebaseUID:
+                            followingUser.firebaseUID = value as? String ?? RECUser.placeholderUser.firebaseUID
+                        case RECUser.Property.isVerified:
+                            followingUser.isVerified = value as? Bool ?? RECUser.placeholderUser.isVerifiedUser
+                        case RECUser.Property.username:
+                            followingUser.username = value as? String ?? RECUser.placeholderUser.username
+                        case RECUser.Property.pfpURL:
+                            followingUser.pfpURL = value as? String ?? ""
+                        default:
+                            print("An error occurred when trying to parse one of the fields for the dummy user")
+                        }
+                    }
+                    // Convert to RECUser then append to the following array
+                    let recuser = RECUser(followingUser)
+                    print("FOLLOWINGS--\(recuser)")
+                    self?.currentUser?.appendFollowing(recuser)
+                }
+            }
+            
+            // Convert followers arrays into RECUsers array
+            if !followers.isEmpty {
+                for (_, userDict) in followers {
+                    var followingUser = RECOptimizedUser()
+                    for (key, value) in userDict {
+                        switch (key) {
+                        case RECUser.Property.displayName:
+                            followingUser.displayName = value as? String ?? RECUser.placeholderUser.displayName
+                        case RECUser.Property.firebaseUID:
+                            followingUser.firebaseUID = value as? String ?? RECUser.placeholderUser.firebaseUID
+                        case RECUser.Property.isVerified:
+                            followingUser.isVerified = value as? Bool ?? RECUser.placeholderUser.isVerifiedUser
+                        case RECUser.Property.username:
+                            followingUser.username = value as? String ?? RECUser.placeholderUser.username
+                        case RECUser.Property.pfpURL:
+                            followingUser.pfpURL = value as? String ?? ""
+                        default:
+                            print("An error occurred when trying to parse one of the fields for the dummy user")
+                        }
+                    }
+                    
+                    // Convert to RECUser then append to the following array
+                    let recuser = RECUser(followingUser)
+                    print("FOLLOWERS--\(recuser)")
+                    self?.currentUser?.appendFollower(recuser)
+                }
+            }
+            
             self?.currentUser?.followerCount = followerCount
             self?.currentUser?.followingCount = followingCount
-            self?.currentUser?.followings = followingsUIDs
-            self?.currentUser?.followers = followersUIDs
             
             // Cache loggedInUser
             
@@ -132,6 +185,7 @@ class LoginScreenVM: ObservableObject {
             EditProfileScreenVM.viewModel.fetchProfileCustomizationData(from: self?.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
             self?.isSignedIn = true
             print("LoginScreenVM--Successfully fetched user data")
+//            print(self?.currentUser ?? RECUser.placeholderUser)
         }
     }
     

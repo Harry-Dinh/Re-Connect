@@ -26,13 +26,13 @@ struct ProfileScreen: View {
                     RECProfileHeader(userInfo: RECUserWrapper(loginVM.currentUser ?? RECUser.placeholderUser))
                     
                     HStack {
-                        RECSubscriberIndicator(subscriberCount: loginVM.currentUser?.followers.count ?? RECUser.placeholderUser.followers.count,
+                        RECSubscriberIndicator(subscriberCount: loginVM.currentUser?.followerCount ?? -1,
                                                subscriberType: .follower)
                         .onTapGesture {
                             viewModel.showFollowerScreen.toggle()
                         }
                         
-                        RECSubscriberIndicator(subscriberCount: loginVM.currentUser?.followings.count ?? RECUser.placeholderUser.followings.count,
+                        RECSubscriberIndicator(subscriberCount: loginVM.currentUser?.followingCount ?? -1,
                                                subscriberType: .following)
                         .onTapGesture {
                             viewModel.showFollowingScreen.toggle()

@@ -16,7 +16,13 @@ struct FollowerScreen: View {
         NavigationStack {
             List {
                 ForEach(userInfo.user.followers, id: \.firebaseUID) { user in
-                    Text(user.firebaseUID)
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(user.displayName)
+                            .font(.headline)
+                        Text(user.username)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
             .navigationTitle("Followers")

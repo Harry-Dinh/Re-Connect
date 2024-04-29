@@ -139,6 +139,23 @@ struct RECUser: Codable, Equatable {
         self.isVerifiedUser = false
     }
     
+    init(_ dummyUser: RECOptimizedUser) {
+        self.firebaseUID = dummyUser.firebaseUID
+        self.displayName = dummyUser.displayName
+        self.isVerifiedUser = dummyUser.isVerified
+        self.username = dummyUser.username
+        self.pfpURL = dummyUser.pfpURL
+        
+        self.uid = UUID().uuidString
+        self.age = -1
+        self.isProtectedAccount = false
+        self.followers = []
+        self.followings = []
+        self.followerCount = -1
+        self.followingCount = -1
+        self.emailAddress = ""
+    }
+    
     // MARK: - FUNCTIONS
     
     /// Securely return the unique identifier of this user without having to call `user.uid` directly.
@@ -158,7 +175,7 @@ struct RECUser: Codable, Equatable {
     }
     
     public mutating func appendFollowing(_ user: RECUser) {
-        self.followers.append(user)
+        self.followings.append(user)
     }
     
     public mutating func setVerification(_ isVerified: Bool) {
@@ -175,18 +192,20 @@ struct RECUser: Codable, Equatable {
     /// Convert the user's data to a dictionary (JSON) format to store the full user object in Firebase Database.
     public func toDictionary() -> [String: Any] {
         let dictionaryData: [String: Any] = [
-            "\(RECUser.Property.uid)": self.uid,
-            "\(RECUser.Property.displayName)": self.displayName,
-            "\(RECUser.Property.username)": self.username,
-            "\(RECUser.Property.pfpURL)": self.pfpURL ?? "",
-            "\(RECUser.Property.age)": self.age,
-            "\(RECUser.Property.isProtectedAccount)": self.isProtectedAccount,
-            "\(RECUser.Property.firebaseUID)": self.firebaseUID,
-            "\(RECUser.Property.isVerified)": self.isVerifiedUser,
-            "\(RECUser.Property.followingCount)": self.followingCount,
-            "\(RECUser.Property.followerCount)": self.followerCount,
-            "\(RECUser.Property.followers)": self.followers,
-            "\(RECUser.Property.followings)": self.followings
+            "\(self.firebaseUID)": [
+                "\(RECUser.Property.uid)": self.uid,
+                "\(RECUser.Property.displayName)": self.displayName,
+                "\(RECUser.Property.username)": self.username,
+                "\(RECUser.Property.pfpURL)": self.pfpURL ?? "",
+                "\(RECUser.Property.age)": self.age,
+                "\(RECUser.Property.isProtectedAccount)": self.isProtectedAccount,
+                "\(RECUser.Property.firebaseUID)": self.firebaseUID,
+                "\(RECUser.Property.isVerified)": self.isVerifiedUser,
+                "\(RECUser.Property.followingCount)": self.followingCount,
+                "\(RECUser.Property.followerCount)": self.followerCount,
+                "\(RECUser.Property.followers)": self.followers,
+                "\(RECUser.Property.followings)": self.followings
+            ]
         ]
         return dictionaryData
     }
@@ -194,11 +213,13 @@ struct RECUser: Codable, Equatable {
     /// Convert some of the user's data into a dictionary (JSON) format to store under the followings/followers node in Firebase Database.
     public func toOptimizedDict() -> [String: Any] {
         let dictionaryData: [String: Any] = [
-            "\(RECUser.Property.firebaseUID)": self.firebaseUID,
-            "\(RECUser.Property.displayName)": self.displayName,
-            "\(RECUser.Property.username)": self.username,
-            "\(RECUser.Property.isVerified)": self.isVerifiedUser,
-            "\(RECUser.Property.pfpURL)": self.pfpURL ?? ""
+            "\(self.firebaseUID)": [
+                "\(RECUser.Property.firebaseUID)": self.firebaseUID,
+                "\(RECUser.Property.displayName)": self.displayName,
+                "\(RECUser.Property.username)": self.username,
+                "\(RECUser.Property.isVerified)": self.isVerifiedUser,
+                "\(RECUser.Property.pfpURL)": self.pfpURL ?? ""
+            ]
         ]
         return dictionaryData
     }
