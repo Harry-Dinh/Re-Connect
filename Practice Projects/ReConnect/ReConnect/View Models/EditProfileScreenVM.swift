@@ -25,6 +25,17 @@ class EditProfileScreenVM: ObservableObject {
     /// A `RECUser` object temporarily created for editing and is deleted of all values when changes are saved to the database.
     public var tempUser: RECUser = RECUser()
     
+    /// The character limit for the user's display name
+    public let DISPLAY_NAME_MAX = 50
+    
+    public let DISPLAY_NAME_MIN = 1
+    
+    /// The character limit for the user's username
+    public let USERNAME_MAX = 15
+    
+    /// The minimum number of characters for the user's username
+    public let USERNAME_MIN = 4
+    
     // MARK: - SWIFTUI VIEWS PROPERTIES
     
     @ObservedObject private var loginVM = LoginScreenVM.viewModel

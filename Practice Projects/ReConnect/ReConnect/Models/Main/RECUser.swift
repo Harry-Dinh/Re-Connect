@@ -55,10 +55,10 @@ struct RECUser: Codable, Equatable {
     var isProtectedAccount: Bool
     
     /// The people who followed this user.
-    var followers: [RECUser]
+    var followers: [String]
     
     /// The people this user follow.
-    var followings: [RECUser]
+    var followings: [String]
     
     /// The number of people who followed this user.
     var followerCount: Int
@@ -170,11 +170,11 @@ struct RECUser: Codable, Equatable {
         return self.firebaseUID
     }
     
-    public mutating func appendFollower(_ user: RECUser) {
+    public mutating func appendFollower(_ user: String) {
         self.followers.append(user)
     }
     
-    public mutating func appendFollowing(_ user: RECUser) {
+    public mutating func appendFollowing(_ user: String) {
         self.followings.append(user)
     }
     

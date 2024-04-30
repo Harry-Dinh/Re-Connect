@@ -12,21 +12,26 @@ struct OtherUserProfileScreen: View {
     @ObservedObject var userInfo: RECUserWrapper
     @ObservedObject private var followingManager = FollowingManager.shared
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var followVM = FollowScreenVM.viewModel
     
-    @State private var hasRequested = false
+    @State private var alreadyFollowed = false
     
     var body: some View {
         ScrollView {
             RECOtherUserHeader(userInfo: userInfo)
             
             HStack {
-                if !hasRequested {
+                if !alreadyFollowed {
                     // FOLLOW BUTTON
                     Button(action: {
                         if userInfo.user.isProtectedAccount {
                             followingManager.requestToFollow(userInfo.user)
                         } else {
+                            // Follow the user and fetch the information (to update the UI) all at once
                             followingManager.follow(userInfo.user)
+                            alreadyFollowed = followingManager.alreadyFollowed(userInfo.user)
+                            followVM.fetchFollowers()
+                            followVM.fetchFollowings()
                         }
                     }) {
                         Label("Follow", systemImage: userInfo.user.isProtectedAccount ? CUPSystemIcon.userRequestAction : CUPSystemIcon.add)
@@ -35,7 +40,9 @@ struct OtherUserProfileScreen: View {
                     .buttonStyle(.borderedProminent)
                 } else {
                     // UNFOLLOW BUTTON
-                    Button(action: {}) {
+                    Button(action: {
+                        // Unfollow button action here! Create an unfollow method in the FollowingManager
+                    }) {
                         Text("Unfollow")
                             .frame(maxWidth: .infinity)
                     }
@@ -51,10 +58,10 @@ struct OtherUserProfileScreen: View {
             .padding(.horizontal)
             
             HStack {
-                RECSubscriberIndicator(subscriberCount: userInfo.user.followers.count,
+                RECSubscriberIndicator(subscriberCount: userInfo.user.followerCount,
                                        subscriberType: .follower)
                 
-                RECSubscriberIndicator(subscriberCount: userInfo.user.followings.count,
+                RECSubscriberIndicator(subscriberCount: userInfo.user.followingCount,
                                        subscriberType: .following)
             }
             .padding(.horizontal)
@@ -97,7 +104,7 @@ struct OtherUserProfileScreen: View {
             }
         }
         .onAppear {
-            hasRequested = followingManager.hasRequested(otherUser: userInfo.user)
+            alreadyFollowed = followingManager.alreadyFollowed(userInfo.user)
         }
     }
 }

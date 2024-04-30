@@ -17,6 +17,7 @@
 		211463F32A21C2B00092751F /* RECProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211463F22A21C2B00092751F /* RECProfileHeader.swift */; };
 		211463F52A21C35F0092751F /* RECProfileInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211463F42A21C35F0092751F /* RECProfileInfoSheet.swift */; };
 		211A07B42B9A6E4E002AC364 /* CustomEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A07B32B9A6E4E002AC364 /* CustomEmptyView.swift */; };
+		211A63872BE18557002A60AB /* FollowScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211A63862BE18557002A60AB /* FollowScreenVM.swift */; };
 		2122D7172A1CBB3700005122 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D7162A1CBB3700005122 /* ProfileScreen.swift */; };
 		2122D71B2A1CC13500005122 /* AppSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */; };
 		2122D71F2A1CC29700005122 /* AppSettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122D71E2A1CC29700005122 /* AppSettingsVM.swift */; };
@@ -97,6 +98,7 @@
 		211463F22A21C2B00092751F /* RECProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileHeader.swift; sourceTree = "<group>"; };
 		211463F42A21C35F0092751F /* RECProfileInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileInfoSheet.swift; sourceTree = "<group>"; };
 		211A07B32B9A6E4E002AC364 /* CustomEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmptyView.swift; sourceTree = "<group>"; };
+		211A63862BE18557002A60AB /* FollowScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowScreenVM.swift; sourceTree = "<group>"; };
 		2122D7162A1CBB3700005122 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsScreen.swift; sourceTree = "<group>"; };
 		2122D71E2A1CC29700005122 /* AppSettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsVM.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */,
 				21B960782A370B4B00A91678 /* SearchScreenVM.swift */,
 				210E73242A629E1200FB339D /* AppearanceSettingsVM.swift */,
+				211A63862BE18557002A60AB /* FollowScreenVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				211463F32A21C2B00092751F /* RECProfileHeader.swift in Sources */,
 				21C781C52A417E090019752F /* NotificationsScreen.swift in Sources */,
 				210E732B2A62A4E700FB339D /* NotificationRowView.swift in Sources */,
+				211A63872BE18557002A60AB /* FollowScreenVM.swift in Sources */,
 				21386CA12A23065000CA9AC6 /* FeedScreenVM.swift in Sources */,
 				2178F9EF2A24615200F5EE96 /* EditProfileScreenVM.swift in Sources */,
 				2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */,

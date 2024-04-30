@@ -41,10 +41,23 @@ struct EditProfileScreen: View {
                                     TextField("Display name", text: $viewModel.tempUser.displayName)
                                         .font(.title2)
                                         .bold()
+//                                        .onChange(of: viewModel.tempUser.displayName) { newValue in
+//                                            // Prevent the display name from exceeding 50 characters
+//                                            if newValue.count > viewModel.DISPLAY_NAME_MAX {
+//                                                viewModel.tempUser.displayName = String(newValue.prefix(viewModel.DISPLAY_NAME_MAX))
+//                                            }
+//                                        }
+                                    
                                     TextField("Username", text: $viewModel.tempUser.username)
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
                                         .keyboardType(.emailAddress)
+//                                        .onChange(of: viewModel.tempUser.username) { newValue in
+//                                            // Making sure the username has the minimum of 4 characters and has to be less than 15 characters with and has an "@"
+//                                            if !(newValue.count >= viewModel.USERNAME_MIN && newValue.count <= viewModel.USERNAME_MAX) {
+//
+//                                            }
+//                                        }
                                 }
                             }
                             .listRowSeparator(.hidden)

@@ -11,18 +11,13 @@ struct FollowingScreen: View {
     
     @ObservedObject var userInfo: RECUserWrapper
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject var vm = FollowScreenVM.viewModel
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(userInfo.user.followings, id: \.firebaseUID) { user in
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(user.displayName)
-                            .font(.headline)
-                        Text(user.username)
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
+                ForEach(vm.localFollowings, id: \.firebaseUID) { user in
+                    RECSearchResultUserRow(user: RECUserWrapper(user))
                 }
             }
             .navigationTitle("People You Followed")
@@ -41,6 +36,15 @@ struct FollowingScreen: View {
                 }
             }
             .searchable(text: .constant(""), placement: .navigationBarDrawer(displayMode: .always), prompt: Text("Search"))
+            .onAppear {
+                if !vm.refreshFollowings {
+                    vm.fetchFollowings()
+                    vm.refreshFollowings = true
+                }
+            }
+            .refreshable {
+                vm.fetchFollowings()
+            }
         }
     }
 }

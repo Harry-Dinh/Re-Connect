@@ -27,7 +27,7 @@ class FollowingManager: ObservableObject {
     /// - Parameter user: The user to add to the following list
     public func addUserToFollowingList(_ user: RECUser) {
         // Add the following user to the local followings array
-        loginVM.currentUser?.followings.append(user)
+        loginVM.currentUser?.followings.append(user.firebaseUID)
         loginVM.currentUser?.followingCount += 1
         
         // Get a reference to the current user? Not sure why I did this before, maybe to prevent some sort of Swift's optional unwrapping issue?
@@ -35,15 +35,15 @@ class FollowingManager: ObservableObject {
             return
         }
         
-        // Turn the passed in user data into JSON and update the followings array on the database
-        let otherUserJSONData: [String: Any] = user.toOptimizedDict()
+        let otherUserJSONData: [String: Any] = [
+            "\(user.firebaseUID)": user.firebaseUID
+        ]
         databaseRef.child(RECDatabaseParentPath.users).child(currentUser.firebaseUID).child(RECUser.Property.followings).updateChildValues(otherUserJSONData)
         
-        // Update the follow count
-        let updatedFollowCount: [String: Any] = [
+        let updatedFollowingCount: [String: Any] = [
             "\(RECUser.Property.followingCount)": currentUser.followingCount
         ]
-        databaseRef.child(RECDatabaseParentPath.users).child(currentUser.firebaseUID).updateChildValues(updatedFollowCount)
+        databaseRef.child(RECDatabaseParentPath.users).child(currentUser.firebaseUID).updateChildValues(updatedFollowingCount)
     }
     
     
@@ -58,18 +58,20 @@ class FollowingManager: ObservableObject {
         // Turn the user parameter into a variable (so it's mutable) then append that user's followers list
         // Not sure if this step is necessary since you can reload the view afterward...
         var otherUser = user
-        otherUser.followers.append(currentUser)
+        otherUser.followers.append(currentUser.firebaseUID)
         otherUser.followerCount += 1
         
-        // Turn the current user's data into JSON and update the other user's database entry (for followers)
-        let currentUserJSONData: [String: Any] = currentUser.toOptimizedDict()
+        // This JSON data stores both the current user Firebase UID as well as the updated follower count
+        // This ensures that both data are updated in one go, which is more efficient than calling two update functions
+        let currentUserJSONData: [String: Any] = [
+            "\(currentUser.firebaseUID)": currentUser.firebaseUID
+        ]
         databaseRef.child(RECDatabaseParentPath.users).child(otherUser.firebaseUID).child(RECUser.Property.followers).updateChildValues(currentUserJSONData)
         
-        // Second database update to update the follow count
-        let updatedFollowCount: [String: Any] = [
+        let updatedFollowerCount: [String: Any] = [
             "\(RECUser.Property.followerCount)": otherUser.followerCount
         ]
-        databaseRef.child(RECDatabaseParentPath.users).child(otherUser.firebaseUID).updateChildValues(updatedFollowCount)
+        databaseRef.child(RECDatabaseParentPath.users).child(otherUser.firebaseUID).updateChildValues(updatedFollowerCount)
     }
     
     
@@ -84,18 +86,33 @@ class FollowingManager: ObservableObject {
             return
         }
         
-        // Call the functions to add the OTHER user to the CURRENT user's followings list; and the function that adds the CURRENT user to the OTHER user's followers list
-        addUserToFollowingList(otherUser)
-        addCurrentUserToFollowerList(of: otherUser)
+        // Check if the currentUser has already followed the otherUser
+        var alreadyFollowed = false
+        for firUID in currentUser.followings {
+            if firUID == otherUser.firebaseUID {
+                alreadyFollowed = true
+                break
+            }
+        }
         
-        // Create and send a notification to the OTHER user to inform them that they have a new follower
-        let notification = RECNotification(title: "New Follower",
-                                           notificationDescription: "\(currentUser.displayName) has started following you",
-                                           iconURL: "",
-                                           notificationType: RECNotificationTypes.newFollower,
-                                           actions: [],
-                                           datePosted: DateFormatter().string(from: Date()))
-        notificationManager.send(notification, to: otherUser)
+        // Only run the following remaining block of code if the current user has not yet follow the other user
+        if !alreadyFollowed {
+            // Call the functions to add the OTHER user to the CURRENT user's followings list; and the function that adds the CURRENT user to the OTHER user's followers list
+            addUserToFollowingList(otherUser)
+            addCurrentUserToFollowerList(of: otherUser)
+            
+            // Create and send a notification to the OTHER user to inform them that they have a new follower
+            let datePosted = notificationManager.globalDateFormatter.string(from: Date())
+            let notification = RECNotification(title: "New Follower",
+                                               notificationDescription: "\(currentUser.displayName) has started following you",
+                                               iconURL: "",
+                                               notificationType: RECNotificationTypes.newFollower,
+                                               actions: [],
+                                               datePosted: datePosted)
+            notificationManager.send(notification, to: otherUser)
+            return
+        }
+        // Update the SwiftUI button's state to show unfollow instead
     }
     
     
@@ -172,6 +189,24 @@ class FollowingManager: ObservableObject {
             }
         }
         
+        return false
+    }
+    
+    
+    /// Check if the current user already follow the provided user. Use this function instead of `hasRequested()` which will be deprecated in the future.
+    /// - Parameter otherUser: The user whose ID will be compared in the current user's followings array to see if they are already followed.
+    /// - Returns: `true` if already followed. `false` otherwise.
+    public func alreadyFollowed(_ otherUser: RECUser) -> Bool {
+        guard let currentUser = loginVM.currentUser else {
+            print("Cannot unwrap the current user, fatal exit!")
+            exit(1)
+        }
+        
+        for firUID in currentUser.followings {
+            if firUID == otherUser.firebaseUID {
+                return true
+            }
+        }
         return false
     }
 }
