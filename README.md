@@ -1,5 +1,7 @@
 # Re:Connect Social Media Application
 
+![Re:Connect Profile Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/main/Screenshots/ReConnect%20(iOS)/REC_IOS_PROFILE.PNG)
+
 ## 💡 Quick Note About This Repository
 This repository was previously home to many other projects besides Re:Connect. They were moved to make this repository less cluttered and confusing. However, the original path to the Re:Connect source code were still in the same place to prevent errors when Xcode trying to find the original path.
 
