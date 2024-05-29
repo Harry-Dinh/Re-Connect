@@ -1,4 +1,4 @@
-# Re:Connect Social Media Application
+# Re:Connect
 
 ![Re:Connect Profile Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/main/Screenshots/ReConnect%20(iOS)/REC_IOS_PROFILE.PNG)
 
@@ -6,25 +6,20 @@
 This repository was previously home to many other projects besides Re:Connect. They were moved to make this repository less cluttered and confusing. However, the original path to the Re:Connect source code were still in the same place to prevent errors when Xcode trying to find the original path.
 
 ## ℹ️ About Re:Connect
+Re:Connect (pronounced "reconnect") is a social media application similar to X (Twitter) but it focuses more on keeping users safe online. It has a native iOS user interface that feels right at home for Apple users and an incredible user experience that feels delightful to use. Most importantly, this app aims to be different from other social media platforms, by **prioritizing the user's privacy on top of everything else! Data of the users will never be sold and no ads are present on the platform.**
 
-### Info
-Re:Connect (pronounced "reconnect") is a social media application similar to X (Twitter) but it focuses more on keeping users safe online. It has a native iOS user interface that feels right at home for Apple users and an incredible user experience that feels delightful to use.
+This app incorporates **Firebase Database** to host the backend database to store user's profile info, posts and almost all the data on Re:Connect. **Firebase Auth** provides account authentication and creation that uses the latest cryptography technology to protect the user's password and account info in the industry-standard way.
 
-### Re:Connect (iOS)
-- **Repository path:** `Practice Projects/ReConnect`
-- **Code name:** `Re:Connect (iOS)`
-This is the original version of Re:Connect written for iOS. It was built entirely using SwiftUI and with modification can be optimized for the iPad interface, as well as reusing the same code to port the app to macOS. *Note that this project maybe retired sometimes in the future to prioritize the cross-platform version.*
+## Features
+The following list contains all of the features planned to be included in Re:Connect. A green checkmark next to a feature indicated that it has been implemented and working properly. Note this list is not exhaustive!
 
-### Re:Connect (Mobile)
-- **Repository path:** `ReConnect_Uni`
-- **Code name:**: `Re:Connect (Uni_Mobile)`
-This version of Re:Connect is still being planned. The purpose and functionality of this app remains identical to its iOS counterpart. The only difference is that this app will be built with Flutter instead of SwiftUI, allowing it to be run both on Android and iOS rather than exclusive to iOS.
-
-## 🛜 Backend Management
-Both the iOS and future cross platform app use Google Firebase for database and authentication support on the backend.
-
-### Firebase Database Integration
-The data for almost everything the user does in the app (i.e. user profiles, posts, user metadata, etc.) are stored in **Firebase Database**, a NoSQL database that store data as a dictionary format that can also be easily read as JSON.
-
-### Firebase Auth Integration
-The login/logout and account management is handled by **Firebase Auth**, it does everything under the hood including "Sign in with Google/Facebook/Apple" buttons, as well as the standard Email/Password sign in that is very secured, requiring no knowledge of encryption to work with this API.
+- ✅ Account creation and authentication
+- ✅ Profile customizations (i.e. colour banner, profile picture, username...)
+- ✅ Following other users (public users)
+- Following other users (private users)
+- Sharing text-based posts
+- Sharing media-based posts
+- ✅ Search for users
+- Search for posts
+- Friend groups creation
+- Re:Awards
