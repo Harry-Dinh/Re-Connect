@@ -209,4 +209,43 @@ class FollowingManager: ObservableObject {
         }
         return false
     }
+    
+    // MARK: - UNFOLLOW FUNCTIONALITIES
+    
+    /// Unfollow the other user by searching for the provided user from the current user's following list.
+    /// - Parameter otherUser: The provided user to search for in.
+    /// - Returns: `true` if the UID exists and has been successfully removed. `false` otherwise. Returning a boolean helps SwiftUI to decide when to update the follow button and its associated user interface to reflect the changes made.
+    public func unfollow(_ otherUser: RECUser) -> Bool {
+        guard var currentUser = loginVM.currentUser else {
+            print("Cannot unwrap the current user object")
+            return false
+        }
+        
+        var uidIndex: Int?
+        if (currentUser.followings.contains(otherUser.firebaseUID)) {
+            uidIndex = currentUser.followings.firstIndex(of: otherUser.firebaseUID)
+            
+            // Exit if the index cannot be found
+            if (uidIndex == nil) {
+                print("Cannot find the index of the UID to remove")
+                return false
+            }
+            
+            // Remove the UID from the array
+            currentUser.followings.remove(at: uidIndex!)
+            currentUser.followingCount -= 1
+            print("FollowingManager -- Successfully remove user from the array")
+            
+            // Update the list on Firebase Database
+            var updatedFollowingList: [String: Any] = [:]
+            for uid in currentUser.followings {
+                updatedFollowingList.updateValue(uid, forKey: uid)
+            }
+            
+            databaseRef.child(RECDatabaseParentPath.users).child(currentUser.firebaseUID).child(RECUser.Property.followings).updateChildValues(updatedFollowingList)
+            return true
+        }
+        print("User uid does not found, returning...")
+        return false
+    }
 }

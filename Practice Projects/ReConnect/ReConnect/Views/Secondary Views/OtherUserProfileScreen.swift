@@ -41,7 +41,8 @@ struct OtherUserProfileScreen: View {
                 } else {
                     // UNFOLLOW BUTTON
                     Button(action: {
-                        // Unfollow button action here! Create an unfollow method in the FollowingManager
+                        // This should update the UI accordingly when the value of alreadyFollowed change
+                        alreadyFollowed = followingManager.unfollow(userInfo.user)
                     }) {
                         Text("Unfollow")
                             .frame(maxWidth: .infinity)

@@ -54,10 +54,10 @@ struct RECUser: Codable, Equatable {
     /// A boolean that identifies whether this is a protected account or not.
     var isProtectedAccount: Bool
     
-    /// The people who followed this user.
+    /// A list containing the Firebase UIDs of the people who followed this user.
     var followers: [String]
     
-    /// The people this user follow.
+    /// A list containing the Firebase UIDs of the people that this user follows.
     var followings: [String]
     
     /// The number of people who followed this user.
