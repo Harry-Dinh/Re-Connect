@@ -31,7 +31,7 @@ class FollowingManager: ObservableObject {
         loginVM.currentUser?.followingCount += 1
         
         // Get a reference to the current user? Not sure why I did this before, maybe to prevent some sort of Swift's optional unwrapping issue?
-        guard var currentUser = loginVM.currentUser else {
+        guard let currentUser = loginVM.currentUser else {
             return
         }
         
@@ -212,40 +212,47 @@ class FollowingManager: ObservableObject {
     
     // MARK: - UNFOLLOW FUNCTIONALITIES
     
-    /// Unfollow the other user by searching for the provided user from the current user's following list.
+    /// Unfollow the other user by searching for the provided user from the current user's following list. **Note: Function implemented by me, revised by ChatGPT.**
     /// - Parameter otherUser: The provided user to search for in.
     /// - Returns: `true` if the UID exists and has been successfully removed. `false` otherwise. Returning a boolean helps SwiftUI to decide when to update the follow button and its associated user interface to reflect the changes made.
     public func unfollow(_ otherUser: RECUser) -> Bool {
-        guard var currentUser = loginVM.currentUser else {
-            print("Cannot unwrap the current user object")
+        guard let currentUser = loginVM.currentUser else {
             return false
         }
         
-        var uidIndex: Int?
-        if (currentUser.followings.contains(otherUser.firebaseUID)) {
-            uidIndex = currentUser.followings.firstIndex(of: otherUser.firebaseUID)
-            
-            // Exit if the index cannot be found
-            if (uidIndex == nil) {
-                print("Cannot find the index of the UID to remove")
-                return false
-            }
-            
-            // Remove the UID from the array
-            currentUser.followings.remove(at: uidIndex!)
-            currentUser.followingCount -= 1
-            print("FollowingManager -- Successfully remove user from the array")
-            
-            // Update the list on Firebase Database
-            var updatedFollowingList: [String: Any] = [:]
-            for uid in currentUser.followings {
-                updatedFollowingList.updateValue(uid, forKey: uid)
-            }
-            
-            databaseRef.child(RECDatabaseParentPath.users).child(currentUser.firebaseUID).child(RECUser.Property.followings).updateChildValues(updatedFollowingList)
-            return true
+        // Check if the element exists in the followings array
+        guard let uidIndex = currentUser.followings.firstIndex(of: otherUser.firebaseUID) else {
+            return false
         }
-        print("User uid does not found, returning...")
-        return false
+        
+        var mutableCurrentUser = currentUser
+        
+        // Remove the UID from the followings array
+        mutableCurrentUser.followings.remove(at: uidIndex)
+        mutableCurrentUser.followingCount -= 1
+        
+        if !mutableCurrentUser.followings.isEmpty {
+            for uid in mutableCurrentUser.followings {
+                print(uid)
+            }
+        } else {
+            print("Array is empty")
+        }
+        
+        // Update the list on Firebase Database
+        let updatedUser: [String: Any] = mutableCurrentUser.toDictionary()
+        
+        databaseRef.child(RECDatabaseParentPath.users).updateChildValues(updatedUser) { error, _ in
+            if let error = error {
+                print("Failed to update followings on database: \(error.localizedDescription)")
+                return
+            } else {
+                print("Sucessfully updated followings in database")
+            }
+        }
+        
+        // Update loginVM's current user with the modified user
+        loginVM.currentUser = mutableCurrentUser
+        return true
     }
 }

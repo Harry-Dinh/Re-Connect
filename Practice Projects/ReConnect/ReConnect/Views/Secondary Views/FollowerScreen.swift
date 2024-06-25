@@ -17,7 +17,9 @@ struct FollowerScreen: View {
         NavigationStack {
             List {
                 ForEach(vm.localFollowers, id: \.firebaseUID) { user in
-//                    RECSearchResultUserRow(user: RECUserWrapper(user))
+                    NavigationLink(destination: OtherUserProfileScreen(userInfo: RECUserWrapper(user))) {
+                        RECSearchResultUserRow(user: RECUserWrapper(user))
+                    }
                 }
             }
             .navigationTitle("Followers")

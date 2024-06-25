@@ -13,15 +13,14 @@ struct OtherUserProfileScreen: View {
     @ObservedObject private var followingManager = FollowingManager.shared
     @ObservedObject private var loginVM = LoginScreenVM.viewModel
     @ObservedObject private var followVM = FollowScreenVM.viewModel
-    
-    @State private var alreadyFollowed = false
+    @ObservedObject private var vm = OtherUserProfileScreenVM.vm
     
     var body: some View {
         ScrollView {
             RECOtherUserHeader(userInfo: userInfo)
             
             HStack {
-                if !alreadyFollowed {
+                if !vm.alreadyFollowed {
                     // FOLLOW BUTTON
                     Button(action: {
                         if userInfo.user.isProtectedAccount {
@@ -29,7 +28,7 @@ struct OtherUserProfileScreen: View {
                         } else {
                             // Follow the user and fetch the information (to update the UI) all at once
                             followingManager.follow(userInfo.user)
-                            alreadyFollowed = followingManager.alreadyFollowed(userInfo.user)
+                            vm.alreadyFollowed = followingManager.alreadyFollowed(userInfo.user)
                             followVM.fetchFollowers()
                             followVM.fetchFollowings()
                         }
@@ -41,8 +40,8 @@ struct OtherUserProfileScreen: View {
                 } else {
                     // UNFOLLOW BUTTON
                     Button(action: {
-                        // This should update the UI accordingly when the value of alreadyFollowed change
-                        alreadyFollowed = followingManager.unfollow(userInfo.user)
+                        // This does not update the UI accordingly when returned... yet
+                        vm.alreadyFollowed = followingManager.unfollow(userInfo.user)
                     }) {
                         Text("Unfollow")
                             .frame(maxWidth: .infinity)
@@ -105,7 +104,7 @@ struct OtherUserProfileScreen: View {
             }
         }
         .onAppear {
-            alreadyFollowed = followingManager.alreadyFollowed(userInfo.user)
+            vm.alreadyFollowed = followingManager.alreadyFollowed(userInfo.user)
         }
     }
 }

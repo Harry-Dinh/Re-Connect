@@ -17,10 +17,12 @@ struct FollowingScreen: View {
         NavigationStack {
             List {
                 ForEach(vm.localFollowings, id: \.firebaseUID) { user in
-                    RECSearchResultUserRow(user: RECUserWrapper(user))
+                    NavigationLink(destination: OtherUserProfileScreen(userInfo: RECUserWrapper(user))) {
+                        RECSearchResultUserRow(user: RECUserWrapper(user))
+                    }
                 }
             }
-            .navigationTitle("People You Followed")
+            .navigationTitle("Following")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

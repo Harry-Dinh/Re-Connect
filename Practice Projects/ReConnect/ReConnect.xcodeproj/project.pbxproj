@@ -45,6 +45,7 @@
 		21585E502A639CF20031CC60 /* FollowingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21585E4F2A639CF20031CC60 /* FollowingScreen.swift */; };
 		21585E522A639E200031CC60 /* FollowerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21585E512A639E200031CC60 /* FollowerScreen.swift */; };
 		21599B5A2A762A120076AEFF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21599B592A762A120076AEFF /* DatabaseManager.swift */; };
+		215D29292C2B36EB006BB9B5 /* OtherUserProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215D29282C2B36EB006BB9B5 /* OtherUserProfileScreenVM.swift */; };
 		2163DBCA2BE01865006A6076 /* RECOptimizedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2163DBC92BE01865006A6076 /* RECOptimizedUser.swift */; };
 		21682F152A1C642100866864 /* InitialRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21682F142A1C642100866864 /* InitialRegisterView.swift */; };
 		216C9FCC2A513B430058155B /* RECUserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216C9FCB2A513B430058155B /* RECUserWrapper.swift */; };
@@ -127,6 +128,7 @@
 		21585E4F2A639CF20031CC60 /* FollowingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingScreen.swift; sourceTree = "<group>"; };
 		21585E512A639E200031CC60 /* FollowerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerScreen.swift; sourceTree = "<group>"; };
 		21599B592A762A120076AEFF /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		215D29282C2B36EB006BB9B5 /* OtherUserProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserProfileScreenVM.swift; sourceTree = "<group>"; };
 		2163DBC92BE01865006A6076 /* RECOptimizedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECOptimizedUser.swift; sourceTree = "<group>"; };
 		21682F142A1C642100866864 /* InitialRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRegisterView.swift; sourceTree = "<group>"; };
 		216C9FCB2A513B430058155B /* RECUserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECUserWrapper.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				21B960782A370B4B00A91678 /* SearchScreenVM.swift */,
 				210E73242A629E1200FB339D /* AppearanceSettingsVM.swift */,
 				211A63862BE18557002A60AB /* FollowScreenVM.swift */,
+				215D29282C2B36EB006BB9B5 /* OtherUserProfileScreenVM.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				21D721792A57D27C00873C4F /* RECNotificationActions.swift in Sources */,
 				2163DBCA2BE01865006A6076 /* RECOptimizedUser.swift in Sources */,
 				2122D7232A1CC6CD00005122 /* AccountSettingsScreen.swift in Sources */,
+				215D29292C2B36EB006BB9B5 /* OtherUserProfileScreenVM.swift in Sources */,
 				211463F12A21C0BA0092751F /* RECSubscriberIndicator.swift in Sources */,
 				214BC0A52A39B39900058B0E /* RECSearchResultUserRow.swift in Sources */,
 				21CDE11B2B34E54E0021CBBA /* RECNotificationResponse.swift in Sources */,
