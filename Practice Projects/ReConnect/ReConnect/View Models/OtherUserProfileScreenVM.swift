@@ -12,4 +12,5 @@ class OtherUserProfileScreenVM: ObservableObject {
     public static let vm = OtherUserProfileScreenVM()
     
     @Published var alreadyFollowed = false
+    @Published var presentUnfollowActionSheet = false
 }

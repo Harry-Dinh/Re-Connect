@@ -251,8 +251,50 @@ class FollowingManager: ObservableObject {
             }
         }
         
-        // Update loginVM's current user with the modified user
+        // Update loginVM's current user with the modified user, as well as removing the current user from the other's followers list
         loginVM.currentUser = mutableCurrentUser
+        return removeFromFollowerList(otherUser)
+    }
+    
+    /// Remove the current user from the other user's followers list. This operation takes place in the cloud and not locally on the device.
+    /// - Parameter otherUser: The other user information to remove from
+    /// - Returns: `true` if the removal was successful, `false` otherwise.
+    public func removeFromFollowerList(_ otherUser: RECUser) -> Bool {
+        guard let currentUser = loginVM.currentUser else {
+            print("Cannot unwrap the current user")
+            return false
+        }
+        
+        let otherUserPath = databaseRef.child(RECDatabaseParentPath.users).child(otherUser.firebaseUID)
+        
+        // Remove the user node from under the followers node
+        otherUserPath.child(RECUser.Property.followers).child(currentUser.firebaseUID).removeValue { error, _ in
+            guard let error = error else {
+                print(error?.localizedDescription ?? "Error occurred but unable to unwrap localized error")
+                return
+            }
+        }
+        
+        // Update the follower count on the database by taking the value and subtracting 1 from it
+        otherUserPath.runTransactionBlock { (currentData) -> TransactionResult in
+            if var value = currentData.value as? [String: Any], let followerCount = value[RECUser.Property.followerCount] as? Int {
+                // Update the follower count data
+                value[RECUser.Property.followerCount] = followerCount - 1 as Any
+                // Set the new data on the database
+                currentData.value = value
+                return TransactionResult.success(withValue: currentData)
+            } else {
+                return TransactionResult.success(withValue: currentData)
+            }
+        } andCompletionBlock: { (error, committed, snapshot) in
+            if let error = error {
+                print("Update follower count failed: \(error.localizedDescription)")
+            } else {
+                print("Update follower count success: \(committed)")
+            }
+        }
+        
+        print("Current user successfully removed from the followers list")
         return true
     }
 }

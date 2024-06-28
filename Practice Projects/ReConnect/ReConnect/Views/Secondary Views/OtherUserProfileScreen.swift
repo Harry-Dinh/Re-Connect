@@ -40,13 +40,20 @@ struct OtherUserProfileScreen: View {
                 } else {
                     // UNFOLLOW BUTTON
                     Button(action: {
-                        // This does not update the UI accordingly when returned... yet
-                        vm.alreadyFollowed = followingManager.unfollow(userInfo.user)
+                        // Present a confirmation to the user before unfollowing
+                        vm.presentUnfollowActionSheet.toggle()
                     }) {
                         Text("Unfollow")
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.bordered)
+                    .confirmationDialog("Unfollow \(userInfo.user.displayName)?", isPresented: $vm.presentUnfollowActionSheet, titleVisibility: .visible) {
+                        Button("Unfollow") {
+                            // This operation works properly behind the scene, but doesn't update the UI accordingly... yet
+                            vm.alreadyFollowed = followingManager.unfollow(userInfo.user)
+                        }
+                        Button("Cancel", role: .cancel) {}
+                    }
                 }
                 
                 Button(action: {}) {

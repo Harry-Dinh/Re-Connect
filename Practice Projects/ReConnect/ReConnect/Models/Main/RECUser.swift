@@ -204,7 +204,8 @@ struct RECUser: Codable, Equatable {
                 "\(RECUser.Property.followingCount)": self.followingCount,
                 "\(RECUser.Property.followerCount)": self.followerCount,
                 "\(RECUser.Property.followers)": self.followers,
-                "\(RECUser.Property.followings)": self.followings
+                "\(RECUser.Property.followings)": self.followings,
+                "\(RECUser.Property.emailAddress)": self.emailAddress
             ]
         ]
         return dictionaryData
@@ -218,7 +219,8 @@ struct RECUser: Codable, Equatable {
                 "\(RECUser.Property.displayName)": self.displayName,
                 "\(RECUser.Property.username)": self.username,
                 "\(RECUser.Property.isVerified)": self.isVerifiedUser,
-                "\(RECUser.Property.pfpURL)": self.pfpURL ?? ""
+                "\(RECUser.Property.pfpURL)": self.pfpURL ?? "",
+                "\(RECUser.Property.emailAddress)": self.emailAddress
             ]
         ]
         return dictionaryData
