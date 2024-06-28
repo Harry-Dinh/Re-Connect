@@ -44,18 +44,14 @@ struct ProfileScreen: View {
                         .padding(.horizontal)
                 }
                 .toolbar {
-                    // Note to self: Change all RECNavButtons back to standard push buttons following the removal of the theme background feature!
-                    
                     ToolbarItem(placement: .navigationBarLeading) {
-                        RECNavButton(iconName: CUPSystemIcon.qrcode, action: {})
-                            .symbolVariant(.circle)
-                            .symbolVariant(.fill)
+                        Button("Scan QR Code", systemImage: CUPSystemIcon.qrcode) {}
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        RECNavButton(iconName: CUPSystemIcon.add, action: {})
+                        Button("New Post", systemImage: CUPSystemIcon.add) {}
                         
-                        RECNavButton(iconName: CUPSystemIcon.edit) {
+                        Button("Edit Profile", systemImage: CUPSystemIcon.edit) {
                             editProfileVM.tempUser = loginVM.currentUser ?? RECUser.placeholderUser
                             viewModel.showEditProfileScreen.toggle()
                         }

@@ -10,9 +10,7 @@
 		210E73232A629E0500FB339D /* GeneralSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210E73222A629E0500FB339D /* GeneralSettingsScreen.swift */; };
 		210E73252A629E1200FB339D /* AppearanceSettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210E73242A629E1200FB339D /* AppearanceSettingsVM.swift */; };
 		210E73272A629ECA00FB339D /* AppearanceSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210E73262A629ECA00FB339D /* AppearanceSettingsScreen.swift */; };
-		210E73292A62A37100FB339D /* ThemeBackgroundPreviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210E73282A62A37100FB339D /* ThemeBackgroundPreviewScreen.swift */; };
 		210E732B2A62A4E700FB339D /* NotificationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210E732A2A62A4E700FB339D /* NotificationRowView.swift */; };
-		21137C062A7528E40083C843 /* RECNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21137C052A7528E40083C843 /* RECNavButton.swift */; };
 		211463F12A21C0BA0092751F /* RECSubscriberIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211463F02A21C0BA0092751F /* RECSubscriberIndicator.swift */; };
 		211463F32A21C2B00092751F /* RECProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211463F22A21C2B00092751F /* RECProfileHeader.swift */; };
 		211463F52A21C35F0092751F /* RECProfileInfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211463F42A21C35F0092751F /* RECProfileInfoSheet.swift */; };
@@ -92,9 +90,7 @@
 		210E73222A629E0500FB339D /* GeneralSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsScreen.swift; sourceTree = "<group>"; };
 		210E73242A629E1200FB339D /* AppearanceSettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsVM.swift; sourceTree = "<group>"; };
 		210E73262A629ECA00FB339D /* AppearanceSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsScreen.swift; sourceTree = "<group>"; };
-		210E73282A62A37100FB339D /* ThemeBackgroundPreviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeBackgroundPreviewScreen.swift; sourceTree = "<group>"; };
 		210E732A2A62A4E700FB339D /* NotificationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRowView.swift; sourceTree = "<group>"; };
-		21137C052A7528E40083C843 /* RECNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECNavButton.swift; sourceTree = "<group>"; };
 		211463F02A21C0BA0092751F /* RECSubscriberIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECSubscriberIndicator.swift; sourceTree = "<group>"; };
 		211463F22A21C2B00092751F /* RECProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileHeader.swift; sourceTree = "<group>"; };
 		211463F42A21C35F0092751F /* RECProfileInfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileInfoSheet.swift; sourceTree = "<group>"; };
@@ -264,7 +260,6 @@
 				21C781C22A4061B60019752F /* RECProfileActionButton.swift */,
 				21985D2E2A625DA5000CFD2E /* RECThemeBackground.swift */,
 				210E732A2A62A4E700FB339D /* NotificationRowView.swift */,
-				21137C052A7528E40083C843 /* RECNavButton.swift */,
 				211A07B32B9A6E4E002AC364 /* CustomEmptyView.swift */,
 			);
 			path = "Custom Views";
@@ -357,7 +352,6 @@
 				2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */,
 				21D331142A3C12F400E6F786 /* SearchResultUserScreen.swift */,
 				21C781C02A405EB20019752F /* OtherUserProfileScreen.swift */,
-				210E73282A62A37100FB339D /* ThemeBackgroundPreviewScreen.swift */,
 				21585E4F2A639CF20031CC60 /* FollowingScreen.swift */,
 				21585E512A639E200031CC60 /* FollowerScreen.swift */,
 			);
@@ -476,7 +470,6 @@
 				21A765502A0A0B6000761219 /* RECAuthTextField.swift in Sources */,
 				211463F52A21C35F0092751F /* RECProfileInfoSheet.swift in Sources */,
 				21D721752A57CEEB00873C4F /* RECNotificationWrapper.swift in Sources */,
-				210E73292A62A37100FB339D /* ThemeBackgroundPreviewScreen.swift in Sources */,
 				2178F9F52A24658100F5EE96 /* EditProfileScreen.swift in Sources */,
 				21E3A16F2A36C99E00FBAD6A /* RECStorageParentPath.swift in Sources */,
 				21C781C32A4061B60019752F /* RECProfileActionButton.swift in Sources */,
@@ -530,7 +523,6 @@
 				212801512A2DA85600CA0747 /* Extensions.swift in Sources */,
 				219CD59E2A0B83C80061B04E /* RECListHeader.swift in Sources */,
 				21A7654C2A0A0A4D00761219 /* LoginScreenVM.swift in Sources */,
-				21137C062A7528E40083C843 /* RECNavButton.swift in Sources */,
 				21D721732A57CEE100873C4F /* RECNotification.swift in Sources */,
 				21C781C12A405EB20019752F /* OtherUserProfileScreen.swift in Sources */,
 				21B960792A370B4B00A91678 /* SearchScreenVM.swift in Sources */,

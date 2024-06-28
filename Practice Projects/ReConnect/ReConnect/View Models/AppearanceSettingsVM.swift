@@ -13,8 +13,6 @@ class AppearanceSettingsVM: ObservableObject {
     
     @AppStorage("appAppearanceOption") var appAppearanceOption = 0
     @AppStorage("accentColorOption") var accentColorOption = 0
-    @AppStorage("useThemeBackground") var useThemeBackground = true
-    @AppStorage("themeBackgroundOption") var themeBackgroundOption = 0
     
     @Published var customAccentColor = Color.accentColor
     @Published var customStartingColor = Color.red
