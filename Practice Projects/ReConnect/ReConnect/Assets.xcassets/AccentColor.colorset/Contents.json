@@ -1,23 +1,6 @@
 {
   "colors" : [
     {
-      "color" : {
-        "platform" : "osx",
-        "reference" : "systemGreenColor"
-      },
-      "idiom" : "universal"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "light"
-        }
-      ],
-      "color" : {
-        "platform" : "osx",
-        "reference" : "systemGreenColor"
-      },
       "idiom" : "universal"
     },
     {
@@ -27,18 +10,11 @@
           "value" : "dark"
         }
       ],
-      "color" : {
-        "platform" : "osx",
-        "reference" : "systemGreenColor"
-      },
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "localizable" : true
   }
 }

@@ -270,7 +270,7 @@ class FollowingManager: ObservableObject {
         // Remove the user node from under the followers node
         otherUserPath.child(RECUser.Property.followers).child(currentUser.firebaseUID).removeValue { error, _ in
             guard let error = error else {
-                print(error?.localizedDescription ?? "Error occurred but unable to unwrap localized error")
+                print(error?.localizedDescription ?? "Error occurred, unable to unwrap localted description")
                 return
             }
         }

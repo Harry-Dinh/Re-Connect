@@ -93,4 +93,10 @@ class CUPSystemIcon {
     public static let privacySecurityIcon = "hand.raised"
     
     public static let home = "house"
+    
+    public static let visibilityStatus = "eye"
+    
+    public static let heart = "heart"
+    
+    public static let commentBubble = "bubble"
 }
