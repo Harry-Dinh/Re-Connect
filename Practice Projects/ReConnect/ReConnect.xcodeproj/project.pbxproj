@@ -54,12 +54,13 @@
 		2178F9F92A24698400F5EE96 /* RECProfileGradientPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */; };
 		2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */; };
 		2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */; };
+		21910D562D5E5C4000B687BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21910D552D5E5C4000B687BB /* GoogleService-Info.plist */; };
 		2197C5562C88FBA50033D648 /* RECPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C5552C88FBA50033D648 /* RECPostView.swift */; };
 		2197C5582C88FBC10033D648 /* RECPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C5572C88FBC10033D648 /* RECPost.swift */; };
 		2197C55A2C88FC0E0033D648 /* RECPostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C5592C88FC0E0033D648 /* RECPostType.swift */; };
 		2197C55E2C8902480033D648 /* RECPostWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C55D2C8902480033D648 /* RECPostWrapper.swift */; };
+		2197D4B32DBF10E7007D4B28 /* PostCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197D4B22DBF10DB007D4B28 /* PostCreationView.swift */; };
 		21985D2F2A625DA5000CFD2E /* RECThemeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21985D2E2A625DA5000CFD2E /* RECThemeBackground.swift */; };
-		219CD58B2A0B7AA40061B04E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */; };
 		219CD5962A0B7D8F0061B04E /* CoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CD5952A0B7D8F0061B04E /* CoreScreen.swift */; };
 		219CD5982A0B7EDD0061B04E /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */; };
 		219CD59A2A0B80170061B04E /* RegisterScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219CD5992A0B80170061B04E /* RegisterScreenVM.swift */; };
@@ -139,12 +140,13 @@
 		2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileGradientPreview.swift; sourceTree = "<group>"; };
 		2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenVM.swift; sourceTree = "<group>"; };
 		2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsScreen.swift; sourceTree = "<group>"; };
+		21910D552D5E5C4000B687BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2197C5552C88FBA50033D648 /* RECPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPostView.swift; sourceTree = "<group>"; };
 		2197C5572C88FBC10033D648 /* RECPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPost.swift; sourceTree = "<group>"; };
 		2197C5592C88FC0E0033D648 /* RECPostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPostType.swift; sourceTree = "<group>"; };
 		2197C55D2C8902480033D648 /* RECPostWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPostWrapper.swift; sourceTree = "<group>"; };
+		2197D4B22DBF10DB007D4B28 /* PostCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationView.swift; sourceTree = "<group>"; };
 		21985D2E2A625DA5000CFD2E /* RECThemeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECThemeBackground.swift; sourceTree = "<group>"; };
-		219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		219CD5952A0B7D8F0061B04E /* CoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreScreen.swift; sourceTree = "<group>"; };
 		219CD5972A0B7EDD0061B04E /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		219CD5992A0B80170061B04E /* RegisterScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenVM.swift; sourceTree = "<group>"; };
@@ -228,7 +230,7 @@
 		212364282A08F948005827D2 /* ReConnect */ = {
 			isa = PBXGroup;
 			children = (
-				219CD58A2A0B7AA40061B04E /* GoogleService-Info.plist */,
+				21910D552D5E5C4000B687BB /* GoogleService-Info.plist */,
 				216C9FD12A5149D50058155B /* Resources */,
 				212617F22A59151300ED8370 /* Managers */,
 				21A765442A0A05F500761219 /* View Models */,
@@ -361,6 +363,7 @@
 		2178F9F32A24657000F5EE96 /* Secondary Views */ = {
 			isa = PBXGroup;
 			children = (
+				2197D4B22DBF10DB007D4B28 /* PostCreationView.swift */,
 				2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */,
 				21D331142A3C12F400E6F786 /* SearchResultUserScreen.swift */,
 				21C781C02A405EB20019752F /* OtherUserProfileScreen.swift */,
@@ -460,7 +463,7 @@
 			files = (
 				212364312A08F949005827D2 /* Preview Assets.xcassets in Resources */,
 				2123642E2A08F949005827D2 /* Assets.xcassets in Resources */,
-				219CD58B2A0B7AA40061B04E /* GoogleService-Info.plist in Resources */,
+				21910D562D5E5C4000B687BB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +487,7 @@
 				211463F52A21C35F0092751F /* RECProfileInfoSheet.swift in Sources */,
 				21D721752A57CEEB00873C4F /* RECNotificationWrapper.swift in Sources */,
 				2178F9F52A24658100F5EE96 /* EditProfileScreen.swift in Sources */,
+				2197D4B32DBF10E7007D4B28 /* PostCreationView.swift in Sources */,
 				21E3A16F2A36C99E00FBAD6A /* RECStorageParentPath.swift in Sources */,
 				21C781C32A4061B60019752F /* RECProfileActionButton.swift in Sources */,
 				216C9FCC2A513B430058155B /* RECUserWrapper.swift in Sources */,
@@ -669,6 +673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "20242406-1737";
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
@@ -688,6 +693,7 @@
 				MARKETING_VERSION = "1.0-beta";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ReConnect.ReSocial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -702,6 +708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "20242406-1737";
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
@@ -721,6 +728,7 @@
 				MARKETING_VERSION = "1.0-beta";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ReConnect.ReSocial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
