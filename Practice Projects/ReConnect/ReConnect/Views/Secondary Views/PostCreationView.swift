@@ -11,6 +11,7 @@ struct PostCreationView: View {
 
     @ObservedObject private var viewModel = PostCreationVM.instance
     @Environment(\.dismiss) private var dismiss
+    @FocusState private var isKeyboardFocused: Bool?
 
     var body: some View {
         NavigationStack {
@@ -21,13 +22,20 @@ struct PostCreationView: View {
                     .scrollContentBackground(.hidden)
                     .padding(.top, 5)
                     .padding(.horizontal, 9.5)
+                    .focused($isKeyboardFocused, equals: true)
             }
             .navigationTitle("New Post")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 // MARK: Top toobar items
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel") { dismiss.callAsFunction() }
+                    Button("Cancel") {
+                        if viewModel.postContent.isEmpty {
+                            dismiss.callAsFunction()
+                        } else {
+                            viewModel.presentSaveDraftDialog.toggle()
+                        }
+                    }
                 }
 
                 ToolbarItem(placement: .topBarTrailing) {
@@ -38,31 +46,28 @@ struct PostCreationView: View {
                     .disabled(viewModel.postContent.isEmpty)
                 }
 
-                // MARK: Bottom toolbar items
+                // MARK: Bottom and keyboard toolbars
                 ToolbarItemGroup(placement: .bottomBar) {
-                    // TODO: Might want to split the toolbar content into a separate view to control the visibility of the keyboard dismiss button easier... But first, REFRESH ON THE FOCUSSTATE FUNCTIONALITY before implementing this!
-                    Button(action: {}) {
-                        Image(systemName: "photo.on.rectangle.angled")
-                    }
-
-                    Spacer()
-
-                    Button(action: {}) {
-                        Image(systemName: "textformat")
-                    }
-
-                    Spacer()
-
-                    Button(action: {}) {
-                        Image(systemName: "person.2.badge.plus")
-                    }
-
-                    Spacer()
-
-                    Button(action: {}) {
-                        Image(systemName: "gearshape")
-                    }
+                    RECPostCreationToolbarView(showKeyboardDismissButton: false, isKeyboardFocused: $isKeyboardFocused)
                 }
+
+                ToolbarItemGroup(placement: .keyboard) {
+                    RECPostCreationToolbarView(showKeyboardDismissButton: true, isKeyboardFocused: $isKeyboardFocused)
+                }
+            }
+            .interactiveDismissDisabled()   // Prevent the new post view from being dismissed by swiping down on the sheet
+            .confirmationDialog("Save Draft?", isPresented: $viewModel.presentSaveDraftDialog, titleVisibility: .hidden) {
+                Button("Delete Draft", role: .destructive) {
+                    viewModel.postContent = ""
+                    dismiss.callAsFunction()
+                }
+
+                Button("Save Draft") {
+                    // TODO: Add save action here...
+                    dismiss.callAsFunction()
+                }
+
+                Button("Cancel", role: .cancel) {}
             }
         }
     }

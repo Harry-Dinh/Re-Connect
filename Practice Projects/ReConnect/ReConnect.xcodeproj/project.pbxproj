@@ -56,6 +56,7 @@
 		2178F9F92A24698400F5EE96 /* RECProfileGradientPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */; };
 		2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */; };
 		2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */; };
+		2180D29B2DC11BB80025A3FF /* RECPostCreationToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2180D29A2DC11BB00025A3FF /* RECPostCreationToolbarView.swift */; };
 		21910D562D5E5C4000B687BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21910D552D5E5C4000B687BB /* GoogleService-Info.plist */; };
 		2197C5562C88FBA50033D648 /* RECPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C5552C88FBA50033D648 /* RECPostView.swift */; };
 		2197C5582C88FBC10033D648 /* RECPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C5572C88FBC10033D648 /* RECPost.swift */; };
@@ -144,6 +145,7 @@
 		2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileGradientPreview.swift; sourceTree = "<group>"; };
 		2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenVM.swift; sourceTree = "<group>"; };
 		2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsScreen.swift; sourceTree = "<group>"; };
+		2180D29A2DC11BB00025A3FF /* RECPostCreationToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPostCreationToolbarView.swift; sourceTree = "<group>"; };
 		21910D552D5E5C4000B687BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2197C5552C88FBA50033D648 /* RECPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPostView.swift; sourceTree = "<group>"; };
 		2197C5572C88FBC10033D648 /* RECPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPost.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		212364392A08FAFF005827D2 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				2180D29A2DC11BB00025A3FF /* RECPostCreationToolbarView.swift */,
 				212AB2472DC0613600997827 /* RECTextEditorPlaceholderView.swift */,
 				2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */,
 				21A765472A0A06AB00761219 /* RECMenuListRow.swift */,
@@ -486,6 +489,7 @@
 				216C9FD02A51482B0058155B /* RECUsersOptions.swift in Sources */,
 				21AF74C62A517741008F99B2 /* RECOtherUserHeader.swift in Sources */,
 				212AB2482DC0613F00997827 /* RECTextEditorPlaceholderView.swift in Sources */,
+				2180D29B2DC11BB80025A3FF /* RECPostCreationToolbarView.swift in Sources */,
 				216C9FCE2A5146D00058155B /* RECOtherUserBackground.swift in Sources */,
 				213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */,
 				2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */,

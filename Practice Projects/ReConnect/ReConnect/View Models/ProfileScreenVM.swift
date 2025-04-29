@@ -16,7 +16,8 @@ class ProfileScreenVM: ObservableObject {
     @Published var showEditProfileScreen = false
     @Published var showFollowerScreen = false
     @Published var showFollowingScreen = false
-    
+    @Published var showPostCreationScreen = false
+
     /// Observe the change in the number of followers to update the user's verification level.
     public func observeChangeInFollowersCount() {
         if loginVM.currentUser?.followerCount ?? RECUser.placeholderUser.followerCount >= 1000 {

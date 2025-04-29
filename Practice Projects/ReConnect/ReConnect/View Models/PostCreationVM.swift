@@ -10,5 +10,7 @@ import SwiftUI
 class PostCreationVM: ObservableObject {
     public static let instance = PostCreationVM()
 
+    @Published var presentSaveDraftDialog: Bool = false
+
     @Published var postContent: String = ""
 }

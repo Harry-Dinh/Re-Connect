@@ -17,11 +17,6 @@ struct ProfileScreen: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                // Codes for the theme background (will be permanently removed in the future)
-//                if appearanceSettingsVM.useThemeBackground {
-//                    RECThemeBackground()
-//                }
-                
                 ScrollView {
                     RECProfileHeader(userInfo: RECUserWrapper(loginVM.currentUser ?? RECUser.placeholderUser))
                     
@@ -49,7 +44,9 @@ struct ProfileScreen: View {
                     }
                     
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button("New Post", systemImage: CUPSystemIcon.add) {}
+                        Button("New Post", systemImage: CUPSystemIcon.add) {
+                            viewModel.showPostCreationScreen.toggle()
+                        }
                         
                         Button("Edit Profile", systemImage: CUPSystemIcon.edit) {
                             editProfileVM.tempUser = loginVM.currentUser ?? RECUser.placeholderUser
@@ -64,6 +61,7 @@ struct ProfileScreen: View {
                 .sheet(isPresented: $viewModel.showFollowingScreen) {
                     FollowingScreen(userInfo: RECUserWrapper(loginVM.currentUser ?? RECUser.placeholderUser))
                 }
+                .sheet(isPresented: $viewModel.showPostCreationScreen, content: PostCreationView.init)
                 .refreshable {
                     loginVM.fetchUserDataFromDatabase(with: loginVM.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
                     loginVM.readLoggedInUser()
