@@ -9,4 +9,6 @@ import SwiftUI
 
 class FeedScreenVM: ObservableObject {
     static let viewModel = FeedScreenVM()
+
+    @Published var showPostCreationScreen = false
 }

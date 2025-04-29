@@ -31,6 +31,8 @@
 		212364412A090087005827D2 /* RECListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212364402A090087005827D2 /* RECListRowItem.swift */; };
 		212617F12A5914F100ED8370 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212617F02A5914F100ED8370 /* NotificationManager.swift */; };
 		212801512A2DA85600CA0747 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212801502A2DA85600CA0747 /* Extensions.swift */; };
+		212AB2462DC05F6600997827 /* PostCreationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212AB2452DC05F6100997827 /* PostCreationVM.swift */; };
+		212AB2482DC0613F00997827 /* RECTextEditorPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212AB2472DC0613600997827 /* RECTextEditorPlaceholderView.swift */; };
 		21386C9F2A23064400CA9AC6 /* FeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386C9E2A23064400CA9AC6 /* FeedScreen.swift */; };
 		21386CA12A23065000CA9AC6 /* FeedScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386CA02A23065000CA9AC6 /* FeedScreenVM.swift */; };
 		21386CA32A230BE100CA9AC6 /* RECDatabaseParentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21386CA22A230BE100CA9AC6 /* RECDatabaseParentPath.swift */; };
@@ -117,6 +119,8 @@
 		212364402A090087005827D2 /* RECListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECListRowItem.swift; sourceTree = "<group>"; };
 		212617F02A5914F100ED8370 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		212801502A2DA85600CA0747 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		212AB2452DC05F6100997827 /* PostCreationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationVM.swift; sourceTree = "<group>"; };
+		212AB2472DC0613600997827 /* RECTextEditorPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECTextEditorPlaceholderView.swift; sourceTree = "<group>"; };
 		21386C9E2A23064400CA9AC6 /* FeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreen.swift; sourceTree = "<group>"; };
 		21386CA02A23065000CA9AC6 /* FeedScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedScreenVM.swift; sourceTree = "<group>"; };
 		21386CA22A230BE100CA9AC6 /* RECDatabaseParentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECDatabaseParentPath.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 		212364392A08FAFF005827D2 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				212AB2472DC0613600997827 /* RECTextEditorPlaceholderView.swift */,
 				2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */,
 				21A765472A0A06AB00761219 /* RECMenuListRow.swift */,
 				21A7654F2A0A0B6000761219 /* RECAuthTextField.swift */,
@@ -376,6 +381,7 @@
 		21A765442A0A05F500761219 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				212AB2452DC05F6100997827 /* PostCreationVM.swift */,
 				21A765452A0A060900761219 /* MenuScreenVM.swift */,
 				21A7654B2A0A0A4D00761219 /* LoginScreenVM.swift */,
 				219CD5992A0B80170061B04E /* RegisterScreenVM.swift */,
@@ -479,6 +485,7 @@
 				2122D7172A1CBB3700005122 /* ProfileScreen.swift in Sources */,
 				216C9FD02A51482B0058155B /* RECUsersOptions.swift in Sources */,
 				21AF74C62A517741008F99B2 /* RECOtherUserHeader.swift in Sources */,
+				212AB2482DC0613F00997827 /* RECTextEditorPlaceholderView.swift in Sources */,
 				216C9FCE2A5146D00058155B /* RECOtherUserBackground.swift in Sources */,
 				213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */,
 				2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */,
@@ -508,6 +515,7 @@
 				214BC0A32A39A29700058B0E /* RECProfileBackground.swift in Sources */,
 				211A07B42B9A6E4E002AC364 /* CustomEmptyView.swift in Sources */,
 				213DAE1F2A0E46FF00C52165 /* RECListButtonLabel.swift in Sources */,
+				212AB2462DC05F6600997827 /* PostCreationVM.swift in Sources */,
 				2123642C2A08F948005827D2 /* ContentView.swift in Sources */,
 				219CD5982A0B7EDD0061B04E /* RegisterScreen.swift in Sources */,
 				2197C55E2C8902480033D648 /* RECPostWrapper.swift in Sources */,
@@ -675,12 +683,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "20242406-1737";
+				CURRENT_PROJECT_VERSION = 2504282145B;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Re:Connect";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -710,12 +719,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "20242406-1737";
+				CURRENT_PROJECT_VERSION = 2504282145B;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Re:Connect";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

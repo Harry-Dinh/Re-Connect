@@ -15,11 +15,6 @@ struct FeedScreen: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Codes for the theme background (will be permanently removed in the future)
-//                if appearanceSettingsVM.useThemeBackground {
-//                    RECThemeBackground()
-//                }
-                
                 List {
                     // Posts from followers goes here...
                 }
@@ -33,13 +28,16 @@ struct FeedScreen: View {
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {}) {
+                        Button(action: {
+                            viewModel.showPostCreationScreen.toggle()
+                        }) {
                             Image(systemName: CUPSystemIcon.add)
                                 .symbolVariant(.circle)
                                 .symbolVariant(.fill)
                         }
                     }
                 }
+                .sheet(isPresented: $viewModel.showPostCreationScreen, content: PostCreationView.init)
             }
         }
     }
