@@ -1,3 +1,8 @@
 **/.DS_Store
+
+# Ignoring the UserInterfaceState.xcuserstate files
+xcuserdata
+xcuserdata/*
 *.xcuserstate
+
 **/GoogleService-Info.plist
