@@ -14,7 +14,7 @@ struct RECPost: Identifiable {
     var originalPoster: RECUser
     var type: RECPostType
     var content: AnyObject?
-    // var datePosted: Date?    Need to implement this later!
+    var datePosted: Date
     
     var commentCount: Int
     var likeCount: Int
@@ -31,6 +31,7 @@ struct RECPost: Identifiable {
         self.commentCount = 0
         self.likeCount = 0
         self.shareCount = 0
+        self.datePosted = Date()
     }
     
     // New post initializer (use this when creating a new post)
@@ -42,10 +43,11 @@ struct RECPost: Identifiable {
         self.commentCount = 0
         self.likeCount = 0
         self.shareCount = 0
+        self.datePosted = Date()
     }
     
     // Existing post constructor (use this when fetching existing posts from the server)
-    init(id: String, poster: RECUser, type: RECPostType, content: AnyObject?, commentCount: Int, likeCount: Int, shareCount: Int) {
+    init(id: String, poster: RECUser, type: RECPostType, content: AnyObject?, commentCount: Int, likeCount: Int, shareCount: Int, datePosted: Date) {
         self.id = id
         self.originalPoster = poster
         self.type = type
@@ -53,6 +55,7 @@ struct RECPost: Identifiable {
         self.commentCount = commentCount
         self.likeCount = likeCount
         self.shareCount = shareCount
+        self.datePosted = datePosted
     }
     
     public static let placeholder = RECPost(id: "0000000000000000",
@@ -61,5 +64,6 @@ struct RECPost: Identifiable {
                                             content: nil,
                                             commentCount: 10,
                                             likeCount: 20,
-                                            shareCount: 30)
+                                            shareCount: 30,
+                                            datePosted: Date())
 }

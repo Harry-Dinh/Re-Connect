@@ -26,6 +26,7 @@ struct RECUser: Codable, Equatable {
         static let followings = "followings"
         static let followers = "followers"
         static let isVerified = "isVerified"
+        static let homeFeedIDs = "homeFeedIDs"
     }
     
     // MARK: - FIELDS
@@ -68,7 +69,10 @@ struct RECUser: Codable, Equatable {
     
     /// A boolean that tells the server that this user is verified. A user is verified when they have 1000 followers or more.
     var isVerifiedUser: Bool
-    
+
+    /// An array of post IDs that will be used to query in the database to get the posts data to show on the user's homepage.
+    var homeFeedIDs: [String]
+
     // MARK: - INITIALIZERS
     
     /// Create a generic Re:Connect user
@@ -86,6 +90,7 @@ struct RECUser: Codable, Equatable {
         self.followerCount = 0
         self.followingCount = 0
         self.isVerifiedUser = false
+        self.homeFeedIDs = []
     }
     
     /// Create a Re:Connect user (for setting up basic information and other info filled out later)
@@ -103,6 +108,7 @@ struct RECUser: Codable, Equatable {
         self.followerCount = 0
         self.followingCount = 0
         self.isVerifiedUser = false
+        self.homeFeedIDs = []
     }
     
     /// Create a Re:Connect user (include all information beside the unique identifier)
@@ -120,6 +126,7 @@ struct RECUser: Codable, Equatable {
         self.followerCount = 0
         self.followingCount = 0
         self.isVerifiedUser = false
+        self.homeFeedIDs = []
     }
     
     /// Create a Re:Connect user (only use this initializer for accounts that were created already)
@@ -137,8 +144,10 @@ struct RECUser: Codable, Equatable {
         self.followerCount = 0
         self.followingCount = 0
         self.isVerifiedUser = false
+        self.homeFeedIDs = []
     }
-    
+
+    // TODO: Don't know if this initializer is necessary anymore...
     init(_ dummyUser: RECOptimizedUser) {
         self.firebaseUID = dummyUser.firebaseUID
         self.displayName = dummyUser.displayName
@@ -154,6 +163,7 @@ struct RECUser: Codable, Equatable {
         self.followerCount = -1
         self.followingCount = -1
         self.emailAddress = ""
+        self.homeFeedIDs = []
     }
     
     // MARK: - FUNCTIONS
@@ -181,7 +191,11 @@ struct RECUser: Codable, Equatable {
     public mutating func setVerification(_ isVerified: Bool) {
         self.isVerifiedUser = isVerified
     }
-    
+
+    public mutating func appendPost(id postID: String) {
+        self.homeFeedIDs.append(postID)
+    }
+
     /// A required function to conform to the Equatable protocol. This allows RECUser objects to be compared to each other.
     static func ==(lhs: RECUser, rhs: RECUser) -> Bool {
         return lhs.firebaseUID == rhs.firebaseUID && lhs.uid == rhs.uid
@@ -193,19 +207,20 @@ struct RECUser: Codable, Equatable {
     public func toDictionary() -> [String: Any] {
         let dictionaryData: [String: Any] = [
             "\(self.firebaseUID)": [
-                "\(RECUser.Property.uid)": self.uid,
-                "\(RECUser.Property.displayName)": self.displayName,
-                "\(RECUser.Property.username)": self.username,
-                "\(RECUser.Property.pfpURL)": self.pfpURL ?? "",
-                "\(RECUser.Property.age)": self.age,
-                "\(RECUser.Property.isProtectedAccount)": self.isProtectedAccount,
-                "\(RECUser.Property.firebaseUID)": self.firebaseUID,
-                "\(RECUser.Property.isVerified)": self.isVerifiedUser,
-                "\(RECUser.Property.followingCount)": self.followingCount,
-                "\(RECUser.Property.followerCount)": self.followerCount,
-                "\(RECUser.Property.followers)": self.followers,
-                "\(RECUser.Property.followings)": self.followings,
-                "\(RECUser.Property.emailAddress)": self.emailAddress
+                "\(Property.uid)": self.uid,
+                "\(Property.displayName)": self.displayName,
+                "\(Property.username)": self.username,
+                "\(Property.pfpURL)": self.pfpURL ?? "",
+                "\(Property.age)": self.age,
+                "\(Property.isProtectedAccount)": self.isProtectedAccount,
+                "\(Property.firebaseUID)": self.firebaseUID,
+                "\(Property.isVerified)": self.isVerifiedUser,
+                "\(Property.followingCount)": self.followingCount,
+                "\(Property.followerCount)": self.followerCount,
+                "\(Property.followers)": self.followers,
+                "\(Property.followings)": self.followings,
+                "\(Property.emailAddress)": self.emailAddress,
+                "\(Property.homeFeedIDs)": self.homeFeedIDs
             ]
         ]
         return dictionaryData
@@ -215,12 +230,12 @@ struct RECUser: Codable, Equatable {
     public func toOptimizedDict() -> [String: Any] {
         let dictionaryData: [String: Any] = [
             "\(self.firebaseUID)": [
-                "\(RECUser.Property.firebaseUID)": self.firebaseUID,
-                "\(RECUser.Property.displayName)": self.displayName,
-                "\(RECUser.Property.username)": self.username,
-                "\(RECUser.Property.isVerified)": self.isVerifiedUser,
-                "\(RECUser.Property.pfpURL)": self.pfpURL ?? "",
-                "\(RECUser.Property.emailAddress)": self.emailAddress
+                "\(Property.firebaseUID)": self.firebaseUID,
+                "\(Property.displayName)": self.displayName,
+                "\(Property.username)": self.username,
+                "\(Property.isVerified)": self.isVerifiedUser,
+                "\(Property.pfpURL)": self.pfpURL ?? "",
+                "\(Property.emailAddress)": self.emailAddress
             ]
         ]
         return dictionaryData

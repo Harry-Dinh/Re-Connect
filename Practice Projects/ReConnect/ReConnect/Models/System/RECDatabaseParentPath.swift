@@ -18,4 +18,7 @@ class RECDatabaseParentPath {
     
     /// The path that leads to the node "RECNotifications"
     public static let usersNotifications = "RECNotifications"
+
+    /// The path that leads to the node "RECPosts"
+    public static let usersPosts = "RECPosts"
 }
