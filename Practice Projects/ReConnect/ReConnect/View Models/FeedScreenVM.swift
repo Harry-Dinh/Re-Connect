@@ -8,7 +8,9 @@
 import SwiftUI
 
 class FeedScreenVM: ObservableObject {
-    static let viewModel = FeedScreenVM()
+    static let instance = FeedScreenVM()
 
     @Published var showPostCreationScreen = false
+
+    @Published var currentUserFeed: [RECPost] = []
 }

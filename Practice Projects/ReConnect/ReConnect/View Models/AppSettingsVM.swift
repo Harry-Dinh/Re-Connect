@@ -8,7 +8,7 @@
 import Foundation
 
 class AppSettingsVM: ObservableObject {
-    static let viewModel = AppSettingsVM()
+    static let instance = AppSettingsVM()
     
     public let accountSettingsSection: [RECListRowItem] = [
         RECListRowItem(label: "Account")

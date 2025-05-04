@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RegisterScreen: View {
     
-    @ObservedObject private var viewModel = RegisterScreenVM.viewModel
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var viewModel = RegisterScreenVM.instance
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     @Environment(\.dismiss) private var dismissView
     @FocusState private var focusedField: RegisterScreenVM.FocusFields?
     

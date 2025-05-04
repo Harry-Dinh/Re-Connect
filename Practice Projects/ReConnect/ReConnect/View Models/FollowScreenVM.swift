@@ -12,11 +12,11 @@ import FirebaseDatabase
 /// The view model for the `FollowerScreen` and `FollowingScreen`.
 class FollowScreenVM: ObservableObject {
     
-    private let loginVM = LoginScreenVM.viewModel
+    private let loginVM = LoginScreenVM.instance
     private let databaseRef = Database.database().reference().child(RECDatabaseParentPath.users)
     
     /// The shared instance of the FollowScreenVM class.
-    public static let viewModel = FollowScreenVM()
+    public static let instance = FollowScreenVM()
     
     /// An array of `RECUser` that stored the data of followers fetched from the server.
     @Published var localFollowers: [RECUser] = []

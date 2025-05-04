@@ -12,11 +12,11 @@ class DetailedRegistrationVM: ObservableObject {
     
     // MARK: - CLASS PROPERTIES
     
-    static let viewModel = DetailedRegistrationVM()
+    static let instance = DetailedRegistrationVM()
     
     private let databaseReference = Database.database().reference()
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     
     // MARK: - STATES FOR SWIFTUI VIEWS
     

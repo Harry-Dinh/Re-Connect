@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ProfileScreen: View {
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
-    @ObservedObject private var viewModel = ProfileScreenVM.viewModel
-    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
-    @ObservedObject private var appearanceSettingsVM = AppearanceSettingsVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.instance
+    @ObservedObject private var viewModel = ProfileScreenVM.instance
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.instance
+    @ObservedObject private var appearanceSettingsVM = AppearanceSettingsVM.instance
     
     var body: some View {
         NavigationStack {

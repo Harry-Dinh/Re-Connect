@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct RECProfileHeader: View {
     
-    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.instance
     @ObservedObject var userInfo: RECUserWrapper
     
     var body: some View {

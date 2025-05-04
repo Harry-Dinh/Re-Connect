@@ -10,11 +10,11 @@ import FirebaseDatabase
 import SwiftUI
 
 class SearchScreenVM: ObservableObject {
-    public static let viewModel = SearchScreenVM()
+    public static let instance = SearchScreenVM()
     
     private let databaseUsersPath = Database.database().reference().child(RECDatabaseParentPath.users)
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     
     @Published var searchQuery: String = ""
     

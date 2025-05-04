@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 class ProfileScreenVM: ObservableObject {
-    static let viewModel = ProfileScreenVM()
+    static let instance = ProfileScreenVM()
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     
     @Published var showEditProfileScreen = false
     @Published var showFollowerScreen = false

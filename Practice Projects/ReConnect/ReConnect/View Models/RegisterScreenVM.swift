@@ -13,7 +13,7 @@ class RegisterScreenVM: ObservableObject {
     
     // MARK: - CLASS PROPERTIES
     
-    static let viewModel = RegisterScreenVM()
+    static let instance = RegisterScreenVM()
     
     /// The reference to Firebase Database.
     private let databaseReference = Database.database().reference()
@@ -27,7 +27,7 @@ class RegisterScreenVM: ObservableObject {
     
     // MARK: - SWIFTUI VIEWS PROPERTIES
     
-    @ObservedObject var loginVM = LoginScreenVM.viewModel
+    @ObservedObject var loginVM = LoginScreenVM.instance
     
     /// The first name field
     @Published var firstNameField = ""

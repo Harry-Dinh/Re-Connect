@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InitialRegisterView: View {
     
-    @ObservedObject var viewModel = RegisterScreenVM.viewModel
+    @ObservedObject var viewModel = RegisterScreenVM.instance
     
     var body: some View {
         if !viewModel.pushToDetailedRegistration {

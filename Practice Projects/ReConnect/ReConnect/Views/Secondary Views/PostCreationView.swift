@@ -11,7 +11,7 @@ struct PostCreationView: View {
 
     @ObservedObject private var viewModel = PostCreationVM.instance
     @ObservedObject private var postsManager = PostsManager.instance
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     @Environment(\.dismiss) private var dismiss
     @FocusState private var isKeyboardFocused: Bool?
 

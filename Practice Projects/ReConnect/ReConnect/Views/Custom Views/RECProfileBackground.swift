@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RECProfileBackground: View {
     
-    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.instance
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     @ObservedObject var userInfo: RECUserWrapper
     
     var body: some View {

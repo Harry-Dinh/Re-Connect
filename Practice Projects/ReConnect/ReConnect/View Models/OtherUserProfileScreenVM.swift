@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class OtherUserProfileScreenVM: ObservableObject {
-    public static let vm = OtherUserProfileScreenVM()
+    public static let instance = OtherUserProfileScreenVM()
     
     @Published var alreadyFollowed = false
     @Published var presentUnfollowActionSheet = false

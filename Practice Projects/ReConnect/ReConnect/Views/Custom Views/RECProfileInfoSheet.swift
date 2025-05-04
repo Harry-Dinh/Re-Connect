@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RECProfileInfoSheet: View {
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     
     @State private var showInfoSheetInfo = false
     @AppStorage("revealInfo") private var revealInfo = true

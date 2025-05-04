@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailedRegistrationScreen: View {
     
-    @ObservedObject var viewModel = DetailedRegistrationVM.viewModel
+    @ObservedObject var viewModel = DetailedRegistrationVM.instance
     
     var body: some View {
         List {

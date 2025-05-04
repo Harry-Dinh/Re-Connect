@@ -13,7 +13,7 @@ class LoginScreenVM: ObservableObject {
     
     // MARK: - CLASS PROPERTIES
     
-    static let viewModel = LoginScreenVM()
+    static let instance = LoginScreenVM()
     
     private let databaseReference = Database.database().reference()
     
@@ -137,7 +137,7 @@ class LoginScreenVM: ObservableObject {
             // Cache loggedInUser
             
             self?.cacheLoggedInUser()
-            EditProfileScreenVM.viewModel.fetchProfileCustomizationData(from: self?.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
+            EditProfileScreenVM.instance.fetchProfileCustomizationData(from: self?.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
             self?.isSignedIn = true
             print("LoginScreenVM--Successfully fetched user data")
 //            print(self?.currentUser ?? RECUser.placeholderUser)

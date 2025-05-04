@@ -11,7 +11,7 @@ import FirebaseDatabase
 class NotificationManager: ObservableObject {
     
     /// The shared instance of the `NotificationManager` class. This instance allows access to `public` member variables and functions.
-    public static let shared = NotificationManager()
+    public static let instance = NotificationManager()
     
     /// The global date formatter that is going to be used to format all the date displays in the app (i.e. notiifcations, date posted...)
     /// **Use this formatter for everything related to date unless there are some specific needs for a different formatter than this one!**

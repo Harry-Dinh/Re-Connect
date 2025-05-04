@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MenuScreen: View {
     
-    @ObservedObject var viewModel = MenuScreenVM.viewModel
-    @ObservedObject var loginVM = LoginScreenVM.viewModel
+    @ObservedObject var viewModel = MenuScreenVM.instance
+    @ObservedObject var loginVM = LoginScreenVM.instance
     
     var body: some View {
         NavigationView {

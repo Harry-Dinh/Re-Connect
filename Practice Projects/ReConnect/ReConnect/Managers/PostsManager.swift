@@ -12,14 +12,18 @@ import SwiftUI
 class PostsManager: ObservableObject {
     public static let instance = PostsManager()
 
-    private let currentUserRef = LoginScreenVM.viewModel.currentUser
+    private let feedScreenVM = FeedScreenVM.instance
+    private let loginVM = LoginScreenVM.instance
     private let databaseRef = Database.database().reference()
+    private let databaseManager = DatabaseManager.instance
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
         return formatter
     }()
+
+    // MARK: - WRITE POSTS
 
     /// Write the data of the provided post to Firebase Database.
     /// - Parameters:
@@ -79,6 +83,100 @@ class PostsManager: ObservableObject {
                 }
                 print("Successfully written post id to user \(follower)")
             }
+        }
+    }
+
+    // MARK: - READING POSTS
+
+    /// Fetch the first 10 posts for the current user. When this function is called again, fetch the next 10 posts **starting from the oldest (date wise) post from the previous fetch**.
+    /// - Parameters:
+    ///    - postIDs: An array of post IDs to fetch the real data from (under the `RECPosts` node)
+    ///    - oldestIDFromLastFetch: A post ID that is the oldest (date wise) from the previous fetch. Pass in `nil` to fetch starting from the latest post in the current user's feed.
+    public func fetchPosts(from postIDs: [String], oldestIDFromLastFetch: String?) {
+        // Exit early if the user's home feed ID node is empty or doesn't exist
+        if postIDs.isEmpty {
+            print("No posts to fetch")
+            return
+        }
+
+        if oldestIDFromLastFetch != nil {
+            // Fetch since last oldest post
+            // TODO: Implement this later! For now, get the fetching functionality working first!
+        } else {
+            // Fetch the latest post
+            for id in postIDs {
+                databaseRef.child(RECDatabaseParentPath.usersPosts).child(id).getData { [weak self] error, snapshot in
+                    guard let snap = snapshot,
+                          let value = snap.value as? [String: Any],
+                          error == nil else {
+                        print("Unable to fetch post data")
+                        return
+                    }
+
+                    // Parsing post data
+                    let commentCount = value["comments_count"] as? Int ?? -1
+                    let content = value["content"]      // This will be cast later in the RECPostView
+                    let dateStr = value["date_posted"] as? String ?? "No date data"
+                    let likesCount = value["likes_count"] as? Int ?? -1
+                    let postTypeStr = value["post_type"] as? String ?? RECPostType.other.rawValue
+                    let posterID = value["poster_id"] as? String ?? RECUser.placeholderUser.firebaseUID
+                    let sharesCount = value["shares_count"] as? Int ?? -1
+
+                    // Fetch original poster data and convert the remaining data
+                    self?.databaseManager.fetchData(with: posterID) { originalPoster in
+                        guard let originalPoster = originalPoster else {
+                            print("Unable to fetch original poster with id: \(posterID)")
+                            return
+                        }
+
+                        let postType: RECPostType
+                        switch postTypeStr {
+                            case RECPostType.text.rawValue:
+                                postType = .text
+                            case RECPostType.media.rawValue:
+                                postType = .media
+                            default:
+                                postType = .other
+                        }
+
+                        let datePosted = self?.dateFormatter.date(from: dateStr)
+
+                        // Initialize the post object
+                        let fetchedPost = RECPost(id: id,
+                                                  poster: originalPoster,
+                                                  type: postType,
+                                                  content: content,
+                                                  commentCount: commentCount,
+                                                  likeCount: likesCount,
+                                                  shareCount: sharesCount,
+                                                  datePosted: datePosted ?? Date())
+
+                        // Append post to home feed array
+                        self?.feedScreenVM.currentUserFeed.append(fetchedPost)
+                    }
+                }
+            }
+        }
+    }
+
+    public func fetchFeedPostIDs(of user: RECUser, completion: @escaping ([String]?) -> Void) {
+        guard let currentUser = loginVM.currentUser else {
+            print("Unable to unwrap current user object")
+            completion(nil)
+            return
+        }
+
+        let currentUserID = currentUser.firebaseUID
+        databaseRef.child(RECDatabaseParentPath.users).child(currentUserID).child(RECUser.Property.homeFeedIDs).getData { error, snapshot in
+            guard let snap = snapshot, error == nil,
+                  let value = snap.value as? [String: Any] else {
+                print("Unable to access current user \(currentUserID) posts")
+                completion(nil)
+                return
+            }
+
+            let postIDs = Array(value.keys)
+            completion(postIDs)
         }
     }
 }

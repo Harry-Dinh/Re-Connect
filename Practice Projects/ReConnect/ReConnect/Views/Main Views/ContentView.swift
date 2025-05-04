@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
-    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
-    @ObservedObject private var notificationManager = NotificationManager.shared
-    
+    @ObservedObject private var loginVM = LoginScreenVM.instance
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.instance
+    @ObservedObject private var notificationManager = NotificationManager.instance
+    @ObservedObject private var postsManager = PostsManager.instance
+
     var body: some View {
         if loginVM.isSignedIn {
             CoreScreen()
@@ -22,9 +23,21 @@ struct ContentView: View {
                     
                     // Read to update profile
                     loginVM.fetchUserDataFromDatabase(with: loginVM.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
-                    
+
+                    // Fetch profile customization
                     editProfileVM.fetchProfileCustomizationData(from: loginVM.currentUser?.getFirebaseUID() ?? RECUser.placeholderUser.getFirebaseUID())
-                    
+
+                    // Fetch user's post (currently testing)
+                    postsManager.fetchFeedPostIDs(of: loginVM.currentUser ?? RECUser.placeholderUser) { postsID in
+                        if let postIDs = postsID {
+                            print("Successfully fetched posts IDs")
+                            postsManager.fetchPosts(from: postIDs, oldestIDFromLastFetch: nil)
+                        } else {
+                            print("Unable to fetch posts IDs")
+                        }
+                    }
+
+                    // Fetch notifications
                     notificationManager.fetchNotifications(for: loginVM.currentUser ?? RECUser.placeholderUser)
                 }
         } else {

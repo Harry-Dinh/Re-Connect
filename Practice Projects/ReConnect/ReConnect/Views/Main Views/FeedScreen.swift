@@ -9,36 +9,37 @@ import SwiftUI
 
 struct FeedScreen: View {
     
-    @ObservedObject private var viewModel = FeedScreenVM.viewModel
-    @ObservedObject private var appearanceSettingsVM = AppearanceSettingsVM.viewModel
+    @ObservedObject private var viewModel = FeedScreenVM.instance
+    @ObservedObject private var appearanceSettingsVM = AppearanceSettingsVM.instance
     
     var body: some View {
         NavigationView {
-            ZStack {
-                List {
-                    // Posts from followers goes here...
+            ScrollView {
+                ForEach(viewModel.currentUserFeed) { post in
+                    RECPostView(post: RECPostWrapper(post))
+                        .padding(.horizontal)
                 }
-                .navigationTitle("Re:Connect")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {}) {
-                            Image(systemName: CUPSystemIcon.filter)
-                        }
-                    }
-                    
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            viewModel.showPostCreationScreen.toggle()
-                        }) {
-                            Image(systemName: CUPSystemIcon.add)
-                                .symbolVariant(.circle)
-                                .symbolVariant(.fill)
-                        }
-                    }
-                }
-                .sheet(isPresented: $viewModel.showPostCreationScreen, content: PostCreationView.init)
             }
+            .navigationTitle("Re:Connect")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {}) {
+                        Image(systemName: CUPSystemIcon.filter)
+                    }
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        viewModel.showPostCreationScreen.toggle()
+                    }) {
+                        Image(systemName: CUPSystemIcon.add)
+                            .symbolVariant(.circle)
+                            .symbolVariant(.fill)
+                    }
+                }
+            }
+            .sheet(isPresented: $viewModel.showPostCreationScreen, content: PostCreationView.init)
         }
     }
 }

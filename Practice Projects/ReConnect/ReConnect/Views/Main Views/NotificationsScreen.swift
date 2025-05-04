@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NotificationsScreen: View {
     
-    @ObservedObject private var notificationManager = NotificationManager.shared
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var notificationManager = NotificationManager.instance
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     
     var body: some View {
         NavigationStack {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppSettingsScreen: View {
     
-    @ObservedObject var viewModel = AppSettingsVM.viewModel
+    @ObservedObject var viewModel = AppSettingsVM.instance
     
     var body: some View {
         List {

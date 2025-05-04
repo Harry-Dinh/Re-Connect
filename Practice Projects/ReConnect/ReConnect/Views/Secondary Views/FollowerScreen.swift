@@ -11,7 +11,7 @@ struct FollowerScreen: View {
     
     @ObservedObject var userInfo: RECUserWrapper
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var vm = FollowScreenVM.viewModel
+    @ObservedObject var vm = FollowScreenVM.instance
     
     var body: some View {
         NavigationStack {

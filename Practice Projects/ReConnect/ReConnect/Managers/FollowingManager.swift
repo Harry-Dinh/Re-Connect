@@ -17,9 +17,9 @@ class FollowingManager: ObservableObject {
     
     private let databaseRef = Database.database().reference()
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
-    @ObservedObject private var registerVM = RegisterScreenVM.viewModel
-    @ObservedObject private var notificationManager = NotificationManager.shared
+    @ObservedObject private var loginVM = LoginScreenVM.instance
+    @ObservedObject private var registerVM = RegisterScreenVM.instance
+    @ObservedObject private var notificationManager = NotificationManager.instance
     
     // MARK: - UPDATE FOLLOWING & FOLLOWER LISTS
     

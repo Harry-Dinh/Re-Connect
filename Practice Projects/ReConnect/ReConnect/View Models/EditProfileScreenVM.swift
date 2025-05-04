@@ -14,7 +14,7 @@ class EditProfileScreenVM: ObservableObject {
     
     // MARK: - CLASS PROPERTIES
     
-    static let viewModel = EditProfileScreenVM()
+    static let instance = EditProfileScreenVM()
     
     /// A local reference to Firebase Database.
     private let databaseReference = Database.database().reference()
@@ -38,7 +38,7 @@ class EditProfileScreenVM: ObservableObject {
     
     // MARK: - SWIFTUI VIEWS PROPERTIES
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     
     @Published var selectedView = 0
     

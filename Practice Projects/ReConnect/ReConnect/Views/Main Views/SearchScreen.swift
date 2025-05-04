@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchScreen: View {
     
-    @ObservedObject private var viewModel = SearchScreenVM.viewModel
+    @ObservedObject private var viewModel = SearchScreenVM.instance
     
     var body: some View {
         NavigationStack {

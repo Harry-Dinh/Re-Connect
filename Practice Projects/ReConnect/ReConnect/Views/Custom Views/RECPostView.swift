@@ -16,6 +16,7 @@ struct RECPostView: View {
             // Header view
             HStack {
                 Group {
+                    // TODO: Replace with the user's profile picture if they have one
                     Image(systemName: CUPSystemIcon.profile)
                         .font(.title)
                     VStack(alignment: .leading) {
@@ -66,8 +67,17 @@ struct RECPostView: View {
             switch post.post.type {
             case .text:
                 HStack {
-                    Text("Text post")
-                        .textSelection(.enabled)
+                    if let content = post.post.content as? String {
+                        Text(content)
+                            .textSelection(.enabled)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(5)
+                    } else {
+                        Text("Text post")
+                            .textSelection(.enabled)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(5)
+                    }
                     Spacer()
                 }
             case .media:
@@ -94,6 +104,7 @@ struct RECPostView: View {
             }
             .padding(.top)
             .fontWeight(.medium)
+            Divider()
         }
     }
 }

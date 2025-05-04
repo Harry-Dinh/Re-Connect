@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct ProfileListRowView: View {
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
+    @ObservedObject private var loginVM = LoginScreenVM.instance
     
     var user: RECUser
     

@@ -10,9 +10,9 @@ import PhotosUI
 
 struct EditProfileScreen: View {
     
-    @ObservedObject private var viewModel = EditProfileScreenVM.viewModel
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
-    @ObservedObject private var registerVM = RegisterScreenVM.viewModel
+    @ObservedObject private var viewModel = EditProfileScreenVM.instance
+    @ObservedObject private var loginVM = LoginScreenVM.instance
+    @ObservedObject private var registerVM = RegisterScreenVM.instance
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class AppearanceSettingsVM: ObservableObject {
-    public static let viewModel = AppearanceSettingsVM()
+    public static let instance = AppearanceSettingsVM()
     
     @AppStorage("appAppearanceOption") var appAppearanceOption = 0
     @AppStorage("accentColorOption") var accentColorOption = 0

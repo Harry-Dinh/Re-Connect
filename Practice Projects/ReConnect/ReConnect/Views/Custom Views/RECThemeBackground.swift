@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RECThemeBackground: View {
     
-    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.instance
     
     var body: some View {
         VStack {

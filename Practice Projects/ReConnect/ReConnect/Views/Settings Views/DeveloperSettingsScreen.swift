@@ -9,52 +9,24 @@ import SwiftUI
 
 struct DeveloperSettingsScreen: View {
     
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
-    @ObservedObject private var registerVM = RegisterScreenVM.viewModel
-    
+    @ObservedObject private var loginVM = LoginScreenVM.instance
+    @ObservedObject private var registerVM = RegisterScreenVM.instance
+    @ObservedObject private var postsManager = PostsManager.instance
+
     var body: some View {
         List {
-//            Section("Following & Follower Test") {
-//                Button("Reset Current User's Following and Follower Counts") {
-//                    guard var currentUser = loginVM.currentUser else {
-//                        return
-//                    }
-//                    currentUser.followings.removeAll()
-//                    currentUser.followers.removeAll()
-//                    currentUser.followingCount = currentUser.followings.count
-//                    currentUser.followerCount = currentUser.followers.count
-//                    loginVM.currentUser = currentUser
-//                    registerVM.writeUpdatedUserInfo(with: currentUser)
-//                    loginVM.cacheLoggedInUser()
-//                    loginVM.readLoggedInUser()
-//                }
-//            }
-//            
-//            Section("Followers List") {
-//                if !loginVM.currentUser!.followers.isEmpty {
-//                    ForEach(loginVM.currentUser!.followers, id: \.firebaseUID) { user in
-//                        Text(user.firebaseUID)
-//                    }
-//                } else {
-//                    Text("No followers")
-//                        .foregroundColor(.secondary)
-//                }
-//            }
-//            
-//            Section("Following List") {
-//                if !loginVM.currentUser!.followings.isEmpty {
-//                    ForEach(loginVM.currentUser!.followings, id: \.firebaseUID) { user in
-//                        Text(user.firebaseUID)
-//                    }
-//                } else {
-//                    Text("No followings")
-//                        .foregroundColor(.secondary)
-//                }
-//            }
-            
-            Section("User Request Notification Test") {
-                Button("Send Test Notification") {}
-                Button("Check User ID is in Attribute") {}
+            Section(header: Text("Post Fetching Tests")) {
+                Button("Test fetching posts IDs") {
+                    postsManager.fetchFeedPostIDs(of: loginVM.currentUser ?? RECUser.placeholderUser) { postIDs in
+                        if let postIDs = postIDs {
+                            print(postIDs)
+                        } else {
+                            print("Nothing is fetched")
+                        }
+                        // In real production, you would call the fetchPosts() function down here...
+                    }
+                }
+                Button("Test fetching posts") {}
             }
         }
         .navigationTitle("Developer")

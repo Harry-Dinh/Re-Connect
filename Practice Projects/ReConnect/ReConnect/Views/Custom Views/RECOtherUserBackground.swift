@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RECOtherUserBackground: View {
     
-    @ObservedObject private var editProfileVM = EditProfileScreenVM.viewModel
+    @ObservedObject private var editProfileVM = EditProfileScreenVM.instance
     @ObservedObject var userInfo: RECUserWrapper
     
     @State private var leftColor = Color.red

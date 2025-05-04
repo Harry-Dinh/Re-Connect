@@ -11,7 +11,7 @@ class MenuScreenVM: ObservableObject {
     
     // MARK: - CLASS PROPERTIES
     
-    static let viewModel = MenuScreenVM()
+    static let instance = MenuScreenVM()
     
     // MARK: - SWIFTUI VIEWS PROPERTIES
     

@@ -11,9 +11,9 @@ struct OtherUserProfileScreen: View {
     
     @ObservedObject var userInfo: RECUserWrapper
     @ObservedObject private var followingManager = FollowingManager.shared
-    @ObservedObject private var loginVM = LoginScreenVM.viewModel
-    @ObservedObject private var followVM = FollowScreenVM.viewModel
-    @ObservedObject private var vm = OtherUserProfileScreenVM.vm
+    @ObservedObject private var loginVM = LoginScreenVM.instance
+    @ObservedObject private var followVM = FollowScreenVM.instance
+    @ObservedObject private var vm = OtherUserProfileScreenVM.instance
     
     var body: some View {
         ScrollView {

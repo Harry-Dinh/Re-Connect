@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginScreen: View {
     
-    @ObservedObject private var viewModel = LoginScreenVM.viewModel
+    @ObservedObject private var viewModel = LoginScreenVM.instance
     @FocusState private var focusedField: LoginScreenVM.FocusField?
     
     var body: some View {
