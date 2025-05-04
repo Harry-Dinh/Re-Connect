@@ -21,7 +21,7 @@ class DatabaseManager: ObservableObject {
     public func fetchData(of user: RECUser) {
         userDatabasePath.child(user.firebaseUID).getData { error, snapshot in
             guard let value = snapshot?.value as? [String: Any] else {
-                // Node has no value
+                print("Node has no value")
                 return
             }
             
@@ -35,6 +35,7 @@ class DatabaseManager: ObservableObject {
             fetchedUser.age = value[RECUser.Property.age] as? Int ?? RECUser.placeholderUser.age
             fetchedUser.followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
             fetchedUser.followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount
+            fetchedUser.homeFeedIDs = value[RECUser.Property.homeFeedIDs] as? [String] ?? []
         }
     }
 }

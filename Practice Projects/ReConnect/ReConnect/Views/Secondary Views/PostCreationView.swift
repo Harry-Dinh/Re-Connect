@@ -10,6 +10,8 @@ import SwiftUI
 struct PostCreationView: View {
 
     @ObservedObject private var viewModel = PostCreationVM.instance
+    @ObservedObject private var postsManager = PostsManager.instance
+    @ObservedObject private var loginVM = LoginScreenVM.viewModel
     @Environment(\.dismiss) private var dismiss
     @FocusState private var isKeyboardFocused: Bool?
 
@@ -39,7 +41,15 @@ struct PostCreationView: View {
                 }
 
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {}) {
+                    Button(action: {
+                        let newPost = RECPost(type: .text, content: viewModel.postContent as String, poster: loginVM.currentUser ?? RECUser.placeholderUser)
+                        postsManager.post(newPost) {
+                            // Clean up and dismiss creation view after successfully posted
+                            print("Post completed, completion handler called")
+                            viewModel.postContent = ""
+                            dismiss.callAsFunction()
+                        }
+                    }) {
                         Text("Post")
                             .fontWeight(.semibold)
                     }

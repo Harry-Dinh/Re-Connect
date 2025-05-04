@@ -8,6 +8,7 @@
 import FirebaseDatabase
 import SwiftUI
 
+/// A class that manages all things related to Re:Connect social media posts.
 class PostsManager: ObservableObject {
     public static let instance = PostsManager()
 
@@ -21,41 +22,37 @@ class PostsManager: ObservableObject {
     }()
 
     /// Write the data of the provided post to Firebase Database.
-    /// - Parameter post: The post whose data will be used to write to the database
-    public func post(_ post: RECPost) {
+    /// - Parameters:
+    ///    - post: The post whose data will be used to write to the database
+    ///    - completionHandler: Calls additional functions on completion
+    public func post(_ post: RECPost, completionHandler: @escaping () -> Void) {
         // Convert post to JSON data
-        let postData = convertPostToJSON(with: post)
+        let postData = post.toDictionary(using: dateFormatter)
 
         // Write data to the "RECPosts" node on the database. This is the primary node where all posts (and their data) reside
-        databaseRef.child(RECDatabaseParentPath.usersPosts).updateChildValues(postData) { error, ref in
-            guard error != nil else {
+        databaseRef.child(RECDatabaseParentPath.usersPosts).updateChildValues(postData) { [weak self] error, ref in
+            guard error == nil else {
                 print("An error occured when trying to write post data to database")
                 return
             }
             print("Successfully write post data to database.")
 
             // Update the current user's feed with this new post as well (because... makes sense, you should be able to see your own post)
-
-            // TODO: Write post ID to every user's follower's feed for efficient querying
-        }
-    }
-
-    /// Convert the provided post object to a JSON format to be compatible to store on Firebase Database.
-    /// - Parameter post: The post whose data will be used to convert to JSON
-    /// - Returns: JSON format of the provided post
-    private func convertPostToJSON(with post: RECPost) -> [String: Any] {
-        let postData: [String: Any] = [
-            post.id: [
-                "poster_id": post.originalPoster.firebaseUID,
-                "post_type": post.type.rawValue,
-                "content": post.content as Any,
-                "comments_count": post.commentCount,
-                "likes_count": post.likeCount,
-                "shares_count": post.shareCount,
-                "date_posted": dateFormatter.string(from: post.datePosted)
+            let newPostID: [String: Any] = [
+                post.id: post.id
             ]
-        ]
-        return postData
+            self?.databaseRef.child(RECDatabaseParentPath.users).child(post.originalPoster.firebaseUID).child(RECUser.Property.homeFeedIDs).updateChildValues(newPostID) { err, ref in
+                guard err == nil else {
+                    print("Unable to write post to original poster's home feed")
+                    return
+                }
+                print("Successfully written to original poster's feed")
+
+                // If succeeded, proceed to do the same thing with all followers
+                self?.writePostIDToFollowers(with: post.id, of: post.originalPoster)
+                completionHandler()
+            }
+        }
     }
 
     /// Write the newly written post ID to every of the user's follower's feed for efficient querying
@@ -63,6 +60,25 @@ class PostsManager: ObservableObject {
     ///   - postID: The post ID to be written to
     ///   - user: The user (aka. original poster) to get the followers IDs from
     private func writePostIDToFollowers(with postID: String, of user: RECUser) {
-        // TODO: Modify the RECUser object to include an array if post IDs before continue implenting this function!
+        // Exit early if the user's followers list is empty
+        if user.followers.isEmpty {
+            print("Unable to write post ID because there are no followers")
+            return
+        }
+
+        let newPostData: [String: Any] = [
+            postID: postID
+        ]
+
+        // Otherwise, continue with the implementation
+        for follower in user.followers {
+            databaseRef.child(RECDatabaseParentPath.users).child(follower).child(RECUser.Property.homeFeedIDs).updateChildValues(newPostData) { err, ref in
+                guard err == nil else {
+                    print("Unable to write post id to user \(follower)")
+                    return
+                }
+                print("Successfully written post id to user \(follower)")
+            }
+        }
     }
 }
