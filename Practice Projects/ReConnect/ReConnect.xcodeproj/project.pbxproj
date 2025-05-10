@@ -77,6 +77,8 @@
 		21AF74C62A517741008F99B2 /* RECOtherUserHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AF74C52A517741008F99B2 /* RECOtherUserHeader.swift */; };
 		21B960772A370B4100A91678 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B960762A370B4100A91678 /* SearchScreen.swift */; };
 		21B960792A370B4B00A91678 /* SearchScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B960782A370B4B00A91678 /* SearchScreenVM.swift */; };
+		21BCFF282DCFF8B800EAD745 /* RECSystemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BCFF272DCFF8A700EAD745 /* RECSystemButton.swift */; };
+		21BCFF2A2DCFF8CA00EAD745 /* CUPSystemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BCFF292DCFF8C700EAD745 /* CUPSystemButton.swift */; };
 		21C463FF2BDD73E700D03C3C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 21C463FE2BDD73E700D03C3C /* FirebaseAuth */; };
 		21C464012BDD73E700D03C3C /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 21C464002BDD73E700D03C3C /* FirebaseDatabase */; };
 		21C464032BDD73E700D03C3C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 21C464022BDD73E700D03C3C /* FirebaseFirestore */; };
@@ -167,6 +169,8 @@
 		21AF74C52A517741008F99B2 /* RECOtherUserHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RECOtherUserHeader.swift; sourceTree = "<group>"; };
 		21B960762A370B4100A91678 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
 		21B960782A370B4B00A91678 /* SearchScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenVM.swift; sourceTree = "<group>"; };
+		21BCFF272DCFF8A700EAD745 /* RECSystemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECSystemButton.swift; sourceTree = "<group>"; };
+		21BCFF292DCFF8C700EAD745 /* CUPSystemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUPSystemButton.swift; sourceTree = "<group>"; };
 		21C781C02A405EB20019752F /* OtherUserProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OtherUserProfileScreen.swift; path = "ReConnect/Views/Secondary Views/OtherUserProfileScreen.swift"; sourceTree = SOURCE_ROOT; };
 		21C781C22A4061B60019752F /* RECProfileActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileActionButton.swift; sourceTree = "<group>"; };
 		21C781C42A417E090019752F /* NotificationsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsScreen.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 		212364392A08FAFF005827D2 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				21BCFF272DCFF8A700EAD745 /* RECSystemButton.swift */,
 				2180D29A2DC11BB00025A3FF /* RECPostCreationToolbarView.swift */,
 				212AB2472DC0613600997827 /* RECTextEditorPlaceholderView.swift */,
 				2123643A2A08FB0F005827D2 /* ProfileListRowView.swift */,
@@ -351,6 +356,7 @@
 		213AB8332A22122600DFEF2F /* System */ = {
 			isa = PBXGroup;
 			children = (
+				21BCFF292DCFF8C700EAD745 /* CUPSystemButton.swift */,
 				213AB8342A22124700DFEF2F /* CUPSystemIcon.swift */,
 				21386CA22A230BE100CA9AC6 /* RECDatabaseParentPath.swift */,
 				21E3A16E2A36C99E00FBAD6A /* RECStorageParentPath.swift */,
@@ -532,12 +538,14 @@
 				21D721712A57C95200873C4F /* FollowingManager.swift in Sources */,
 				21386C9F2A23064400CA9AC6 /* FeedScreen.swift in Sources */,
 				2122D71B2A1CC13500005122 /* AppSettingsScreen.swift in Sources */,
+				21BCFF2A2DCFF8CA00EAD745 /* CUPSystemButton.swift in Sources */,
 				21D721792A57D27C00873C4F /* RECNotificationActions.swift in Sources */,
 				2163DBCA2BE01865006A6076 /* RECOptimizedUser.swift in Sources */,
 				2122D7232A1CC6CD00005122 /* AccountSettingsScreen.swift in Sources */,
 				215D29292C2B36EB006BB9B5 /* OtherUserProfileScreenVM.swift in Sources */,
 				211463F12A21C0BA0092751F /* RECSubscriberIndicator.swift in Sources */,
 				2197C5582C88FBC10033D648 /* RECPost.swift in Sources */,
+				21BCFF282DCFF8B800EAD745 /* RECSystemButton.swift in Sources */,
 				214BC0A52A39B39900058B0E /* RECSearchResultUserRow.swift in Sources */,
 				21CDE11B2B34E54E0021CBBA /* RECNotificationResponse.swift in Sources */,
 				21985D2F2A625DA5000CFD2E /* RECThemeBackground.swift in Sources */,
@@ -691,7 +699,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2505041542B;
+				CURRENT_PROJECT_VERSION = 2505101824B;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
@@ -727,7 +735,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2505041542B;
+				CURRENT_PROJECT_VERSION = 2505101824B;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;

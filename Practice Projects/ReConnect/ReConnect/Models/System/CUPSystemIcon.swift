@@ -99,4 +99,12 @@ class CUPSystemIcon {
     public static let heart = "heart"
     
     public static let commentBubble = "bubble"
+
+    public static let dismissKeyboard = "keyboard.chevron.compact.down"
+
+    public static let cancelAlt = "xmark.circle"
+    
+    public static let cancel = "xmark"
+
+    public static let newCollection = "rectangle.stack.badge.plus"
 }

@@ -10,25 +10,29 @@ import SwiftUI
 struct RECMenuListRow: View {
     
     let rowItem: RECListRowItem
-    
+
+    private let rectSize: CGFloat = 35
+
     var body: some View {
         Label {
             Text(rowItem.label)
         } icon: {
             ZStack {
                 RoundedRectangle(cornerRadius: 7)
-                    .frame(width: 30, height: 30)
-                    .foregroundColor(rowItem.tintColor?.opacity(0.25) ?? RECListRowItem.placeholderItem.tintColor?.opacity(0.25))
+                    .frame(width: rectSize, height: rectSize)
+                    .foregroundColor(rowItem.tintColor ?? RECListRowItem.placeholderItem.tintColor)
                 
                 Image(systemName: rowItem.iconStr ?? CUPSystemIcon.settings)
-                    .foregroundColor(rowItem.tintColor ?? RECListRowItem.placeholderItem.tintColor)
+                    .foregroundStyle(.white)
             }
         }
+        .padding(.vertical, 1)
     }
 }
 
 struct RECMenuListRow_Previews: PreviewProvider {
     static var previews: some View {
-        RECMenuListRow(rowItem: RECListRowItem.placeholderItem)
+//        RECMenuListRow(rowItem: RECListRowItem.placeholderItem)
+        MenuScreen()
     }
 }

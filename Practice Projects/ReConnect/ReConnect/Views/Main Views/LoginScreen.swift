@@ -13,7 +13,7 @@ struct LoginScreen: View {
     @FocusState private var focusedField: LoginScreenVM.FocusField?
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 RECListHeader(icon: "\(CUPSystemIcon.message).fill", label: "Welcome to Re:Connect", isListHeader: true)
                     .listRowBackground(Color.clear)
@@ -55,22 +55,37 @@ struct LoginScreen: View {
                     .listRowBackground(Color.accentColor)
                     .disabled(viewModel.emailField.isEmpty && viewModel.passwordField.isEmpty)
                 }
-                
-                Section {
-                    Button(action: {
-                        viewModel.presentRegisterScreen.toggle()
-                    }) {
-                        RECListButtonLabel(title: "Create Account", style: .labelProminant)
-                    }
-                    .listRowBackground(Color.accentColor.opacity(0.25))
-                }
+
+                // Old create account button (replaced by the one at the bottom edge of the screen)
+//                Section {
+//                    Button(action: {
+//                        viewModel.presentRegisterScreen.toggle()
+//                    }) {
+//                        RECListButtonLabel(title: "Create Account", style: .labelProminant)
+//                    }
+//                    .listRowBackground(Color.accentColor.opacity(0.25))
+//                }
             }
             .fullScreenCover(isPresented: $viewModel.presentRegisterScreen, content: InitialRegisterView.init)
             .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    HStack {
-                        Spacer()
-                        Button("Done") { focusedField = nil }
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    if focusedField != nil {
+                        Button(action: {
+                            focusedField = nil
+                        }) {
+                            Image(systemName: CUPSystemIcon.dismissKeyboard)
+                        }
+                    }
+                }
+
+                ToolbarItemGroup(placement: .bottomBar) {
+                    if focusedField == nil {
+                        Button(action: {
+                            viewModel.presentRegisterScreen.toggle()
+                        }) {
+                            Text("Create Account")
+                                .fontWeight(.medium)
+                        }
                     }
                 }
             }

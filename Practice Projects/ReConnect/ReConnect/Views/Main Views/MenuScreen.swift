@@ -48,7 +48,7 @@ struct MenuScreen: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {}) {
-                        Image(systemName: CUPSystemIcon.newFolder)
+                        Image(systemName: CUPSystemIcon.newCollection)
                     }
                 }
             }

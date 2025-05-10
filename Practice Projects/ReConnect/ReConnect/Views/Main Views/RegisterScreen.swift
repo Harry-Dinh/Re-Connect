@@ -47,6 +47,8 @@ struct RegisterScreen: View {
                                      placeholderText: "Email address",
                                      iconStr: CUPSystemIcon.emailEnvelope,
                                      isSecureTextEntry: false)
+                    .textInputAutocapitalization(.never)
+                    .keyboardType(.emailAddress)
                     .focused($focusedField, equals: .email)
                     .submitLabel(.next)
                     .onSubmit {
@@ -57,6 +59,7 @@ struct RegisterScreen: View {
                                      placeholderText: "Password",
                                      iconStr: CUPSystemIcon.passwordLock,
                                      isSecureTextEntry: true)
+                    .textInputAutocapitalization(.never)
                     .focused($focusedField, equals: .password)
                     .submitLabel(.done)
                     .onSubmit {
@@ -69,7 +72,7 @@ struct RegisterScreen: View {
                     }
                 }
                 .autocorrectionDisabled()
-                
+
                 Button(action: {
                     viewModel.createAccount(with: viewModel.emailField, and: viewModel.passwordField)
                     
@@ -83,16 +86,26 @@ struct RegisterScreen: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Cancel") {
+                ToolbarItem(placement: .topBarLeading) {
+                    RECSystemButton(.cancelButtonText) {
                         dismissView.callAsFunction()
                     }
                 }
-                
-                ToolbarItemGroup(placement: .keyboard) {
-                    HStack {
-                        Spacer()
-                        Button("Done") { focusedField = nil }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    if focusedField != nil {
+                        RECSystemButton(.dismissKeyboardIcon) {
+                            focusedField = nil
+                        }
+                    }
+                }
+
+                ToolbarItem(placement: .bottomBar) {
+                    if focusedField == nil {
+                        Text("By creating this account, I agree to the Terms and Conditions.")
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
+                            .multilineTextAlignment(.center)
                     }
                 }
             }

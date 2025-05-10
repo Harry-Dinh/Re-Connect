@@ -25,7 +25,7 @@ struct RECListHeader: View {
                     .foregroundColor(.accentColor)
                 
                 Text(label)
-                    .font(.largeTitle)
+                    .font(.title)
                     .bold()
                     .multilineTextAlignment(.center)
             }
