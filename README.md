@@ -2,6 +2,8 @@
 
 ![Re:Connect Profile Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/main/Screenshots/ReConnect%20(iOS)/REC_IOS_PROFILE.PNG)
 
+> README last updated on May 10, 2025 at 18:33
+
 > [!NOTE]
 > **A quick note about this repository:**
 > This repository was previously home to many other projects besides Re:Connect. They were moved to make this repository less cluttered and confusing. However, the original path to the Re:Connect source code were still in the same place to prevent errors when Xcode trying to find the original path.
@@ -18,7 +20,7 @@ The following list contains all of the features planned to be included in Re:Con
 - [x] Profile customizations (i.e. colour banner, profile picture, username...)
 - [x] Following other users (public users)
 - [ ] Following other users (private users)
-- [ ] Sharing text-based posts
+- [x] Sharing text-based posts
 - [ ] Sharing media-based posts
 - [x] Search for users
 - [ ] Search for posts
