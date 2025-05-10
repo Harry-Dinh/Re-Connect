@@ -1,8 +1,6 @@
 # Re:Connect
 
-![Re:Connect Profile Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/main/Screenshots/ReConnect%20(iOS)/REC_IOS_PROFILE.PNG)
-
-> README last updated on May 10, 2025 at 18:33
+> README last updated on May 10, 2025 at 18:38
 
 > [!NOTE]
 > **A quick note about this repository:**
@@ -12,6 +10,17 @@
 Re:Connect (pronounced "reconnect") is a social media application similar to X (Twitter) but it focuses more on keeping users safe online. It has a native iOS user interface that feels right at home for Apple users and an incredible user experience that feels delightful to use. Most importantly, this app aims to be different from other social media platforms, by **prioritizing the user's privacy on top of everything else! Data of the users will never be sold and no ads are present on the platform.**
 
 This app incorporates **Firebase Database** to host the backend database to store user's profile info, posts and almost all the data on Re:Connect. **Firebase Auth** provides account authentication and creation that uses the latest cryptography technology to protect the user's password and account info in the industry-standard way.
+
+## Screenshots
+
+### User Profile Screen
+![Re:Connect Profile Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/main/Screenshots/ReConnect%20(iOS)/REC_IOS_PROFILE.PNG)
+
+### Home Screen
+![Re:Connect Home Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/refs/heads/main/Screenshots/ReConnect%20(iOS)/REC_IOS_HOME.PNG)
+
+### Menu Screen
+![Re:Connect Menu Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/refs/heads/main/Screenshots/ReConnect%20(iOS)/REC_IOS_MENU.PNG)
 
 ## Features
 The following list contains all of the features planned to be included in Re:Connect. A green checkmark next to a feature indicated that it has been implemented and working properly. Note this list is not exhaustive!
