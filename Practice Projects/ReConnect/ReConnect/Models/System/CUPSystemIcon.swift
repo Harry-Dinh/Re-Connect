@@ -107,4 +107,10 @@ class CUPSystemIcon {
     public static let cancel = "xmark"
 
     public static let newCollection = "rectangle.stack.badge.plus"
+
+    public static let feedbackAndSupport = "questionmark.bubble"
+
+    public static let medalIcon = "medal"
+
+    public static let sparkleIcon = "sparkles"
 }

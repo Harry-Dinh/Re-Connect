@@ -8,73 +8,41 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    
+
+    // MARK: - View Models
+
     @ObservedObject private var viewModel = LoginScreenVM.instance
     @FocusState private var focusedField: LoginScreenVM.FocusField?
-    
+
+    // MARK: - Local Constants
+
+    private let welcomeLabel = "Welcome to Re:Connect"
+    private let loginHeaderIcon = "\(CUPSystemIcon.message).fill"
+    private let emailPlaceholder = "Email address"
+    private let passwordPlaceholder = "Password"
+    private let signInButtonLabel = "Sign In"
+
+    // MARK: - View Components
+
     var body: some View {
         NavigationStack {
             List {
-                RECListHeader(icon: "\(CUPSystemIcon.message).fill", label: "Welcome to Re:Connect", isListHeader: true)
+                welcomeHeader
                     .listRowBackground(Color.clear)
-                
-                Section {
-                    RECAuthTextField(text: $viewModel.emailField,
-                                     placeholderText: "Email address",
-                                     iconStr: CUPSystemIcon.emailEnvelope,
-                                     isSecureTextEntry: false)
-                    .keyboardType(.emailAddress)
-                    .textInputAutocapitalization(.never)
-                    .autocorrectionDisabled()
-                    .focused($focusedField, equals: .email)
-                    .submitLabel(.next)
-                    .onSubmit {
-                        focusedField = .password
-                    }
-                    
-                    RECAuthTextField(text: $viewModel.passwordField,
-                                     placeholderText: "Password",
-                                     iconStr: CUPSystemIcon.passwordLock,
-                                     isSecureTextEntry: true)
-                    .textInputAutocapitalization(.never)
-                    .autocorrectionDisabled()
-                    .focused($focusedField, equals: .password)
-                    .submitLabel(.done)
-                    .onSubmit {
-                        focusedField = nil
-                        viewModel.login(with: viewModel.emailField, and: viewModel.passwordField)
-                    }
-                }
-                
-                Section {
-                    Button(action: {
-                        viewModel.login(with: viewModel.emailField, and: viewModel.passwordField)
-                    }) {
-                        RECListButtonLabel(title: "Sign In", style: .backgroundProminant)
-                    }
-                    .listRowBackground(Color.accentColor)
-                    .disabled(viewModel.emailField.isEmpty && viewModel.passwordField.isEmpty)
-                }
-
-                // Old create account button (replaced by the one at the bottom edge of the screen)
-//                Section {
-//                    Button(action: {
-//                        viewModel.presentRegisterScreen.toggle()
-//                    }) {
-//                        RECListButtonLabel(title: "Create Account", style: .labelProminant)
-//                    }
-//                    .listRowBackground(Color.accentColor.opacity(0.25))
-//                }
+                userInfoFields
+                loginButton
             }
-            .fullScreenCover(isPresented: $viewModel.presentRegisterScreen, content: InitialRegisterView.init)
+            .fullScreenCover(
+                isPresented: $viewModel.presentRegisterScreen,
+                content: InitialRegisterView.init
+            )
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     if focusedField != nil {
-                        Button(action: {
-                            focusedField = nil
-                        }) {
-                            Image(systemName: CUPSystemIcon.dismissKeyboard)
-                        }
+                        RECSystemButton(
+                            .dismissKeyboardIcon,
+                            action: { focusedField = nil }
+                        )
                     }
                 }
 
@@ -89,6 +57,63 @@ struct LoginScreen: View {
                     }
                 }
             }
+        }
+    }
+
+    var welcomeHeader: some View {
+        RECListHeader(
+            icon: loginHeaderIcon,
+            label: welcomeLabel,
+            isListHeader: true
+        )
+    }
+
+    var userInfoFields: some View {
+        Section {
+            RECAuthTextField(
+                text: $viewModel.emailField,
+                placeholderText: emailPlaceholder,
+                iconStr: CUPSystemIcon.emailEnvelope,
+                isSecureTextEntry: false
+            )
+            .keyboardType(.emailAddress)
+            .textInputAutocapitalization(.never)
+            .autocorrectionDisabled()
+            .focused($focusedField, equals: .email)
+            .submitLabel(.next)
+            .onSubmit {
+                focusedField = .password
+            }
+
+            RECAuthTextField(
+                text: $viewModel.passwordField,
+                placeholderText: passwordPlaceholder,
+                iconStr: CUPSystemIcon.passwordLock,
+                isSecureTextEntry: true
+            )
+            .textInputAutocapitalization(.never)
+            .autocorrectionDisabled()
+            .focused($focusedField, equals: .password)
+            .submitLabel(.done)
+            .onSubmit {
+                focusedField = nil
+                viewModel.login(with: viewModel.emailField, and: viewModel.passwordField)
+            }
+        }
+    }
+
+    var loginButton: some View {
+        Section {
+            Button(action: {
+                viewModel.login(with: viewModel.emailField, and: viewModel.passwordField)
+            }) {
+                RECListButtonLabel(
+                    title: signInButtonLabel,
+                    style: .backgroundProminant
+                )
+            }
+            .listRowBackground(Color.accentColor)
+            .disabled(viewModel.emailField.isEmpty && viewModel.passwordField.isEmpty)
         }
     }
 }
