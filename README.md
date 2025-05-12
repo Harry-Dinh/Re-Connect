@@ -12,11 +12,9 @@ Re:Connect (pronounced "reconnect") is a social media application similar to X (
 This app incorporates **Firebase Database** to host the backend database to store user's profile info, posts and almost all the data on Re:Connect. **Firebase Auth** provides account authentication and creation that uses the latest cryptography technology to protect the user's password and account info in the industry-standard way.
 
 ## Screenshots
-<p align="center">
-    <img src="https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/refs/heads/main/Screenshots/ReConnect%20(iOS)/REC_IOS_MENU.PNG" width="45%" />
-    <img src "https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/refs/heads/main/Screenshots/ReConnect%20(iOS)/REC_IOS_HOME.PNG" width="45%" />
-    <img src "https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/main/Screenshots/ReConnect%20(iOS)/REC_IOS_PROFILE.PNG" width="45%" />
-</p>
+| **Home Screen** | **User Profile** | **Menu Screen** |
+| -------- | -------- | -------- |
+| ![Re:Connect Home Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/refs/heads/main/Screenshots/ReConnect%20(iOS)/REC_IOS_HOME.PNG) | ![Re:Connect Profile Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/main/Screenshots/ReConnect%20(iOS)/REC_IOS_PROFILE.PNG) | ![Re:Connect Menu Screen](https://raw.githubusercontent.com/Harry-Dinh/Re-Connect/refs/heads/main/Screenshots/ReConnect%20(iOS)/REC_IOS_MENU.PNG) |
 
 ## Features
 The following list contains all of the features planned to be included in Re:Connect. A green checkmark next to a feature indicated that it has been implemented and working properly. Note this list is not exhaustive!
