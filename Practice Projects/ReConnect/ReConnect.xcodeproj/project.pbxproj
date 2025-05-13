@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -98,6 +98,16 @@
 		21E3A16F2A36C99E00FBAD6A /* RECStorageParentPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E3A16E2A36C99E00FBAD6A /* RECStorageParentPath.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		21EA66B72DD2DB0E004DC75F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2123641E2A08F948005827D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 212364252A08F948005827D2;
+			remoteInfo = ReConnect;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		210E73222A629E0500FB339D /* GeneralSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsScreen.swift; sourceTree = "<group>"; };
 		210E73242A629E1200FB339D /* AppearanceSettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsVM.swift; sourceTree = "<group>"; };
@@ -184,7 +194,12 @@
 		21D721782A57D27C00873C4F /* RECNotificationActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECNotificationActions.swift; sourceTree = "<group>"; };
 		21DB05642DD04069004DB6F3 /* AboutThisAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutThisAppView.swift; sourceTree = "<group>"; };
 		21E3A16E2A36C99E00FBAD6A /* RECStorageParentPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECStorageParentPath.swift; sourceTree = "<group>"; };
+		21EA66B12DD2DB0E004DC75F /* ReConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		21EA66B22DD2DB0E004DC75F /* ReConnectUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ReConnectUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		212364232A08F948005827D2 /* Frameworks */ = {
@@ -196,6 +211,13 @@
 				21C464052BDD73E700D03C3C /* FirebaseStorage in Frameworks */,
 				21C463FF2BDD73E700D03C3C /* FirebaseAuth in Frameworks */,
 				21C464032BDD73E700D03C3C /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21EA66AE2DD2DB0E004DC75F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				212364282A08F948005827D2 /* ReConnect */,
+				21EA66B22DD2DB0E004DC75F /* ReConnectUITests */,
 				212364272A08F948005827D2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -238,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				212364262A08F948005827D2 /* ReConnect.app */,
+				21EA66B12DD2DB0E004DC75F /* ReConnectUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -440,6 +464,29 @@
 			productReference = 212364262A08F948005827D2 /* ReConnect.app */;
 			productType = "com.apple.product-type.application";
 		};
+		21EA66B02DD2DB0E004DC75F /* ReConnectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 21EA66BB2DD2DB0E004DC75F /* Build configuration list for PBXNativeTarget "ReConnectUITests" */;
+			buildPhases = (
+				21EA66AD2DD2DB0E004DC75F /* Sources */,
+				21EA66AE2DD2DB0E004DC75F /* Frameworks */,
+				21EA66AF2DD2DB0E004DC75F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				21EA66B82DD2DB0E004DC75F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				21EA66B22DD2DB0E004DC75F /* ReConnectUITests */,
+			);
+			name = ReConnectUITests;
+			packageProductDependencies = (
+			);
+			productName = ReConnectUITests;
+			productReference = 21EA66B12DD2DB0E004DC75F /* ReConnectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -447,11 +494,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					212364252A08F948005827D2 = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					21EA66B02DD2DB0E004DC75F = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 212364252A08F948005827D2;
 					};
 				};
 			};
@@ -473,6 +524,7 @@
 			projectRoot = "";
 			targets = (
 				212364252A08F948005827D2 /* ReConnect */,
+				21EA66B02DD2DB0E004DC75F /* ReConnectUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -485,6 +537,13 @@
 				212364312A08F949005827D2 /* Preview Assets.xcassets in Resources */,
 				2123642E2A08F949005827D2 /* Assets.xcassets in Resources */,
 				21910D562D5E5C4000B687BB /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		21EA66AF2DD2DB0E004DC75F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,7 +638,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		21EA66AD2DD2DB0E004DC75F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		21EA66B82DD2DB0E004DC75F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 212364252A08F948005827D2 /* ReConnect */;
+			targetProxy = 21EA66B72DD2DB0E004DC75F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		212364322A08F949005827D2 /* Debug */ = {
@@ -768,6 +842,51 @@
 			};
 			name = Release;
 		};
+		21EA66B92DD2DB0E004DC75F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W29Q2GKBT5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harrydinh.ReConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ReConnect;
+			};
+			name = Debug;
+		};
+		21EA66BA2DD2DB0E004DC75F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W29Q2GKBT5;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harrydinh.ReConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ReConnect;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -785,6 +904,15 @@
 			buildConfigurations = (
 				212364352A08F949005827D2 /* Debug */,
 				212364362A08F949005827D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		21EA66BB2DD2DB0E004DC75F /* Build configuration list for PBXNativeTarget "ReConnectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				21EA66B92DD2DB0E004DC75F /* Debug */,
+				21EA66BA2DD2DB0E004DC75F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
