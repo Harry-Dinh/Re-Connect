@@ -66,3 +66,16 @@ extension Color {
         }
     }
 }
+
+extension String {
+    /// Returned the localized string from the `Localizable` file
+    func localized() -> String {
+        let localizationBundlePath = Bundle.main.path(forResource: "Localization", ofType: "bundle")
+        let localizationBundle = localizationBundlePath.flatMap { Bundle(path: $0) } ?? .main
+        return NSLocalizedString(
+            self,
+            tableName: "Localizable",
+            bundle: localizationBundle,
+            comment: self)
+    }
+}

@@ -199,6 +199,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		21EA66B22DD2DB0E004DC75F /* ReConnectUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ReConnectUITests; sourceTree = "<group>"; };
+		21EA66C52DD2DE01004DC75F /* Localization */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Localization; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +270,7 @@
 		212364282A08F948005827D2 /* ReConnect */ = {
 			isa = PBXGroup;
 			children = (
+				21EA66C52DD2DE01004DC75F /* Localization */,
 				21910D552D5E5C4000B687BB /* GoogleService-Info.plist */,
 				216C9FD12A5149D50058155B /* Resources */,
 				212617F22A59151300ED8370 /* Managers */,
@@ -452,6 +454,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				21EA66C52DD2DE01004DC75F /* Localization */,
+			);
 			name = ReConnect;
 			packageProductDependencies = (
 				21C463FE2BDD73E700D03C3C /* FirebaseAuth */,
@@ -513,6 +518,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 2123641D2A08F948005827D2;
 			packageReferences = (
@@ -660,6 +666,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -720,6 +727,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

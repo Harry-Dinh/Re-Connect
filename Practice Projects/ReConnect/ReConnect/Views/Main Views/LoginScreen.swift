@@ -16,11 +16,12 @@ struct LoginScreen: View {
 
     // MARK: - Local Constants
 
-    private let welcomeLabel = "Welcome to Re:Connect"
+    private let welcomeLabel = "login_welcome_label".localized()
     private let loginHeaderIcon = "\(CUPSystemIcon.message).fill"
-    private let emailPlaceholder = "Email address"
-    private let passwordPlaceholder = "Password"
-    private let signInButtonLabel = "Sign In"
+    private let emailPlaceholder = "auth_email_placeholder".localized()
+    private let passwordPlaceholder = "auth_password_placeholder".localized()
+    private let signInButtonLabel = "login_sign_in_button_label".localized()
+    private let createAccountButtonLabel = "login_create_account_button_label".localized()
 
     // MARK: - View Components
 
@@ -51,7 +52,7 @@ struct LoginScreen: View {
                         Button(action: {
                             viewModel.presentRegisterScreen.toggle()
                         }) {
-                            Text("Create Account")
+                            Text(createAccountButtonLabel)
                                 .fontWeight(.medium)
                         }
                     }

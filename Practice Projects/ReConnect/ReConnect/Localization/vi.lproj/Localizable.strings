@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  ReConnect
+
+  Created by Harry Dinh on 2025-05-12.
+  
+*/
+
+// MARK: Login Screen
+"login_welcome_label" = "Chào Mừng đến Re:Connect";
+"auth_email_placeholder" = "Địa chỉ email";
+"auth_password_placeholder" = "Mật khẩu";
+"login_sign_in_button_label" = "Đăng Nhập";
+"login_create_account_button_label" = "Tạo Tài Khoản";
