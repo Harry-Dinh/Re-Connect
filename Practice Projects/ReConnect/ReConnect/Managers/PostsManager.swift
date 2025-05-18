@@ -16,7 +16,8 @@ class PostsManager: ObservableObject {
     private let loginVM = LoginScreenVM.instance
     private let databaseRef = Database.database().reference()
     private let databaseManager = DatabaseManager.instance
-    private let dateFormatter: DateFormatter = {
+
+    public let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
@@ -178,5 +179,14 @@ class PostsManager: ObservableObject {
             let postIDs = Array(value.keys)
             completion(postIDs)
         }
+    }
+}
+
+extension Date {
+    /// Calls the `DateFormatter.string(from:)` function using the predefined formatter in `PostsManager` to convert the calling `Date` object to string (that is hopefully also localized.)
+    /// - Returns: A string form of the calling `Date` object
+    func localizedStringValue() -> String {
+        let dateFormatter = PostsManager.instance.dateFormatter
+        return dateFormatter.string(from: self)
     }
 }

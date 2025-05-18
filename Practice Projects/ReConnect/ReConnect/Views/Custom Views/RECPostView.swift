@@ -22,7 +22,7 @@ struct RECPostView: View {
                     VStack(alignment: .leading) {
                         Text(post.post.originalPoster.displayName)
                             .font(.headline)
-                        Text("Date posted...")
+                        Text(post.post.datePosted.localizedStringValue())
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
