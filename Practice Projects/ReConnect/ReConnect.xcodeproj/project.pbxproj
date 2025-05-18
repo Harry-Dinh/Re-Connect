@@ -58,6 +58,7 @@
 		2178F9FB2A246E5300F5EE96 /* ProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */; };
 		2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */; };
 		2180D29B2DC11BB80025A3FF /* RECPostCreationToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2180D29A2DC11BB00025A3FF /* RECPostCreationToolbarView.swift */; };
+		21888A202DDA741400250355 /* RECConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21888A1F2DDA741200250355 /* RECConstants.swift */; };
 		21910D562D5E5C4000B687BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21910D552D5E5C4000B687BB /* GoogleService-Info.plist */; };
 		2197C5562C88FBA50033D648 /* RECPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C5552C88FBA50033D648 /* RECPostView.swift */; };
 		2197C5582C88FBC10033D648 /* RECPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2197C5572C88FBC10033D648 /* RECPost.swift */; };
@@ -161,6 +162,7 @@
 		2178F9FA2A246E5300F5EE96 /* ProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenVM.swift; sourceTree = "<group>"; };
 		2178F9FC2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsScreen.swift; sourceTree = "<group>"; };
 		2180D29A2DC11BB00025A3FF /* RECPostCreationToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPostCreationToolbarView.swift; sourceTree = "<group>"; };
+		21888A1F2DDA741200250355 /* RECConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECConstants.swift; sourceTree = "<group>"; };
 		21910D552D5E5C4000B687BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2197C5552C88FBA50033D648 /* RECPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPostView.swift; sourceTree = "<group>"; };
 		2197C5572C88FBC10033D648 /* RECPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECPost.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 		216C9FD12A5149D50058155B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				21888A1F2DDA741200250355 /* RECConstants.swift */,
 				212364292A08F948005827D2 /* ReConnectApp.swift */,
 				212801502A2DA85600CA0747 /* Extensions.swift */,
 			);
@@ -562,6 +565,7 @@
 				212AB2482DC0613F00997827 /* RECTextEditorPlaceholderView.swift in Sources */,
 				2180D29B2DC11BB80025A3FF /* RECPostCreationToolbarView.swift in Sources */,
 				216C9FCE2A5146D00058155B /* RECOtherUserBackground.swift in Sources */,
+				21888A202DDA741400250355 /* RECConstants.swift in Sources */,
 				213DAE192A0DDF1A00C52165 /* DetailedRegistrationVM.swift in Sources */,
 				21585EF02DC2BB5800A115DB /* PostsManager.swift in Sources */,
 				2178F9FD2A2493EE00F5EE96 /* DeveloperSettingsScreen.swift in Sources */,
@@ -777,7 +781,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2505181526B;
+				CURRENT_PROJECT_VERSION = 2505181716B;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
@@ -813,7 +817,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2505181526B;
+				CURRENT_PROJECT_VERSION = 2505181716B;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
