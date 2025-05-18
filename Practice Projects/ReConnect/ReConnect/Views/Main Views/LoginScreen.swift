@@ -54,6 +54,7 @@ struct LoginScreen: View {
                             Text("Create Account")
                                 .fontWeight(.medium)
                         }
+                        .accessibilityIdentifier("loginCreateAccountButton")
                     }
                 }
             }
@@ -74,7 +75,8 @@ struct LoginScreen: View {
                 text: $viewModel.emailField,
                 placeholderText: emailPlaceholder,
                 iconStr: CUPSystemIcon.emailEnvelope,
-                isSecureTextEntry: false
+                isSecureTextEntry: false,
+                identifier: "loginEmailField"
             )
             .keyboardType(.emailAddress)
             .textInputAutocapitalization(.never)
@@ -89,7 +91,8 @@ struct LoginScreen: View {
                 text: $viewModel.passwordField,
                 placeholderText: passwordPlaceholder,
                 iconStr: CUPSystemIcon.passwordLock,
-                isSecureTextEntry: true
+                isSecureTextEntry: true,
+                identifier: "loginPasswordField"
             )
             .textInputAutocapitalization(.never)
             .autocorrectionDisabled()
@@ -114,6 +117,7 @@ struct LoginScreen: View {
             }
             .listRowBackground(Color.accentColor)
             .disabled(viewModel.emailField.isEmpty && viewModel.passwordField.isEmpty)
+            .accessibilityIdentifier("loginButton")
         }
     }
 }

@@ -21,10 +21,13 @@ struct RegisterScreen: View {
                     .listRowBackground(Color.clear)
                 
                 Section {
-                    RECAuthTextField(text: $viewModel.firstNameField,
-                                     placeholderText: "First name",
-                                     iconStr: CUPSystemIcon.person,
-                                     isSecureTextEntry: false)
+                    RECAuthTextField(
+                        text: $viewModel.firstNameField,
+                        placeholderText: "First name",
+                        iconStr: CUPSystemIcon.person,
+                        isSecureTextEntry: false,
+                        identifier: "registerFirstNameField"
+                    )
                     .textInputAutocapitalization(.words)
                     .focused($focusedField, equals: .firstName)
                     .submitLabel(.next)
@@ -32,10 +35,13 @@ struct RegisterScreen: View {
                         focusedField = .lastName
                     }
                     
-                    RECAuthTextField(text: $viewModel.lastNameField,
-                                     placeholderText: "Last name",
-                                     iconStr: CUPSystemIcon.person,
-                                     isSecureTextEntry: false)
+                    RECAuthTextField(
+                        text: $viewModel.lastNameField,
+                        placeholderText: "Last name",
+                        iconStr: CUPSystemIcon.person,
+                        isSecureTextEntry: false,
+                        identifier: "registerLastNameField"
+                    )
                     .textInputAutocapitalization(.words)
                     .focused($focusedField, equals: .lastName)
                     .submitLabel(.next)
@@ -43,10 +49,13 @@ struct RegisterScreen: View {
                         focusedField = .email
                     }
                     
-                    RECAuthTextField(text: $viewModel.emailField,
-                                     placeholderText: "Email address",
-                                     iconStr: CUPSystemIcon.emailEnvelope,
-                                     isSecureTextEntry: false)
+                    RECAuthTextField(
+                        text: $viewModel.emailField,
+                        placeholderText: "Email address",
+                        iconStr: CUPSystemIcon.emailEnvelope,
+                        isSecureTextEntry: false,
+                        identifier: "registerEmailField"
+                    )
                     .textInputAutocapitalization(.never)
                     .keyboardType(.emailAddress)
                     .focused($focusedField, equals: .email)
@@ -55,10 +64,13 @@ struct RegisterScreen: View {
                         focusedField = .password
                     }
                     
-                    RECAuthTextField(text: $viewModel.passwordField,
-                                     placeholderText: "Password",
-                                     iconStr: CUPSystemIcon.passwordLock,
-                                     isSecureTextEntry: true)
+                    RECAuthTextField(
+                        text: $viewModel.passwordField,
+                        placeholderText: "Password",
+                        iconStr: CUPSystemIcon.passwordLock,
+                        isSecureTextEntry: true,
+                        identifier: "registerPasswordField"
+                    )
                     .textInputAutocapitalization(.never)
                     .focused($focusedField, equals: .password)
                     .submitLabel(.done)

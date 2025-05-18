@@ -13,13 +13,16 @@ struct RECAuthTextField: View {
     var placeholderText: String
     var iconStr: String
     var isSecureTextEntry: Bool
-    
+    var identifier: String
+
     var body: some View {
         Label {
             if !isSecureTextEntry {
                 TextField(placeholderText, text: $text)
+                    .accessibilityIdentifier(identifier)
             } else {
                 SecureField(placeholderText, text: $text)
+                    .accessibilityIdentifier(identifier)
             }
         } icon: {
             Image(systemName: iconStr)
@@ -31,7 +34,13 @@ struct RECAuthTextField: View {
 
 struct RECAuthTextField_Previews: PreviewProvider {
     static var previews: some View {
-        RECAuthTextField(text: .constant(""), placeholderText: "Placeholder", iconStr: "square", isSecureTextEntry: false)
-            .padding()
+        RECAuthTextField(
+            text: .constant(""),
+            placeholderText: "Placeholder",
+            iconStr: "square",
+            isSecureTextEntry: false,
+            identifier: "NCC-1701"
+        )
+        .padding()
     }
 }
