@@ -23,11 +23,13 @@ struct RECListHeader: View {
                 Image(systemName: icon ?? CUPSystemIcon.settings)
                     .font(.system(size: 100))
                     .foregroundColor(.accentColor)
-                
+                    .accessibilityIdentifier("genericListHeaderIcon")
+
                 Text(label)
                     .font(.title)
                     .bold()
                     .multilineTextAlignment(.center)
+                    .accessibilityIdentifier("genericListHeaderTitle")
             }
             
             if isListHeader {
