@@ -42,7 +42,7 @@ class DatabaseManager: ObservableObject {
 
     public func fetchData(with userID: String, completion: @escaping (RECUser?) -> Void) {
         userDatabasePath.child(userID).getData { error, snapshot in
-            guard let value = snapshot?.value as? [String: Any] else {
+            guard let value = snapshot?.value as? NSDictionary, error == nil else {
                 print("Node has no value")
                 completion(nil)
                 return
@@ -59,9 +59,30 @@ class DatabaseManager: ObservableObject {
             fetchedUser.followerCount = value[RECUser.Property.followerCount] as? Int ?? RECUser.placeholderUser.followerCount
             fetchedUser.followingCount = value[RECUser.Property.followingCount] as? Int ?? RECUser.placeholderUser.followingCount
             fetchedUser.homeFeedIDs = value[RECUser.Property.homeFeedIDs] as? [String] ?? []
+            fetchedUser.pfpURL = value[RECUser.Property.pfpURL] as? String ?? RECUser.placeholderUser.pfpURL
 
             // Return the fetched user using a completion handler
             completion(fetchedUser)
         }
+    }
+
+    public func fetchUserPFPURL(for firebaseUID: String) -> String? {
+        var userPFP: String = ""
+        userDatabasePath.child(firebaseUID).getData { error, snapshot in
+            guard let value = snapshot?.value as? NSDictionary, error == nil else {
+                return
+            }
+            let pfpURL = value[RECUser.Property.pfpURL] as? String ?? RECUser.placeholderUser.pfpURL
+            guard let unwrappedURL = pfpURL else {
+                return
+            }
+            print(unwrappedURL)
+            userPFP = unwrappedURL
+        }
+
+        if userPFP.isEmpty {
+            return nil
+        }
+        return userPFP
     }
 }

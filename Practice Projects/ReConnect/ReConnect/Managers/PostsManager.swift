@@ -65,7 +65,6 @@ class PostsManager: ObservableObject {
     ///   - postID: The post ID to be written to
     ///   - user: The user (aka. original poster) to get the followers IDs from
     private func writePostIDToFollowers(with postID: String, of user: RECUser) {
-        // Exit early if the user's followers list is empty
         if user.followers.isEmpty {
             print("Unable to write post ID because there are no followers")
             return
@@ -75,7 +74,6 @@ class PostsManager: ObservableObject {
             postID: postID
         ]
 
-        // Otherwise, continue with the implementation
         for follower in user.followers {
             databaseRef.child(RECDatabaseParentPath.users).child(follower).child(RECUser.Property.homeFeedIDs).updateChildValues(newPostData) { err, ref in
                 guard err == nil else {
@@ -94,7 +92,6 @@ class PostsManager: ObservableObject {
     ///    - postIDs: An array of post IDs to fetch the real data from (under the `RECPosts` node)
     ///    - oldestIDFromLastFetch: A post ID that is the oldest (date wise) from the previous fetch. Pass in `nil` to fetch starting from the latest post in the current user's feed.
     public func fetchPosts(from postIDs: [String], oldestIDFromLastFetch: String?) {
-        // Exit early if the user's home feed ID node is empty or doesn't exist
         if postIDs.isEmpty {
             print("No posts to fetch")
             return
@@ -104,7 +101,6 @@ class PostsManager: ObservableObject {
             // Fetch since last oldest post
             // TODO: Implement this later! For now, get the fetching functionality working first!
         } else {
-            // Fetch the latest post
             for id in postIDs {
                 databaseRef.child(RECDatabaseParentPath.usersPosts).child(id).getData { [weak self] error, snapshot in
                     guard let snap = snapshot,
@@ -114,7 +110,6 @@ class PostsManager: ObservableObject {
                         return
                     }
 
-                    // Parsing post data
                     let commentCount = value["comments_count"] as? Int ?? -1
                     let content = value["content"]      // This will be cast later in the RECPostView
                     let dateStr = value["date_posted"] as? String ?? "No date data"
@@ -141,18 +136,16 @@ class PostsManager: ObservableObject {
                         }
 
                         let datePosted = self?.dateFormatter.date(from: dateStr)
-
-                        // Initialize the post object
-                        let fetchedPost = RECPost(id: id,
-                                                  poster: originalPoster,
-                                                  type: postType,
-                                                  content: content,
-                                                  commentCount: commentCount,
-                                                  likeCount: likesCount,
-                                                  shareCount: sharesCount,
-                                                  datePosted: datePosted ?? Date())
-
-                        // Append post to home feed array
+                        let fetchedPost = RECPost(
+                            id: id,
+                            poster: originalPoster,
+                            type: postType,
+                            content: content,
+                            commentCount: commentCount,
+                            likeCount: likesCount,
+                            shareCount: sharesCount,
+                            datePosted: datePosted ?? Date()
+                        )
                         self?.feedScreenVM.currentUserFeed.append(fetchedPost)
                     }
                 }
@@ -160,6 +153,10 @@ class PostsManager: ObservableObject {
         }
     }
 
+    /// Fetch the post IDs from the user's home feed node. The `PostsManager.fetchPosts()` function should be called in the completion handler of this function.
+    /// - Parameters:
+    ///   - user: The user whose ID will be use to fetch post IDs from the home feed
+    ///   - completion: A completion handler with an array of post IDs passed in to be used (usually used with `PostsManager.fetchPosts()` function)
     public func fetchFeedPostIDs(of user: RECUser, completion: @escaping ([String]?) -> Void) {
         guard let currentUser = loginVM.currentUser else {
             print("Unable to unwrap current user object")
@@ -175,7 +172,6 @@ class PostsManager: ObservableObject {
                 completion(nil)
                 return
             }
-
             let postIDs = Array(value.keys)
             completion(postIDs)
         }
