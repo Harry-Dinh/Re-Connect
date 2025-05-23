@@ -14,8 +14,8 @@ struct DetailedRegistrationScreen: View {
     var body: some View {
         List {
             RECListHeader(icon: CUPSystemIcon.infoCircle,
-                          label: "Finish Setting Up Your Account",
-                          isListHeader: true)
+                          title: "Finish Setting Up Your Account",
+                          isSuperHeader: true)
                 .listRowBackground(Color.clear)
             
             Text("Just a few more preferences to select and you can start using your new Re:Connect account.")

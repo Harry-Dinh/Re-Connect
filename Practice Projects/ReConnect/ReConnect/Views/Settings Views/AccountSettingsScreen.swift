@@ -16,6 +16,14 @@ struct AccountSettingsScreen: View {
     
     var body: some View {
         List {
+            RECListHeader(
+                icon: CUPSystemIcon.profile,
+                renderingMode: .hierarchical,
+                title: "Re:Connect Account",
+                description: "Get an overview look of your account, disable or delete your account, or switch to a different Re:Connect Account.",
+                isSuperHeader: false
+            )
+
             Section("Account Info") {
                 RECDisplayLabel(label: "Name",
                                 value: loginVM.currentUser?.displayName ?? RECUser.placeholderUser.displayName)

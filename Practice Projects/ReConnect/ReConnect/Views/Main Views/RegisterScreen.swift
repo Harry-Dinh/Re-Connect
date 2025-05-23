@@ -17,7 +17,7 @@ struct RegisterScreen: View {
     var body: some View {
         NavigationView {
             List {
-                RECListHeader(icon: CUPSystemIcon.newProfile, label: "Create New Account", isListHeader: true)
+                RECListHeader(icon: CUPSystemIcon.newProfile, title: "Create New Account", isSuperHeader: true)
                     .listRowBackground(Color.clear)
                 
                 Section {

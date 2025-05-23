@@ -64,8 +64,8 @@ struct LoginScreen: View {
     var welcomeHeader: some View {
         RECListHeader(
             icon: loginHeaderIcon,
-            label: welcomeLabel,
-            isListHeader: true
+            title: welcomeLabel,
+            isSuperHeader: true
         )
     }
 
