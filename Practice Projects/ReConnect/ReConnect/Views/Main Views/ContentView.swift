@@ -13,6 +13,7 @@ struct ContentView: View {
     @ObservedObject private var editProfileVM = EditProfileScreenVM.instance
     @ObservedObject private var notificationManager = NotificationManager.instance
     @ObservedObject private var postsManager = PostsManager.instance
+    @ObservedObject private var appSettingsManager = AppSettingsManager.instance
 
     var body: some View {
         if loginVM.isSignedIn {
@@ -39,6 +40,9 @@ struct ContentView: View {
 
                     // Fetch notifications
                     notificationManager.fetchNotifications(for: loginVM.currentUser ?? RECUser.placeholderUser)
+
+                    // Load all users settings
+                    appSettingsManager.loadAllUserSettings()
                 }
         } else {
             LoginScreen()

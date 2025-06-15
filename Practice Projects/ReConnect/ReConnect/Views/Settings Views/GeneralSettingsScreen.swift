@@ -10,8 +10,16 @@ import SwiftUI
 struct GeneralSettingsScreen: View {
     var body: some View {
         List {
-            NavigationLink(destination: AppearanceSettingsScreen()) {
-                Label("Customizations", systemImage: CUPSystemIcon.paintbrush)
+            RECListHeader(icon: CUPSystemIcon.settings,
+                          renderingMode: .monochrome,
+                          title: "General",
+                          description: "Customize app appearance, configure accessibility settings to make Re:Connect adapt to your your needs.",
+                          isSuperHeader: false)
+
+            Section {
+                NavigationLink(destination: AppearanceSettingsScreen()) {
+                    Label("Customizations", systemImage: CUPSystemIcon.paintbrush)
+                }
             }
         }
         .navigationTitle("General")

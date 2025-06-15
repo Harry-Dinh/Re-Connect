@@ -32,8 +32,8 @@ struct FollowingScreen: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        dismiss.callAsFunction()
+                    RECSystemButton(.dismissKeyboardAndDoneText) {
+                        dismiss()
                     }
                 }
             }

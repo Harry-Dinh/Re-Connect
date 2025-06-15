@@ -24,7 +24,7 @@ struct AppSettingsScreen: View {
                     Label("General", systemImage: CUPSystemIcon.settings)
                 }
                 
-                NavigationLink(destination: EmptyView()) {
+                NavigationLink(destination: NotificationSettings()) {
                     Label("Notifications", systemImage: CUPSystemIcon.notification)
                 }
                 

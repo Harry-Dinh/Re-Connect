@@ -13,10 +13,16 @@ class AppearanceSettingsVM: ObservableObject {
     
     @AppStorage("appAppearanceOption") var appAppearanceOption = 0
     @AppStorage("accentColorOption") var accentColorOption = 0
-    
+
     @Published var customAccentColor = Color.accentColor
-    @Published var customStartingColor = Color.red
-    @Published var customEndingColor = Color.blue
-    
-    @Published var showPreviewPage = false
+
+    public func setColorScheme() -> ColorScheme? {
+        if appAppearanceOption == 1 {
+            return .light
+        } else if appAppearanceOption == 2 {
+            return .dark
+        } else {
+            return nil
+        }
+    }
 }

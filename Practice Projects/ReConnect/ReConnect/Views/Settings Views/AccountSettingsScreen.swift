@@ -23,6 +23,12 @@ struct AccountSettingsScreen: View {
                 description: "Get an overview look of your account, disable or delete your account, or switch to a different Re:Connect Account.",
                 isSuperHeader: false
             )
+            Picker(selection: .constant(0)) {
+                Text(loginVM.currentUser?.displayName ?? RECUser.placeholderUser.displayName).tag(0)
+            } label: {
+                Text("Switch User")
+            }
+
 
             Section("Account Info") {
                 RECDisplayLabel(label: "Name",

@@ -20,30 +20,21 @@ struct RECSystemButton: View {
     var body: some View {
         Button(action: action) {
             switch systemButton {
-                case .dismissKeyboardText:
-                    Text("Done")
-                        .fontWeight(.medium)
+                case .dismissKeyboardAndDoneText:
+                    SystemButton.dismissKeyboardAndDoneTextButton
                 case .dismissKeyboardIcon:
-                    Image(systemName: CUPSystemIcon.dismissKeyboard)
+                    SystemButton.dismissKeyboardIconButton
                 case .cancelButtonText:
-                    Text("Cancel")
+                    SystemButton.cancelTextButton
                 case .cancelButtonIcon:
-                    Image(systemName: CUPSystemIcon.cancelAlt)
+                    SystemButton.cancelTextButton
                 case .cancelButtonIconAlt:
-                    Image(systemName: CUPSystemIcon.cancel)
-                        .imageScale(.small)
-                        .padding(5)
-                        .fontWeight(.bold)
-                        .background {
-                            Circle()
-                                .foregroundStyle(Color(.systemGray5))
-                        }
+                    SystemButton.cancelIconButtonAlt
                 default:
-                    Image(systemName: CUPSystemIcon.userRequestAction)
+                    SystemButton.support
             }
         }
         .foregroundStyle(systemButton == .cancelButtonIconAlt ? Color.secondary : Color.accentColor)
-//        .controlSize(systemButton == .cancelButtonIconAlt ? .small : .regular)
     }
 }
 

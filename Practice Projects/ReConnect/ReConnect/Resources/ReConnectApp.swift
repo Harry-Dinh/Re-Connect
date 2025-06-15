@@ -20,10 +20,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct ReConnectApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @ObservedObject private var appSettingsManager = AppSettingsManager.instance
+    @ObservedObject private var appearanceSettingsVM = AppearanceSettingsVM.instance
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .tint(appearanceSettingsVM.accentColorOption == 0 ?
+                      RECThemeColor.defaultAccentColor : appSettingsManager.appAccentColor
+                )
+                .preferredColorScheme(appearanceSettingsVM.setColorScheme())
         }
     }
 }

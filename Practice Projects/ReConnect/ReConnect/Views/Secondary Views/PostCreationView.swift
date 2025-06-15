@@ -28,6 +28,11 @@ struct PostCreationView: View {
             }
             .navigationTitle("New Post")
             .navigationBarTitleDisplayMode(.inline)
+
+            .onAppear {
+                isKeyboardFocused = true
+            }
+
             .toolbar {
                 // MARK: Top toobar items
                 ToolbarItem(placement: .topBarLeading) {

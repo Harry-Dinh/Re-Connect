@@ -52,6 +52,8 @@
 		216C9FCC2A513B430058155B /* RECUserWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216C9FCB2A513B430058155B /* RECUserWrapper.swift */; };
 		216C9FCE2A5146D00058155B /* RECOtherUserBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216C9FCD2A5146D00058155B /* RECOtherUserBackground.swift */; };
 		216C9FD02A51482B0058155B /* RECUsersOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216C9FCF2A51482B0058155B /* RECUsersOptions.swift */; };
+		216D21EC2DFF4B2E00650BDC /* AppSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D21EB2DFF4B2900650BDC /* AppSettingsManager.swift */; };
+		216D21EE2DFF556B00650BDC /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216D21ED2DFF556500650BDC /* NotificationSettings.swift */; };
 		2178F9EF2A24615200F5EE96 /* EditProfileScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9EE2A24615200F5EE96 /* EditProfileScreenVM.swift */; };
 		2178F9F52A24658100F5EE96 /* EditProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */; };
 		2178F9F92A24698400F5EE96 /* RECProfileGradientPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */; };
@@ -156,6 +158,8 @@
 		216C9FCB2A513B430058155B /* RECUserWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECUserWrapper.swift; sourceTree = "<group>"; };
 		216C9FCD2A5146D00058155B /* RECOtherUserBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RECOtherUserBackground.swift; sourceTree = "<group>"; };
 		216C9FCF2A51482B0058155B /* RECUsersOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECUsersOptions.swift; sourceTree = "<group>"; };
+		216D21EB2DFF4B2900650BDC /* AppSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsManager.swift; sourceTree = "<group>"; };
+		216D21ED2DFF556500650BDC /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		2178F9EE2A24615200F5EE96 /* EditProfileScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreenVM.swift; sourceTree = "<group>"; };
 		2178F9F42A24658100F5EE96 /* EditProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreen.swift; sourceTree = "<group>"; };
 		2178F9F82A24698400F5EE96 /* RECProfileGradientPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RECProfileGradientPreview.swift; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 		2122D7192A1CC12200005122 /* Settings Views */ = {
 			isa = PBXGroup;
 			children = (
+				216D21ED2DFF556500650BDC /* NotificationSettings.swift */,
 				21DB05642DD04069004DB6F3 /* AboutThisAppView.swift */,
 				2122D71A2A1CC13500005122 /* AppSettingsScreen.swift */,
 				210E73222A629E0500FB339D /* GeneralSettingsScreen.swift */,
@@ -400,6 +405,7 @@
 		216C9FD12A5149D50058155B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				216D21EB2DFF4B2900650BDC /* AppSettingsManager.swift */,
 				21888A1F2DDA741200250355 /* RECConstants.swift */,
 				212364292A08F948005827D2 /* ReConnectApp.swift */,
 				212801502A2DA85600CA0747 /* Extensions.swift */,
@@ -606,6 +612,7 @@
 				21386C9F2A23064400CA9AC6 /* FeedScreen.swift in Sources */,
 				2122D71B2A1CC13500005122 /* AppSettingsScreen.swift in Sources */,
 				21BCFF2A2DCFF8CA00EAD745 /* CUPSystemButton.swift in Sources */,
+				216D21EC2DFF4B2E00650BDC /* AppSettingsManager.swift in Sources */,
 				21D721792A57D27C00873C4F /* RECNotificationActions.swift in Sources */,
 				2163DBCA2BE01865006A6076 /* RECOptimizedUser.swift in Sources */,
 				2122D7232A1CC6CD00005122 /* AccountSettingsScreen.swift in Sources */,
@@ -621,6 +628,7 @@
 				210E73272A629ECA00FB339D /* AppearanceSettingsScreen.swift in Sources */,
 				21D331152A3C12F400E6F786 /* SearchResultUserScreen.swift in Sources */,
 				213AB8352A22124700DFEF2F /* CUPSystemIcon.swift in Sources */,
+				216D21EE2DFF556B00650BDC /* NotificationSettings.swift in Sources */,
 				2197C55A2C88FC0E0033D648 /* RECPostType.swift in Sources */,
 				211463F32A21C2B00092751F /* RECProfileHeader.swift in Sources */,
 				21C781C52A417E090019752F /* NotificationsScreen.swift in Sources */,
@@ -781,7 +789,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2505181716B;
+				CURRENT_PROJECT_VERSION = 2506151534B;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
@@ -817,7 +825,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2505181716B;
+				CURRENT_PROJECT_VERSION = 2506151534B;
 				DEVELOPMENT_ASSET_PATHS = "\"ReConnect/Preview Content\"";
 				DEVELOPMENT_TEAM = W29Q2GKBT5;
 				ENABLE_PREVIEWS = YES;
