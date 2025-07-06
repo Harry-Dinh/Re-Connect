@@ -16,17 +16,17 @@ struct CoreScreen: View {
             FeedScreen()
                 .tabItem{ Label("Home", systemImage: CUPSystemIcon.home) }
                 .tag(0)
-            SearchScreen()
-                .tabItem{ Label("Search", systemImage: CUPSystemIcon.magnifyingglass) }
-                .tag(1)
             ProfileScreen()
                 .tabItem { Label("Profile", systemImage: CUPSystemIcon.profile) }
-                .tag(2)
+                .tag(1)
             NotificationsScreen()
                 .tabItem { Label("Notifications", systemImage: CUPSystemIcon.notification) }
-                .tag(3)
+                .tag(2)
             MenuScreen()
                 .tabItem{ Label("Menu", systemImage: CUPSystemIcon.menuList) }
+                .tag(3)
+            SearchScreen()
+                .tabItem{ Label("Search", systemImage: CUPSystemIcon.magnifyingglass) }
                 .tag(4)
         }
     }

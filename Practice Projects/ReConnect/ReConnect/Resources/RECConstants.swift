@@ -14,3 +14,13 @@ class RECNumericConstants {
 class RECThemeColor {
     static let defaultAccentColor: Color = .accentColor
 }
+
+class RECConstants {
+    static var isUIiPhone: Bool {
+        UIDevice.current.userInterfaceIdiom == .phone
+    }
+
+    static var isUIiPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+}
