@@ -1,10 +1,12 @@
 # Re:Connect
 
-> README last updated on May 11, 2025 at 21:19
+> README last updated on July 10, 2025.
 
 > [!NOTE]
 > **A quick note about this repository:**
 > This repository was previously home to many other projects besides Re:Connect. They were moved to make this repository less cluttered and confusing. However, the original path to the Re:Connect source code were still in the same place to prevent errors when Xcode trying to find the original path.
+
+> Also, this project is intended to a be a small (not really small lol) personal project of mine to demonstrate my ability to do iOS/Apple development using the skills that I learned myself and from work. **It is not intended to be used to compete with the big social media apps on the App Store** like X or Facebook.
 
 ## About Re:Connect
 Re:Connect (pronounced "reconnect") is a social media application similar to X (Twitter) but it focuses more on keeping users safe online. It has a native iOS user interface that feels right at home for Apple users and an incredible user experience that feels delightful to use. Most importantly, this app aims to be different from other social media platforms, by **prioritizing the user's privacy on top of everything else! Data of the users will never be sold and no ads are present on the platform.**
